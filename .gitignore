@@ -2,7 +2,6 @@
 
 build/*
 __pycache__/
-tools/splat
 asm/
 assets/
 
