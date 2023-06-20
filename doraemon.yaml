@@ -1,0 +1,53 @@
+options:
+  basename: ﾄﾞﾗｴﾓﾝﾐｯﾂﾉｾｲﾚｲｾｷ
+  target_path: dump/baserom.z64
+  base_path: .
+  compiler: IDO
+  find_file_boundaries: True
+  header_encoding: shift_jis
+  platform: n64
+  # undefined_funcs_auto: True
+  # undefined_funcs_auto_path: undefined_funcs_auto.txt
+  # undefined_syms_auto: True
+  # undefined_syms_auto_path: undefined_syms_auto.txt
+  # symbol_addrs_path: symbol_addrs.txt
+  # asm_path: asm
+  # src_path: src
+  # build_path: build
+  # extensions_path: tools/splat_ext
+  # mips_abi_float_regs: o32
+  # section_order: [".text", ".data", ".rodata", ".bss"]
+  # auto_all_sections: [".data", ".rodata", ".bss"]
+  # libultra_symbols: True
+  # hardware_regs: True
+segments:
+  - name: header
+    type: header
+    start: 0x0
+
+  - name: boot
+    type: bin
+    start: 0x40
+
+  - name: entry
+    type: code
+    start: 0x1000
+    vram: 0x80000400
+    subsegments:
+      - [0x1000, hasm]
+
+  - name: main
+    type: code
+    start: 0x1050
+    vram: 0x80000450
+    follows_vram: entry
+    bss_size: 0xA4B10
+    subsegments:
+      - [0x1050, asm]
+      - [0xA0990, data]
+      - { start: 0xCAE10, type: bss, vram: 0x800CA210 }
+
+  - type: bin
+    start: 0xCAE10
+    follows_vram: main
+  - [0x800000]

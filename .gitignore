@@ -1,0 +1,15 @@
+#dirs
+
+build/*
+__pycache__/
+tools/splat
+asm/
+assets/
+
+# files
+*.z64
+*.o
+*.ld
+*.csv
+
+
