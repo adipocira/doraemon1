@@ -10,5 +10,8 @@ assets/
 *.o
 *.ld
 *.csv
+*.d
 
+.vscode/*
+!.vscode/c_cpp_properties.json
 

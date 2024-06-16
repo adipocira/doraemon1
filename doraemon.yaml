@@ -1,53 +1,284 @@
+name: doraemon
+sha1: bbeb7b7a92a68b17ca72dcb9d7fb16f7b771c4f6
 options:
-  basename: ﾄﾞﾗｴﾓﾝﾐｯﾂﾉｾｲﾚｲｾｷ
-  target_path: dump/baserom.z64
+  basename: doraemon
+  target_path: baserom.z64
+  elf_path: build/doraemon.elf
   base_path: .
+  platform: n64
   compiler: IDO
+
+  asm_path: asm
+  src_path: src
+  build_path: build
+  create_asm_dependencies: True
+
+  ld_script_path: doraemon.ld
+  ld_dependencies: True
+
   find_file_boundaries: True
   header_encoding: shift_jis
-  platform: n64
-  # undefined_funcs_auto: True
-  # undefined_funcs_auto_path: undefined_funcs_auto.txt
-  # undefined_syms_auto: True
-  # undefined_syms_auto_path: undefined_syms_auto.txt
-  # symbol_addrs_path: symbol_addrs.txt
-  # asm_path: asm
-  # src_path: src
-  # build_path: build
-  # extensions_path: tools/splat_ext
-  # mips_abi_float_regs: o32
+
+  o_as_suffix: True
+  use_legacy_include_asm: False
+  mips_abi_float_regs: o32
+
+  asm_function_macro: glabel
+  asm_jtbl_label_macro: jlabel
+  asm_data_macro: dlabel
+
   # section_order: [".text", ".data", ".rodata", ".bss"]
   # auto_all_sections: [".data", ".rodata", ".bss"]
+
+  symbol_addrs_path:
+    - symbol_addrs.txt
+  reloc_addrs_path:
+    - reloc_addrs.txt
+
+  # undefined_funcs_auto_path: undefined_funcs_auto.txt
+  # undefined_syms_auto_path: undefined_syms_auto.txt
+
+  extensions_path: tools/splat_ext
+
+  # string_encoding: ASCII
+  # data_string_encoding: ASCII
+  rodata_string_guesser_level: 2
+  data_string_guesser_level: 2
   # libultra_symbols: True
   # hardware_regs: True
+  # gfx_ucode: # one of [f3d, f3db, f3dex, f3dexb, f3dex2]
+  # vrom to vram 0x7FFFF400
 segments:
-  - name: header
-    type: header
-    start: 0x0
-
-  - name: boot
-    type: bin
-    start: 0x40
-
-  - name: entry
+  - name: makerom
     type: code
-    start: 0x1000
-    vram: 0x80000400
+    start: 0x0
     subsegments:
-      - [0x1000, hasm]
+      - {start: 0x0, type: header, name: header}
+      - {start: 0x40, type: textbin, name: ipl3}
+      - {start: 0x1000, type: asm, vram: 0x80000450, name: entry}
 
   - name: main
     type: code
     start: 0x1050
     vram: 0x80000450
-    follows_vram: entry
     bss_size: 0xA4B10
     subsegments:
-      - [0x1050, asm]
-      - [0xA0990, data]
+      - [0x1050, asm, boot]
+      - [0x10C0, asm, idle]
+      - [0x1400, asm]
+      - [0xA0830, data]
       - { start: 0xCAE10, type: bss, vram: 0x800CA210 }
 
-  - type: bin
+  - name: libultra
+    type: code
+    start: 0x8AB90
+    vram: 0x80089F90
+    subsegments: 
+      - [0x8AB90, asm, libultra/libultra]
+
+  - name: CAE10_segment
+    type: bin
     start: 0xCAE10
-    follows_vram: main
-  - [0x800000]
+  
+  - name: 126480_segment
+    type: bin
+    start: 0x126480
+
+  - name: 16A070_segment
+    type: bin
+    start: 0x16A070
+
+  - name: 197F80_segment
+    type: bin
+    start: 0x197F80
+
+
+  - name: 214A30_segment
+    type: bin
+    start: 0x214A30
+
+  - name: 216F30_segment
+    type: bin
+    start: 0x216F30
+    
+  - name: 21D070_segment
+    type: bin
+    start: 0x21D070
+
+  - name: 22CF10_segment
+    type: bin
+    start: 0x22CF10
+
+  - name: 2391D0_segment
+    type: bin
+    start: 0x2391D0
+
+  - name: 2528A0_segment
+    type: bin
+    start: 0x2528A0
+
+  - name: 263EB0_segment
+    type: bin
+    start: 0x263EB0
+
+  - name: 270A30_segment
+    type: bin
+    start: 0x270A30
+
+  - name: 27D7B0_segment
+    type: bin
+    start: 0x27D7B0
+
+  - name: 292E40_segment
+    type: bin
+    start: 0x292E40
+
+  - name: 2A1EA0_segment
+    type: bin
+    start: 0x2A1EA0
+
+  - name: 2B60C0_segment
+    type: bin
+    start: 0x2B60C0
+
+  - name: 2BFFD0_segment
+    type: bin
+    start: 0x2BFFD0
+
+  - name: 2C9BB0_segment
+    type: bin
+    start: 0x2C9BB0
+
+  - name: 2CEB90_segment
+    type: bin
+    start: 0x2CEB90
+
+  - name: 2E0A40_segment
+    type: bin
+    start: 0x2E0A40
+
+  - name: 2E9250_segment
+    type: bin
+    start: 0x2E9250
+
+  - name: 2EF5C0_segment
+    type: bin
+    start: 0x2EF5C0
+
+  - name: 2F8770_segment
+    type: bin
+    start: 0x2F8770
+
+  - name: 2FF9E0_segment
+    type: bin
+    start: 0x2FF9E0
+
+  - name: 302530_segment
+    type: bin
+    start: 0x302530
+
+  - name: 30D4E0_segment
+    type: bin
+    start: 0x30D4E0
+
+  - name: 31A690_segment
+    type: bin
+    start: 0x31A690
+
+  - name: 329DA0_segment
+    type: bin
+    start: 0x329DA0
+
+  - name: 33CB10_segment
+    type: bin
+    start: 0x33CB10
+
+  - name: 354270_segment
+    type: bin
+    start: 0x354270
+
+  - name: 368300_segment
+    type: bin
+    start: 0x368300
+
+  - name: 37F1A0_segment
+    type: bin
+    start: 0x37F1A0
+
+  - name: 391A00_segment
+    type: bin
+    start: 0x391A00
+
+  - name: 3A0350_segment
+    type: bin
+    start: 0x3A0350
+
+  - name: 3B32F0_segment
+    type: bin
+    start: 0x3B32F0
+
+  - name: 3C0550_segment
+    type: bin
+    start: 0x3C0550
+
+  - name: 3CD4B0_segment
+    type: bin
+    start: 0x3CD4B0
+
+  - name: 3D9B40_segment
+    type: bin
+    start: 0x3D9B40
+
+  - name: 3FBA60_segment
+    type: bin
+    start: 0x3FBA60
+
+  - name: 402F40_segment
+    type: bin
+    start: 0x402F40
+
+  - name: 4074B0_segment
+    type: bin
+    start: 0x4074B0
+
+  - name: 40FF90_segment
+    type: bin
+    start: 0x40FF90
+
+  - name: 417370_segment
+    type: bin
+    start: 0x417370
+
+  - name: 41E750_segment
+    type: bin
+    start: 0x41E750
+
+  - name: 4272E0_segment
+    type: bin
+    start: 0x4272E0
+
+  - name: 469EB0_segment
+    type: bin
+    start: 0x469EB0
+
+  - name: 473820_segment
+    type: bin
+    start: 0x473820
+
+  - name: 61A1B0_segment
+    type: bin
+    start: 0x61A1B0
+
+  - name: 625F40_segment
+    type: bin
+    start: 0x625F40
+
+  - name: 7AC690_segment
+    type: bin
+    start: 0x7AC690
+
+  - name: 7D5430_segment
+    type: bin
+    start: 0x7D5430
+
+
