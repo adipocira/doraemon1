@@ -66,6 +66,7 @@ segments:
       - [0x1050, asm, boot]
       - [0x10C0, asm, idle]
       - [0x1400, asm]
+      - [0x22D0, asm, 22D0]
       - [0xA0830, data]
       - { start: 0xCAE10, type: bss, vram: 0x800CA210 }
 

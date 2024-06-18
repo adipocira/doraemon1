@@ -6,7 +6,8 @@
                 "${workspaceFolder}/**",
                 "include",
                 "src",
-                "."
+                ".",
+                "lib/libultra/"
             ],
             "defines": [
                 "NON_EQUIVALENT",

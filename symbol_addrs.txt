@@ -24,6 +24,7 @@ sqrtf = 0x8008C810;
 D_800954C0 = 0x800954C0;
 bzero = 0x80095EF0;
 D_80095DA0 = 0x80095DA0;
+__osDisableInt = 0x80096860;
 __osRestoreInt = 0x80096880;
 _Litob = 0x8009DB10;
 
