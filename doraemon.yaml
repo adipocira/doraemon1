@@ -55,7 +55,7 @@ segments:
     subsegments:
       - {start: 0x0, type: header, name: header}
       - {start: 0x40, type: textbin, name: ipl3}
-      - {start: 0x1000, type: asm, vram: 0x80000450, name: entry}
+      - {start: 0x1000, type: asm, vram: 0x80000400, name: entry}
 
   - name: main
     type: code
@@ -66,7 +66,8 @@ segments:
       - [0x1050, asm, boot]
       - [0x10C0, asm, idle]
       - [0x1400, asm, scheduler]
-      - [0x22D0, asm, 22D0]
+      - [0x22D0, asm, controller]
+      - [0x2AF0, asm, 2AF0]
       - [0xA0830, data]
       - { start: 0xCAE10, type: bss, vram: 0x800CA210 }
 
@@ -76,210 +77,207 @@ segments:
     vram: 0x80089F90
     subsegments: 
       - [0x8AB90, asm, libultra/libultra]
-
-  - name: CAE10_segment
-    type: bin
-    start: 0xCAE10
-  
+  - name: CAE10_segment 
+    type: bin 
+    start: 0xCAE10 
+    vram: 0x800ca210
   - name: 126480_segment
     type: bin
     start: 0x126480
-
+    vram: 0x80125880
   - name: 16A070_segment
     type: bin
     start: 0x16A070
-
+    vram: 0x80169470
   - name: 197F80_segment
     type: bin
     start: 0x197F80
-
-
+    vram: 0x80197380
   - name: 214A30_segment
     type: bin
     start: 0x214A30
-
+    vram: 0x80213e30
   - name: 216F30_segment
     type: bin
     start: 0x216F30
-    
+    vram: 0x80216330
   - name: 21D070_segment
     type: bin
     start: 0x21D070
-
+    vram: 0x8021c470
   - name: 22CF10_segment
     type: bin
     start: 0x22CF10
-
+    vram: 0x8022c310
   - name: 2391D0_segment
     type: bin
     start: 0x2391D0
-
+    vram: 0x802385d0
   - name: 2528A0_segment
     type: bin
     start: 0x2528A0
-
+    vram: 0x80251ca0
   - name: 263EB0_segment
     type: bin
     start: 0x263EB0
-
+    vram: 0x802632b0
   - name: 270A30_segment
     type: bin
     start: 0x270A30
-
+    vram: 0x8026fe30
   - name: 27D7B0_segment
     type: bin
     start: 0x27D7B0
-
+    vram: 0x8027cbb0
   - name: 292E40_segment
     type: bin
     start: 0x292E40
-
+    vram: 0x80292240
   - name: 2A1EA0_segment
     type: bin
     start: 0x2A1EA0
-
+    vram: 0x802a12a0
   - name: 2B60C0_segment
     type: bin
     start: 0x2B60C0
-
+    vram: 0x802b54c0
   - name: 2BFFD0_segment
     type: bin
     start: 0x2BFFD0
-
+    vram: 0x802bf3d0
   - name: 2C9BB0_segment
     type: bin
     start: 0x2C9BB0
-
+    vram: 0x802c8fb0
   - name: 2CEB90_segment
     type: bin
     start: 0x2CEB90
-
+    vram: 0x802cdf90
   - name: 2E0A40_segment
     type: bin
     start: 0x2E0A40
-
+    vram: 0x802dfe40
   - name: 2E9250_segment
     type: bin
     start: 0x2E9250
-
+    vram: 0x802e8650
   - name: 2EF5C0_segment
     type: bin
     start: 0x2EF5C0
-
+    vram: 0x802ee9c0
   - name: 2F8770_segment
     type: bin
     start: 0x2F8770
-
+    vram: 0x802f7b70
   - name: 2FF9E0_segment
     type: bin
     start: 0x2FF9E0
-
+    vram: 0x802fede0
   - name: 302530_segment
     type: bin
     start: 0x302530
-
+    vram: 0x80301930
   - name: 30D4E0_segment
     type: bin
     start: 0x30D4E0
-
+    vram: 0x8030c8e0
   - name: 31A690_segment
     type: bin
     start: 0x31A690
-
+    vram: 0x80319a90
   - name: 329DA0_segment
     type: bin
     start: 0x329DA0
-
+    vram: 0x803291a0
   - name: 33CB10_segment
     type: bin
     start: 0x33CB10
-
+    vram: 0x8033bf10
   - name: 354270_segment
     type: bin
     start: 0x354270
-
+    vram: 0x80353670
   - name: 368300_segment
     type: bin
     start: 0x368300
-
+    vram: 0x80367700
   - name: 37F1A0_segment
     type: bin
     start: 0x37F1A0
-
+    vram: 0x8037e5a0
   - name: 391A00_segment
     type: bin
     start: 0x391A00
-
+    vram: 0x80390e00
   - name: 3A0350_segment
     type: bin
     start: 0x3A0350
-
+    vram: 0x8039f750
   - name: 3B32F0_segment
     type: bin
     start: 0x3B32F0
-
+    vram: 0x803b26f0
   - name: 3C0550_segment
     type: bin
     start: 0x3C0550
-
+    vram: 0x803bf950
   - name: 3CD4B0_segment
     type: bin
     start: 0x3CD4B0
-
+    vram: 0x803cc8b0
   - name: 3D9B40_segment
     type: bin
     start: 0x3D9B40
-
+    vram: 0x803d8f40
   - name: 3FBA60_segment
     type: bin
     start: 0x3FBA60
-
+    vram: 0x803fae60
   - name: 402F40_segment
     type: bin
     start: 0x402F40
-
+    vram: 0x80402340
   - name: 4074B0_segment
     type: bin
     start: 0x4074B0
-
+    vram: 0x804068b0
   - name: 40FF90_segment
     type: bin
     start: 0x40FF90
-
+    vram: 0x8040f390
   - name: 417370_segment
     type: bin
     start: 0x417370
-
+    vram: 0x80416770
   - name: 41E750_segment
     type: bin
     start: 0x41E750
-
+    vram: 0x8041db50
   - name: 4272E0_segment
     type: bin
     start: 0x4272E0
-
+    vram: 0x804266e0
   - name: 469EB0_segment
     type: bin
     start: 0x469EB0
-
+    vram: 0x804692b0
   - name: 473820_segment
     type: bin
     start: 0x473820
-
+    vram: 0x80472c20
   - name: 61A1B0_segment
     type: bin
     start: 0x61A1B0
-
+    vram: 0x806195b0
   - name: 625F40_segment
     type: bin
     start: 0x625F40
-
+    vram: 0x80625340
   - name: 7AC690_segment
     type: bin
     start: 0x7AC690
-
+    vram: 0x807aba90
   - name: 7D5430_segment
     type: bin
     start: 0x7D5430
-
-
+    vram: 0x807d4830

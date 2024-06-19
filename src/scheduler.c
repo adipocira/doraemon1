@@ -2,8 +2,6 @@
 #include "schedule.h"
 #include "thread.h"
 
-
-
 extern s16 D_803B5000;
 extern s16 D_80297800;
 
@@ -341,7 +339,7 @@ s32 __scTaskComplete(InternalScheduler *sched, OSScTask *t) {
                 if(D_8015A392 & 2){
                     s32 i;
                     
-                    D_800F38A0_struct* ptr;
+                    u16* ptr;
                     s32 ts2;
                     char buf[34];
                     
@@ -356,9 +354,9 @@ s32 __scTaskComplete(InternalScheduler *sched, OSScTask *t) {
                         func_80003364(fb,16,28,buf);
                         func_80003364(fb,16,36,"Event :");
                         
-                        ptr = &D_800F38A0;
+                        ptr = (u16*)&D_800F38A0;
                         for(i = 0,ts2 = 44; i < 18; i++){
-                            sprintf(buf, "[%d] : 0x%x", i, ptr->unk46);
+                            sprintf(buf, "[%d] : 0x%x", i, ((D_800F38A0_struct*)ptr)->unk46);
                             func_80003364(fb, 0x20, ts2, buf);
                             ptr++;
                             ts2 += 8;

@@ -17,5 +17,6 @@ typedef struct InternalThread {
 #define DORA_THREAD_MAIN_PRIORITY 10
 
 #define DORA_THREAD_SCHED_ID 4
+#define DORA_THREAD_SCHED_PRIORITY 100
 
 #endif
