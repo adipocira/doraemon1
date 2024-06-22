@@ -47,7 +47,7 @@ options:
   # libultra_symbols: True
   # hardware_regs: True
   # gfx_ucode: # one of [f3d, f3db, f3dex, f3dexb, f3dex2]
-  # vrom to vram 0x7FFFF400
+  # vrom to vram 0x7FFFF400 
 segments:
   - name: makerom
     type: code
@@ -68,15 +68,12 @@ segments:
       - [0x1400, asm, scheduler]
       - [0x22D0, asm, controller]
       - [0x2AF0, asm, 2AF0]
+      - [0x8AB90, asm, libultra/libultra]
       - [0xA0830, data]
+      - [0xC0998, rodata]
       - { start: 0xCAE10, type: bss, vram: 0x800CA210 }
 
-  - name: libultra
-    type: code
-    start: 0x8AB90
-    vram: 0x80089F90
-    subsegments: 
-      - [0x8AB90, asm, libultra/libultra]
+      
   - name: CAE10_segment 
     type: bin 
     start: 0xCAE10 

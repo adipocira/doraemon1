@@ -16,3 +16,5 @@ assets/
 !.vscode/c_cpp_properties.json
 
 ctx.c
+
+tools/ido

@@ -1,0 +1,43 @@
+WARNINGS_CHECK ?= 0
+
+UNAME_S := $(shell uname -s)
+ifeq ($(OS),Windows_NT)
+	DETECTED_OS  := windows
+	PIGMENT64_OS := x86_64-pc-windows-gnu
+else ifeq ($(UNAME_S),Linux)
+	DETECTED_OS  := linux
+	PIGMENT64_OS := x86_64-unknown-linux-musl
+else ifeq ($(UNAME_S),Darwin)
+	DETECTED_OS  := macos
+	PIGMENT64_OS := x86_64-apple-darwin
+endif
+
+
+WGET_FLAGS  ?=
+ifneq ($(WARNINGS_CHECK), 0)
+    WGET_FLAGS += --quiet
+endif
+
+IDO_5_3_DIR := ido/$(DETECTED_OS)/5.3
+IDO_5_3     := $(IDO_5_3_DIR)/cc
+
+all: $(IDO_5_3)
+
+clean:
+	@$(RM) -rf $(IDO_5_3_DIR)
+
+distclean: clean
+	@$(RM) -rf ido
+
+.PHONY: all clean distclean
+
+
+$(IDO_5_3): | $(IDO_5_3_DIR)
+	wget $(WGET_FLAGS) https://github.com/decompals/ido-static-recomp/releases/latest/download/ido-5.3-recomp-$(DETECTED_OS).tar.gz
+	tar xf ido-5.3-recomp-$(DETECTED_OS).tar.gz -C $(IDO_5_3_DIR)
+	$(RM) ido-5.3-recomp-$(DETECTED_OS).tar.gz
+
+$(IDO_5_3_DIR):
+	mkdir -p $@
+
+distclean: clean
