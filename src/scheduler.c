@@ -66,11 +66,9 @@ extern u16 DoraTexrecNum;
 
 
 void func_80000800() {
-    D_800E6A20_struct *ptr;
-
     s32 i;
     s32 idx;
-    func_80003710();
+    func_80003710_loadSegments();
 
     for (i = 0; i < 0x25800; i++) {
         D_803B5000 = 0;
@@ -84,24 +82,16 @@ void func_80000800() {
 
     idx = func_80013DDC(D_800E6A20, 16);
 
-    D_800E6A20[idx].unk8 = 1;
-    D_800E6A20[idx].unk2 = 1;
-    D_800E6A20[idx].unk1 = 2;
-    D_800E6A20[idx].unkC = 0;
+    D_800E6A20[idx].unk1 = 2;D_800E6A20[idx].unk2 = 1;D_800E6A20[idx].unk8 = 1;D_800E6A20[idx].unkC = 0;
 
     idx = func_80013DDC(D_800E6A20, 16);
 
-    D_800E6A20[idx].unk8 = 60;
-    D_800E6A20[idx].unk2 = 1;
-    D_800E6A20[idx].unk1 = 2;
-    D_800E6A20[idx].unkC = 0;
+    
+    D_800E6A20[idx].unk1 = 2;D_800E6A20[idx].unk2 = 1;D_800E6A20[idx].unk8 = 60;D_800E6A20[idx].unkC = 0;
 
     idx = func_80013DDC(D_800E6A20, 16);
 
-    D_800E6A20[idx].unk8 = 60;
-    D_800E6A20[idx].unk2 = -1;
-    D_800E6A20[idx].unkC = 3600;
-    D_800E6A20[idx].unk1 = 3;
+    D_800E6A20[idx].unk1 = 3;D_800E6A20[idx].unkC = 3600;D_800E6A20[idx].unk2 = -1;D_800E6A20[idx].unk8 = 60;
 
     func_80013DDC(D_800E6A20, 16);
     func_80013F00(&D_800F5FB0, &D_801BAAA0, &D_801BAA80);
@@ -139,7 +129,7 @@ void createScheduler(InternalScheduler *sched, void *stack, OSPri priority, u8 m
     sched->unk290 = 0;
     sched->unk298 = 0;
 
-    osCreateThread(&sched->sc.thread, DORA_THREAD_SCHED_ID, __scMain, (void *)sched, stack, priority);
+    osCreateThread(&sched->sc.thread, DORA_THREAD_SCHED_ID, func_80000BC0, (void *)sched, stack, priority);
     osStartThread(&sched->sc.thread);
 }
 
@@ -193,7 +183,7 @@ void __scMain(void *arg) {
                 sched->unk298 = osGetTime() - sched->unk290;
                 sched->unk290 = osGetTime();
                 sched->sc.unk284++;
-                D_800E69C0.unk10 = sched->sc.unk284;
+                ((&D_800E69C0))->unk10 = sched->sc.unk284;
                 func_80013BB0(D_800E6A20, 16);
                 mode = osViGetCurrentMode();
 
@@ -288,7 +278,7 @@ void __scHandleRDP(InternalScheduler* sched) {
     t = sched->sc.curRDPTask;
     sched->sc.curRDPTask = 0;
 
-    if(sched->sc.unk284 != t->unk58){
+    if( t->unk58 != sched->sc.unk284 != 0){
         sched->unk288 = sched->sc.unk284 - t->unk58;
     }
     else{
