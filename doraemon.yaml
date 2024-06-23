@@ -40,9 +40,9 @@ options:
 
   extensions_path: tools/splat_ext
 
-  # string_encoding: ASCII
-  # data_string_encoding: ASCII
-  rodata_string_guesser_level: 2
+  string_encoding: shift-jis
+  data_string_encoding: shift-jis
+  rodata_string_guesser_level: 3
   data_string_guesser_level: 2
   # libultra_symbols: True
   # hardware_regs: True
@@ -52,10 +52,11 @@ segments:
   - name: makerom
     type: code
     start: 0x0
+    section_order: [".data", ".text", ".rodata", ".bss"]
     subsegments:
-      - {start: 0x0, type: header, name: header}
-      - {start: 0x40, type: textbin, name: ipl3}
-      - {start: 0x1000, type: asm, vram: 0x80000400, name: entry}
+      - {start: 0x0, type: header, name: makerom/header}
+      - {start: 0x40, type: bin, name: makerom/ipl3}
+      - {start: 0x1000, type: asm, vram: 0x80000400, name: makerom/entry}
 
   - name: main
     type: code
@@ -68,9 +69,10 @@ segments:
       - [0x1400, asm, scheduler]
       - [0x22D0, asm, controller]
       - [0x2AF0, asm, 2AF0]
+      - [0x3070, asm, 3070]
+      - [0x3930, asm, 3930]
       - [0x8AB90, asm, libultra/libultra]
-      - [0xA0830, data]
-      - [0xC0998, rodata]
+      - [0xA0760, data]
       - { start: 0xCAE10, type: bss, vram: 0x800CA210 }
 
       

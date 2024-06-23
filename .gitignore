@@ -18,3 +18,5 @@ assets/
 ctx.c
 
 tools/ido
+
+build/

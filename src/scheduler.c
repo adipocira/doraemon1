@@ -1,7 +1,7 @@
 #include "scheduler.h"
 #include "schedule.h"
 #include "thread.h"
-
+/*
 extern s16 D_803B5000;
 extern s16 D_80297800;
 
@@ -380,9 +380,6 @@ s32 __scTaskComplete(InternalScheduler *sched, OSScTask *t) {
 }
 
 
-/*
- * Place task on either the audio or graphics queue
- */
 void __scAppendList(InternalScheduler *sched, OSScTask *t) {
     long type = t->list.t.type;
 
@@ -412,7 +409,7 @@ void __scExec(InternalScheduler *sched, OSScTask *sp, OSScTask *dp) {
     int rv;
     if (sp) {
         if (sp->list.t.type == M_AUDTASK) {
-            osWritebackDCacheAll(); /* flush the cache */
+            osWritebackDCacheAll();
         }
         else{
             sp->unk58 = sched->sc.unk284;
@@ -466,14 +463,13 @@ s32 __scSchedule(InternalScheduler* sched, OSScTask **sp, OSScTask **dp, s32 ava
             switch (gfx->flags & OS_SC_TYPE_MASK) {
                 case (OS_SC_XBUS):
                     if (gfx->state & OS_SC_YIELDED) {
-                        /* can hit this if RDP finishes at yield req */
-                        /* assert(gfx->state & OS_SC_DP); */
+                    
 
-                        if (avail & OS_SC_SP) { /* if SP is available */
+                        if (avail & OS_SC_SP) {
                             *sp = gfx;
                             avail &= ~OS_SC_SP;
 
-                            if (gfx->state & OS_SC_DP) { /* if it needs DP */
+                            if (gfx->state & OS_SC_DP) {
                                 *dp = gfx;
                                 avail &= ~OS_SC_DP;
 
@@ -497,13 +493,13 @@ s32 __scSchedule(InternalScheduler* sched, OSScTask **sp, OSScTask **dp, s32 ava
                 case (OS_SC_DRAM):
                 case (OS_SC_DP_DRAM):
                 case (OS_SC_DP_XBUS):
-                    if (gfx->state & OS_SC_SP) { /* if needs SP */
-                        if (avail & OS_SC_SP) {  /* if SP is available */
+                    if (gfx->state & OS_SC_SP) {
+                        if (avail & OS_SC_SP) {
                             *sp = gfx;
                             avail &= ~OS_SC_SP;
                         }
-                    } else if (gfx->state & OS_SC_DP) { /* if needs DP */
-                        if (avail & OS_SC_DP) {         /* if DP available */
+                    } else if (gfx->state & OS_SC_DP) {
+                        if (avail & OS_SC_DP) {
                             *dp = gfx;
                             avail &= ~OS_SC_DP;
                             sched->sc.gfxListHead = sched->sc.gfxListHead->next;
@@ -524,3 +520,5 @@ s32 __scSchedule(InternalScheduler* sched, OSScTask **sp, OSScTask **dp, s32 ava
 
     return avail;
 }
+
+*/

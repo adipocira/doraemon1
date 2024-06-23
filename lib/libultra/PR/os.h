@@ -37,6 +37,21 @@ extern "C" {
 
 #include <PR/ultratypes.h>
 #include "PR/os_message.h"
+#include <PR/os_thread.h>
+#include <PR/os_message.h>
+#include <PR/os_exception.h>
+#include <PR/os_tlb.h>
+#include <PR/os_pi.h>
+#include <PR/os_vi.h>
+#include <PR/os_ai.h>
+#include <PR/os_time.h>
+#include <PR/os_cont.h>
+#include <PR/os_pfs.h>
+#include <PR/os_cache.h>
+#include <PR/os_eeprom.h>
+#include <PR/os_rdp.h>
+#include <PR/os_motor.h>
+#include <PR/os_libc.h>
 
 #if defined(_LANGUAGE_C) || defined(_LANGUAGE_C_PLUS_PLUS)
 
@@ -57,7 +72,7 @@ typedef struct {
         OSMesgQueue      *acsQueue;    /* Access queue */
                     /* Raw DMA routine */
         s32             (*dma)(s32, u32, void *, u32);
-        s32             (*edma)(OSPiHandle *, s32, u32, void *, u32);
+        s32             (*edma)(struct OSPiHandle *, s32, u32, void *, u32);
 } OSDevMgr;
     
 /*

@@ -36,6 +36,7 @@ osViSetEvent = 0x8008AD20;
 
 osSetIntMask = 0x8008AD90;
 osSendMesg = 0x8008B040;
+osContReset = 0x8008B940;
 osContInit = 0x8008BAC0;
 
 sprintf = 0x8008B274;
@@ -48,6 +49,10 @@ bzero = 0x80095EF0;
 D_80095DA0 = 0x80095DA0;
 __osDisableInt = 0x80096860;
 __osRestoreInt = 0x80096880;
+__osSiCreateAccessQueue = 0x800989B0;
+__osSiGetAccess = 0x80098A00;
+__osSiRelAccess = 0x80098A44;
+__osSiRawStartDma = 0x80098A70;
 _Litob = 0x8009DB10;
 
 D_8009FC30 = 0x8009FC30;

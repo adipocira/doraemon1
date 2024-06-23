@@ -1,11 +1,45 @@
 
 BASEROM := baserom.z64
 
+BASENAME := doraemon
+
 BUILD_DIR := build
-ROM       := $(BUILD_DIR)/doraemon.z64
+ROM       := $(BUILD_DIR)/$(BASENAME).z64
 ELF       := $(ROM:.z64=.elf)
 MAP       := $(ROM:.z64=.map)
-LDSCRIPT  := $(ROM:.z64=.ld)
+LDSCRIPT  := $(BASENAME).ld
+
+# OS Detection
+ifeq ($(OS),Windows_NT)
+$(error Native Windows is currently unsupported for building this repository, use WSL instead c:)
+else
+  UNAME_S := $(shell uname -s)
+  ifeq ($(UNAME_S),Linux)
+    DETECTED_OS = linux
+    MAKE = make
+    AR = ar
+    VENV_BIN_DIR = bin
+  endif
+  ifeq ($(UNAME_S),Darwin)
+    DETECTED_OS = macos
+    MAKE = gmake
+    AR = gar
+    VENV_BIN_DIR = bin
+  endif
+endif
+
+NO_COL  := \033[0m
+RED     := \033[0;31m
+RED2    := \033[1;31m
+GREEN   := \033[0;32m
+YELLOW  := \033[0;33m
+BLUE    := \033[0;34m
+PINK    := \033[0;35m
+CYAN    := \033[0;36m
+WHITE    := \033[0;37m
+
+
+MIPS_BINUTILS_PREFIX := mips-linux-gnu-
 
 CC          := tools/ido/$(DETECTED_OS)/5.3/cc
 
@@ -15,25 +49,82 @@ OBJCOPY         := $(MIPS_BINUTILS_PREFIX)objcopy
 OBJDUMP         := $(MIPS_BINUTILS_PREFIX)objdump
 NM              := $(MIPS_BINUTILS_PREFIX)nm
 
-ASM_DIRS := asm asm/libultra
-DATA_DIRS := assets
+ASM_DIRS := asm asm/libultra asm/data asm/makerom
+DATA_DIRS := assets assets/makerom
 SRC_DIRS := $(shell find src -type d)
+
+ICONV           := iconv
+ICONV_FLAGS     := --from-code=UTF-8 --to-code=SHIFT-JIS
 
 C_FILES := $(foreach dir,$(SRC_DIRS),$(wildcard $(dir)/*.c))
 S_FILES := $(foreach dir,$(SRC_DIRS) $(ASM_DIRS),$(wildcard $(dir)/*.s))
 DATA_FILES := $(foreach dir,$(DATA_DIRS),$(wildcard $(dir)/*.bin))
 
-O_FILES := $(foreach file,$(C_FILES),$(BUILD_DIR)/$(file:.c=.c.o)) \
-           $(foreach file,$(S_FILES),$(BUILD_DIR)/$(file:.s=.s.o)) \
-           $(foreach file,$(DATA_FILES),$(BUILD_DIR)/$(file:.bin=.bin.o)) \
+O_FILES := $(foreach file,$(C_FILES),$(BUILD_DIR)/$(file:.c=.o)) \
+           $(foreach file,$(S_FILES),$(BUILD_DIR)/$(file:.s=.o)) \
+           $(foreach file,$(DATA_FILES),$(BUILD_DIR)/$(file:.bin=.o)) \
+
+INCLUDE_CFLAGS = -I . -I include -I lib/libultra
+
+C_FLAGS		:= -mips2 -O2
+AS_FLAGS	:= -EB -mtune=vr4300 -march=vr4300 -mabi=32 -I include
+
+DEFINES := -D_LANGUAGE_C -D_FINALROM -DNDEBUG -DTARGET_N64
+
+C_FLAGS += -Wab,-r4300_mul -non_shared -G 0 -Xcpluscomm -nostdinc -g0 -woff 568
+C_FLAGS += $(DEFINES) $(INCLUDE_CFLAGS)
+
+LD_FLAGS   = -T $(LDSCRIPT) -T undefined_funcs_auto.txt  -T undefined_syms_auto.txt
+LD_FLAGS  += -Map $(ROM).map --no-check-sections
+
+default: all
+
+all: verify
+
+
+verify: $(ROM)
+	@md5sum -c $(BASENAME).z64.md5
 
 tools:
-	make -C tools
+	@make -C tools
 
 clean:
 	@rm -r asm
 	@rm -r assets
-	@make clean -C tools
+	@rm -r build
 
 split:
-	@python3 -m splat split ./doraemon.yaml 
+	@python3 -m splat split ./$(BASENAME).yaml 
+
+dirs:
+	$(foreach dir,$(SRC_DIRS) $(ASM_DIRS) $(DATA_DIRS),$(shell mkdir -p $(BUILD_DIR)/$(dir)))
+
+setup: dirs split
+
+
+$(ROM).elf: $(BASENAME).ld $(O_FILES)
+	@$(LD) $(LD_FLAGS) -o $@
+
+$(BUILD_DIR)/%.o: %.c
+	@$(CC) -c $(C_FLAGS) -o $@ $<
+	@printf "[$(GREEN) ido5.3 $(NO_COL)]  $<\n"
+
+$(BUILD_DIR)/%.o: %.s
+	@$(ICONV) $(ICONV_FLAGS) $< | $(AS) $(AS_FLAGS) -o $@
+	@printf "[$(RED)  GAS   $(NO_COL)]  $<\n"
+
+$(BUILD_DIR)/%.o: %.bin
+	@$(LD) -r -b binary -o $@ $<
+	@printf "[$(WHITE) SEGMENTS $(NO_COL)]  $<\n"
+
+$(ROM).bin: $(ROM).elf
+	@$(OBJCOPY) -O binary --pad-to=0x800000 --gap-fill=0xFF  $< $@
+	@printf "[$(CYAN) Objcopy $(NO_COL)]  $<\n"
+
+$(ROM): $(ROM).bin
+	@cp $< $@
+
+### Settings
+.SECONDARY:
+.PHONY: all clean default
+SHELL = /bin/bash -e -o pipefail

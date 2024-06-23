@@ -1,6 +1,6 @@
 #include "idle.h"
 #include "thread.h"
-
+/*
 InternalThread main_thread;
 u8 main_stack[800];
 
@@ -80,3 +80,4 @@ void main_entry_sub(){
                D_800DFA20_thread.stackPtr = D_800DFA20_stack - 800, D_800DFA20_thread.thread_priority = 70);
     osStartThread(&D_800DFA20_thread);
 }
+*/
