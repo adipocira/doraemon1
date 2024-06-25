@@ -67,8 +67,6 @@ osWritebackDCache = 0x80091890;
 
 //
 
-
-
 // ll.c 
 __ull_rshift = 0x80092000;
 __ull_rem = 0x8009202C;
@@ -107,6 +105,12 @@ __osEepStatus = 0x80094DDC;
 // exceptasm.s 
 
 __osExceptionPreamble = 0x800954B0;
+__osEnqueueAndYield = 0x80095ACC;
+__osEnqueueThread = 0x80095BCC;
+__osPopThread = 0x80095C14;
+__osDispatchThread = 0x80095C24;
+__osCleanupThread = 0x80095DA0;
+
 
 //
 
@@ -119,7 +123,6 @@ bzero = 0x80095EF0;
 __osLeoInterrupt = 0x80095FE0;
 
 //
-D_80095DA0 = 0x80095DA0;
 
 // sethwinterrupt.c
 
@@ -159,11 +162,24 @@ osInvalICache = 0x80095DB0;
 
 __osDisableInt = 0x80096860;
 __osRestoreInt = 0x80096880;
+
+// thread.c
+
+__osDequeueThread = 0x800968A0;
+__osThreadTail = 0x800BF7A0;
+__osRunQueue = 0x800BF7A8;
+__osActiveQueue = 0x800BF7AC;
+__osRunningThread = 0x800BF7B0;
+__osFaultedThread = 0x800BF7B4;
+//
+
 __osSiCreateAccessQueue = 0x800989B0;
 __osSiGetAccess = 0x80098A00;
 __osSiRelAccess = 0x80098A44;
 __osSiRawStartDma = 0x80098A70;
 _Litob = 0x8009DB10;
+
+
 
 D_8009FC30 = 0x8009FC30;
 D_800A82D3 = 0x800A82D3;

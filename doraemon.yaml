@@ -71,13 +71,20 @@ segments:
       - [0x2AF0, asm, 2AF0]
       - [0x3070, asm, save_file]
       - [0x3930, asm, 3930]
-      - [0x8A910, asm, libultra/libultra1]
       
       - [0x8AB90, c, libultra/os/initialize]
+      - [0x8AE30, c, libultra/os/createthread]
+      - [0x8AF80, c, libultra/os/startthread]
+      - [0x8B0D0, c, libultra/os/setthreadpri]
+      - [0x8B1B0, c, libultra/os/destroythread]
 
-      - [0x8AE30, asm, libultra/libultra2]
+      - [0x8B2B0, asm, libultra/io/pimgr]
+
+      - [0x8B440, asm, libultra/os/createmesgqueue]
+      - [0x8B470, asm, libultra/libultra1]
+
       - [0x92C00, c, libultra/libc/ll]
-      - [0x92EC0, asm, libultra/libultra3]
+      - [0x92EC0, asm, libultra/libultra2]
 
       - [0xA0760, data]
 

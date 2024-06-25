@@ -49,7 +49,7 @@ OBJCOPY         := $(MIPS_BINUTILS_PREFIX)objcopy
 OBJDUMP         := $(MIPS_BINUTILS_PREFIX)objdump
 NM              := $(MIPS_BINUTILS_PREFIX)nm
 
-ASM_DIRS := asm asm/libultra/ asm/libultra/libc asm/makerom asm/data
+ASM_DIRS := asm asm/libultra asm/libultra/libc asm/libultra/io asm/libultra/os asm/makerom asm/data
 DATA_DIRS := assets assets/makerom
 SRC_DIRS := $(shell find src -type d)
 
@@ -74,13 +74,20 @@ AS_FLAGS	:= -EB -mtune=vr4300 -march=vr4300 -mabi=32 -I include
 
 DEFINES := -D_LANGUAGE_C -D_FINALROM -DNDEBUG -DTARGET_N64 -D_MIPS_SZLONG=32
 
-C_FLAGS += -Wab,-r4300_mul -non_shared -G 0 -Xcpluscomm -nostdinc -g0 -woff 568
+C_FLAGS += -Wab,-r4300_mul -non_shared -G 0 -Xcpluscomm -nostdinc -g0 -w
 C_FLAGS += $(DEFINES) $(INCLUDE_CFLAGS)
 
 LD_FLAGS   = -T $(LDSCRIPT) -T undefined_funcs_auto.txt  -T undefined_syms_auto.txt
 LD_FLAGS  += -Map $(ROM).map --no-check-sections
 
 $(BUILD_DIR)/src/libultra/os/initialize.o: OPT_FLAGS := -mips2 -O1
+$(BUILD_DIR)/src/libultra/os/createthread.o: OPT_FLAGS := -mips2 -O1
+$(BUILD_DIR)/src/libultra/os/startthread.o: OPT_FLAGS := -mips2 -O1
+$(BUILD_DIR)/src/libultra/os/setthreadpri.o: OPT_FLAGS := -mips2 -O1
+$(BUILD_DIR)/src/libultra/os/destroythread.o: OPT_FLAGS := -mips2 -O1
+
+
+
 $(BUILD_DIR)/src/libultra/libc/ll.o: OPT_FLAGS := -O1 -mips3 -32
 
 
@@ -90,7 +97,7 @@ all: verify
 
 
 verify: $(ROM)
-	@md5sum -c $(BASENAME).z64.md5
+	@printf "$(CYAN)%s\n$(NO_COL)" $(shell md5sum -c $(BASENAME).z64.md5)
 
 tools:
 	@make -C tools
@@ -122,11 +129,11 @@ $(ROM).elf: $(BASENAME).ld $(O_FILES)
 
 $(BUILD_DIR)/%.o: %.c
 	@$(CC) -c $(C_FLAGS) $(OPT_FLAGS) -o $@ $<
-	@printf "[$(GREEN) ido5.3 $(NO_COL)]  $<\n"
+	@printf "[$(GREEN)  ido5.3  $(NO_COL)]  $<\n"
 
 $(BUILD_DIR)/%.o: %.s
 	@$(ICONV) $(ICONV_FLAGS) $< | $(AS) $(AS_FLAGS) -o $@
-	@printf "[$(RED)  GAS   $(NO_COL)]  $<\n"
+	@printf "[$(RED)    GAS   $(NO_COL)]  $<\n"
 
 $(BUILD_DIR)/%.o: %.bin
 	@$(LD) -r -b binary -o $@ $<
@@ -134,7 +141,7 @@ $(BUILD_DIR)/%.o: %.bin
 
 $(ROM).bin: $(ROM).elf
 	@$(OBJCOPY) -O binary --pad-to=0x800000 --gap-fill=0xFF  $< $@
-	@printf "[$(CYAN) Objcopy $(NO_COL)]  $<\n"
+	@printf "[$(CYAN)  Objcopy $(NO_COL)]  $(CYAN)$<\n"
 
 $(ROM): $(ROM).bin
 	@cp $< $@
