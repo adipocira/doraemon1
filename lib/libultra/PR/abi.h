@@ -234,8 +234,8 @@ typedef struct {
  */
 
 typedef struct {
-    uintptr_t w0;
-    uintptr_t w1;
+    u32 w0;
+    u32 w1;
 } Awords;
 
 typedef union {
@@ -349,7 +349,7 @@ typedef short ENVMIX_STATE[40];
         Acmd *_a = (Acmd *)pkt;                                         \
                                                                         \
         _a->words.w0 = _SHIFTL(A_ADPCM, 24, 8) | _SHIFTL(f, 16, 8);     \
-        _a->words.w1 = (uintptr_t)(s);                                  \
+        _a->words.w1 = (u32)(s);                                  \
 }
 
 /*
@@ -361,7 +361,7 @@ typedef short ENVMIX_STATE[40];
                                                                         \
         _a->words.w0 = (_SHIFTL(A_POLEF, 24, 8) | _SHIFTL(f, 16, 8) |   \
                         _SHIFTL(g, 0, 16));                             \
-        _a->words.w1 = (uintptr_t)(s);                                  \
+        _a->words.w1 = (u32)(s);                                  \
 }
 
 /*
@@ -374,7 +374,7 @@ typedef short ENVMIX_STATE[40];
         Acmd *_a = (Acmd *)pkt;                                         \
                                                                         \
         _a->words.w0 = _SHIFTL(A_CLEARBUFF, 24, 8) | _SHIFTL(d, 0, 24); \
-        _a->words.w1 = (uintptr_t)(c);                                  \
+        _a->words.w1 = (u32)(c);                                  \
 }
 
 /*
@@ -407,7 +407,7 @@ typedef short ENVMIX_STATE[40];
         Acmd *_a = (Acmd *)pkt;                                         \
                                                                         \
         _a->words.w0 = _SHIFTL(A_ENVMIXER, 24, 8) | _SHIFTL(f, 16, 8);  \
-        _a->words.w1 = (uintptr_t)(s);                                  \
+        _a->words.w1 = (u32)(s);                                  \
 }
 
 /*
@@ -443,7 +443,7 @@ typedef short ENVMIX_STATE[40];
         Acmd *_a = (Acmd *)pkt;                                         \
                                                                         \
         _a->words.w0 = _SHIFTL(A_LOADBUFF, 24, 8);                      \
-        _a->words.w1 = (uintptr_t)(s);                                  \
+        _a->words.w1 = (u32)(s);                                  \
 }
 
 /*
@@ -476,7 +476,7 @@ typedef short ENVMIX_STATE[40];
                                                                         \
         _a->words.w0 = (_SHIFTL(A_PAN, 24, 8) | _SHIFTL(f, 16, 8) |     \
                         _SHIFTL(d, 0, 16));                             \
-        _a->words.w1 = (uintptr_t)(s);                                  \
+        _a->words.w1 = (u32)(s);                                  \
 }
 
 /*
@@ -518,7 +518,7 @@ typedef short ENVMIX_STATE[40];
                                                                         \
         _a->words.w0 = (_SHIFTL(A_RESAMPLE, 24, 8) | _SHIFTL(f, 16, 8) |\
                         _SHIFTL(p, 0, 16));                             \
-        _a->words.w1 = (uintptr_t)(s);                                  \
+        _a->words.w1 = (u32)(s);                                  \
 }
 
 /*
@@ -535,7 +535,7 @@ typedef short ENVMIX_STATE[40];
         Acmd *_a = (Acmd *)pkt;                                         \
                                                                         \
         _a->words.w0 = _SHIFTL(A_SAVEBUFF, 24, 8);                      \
-        _a->words.w1 = (uintptr_t)(s);                                  \
+        _a->words.w1 = (u32)(s);                                  \
 }
 
 /*
@@ -588,7 +588,7 @@ typedef short ENVMIX_STATE[40];
 {                                                                       \
         Acmd *_a = (Acmd *)pkt;                                         \
         _a->words.w0 = _SHIFTL(A_SETLOOP, 24, 8);                       \
-        _a->words.w1 = (uintptr_t)(a);                                  \
+        _a->words.w1 = (u32)(a);                                  \
 }
 
 /*
@@ -622,7 +622,7 @@ typedef short ENVMIX_STATE[40];
         Acmd *_a = (Acmd *)pkt;                                         \
                                                                         \
         _a->words.w0 = _SHIFTL(A_LOADADPCM, 24, 8) | _SHIFTL(c, 0, 24); \
-        _a->words.w1 = (uintptr_t) (d);                                 \
+        _a->words.w1 = (u32) (d);                                 \
 }
 
 // This is a version of aSetVolume which takes a single 32-bit parameter
@@ -639,7 +639,7 @@ typedef short ENVMIX_STATE[40];
                                                                         \
         _a->words.w0 = (_SHIFTL(A_SETVOL, 24, 8) | _SHIFTL(f, 16, 16) | \
                     _SHIFTL(v, 0, 16));                                 \
-        _a->words.w1 = (uintptr_t)(tr);                                 \
+        _a->words.w1 = (u32)(tr);                                 \
 }
 
 #if defined(VERSION_SH) || defined(VERSION_CN)
@@ -681,7 +681,7 @@ typedef short ENVMIX_STATE[40];
         Acmd *_a = (Acmd *)pkt;                                         \
                                                                         \
         _a->words.w0 = _SHIFTL(A_S8DEC, 24, 8) | _SHIFTL(f, 16, 8);     \
-        _a->words.w1 = (uintptr_t)(s);                                  \
+        _a->words.w1 = (u32)(s);                                  \
 }
 
 /*
@@ -716,7 +716,7 @@ typedef short ENVMIX_STATE[40];
                                                                         \
         _a->words.w0 = _SHIFTL(A_LOADBUFF, 24, 8) |                     \
                     _SHIFTL((c) >> 4, 16, 8) | _SHIFTL(d, 0, 16);       \
-        _a->words.w1 = (uintptr_t)(s);                                  \
+        _a->words.w1 = (u32)(s);                                  \
 }
 
 /*
@@ -732,7 +732,7 @@ typedef short ENVMIX_STATE[40];
                                                                         \
         _a->words.w0 = _SHIFTL(A_SAVEBUFF, 24, 8) |                     \
                     _SHIFTL((c) >> 4, 16, 8) | _SHIFTL(s, 0, 16);       \
-        _a->words.w1 = (uintptr_t)(d);                                  \
+        _a->words.w1 = (u32)(d);                                  \
 }
 
 /*
@@ -949,7 +949,7 @@ typedef short ENVMIX_STATE[40];
                                                                         \
         _a->words.w0 = _SHIFTL(A_FILTER, 24, 8) | _SHIFTL((f), 16, 8) | \
                     _SHIFTL((countOrBuf), 0, 16);                       \
-        _a->words.w1 = (uintptr_t)(addr);                               \
+        _a->words.w1 = (u32)(addr);                               \
 }
 
 /*

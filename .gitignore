@@ -4,6 +4,7 @@ build/*
 __pycache__/
 asm/
 assets/
+expected/
 
 # files
 *.z64
@@ -18,5 +19,3 @@ assets/
 ctx.c
 
 tools/ido
-
-build/

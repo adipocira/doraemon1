@@ -6,6 +6,6 @@
 void osInitialize(void);
 u32 osGetCount(void);
 
-uintptr_t osVirtualToPhysical(void *);
+u32 osVirtualToPhysical(void *);
 
 #endif

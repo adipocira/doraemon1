@@ -22,7 +22,7 @@ typedef struct {
     u16 transferMode;  // 4
     u16 blockNum;      // 6
     s32 sectorNum;     // 8
-    uintptr_t devAddr; // c
+    u32 devAddr; // c
 #if defined(VERSION_EU)
     u32 errStatus; //error status added moved to blockinfo
 #endif
@@ -46,7 +46,7 @@ typedef struct OSPiHandle_s {
 
 typedef struct {
     u8 type;
-    uintptr_t address;
+    u32 address;
 } OSPiInfo;
 
 typedef struct {
@@ -59,7 +59,7 @@ typedef struct {
 typedef struct {
     /*0x00*/ OSIoMesgHdr hdr;
     /*0x08*/ void *dramAddr;
-    /*0x0C*/ uintptr_t devAddr;
+    /*0x0C*/ u32 devAddr;
     /*0x10*/ size_t size;
 #if defined(VERSION_EU) || defined(VERSION_SH) || defined(VERSION_CN)
     OSPiHandle *piHandle; // from the official definition
@@ -76,12 +76,12 @@ typedef struct {
 
 /* Functions */
 
-s32 osPiStartDma(OSIoMesg *mb, s32 priority, s32 direction, uintptr_t devAddr, void *vAddr,
+s32 osPiStartDma(OSIoMesg *mb, s32 priority, s32 direction, u32 devAddr, void *vAddr,
                  size_t nbytes, OSMesgQueue *mq);
 void osCreatePiManager(OSPri pri, OSMesgQueue *cmdQ, OSMesg *cmdBuf, s32 cmdMsgCnt);
 OSMesgQueue *osPiGetCmdQueue(void);
-s32 osPiWriteIo(uintptr_t devAddr, u32 data);
-s32 osPiReadIo(uintptr_t devAddr, u32 *data);
+s32 osPiWriteIo(u32 devAddr, u32 data);
+s32 osPiReadIo(u32 devAddr, u32 *data);
 
 s32 osPiRawStartDma(s32 dir, u32 cart_addr, void *dram_addr, size_t size);
 s32 osEPiRawStartDma(OSPiHandle *piHandle, s32 dir, u32 cart_addr, void *dram_addr, size_t size);

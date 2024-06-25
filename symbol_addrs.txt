@@ -1,3 +1,8 @@
+//parameters.s 
+osResetType = 0x8000030C;
+osAppNMIBuffer = 0x8000031C;
+
+//
 entry = 0x80000400;
 bootproc = 0x80000450;
 idle_entry = 0x800004C0;
@@ -20,7 +25,17 @@ __scYield = 0x800014A8 ;
 __scSchedule = 0x800014E4 ;        
 level_8000C930 = 0x8000C930;   
 stubbed_printf = 0x80011884;
+
+// initialize.c 
 osInitialize = 0x80089F90;
+osClockRate = 0x800BE9C0; // type:s64
+__osShutdown = 0x800BE9C8;
+__OSGlobalIntMask = 0x800BE9CC;
+osDDActive = 0x800BE9D0;
+__osFinalrom = 0x8016B480;
+
+//
+
 osCreateThread = 0x8008A230;
 osStartThread = 0x8008A380;
 osSetThreadPri = 0x8008A4D0;
@@ -40,13 +55,108 @@ osContReset = 0x8008B940;
 osContInit = 0x8008BAC0;
 
 sprintf = 0x8008B274;
+osEepromProbe = 0x8008BE80;
 osSyncPrintf = 0x8008C494;
 sqrtf = 0x8008C810;
 osPiStartDma = 0x8008DBB0;
 osInvalDCache = 0x8008DD60;
+
+// writebackdcache.s
+
+osWritebackDCache = 0x80091890;
+
+//
+
+
+
+// ll.c 
+__ull_rshift = 0x80092000;
+__ull_rem = 0x8009202C;
+__ull_div = 0x80092068;
+__ll_lshift = 0x800920A4;
+__ll_rem = 0x800920D0;
+__ll_div = 0x8009210C;
+__ll_mul = 0x80092168;
+__ull_divremi = 0x80092198;
+__ll_mod = 0x800921F8;
+__ll_rshift = 0x80092294;
+
+//
+
+// getsr.s
+
+__osSetSR = 0x800953E0;
+
+//
+
+// setsr.s
+
+__osGetSR = 0x800953F0;
+
+//
+
+// setfpccsr.s
+
+__osSetFpcCsr = 0x80095400;
+
+//
+
+osEepromWrite = 0x80094B20;
+__osEepStatus = 0x80094DDC;
+
+// exceptasm.s 
+
+__osExceptionPreamble = 0x800954B0;
+
+//
+
 D_800954C0 = 0x800954C0;
+osEepromRead = 0x800950E0;
 bzero = 0x80095EF0;
+
+// leointerrupt.c 
+
+__osLeoInterrupt = 0x80095FE0;
+
+//
 D_80095DA0 = 0x80095DA0;
+
+// sethwinterrupt.c
+
+__osSetHWIntrRoutine = 0x80095F90;
+
+// 
+
+// sirawread.c 
+
+__osSiRawReadIo = 0x80095410;
+
+//
+
+// sirawwrite.c 
+
+__osSiRawWriteIo = 0x80095460;
+
+//
+
+// maptlbrdb.s
+
+osMapTLBRdb = 0x80095E30;
+
+//
+
+// pirawread.c 
+
+__osPiRawReadIo = 0x80095E90;
+
+//
+
+// invalicache.c 
+
+osInvalICache = 0x80095DB0;
+
+//
+
 __osDisableInt = 0x80096860;
 __osRestoreInt = 0x80096880;
 __osSiCreateAccessQueue = 0x800989B0;
@@ -78,6 +188,8 @@ D_800C2BB0 = 0x800C2BB0; // type:asciz
 D_800C2F20 = 0x800C2F20; // type:asciz
 D_800C3CD0 = 0x800C3CD0; // type:asciz
 D_800C3EF0 = 0x800C3EF0; // type:asciz
+D_800C4590 = 0x800C4590; // type:asciz
+D_800C62E0 = 0x800C62E0; // type:asciz
 D_800CA210 = 0x800CA210;
 
 idle_thread = 0x800DC4E0;

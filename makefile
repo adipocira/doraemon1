@@ -49,12 +49,14 @@ OBJCOPY         := $(MIPS_BINUTILS_PREFIX)objcopy
 OBJDUMP         := $(MIPS_BINUTILS_PREFIX)objdump
 NM              := $(MIPS_BINUTILS_PREFIX)nm
 
-ASM_DIRS := asm asm/libultra asm/data asm/makerom
+ASM_DIRS := asm asm/libultra/ asm/libultra/libc asm/makerom asm/data
 DATA_DIRS := assets assets/makerom
 SRC_DIRS := $(shell find src -type d)
 
 ICONV           := iconv
 ICONV_FLAGS     := --from-code=UTF-8 --to-code=SHIFT-JIS
+
+OBJDUMP_FLAGS := -d -r -z -Mreg-names=32
 
 C_FILES := $(foreach dir,$(SRC_DIRS),$(wildcard $(dir)/*.c))
 S_FILES := $(foreach dir,$(SRC_DIRS) $(ASM_DIRS),$(wildcard $(dir)/*.s))
@@ -64,18 +66,23 @@ O_FILES := $(foreach file,$(C_FILES),$(BUILD_DIR)/$(file:.c=.o)) \
            $(foreach file,$(S_FILES),$(BUILD_DIR)/$(file:.s=.o)) \
            $(foreach file,$(DATA_FILES),$(BUILD_DIR)/$(file:.bin=.o)) \
 
-INCLUDE_CFLAGS = -I . -I include -I lib/libultra
+INCLUDE_CFLAGS = -I . -I include -I lib/libultra -I lib/libulra/libc
 
-C_FLAGS		:= -mips2 -O2
+OPT_FLAGS 	:= -mips2 -O2 
+C_FLAGS		:= -o32
 AS_FLAGS	:= -EB -mtune=vr4300 -march=vr4300 -mabi=32 -I include
 
-DEFINES := -D_LANGUAGE_C -D_FINALROM -DNDEBUG -DTARGET_N64
+DEFINES := -D_LANGUAGE_C -D_FINALROM -DNDEBUG -DTARGET_N64 -D_MIPS_SZLONG=32
 
 C_FLAGS += -Wab,-r4300_mul -non_shared -G 0 -Xcpluscomm -nostdinc -g0 -woff 568
 C_FLAGS += $(DEFINES) $(INCLUDE_CFLAGS)
 
 LD_FLAGS   = -T $(LDSCRIPT) -T undefined_funcs_auto.txt  -T undefined_syms_auto.txt
 LD_FLAGS  += -Map $(ROM).map --no-check-sections
+
+$(BUILD_DIR)/src/libultra/os/initialize.o: OPT_FLAGS := -mips2 -O1
+$(BUILD_DIR)/src/libultra/libc/ll.o: OPT_FLAGS := -O1 -mips3 -32
+
 
 default: all
 
@@ -89,24 +96,32 @@ tools:
 	@make -C tools
 
 clean:
-	@rm -r asm
-	@rm -r assets
-	@rm -r build
+	@$(RM) -r -f build
+	@$(RM) -r -f asm
+	@$(RM) -r -f assets
 
 split:
 	@python3 -m splat split ./$(BASENAME).yaml 
 
 dirs:
-	$(foreach dir,$(SRC_DIRS) $(ASM_DIRS) $(DATA_DIRS),$(shell mkdir -p $(BUILD_DIR)/$(dir)))
+	$(foreach dir,$(SRC_DIRS) $(DATA_DIRS),$(shell mkdir -p $(BUILD_DIR)/$(dir)))
 
-setup: dirs split
+postsplitdirs:
+	$(foreach dir, $(ASM_DIRS),$(shell mkdir -p $(BUILD_DIR)/$(dir)))
 
+setup: dirs split postsplitdirs
+
+$(BUILD_DIR)/src/libultra/libc/ll.o: src/libultra/libc/ll.c
+	@$(CC) -c $(C_FLAGS) $(OPT_FLAGS) -o $@ $<
+	@printf "[$(GREEN) ido5.3 $(NO_COL)]  $<\n"
+	@$(PYTHON) tools/set_o32abi_bit.py $@
+	@$(OBJDUMP) $(OBJDUMP_FLAGS) $@ > $(@:.o=.s)
 
 $(ROM).elf: $(BASENAME).ld $(O_FILES)
 	@$(LD) $(LD_FLAGS) -o $@
 
 $(BUILD_DIR)/%.o: %.c
-	@$(CC) -c $(C_FLAGS) -o $@ $<
+	@$(CC) -c $(C_FLAGS) $(OPT_FLAGS) -o $@ $<
 	@printf "[$(GREEN) ido5.3 $(NO_COL)]  $<\n"
 
 $(BUILD_DIR)/%.o: %.s

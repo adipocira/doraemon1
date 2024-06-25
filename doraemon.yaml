@@ -69,11 +69,27 @@ segments:
       - [0x1400, asm, scheduler]
       - [0x22D0, asm, controller]
       - [0x2AF0, asm, 2AF0]
-      - [0x3070, asm, 3070]
+      - [0x3070, asm, save_file]
       - [0x3930, asm, 3930]
-      - [0x8AB90, asm, libultra/libultra]
+      - [0x8A910, asm, libultra/libultra1]
+      
+      - [0x8AB90, c, libultra/os/initialize]
+
+      - [0x8AE30, asm, libultra/libultra2]
+      - [0x92C00, c, libultra/libc/ll]
+      - [0x92EC0, asm, libultra/libultra3]
+
       - [0xA0760, data]
-      - { start: 0xCAE10, type: bss, vram: 0x800CA210 }
+
+      - [0xBF5C0, .data, libultra/os/initialize]
+
+      - [0xBF5E0, data]
+
+      - [0xC0870, rodata]
+
+      - { start: 0xCAE10, type: bss, vram: 0x800CA210, name: CAE10 }
+      - { start: 0x16C080, type: .bss, vram: 0x8016B480, name: libultra/os/initialize }
+      - { start: 0x16C090, type: bss, vram: 0x8016B490, name: 16C090}
 
       
   - name: CAE10_segment 
