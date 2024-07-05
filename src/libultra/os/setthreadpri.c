@@ -2,28 +2,28 @@
 #include "PRInternal/osint.h"
 #include "ultra64.h"
 
-void osSetThreadPri(OSThread *t, OSPri pri) {
-  register u32 saveMask;
+void osSetThreadPri(OSThread* t, OSPri pri) {
+    register u32 saveMask;
 
-  saveMask = __osDisableInt();
+    saveMask = __osDisableInt();
 
-  if (t == NULL) {
-    t = __osRunningThread;
-  }
-
-  if (t->priority != pri) {
-    t->priority = pri;
-
-    if (t != __osRunningThread && t->state != OS_STATE_STOPPED) {
-      __osDequeueThread(t->queue, t);
-      __osEnqueueThread(t->queue, t);
+    if (t == NULL) {
+        t = __osRunningThread;
     }
 
-    if (__osRunningThread->priority < __osRunQueue->priority) {
-      __osRunningThread->state = OS_STATE_RUNNABLE;
-      __osEnqueueAndYield(&__osRunQueue);
-    }
-  }
+    if (t->priority != pri) {
+        t->priority = pri;
 
-  __osRestoreInt(saveMask);
+        if (t != __osRunningThread && t->state != OS_STATE_STOPPED) {
+            __osDequeueThread(t->queue, t);
+            __osEnqueueThread(t->queue, t);
+        }
+
+        if (__osRunningThread->priority < __osRunQueue->priority) {
+            __osRunningThread->state = OS_STATE_RUNNABLE;
+            __osEnqueueAndYield(&__osRunQueue);
+        }
+    }
+
+    __osRestoreInt(saveMask);
 }

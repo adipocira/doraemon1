@@ -5,16 +5,16 @@
 
 __OSEventState __osEventStateTab[OS_NUM_EVENTS] ALIGNED(8);
 
-void osSetEventMesg(OSEvent event, OSMesgQueue *mq, OSMesg msg) {
-  register u32 saveMask;
-  __OSEventState *es;
+void osSetEventMesg(OSEvent event, OSMesgQueue* mq, OSMesg msg) {
+    register u32 saveMask;
+    __OSEventState* es;
 
-  saveMask = __osDisableInt();
+    saveMask = __osDisableInt();
 
-  es = &__osEventStateTab[event];
+    es = &__osEventStateTab[event];
 
-  es->messageQueue = mq;
-  es->message = msg;
+    es->messageQueue = mq;
+    es->message = msg;
 
-  __osRestoreInt(saveMask);
+    __osRestoreInt(saveMask);
 }
