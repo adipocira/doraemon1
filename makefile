@@ -49,7 +49,7 @@ OBJCOPY         := $(MIPS_BINUTILS_PREFIX)objcopy
 OBJDUMP         := $(MIPS_BINUTILS_PREFIX)objdump
 NM              := $(MIPS_BINUTILS_PREFIX)nm
 
-ASM_DIRS := asm asm/libultra asm/libultra/libc asm/libultra/io asm/libultra/os asm/makerom asm/data
+ASM_DIRS := asm asm/libultra asm/libultra/libc asm/libultra/io asm/libultra/os asm/libultra/gu asm/libultra/audio asm/makerom asm/data
 DATA_DIRS := assets assets/makerom
 SRC_DIRS := $(shell find src -type d)
 
@@ -80,14 +80,7 @@ C_FLAGS += $(DEFINES) $(INCLUDE_CFLAGS)
 LD_FLAGS   = -T $(LDSCRIPT) -T undefined_funcs_auto.txt  -T undefined_syms_auto.txt
 LD_FLAGS  += -Map $(ROM).map --no-check-sections
 
-$(BUILD_DIR)/src/libultra/os/initialize.o: OPT_FLAGS := -mips2 -O1
-$(BUILD_DIR)/src/libultra/os/createthread.o: OPT_FLAGS := -mips2 -O1
-$(BUILD_DIR)/src/libultra/os/startthread.o: OPT_FLAGS := -mips2 -O1
-$(BUILD_DIR)/src/libultra/os/setthreadpri.o: OPT_FLAGS := -mips2 -O1
-$(BUILD_DIR)/src/libultra/os/destroythread.o: OPT_FLAGS := -mips2 -O1
-
-
-
+$(BUILD_DIR)/src/libultra/os/%.o: OPT_FLAGS := -mips2 -O1
 $(BUILD_DIR)/src/libultra/libc/ll.o: OPT_FLAGS := -O1 -mips3 -32
 
 
@@ -118,9 +111,9 @@ postsplitdirs:
 
 setup: dirs split postsplitdirs
 
-$(BUILD_DIR)/src/libultra/libc/ll.o: src/libultra/libc/ll.c
+$(BUILD_DIR)/src/libultra/libc/%.o: src/libultra/libc/%.c
 	@$(CC) -c $(C_FLAGS) $(OPT_FLAGS) -o $@ $<
-	@printf "[$(GREEN) ido5.3 $(NO_COL)]  $<\n"
+	@printf "[$(GREEN)  ido5.3  $(NO_COL)]  $<\n"
 	@$(PYTHON) tools/set_o32abi_bit.py $@
 	@$(OBJDUMP) $(OBJDUMP_FLAGS) $@ > $(@:.o=.s)
 

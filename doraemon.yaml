@@ -71,6 +71,9 @@ segments:
       - [0x2AF0, asm, 2AF0]
       - [0x3070, asm, save_file]
       - [0x3930, asm, 3930]
+
+      - [0xE6D0, asm, zzGame]
+      - [0x11DF0, asm, 11DF0]
       
       - [0x8AB90, c, libultra/os/initialize]
       - [0x8AE30, c, libultra/os/createthread]
@@ -80,8 +83,104 @@ segments:
 
       - [0x8B2B0, asm, libultra/io/pimgr]
 
-      - [0x8B440, asm, libultra/os/createmesgqueue]
-      - [0x8B470, asm, libultra/libultra1]
+      - [0x8B440, c, libultra/os/createmesgqueue]
+      
+      - [0x8B470, asm, libultra/io/vimgr]
+      - [0x8B7D0, asm, libultra/io/visetmode]
+      - [0x8B840, asm, libultra/io/viblack]
+
+      - [0x8B8B0, c, libultra/os/seteventmesg]
+
+      - [0x8B920, asm, libultra/io/visetevent]
+
+      - [0x8B990, asm, libultra/os/setintmask] #hasm
+
+      - [0x8BA30, c, libultra/os/recvmesg]
+      - [0x8BB70, c, libultra/os/gettime]
+
+      - [0x8BC00, asm, libultra/io/vigetcurrframebuf]
+
+      - [0x8BC40, asm, libultra/os/sendmesg]
+
+      - [0x8BD90, asm, libultra/io/spgetstat]
+      - [0x8BE10, asm, libultra/io/vigetnextframebuf]
+
+      - [0x8BE50, asm, libultra/libc/sprintf]
+
+      - [0x8BED0, asm, libultra/io/viswapbuf] 
+
+      - [0x8BF20, asm, libultra/os/writebackdcacheall] #hasm
+
+      - [0x8BF50, asm, libultra/io/sptask] 
+      - [0x8C210, asm, libultra/io/dpsetnextbuf] 
+      - [0x8C2C0, asm, libultra/io/sptaskyield] 
+      - [0x8C2E0, asm, libultra/io/contreaddata] 
+      - [0x8C540, asm, libultra/io/contreset] 
+      - [0x8C6C0, asm, libultra/io/controller] 
+      - [0x8CA80, asm, libultra/io/conteepprobe] 
+      - [0x8CAF0, asm, libultra/io/pfsinit] 
+
+      - [0x8CE70, asm, libultra/libc/llcvt] 
+      - [0x8D080, asm, libultra/libc/syncprintf] 
+
+      - [0x8D0E0, asm, libultra/gu/sinf]
+      - [0x8D2A0, asm, libultra/gu/cosf] 
+      - [0x8D410, asm, libultra/gu/sqrtf]
+
+      - [0x8D420, asm, libultra/gu/perspective] 
+
+      - [0x8D6B0, asm, libultra/gu/lookat] 
+
+      - [0x8D9E0, asm, libultra/audio/heapinit] 
+      - [0x8DA20, asm, libultra/audio/heapalloc] 
+      - [0x8DA80, asm, libultra/audio/bnkf] 
+      - [0x8DCD0, asm, libultra/audio/cspstop] 
+      - [0x8DD00, asm, libultra/audio/sndpgetstate] 
+      - [0x8DD20, asm, libultra/audio/sndpstop] 
+
+      - [0x8DD70, asm, libultra/io/aisetfreq] 
+
+      - [0x8DED0, asm, libultra/audio/sl] 
+
+      - [0x8DF90, asm, libultra/os/virtualtophysical] 
+      
+      - [0x8E010, asm, libultra/io/aisetnextbuf]
+      - [0x8E0C0, asm, libultra/io/aigetlen]
+
+      - [0x8E0D0, asm, libultra/audio/synthesizer]
+
+      - [0x8E7B0, asm, libultra/io/pidma]
+
+      - [0x8E8C0, asm, libultra/audio/cspsetpan]
+      - [0x8E920, asm, libultra/audio/cspsetbank]
+
+      - [0x8E960, asm, libultra/os/invaldcache]
+
+      - [0x8EA10, asm, libultra/audio/cspsetvol]
+      - [0x8EA50, asm, libultra/audio/cssplay]
+      - [0x8EA80, asm, libultra/audio/cseq]
+      - [0x8F540, asm, libultra/audio/cspsetseq]
+      - [0x8F580, asm, libultra/audio/cents2ratio]
+      - [0x8F5D0, asm, libultra/audio/sndpsetsound]
+      - [0x8F5F0, asm, libultra/audio/sndplayer]
+      - [0x8FD00, asm, libultra/audio/sndpallocate]
+      - [0x8FDA0, asm, libultra/audio/sndpsetfxmix]
+      - [0x8FE00, asm, libultra/audio/sndpsetpitch]
+      - [0x8FE60, asm, libultra/audio/sndpsetpan]
+      - [0x8FEC0, asm, libultra/audio/sndpsetvol]
+      - [0x8FF20, asm, libultra/audio/sndpdeallocate]
+      - [0x8FF70, asm, libultra/audio/sndpplay]
+      - [0x8FFE0, asm, libultra/audio/seqplayer]
+      - [0x91920, asm, libultra/audio/event]
+      - [0x91C60, asm, libultra/audio/synaddplayer]
+      - [0x91CB0, asm, libultra/audio/synstopvoice]
+      - [0x91D30, asm, libultra/audio/synfreevoice]
+      - [0x91E80, asm, libultra/audio/synsetvol]
+#      - [0x91F10, asm, libultra/audio/synsetpitch]
+#      - [0x91FF8, asm, libultra/libultra/libultra1]
+#      - [0x92140, asm, libultra/libultra1]
+      - [0x91F10, asm, libultra/libultra1]
+
 
       - [0x92C00, c, libultra/libc/ll]
       - [0x92EC0, asm, libultra/libultra2]
@@ -97,6 +196,9 @@ segments:
       - { start: 0xCAE10, type: bss, vram: 0x800CA210, name: CAE10 }
       - { start: 0x16C080, type: .bss, vram: 0x8016B480, name: libultra/os/initialize }
       - { start: 0x16C090, type: bss, vram: 0x8016B490, name: 16C090}
+      - { start: 0x16E480, type: .bss, vram: 0x8016D880, name: libultra/os/seteventmesg}
+      - { start: 0x16E500, type: bss, vram: 0x8016D900, name: 16E500}
+
 
       
   - name: CAE10_segment 
@@ -299,7 +401,7 @@ segments:
     type: bin
     start: 0x7AC690
     vram: 0x807aba90
-  - name: 7D5430_segment
+  - name: empty_segment
     type: bin
     start: 0x7D5430
     vram: 0x807d4830

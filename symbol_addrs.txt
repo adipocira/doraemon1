@@ -1,8 +1,11 @@
+
 //parameters.s 
+
 osResetType = 0x8000030C;
 osAppNMIBuffer = 0x8000031C;
 
 //
+
 entry = 0x80000400;
 bootproc = 0x80000450;
 idle_entry = 0x800004C0;
@@ -27,6 +30,7 @@ level_8000C930 = 0x8000C930;
 stubbed_printf = 0x80011884;
 
 // initialize.c 
+
 osInitialize = 0x80089F90;
 osClockRate = 0x800BE9C0; // type:s64
 __osShutdown = 0x800BE9C8;
@@ -36,34 +40,489 @@ __osFinalrom = 0x8016B480;
 
 //
 
+//creatthread.c
+
 osCreateThread = 0x8008A230;
+
+//
+
+// startthread.c 
+
 osStartThread = 0x8008A380;
+
+//
+
+// setthreadpri.c
+
 osSetThreadPri = 0x8008A4D0;
+
+//
+
+// destroythread.c
+
 osDestroyThread = 0x8008A5B0;
+
+//
+
+// pimgr.c
+
 osCreatePiManager = 0x8008A6B0;
+
+//
+
+// createmesgqueue.c
+
 osCreateMesgQueue = 0x8008A840;
+
+//
+
+// vimgr.c
+
 osCreateViManager = 0x8008A870;
+viMgrMain = 0x8008A9F8;
+
+//
+
 osViSetMode = 0x8008ABD0;
 osViBlack = 0x8008AC40;
+
+//
+
 osSetEventMesg = 0x8008ACB0;
+__osEventStateTab = 0x8016D880; 
+
+//
+
+// recvmesg.c
+
 osRecvMesg = 0x8008AE30;
+
+//
+
+// visetevent.c
+
 osViSetEvent = 0x8008AD20;
 
-osSetIntMask = 0x8008AD90;
-osSendMesg = 0x8008B040;
-osContReset = 0x8008B940;
-osContInit = 0x8008BAC0;
+//
 
+// setintmask.s
+
+osSetIntMask = 0x8008AD90;
+
+//
+
+// gettime.c 
+
+osGetTime = 0x8008AF70;
+
+//
+
+// vigetcurrframebuf.c
+
+osViGetCurrentFramebuffer = 0x8008B000;
+
+//
+
+// sendmesg.c
+
+osSendMesg = 0x8008B040;
+
+// spgetstat.c
+
+__osSpGetStatus = 0x8008B190;
+
+//
+
+// vigetnextframebuf.c
+
+osViGetNextFramebuffer = 0x8008B210;
+
+//
+
+// sprintf.c
+
+proutSprintf = 0x8008B250;
 sprintf = 0x8008B274;
+
+//
+
+// writebackdcacheall.s
+
+osWritebackDCacheAll = 0x8008B320;
+
+//
+
+// sptask.c
+
+_VirtualToPhysicalTask = 0x8008B350;
+osSpTaskLoad = 0x8008B46C; 
+osSpTaskStartGo = 0x8008B5CC;
+
+//
+
+// dpsetnextbuf.c
+
+osDpSetNextBuffer = 0x8008B610;
+
+//
+
+// sptaskyield.c
+
+osSpTaskYield = 0x8008B6C0;
+
+//
+
+// contreaddata.c
+
+osContStartReadData = 0x8008B6E0;
+osContGetReadData = 0x8008B7A4;
+__osPackReadData = 0x8008B84C;
+
+//
+
+// contreset.c
+
+osContReset = 0x8008B940;
+__osPackResetData = 0x8008BA38;
+
+//
+
+// controller.c
+
+osContInit = 0x8008BAC0;
+__osContGetInitData = 0x8008BCB8;
+__osPackRequestData = 0x8008BD88;
+
+//
+
+// conteepprobe.c
+
 osEepromProbe = 0x8008BE80;
-osSyncPrintf = 0x8008C494;
+
+//
+
+// pfsinit.c
+
+osPfsInit = 0x8008BEF0;
+__osPfsGetStatus = 0x8008BF90;
+osPfsRepairId = 0x8008C06C;
+
+//
+
+// llcvt.c
+
+__d_to_ll = 0x8008C270;
+__f_to_ll = 0x8008C28C;
+__d_to_ull = 0x8008C2A8;
+__f_to_ull = 0x8008C348;
+__ll_to_d = 0x8008C3E4;
+__ll_to_f = 0x8008C3FC;
+__ull_to_d = 0x8008C414;
+__ull_to_f = 0x8008C448;
+
+// syncprintf.c
+
+osSyncPrintf = 0x8008C480;
+rmonPrintf = 0x8008C494;
+
+//
+
+// sinf.c
+
+sinf = 0x8008C4E0;
+
+//
+
+// cosf.c
+
+cosf = 0x8008C6A0;
+
+//
+
+// sqrtf.s
+
 sqrtf = 0x8008C810;
+
+//
+
+// perspective.c
+
+guPerspectiveF = 0x8008C820;
+guPerspective = 0x8008CA50;
+
+//
+
+// lookat.c
+
+guLookAtF = 0x8008CAB0;
+guLookAt = 0x8008CD68; 
+
+//
+
+// heapinit.c
+
+alHeapInit = 0x8008CDE0;
+
+//
+
+// heapalloc.c
+
+alHeapDBAlloc = 0x8008CE20;
+
+//
+
+// bnkf.c
+
+_bnkfPatchBank = 0x8008CE90;
+alBnkfNew = 0x8008CF84;
+alSeqFileNew = 0x8008D088;
+
+//
+
+// cspstop.c 
+
+alCSPStop = 0x8008D0D0;
+
+//
+
+// sndpgetstate.c
+
+alSndpGetState = 0x8008D100;
+
+//
+
+// sndpstop.c
+
+alSndpStop = 0x8008D120;
+
+//
+
+// aisetfreq.c
+
+osAiSetFrequency = 0x8008D170;
+
+//
+
+// sl.c
+
+alUnlink = 0x8008D2D0;
+alLink = 0x8008D300;
+alClose = 0x8008D324;
+alInit = 0x8008D35C;
+
+//
+
+// virtualtophysical.c
+
+osVirtualToPhysical = 0x8008D390;
+
+//
+
+// aisetnextbuf.c
+
+osAiSetNextBuffer = 0x8008D410;
+
+//
+
+// aigetlen.c
+
+osAiGetLength = 0x8008D4C0;
+
+//
+
+// synthesizer.c
+
+_timeToSamples = 0x8008D4D8;
+_freePVoice = 0x8008D530;
+_collectPVoices = 0x8008D568;
+__freeParam = 0x8008D5C8;
+__allocParam = 0x8008D5E0;
+alAudioFrame = 0x8008D618;
+alSynNew = 0x8008D8B0;
+
+//
+
+// pidma.c
+
 osPiStartDma = 0x8008DBB0;
+
+//
+
+// cspsetpan.c
+
+alCSPSetChlPan = 0x8008DCC0;
+
+//
+
+// cspsetbank.c
+
+alCSPSetBank = 0x8008DD20;
+
+//
+
+// invaldcache.s
+
 osInvalDCache = 0x8008DD60;
+
+//
+
+// cspsetvol.c
+
+alCSPSetVol = 0x8008DE10;
+
+//
+
+// cspplay.c
+
+alCSPPlay = 0x8008DE50;
+
+//
+
+// cseq.c
+
+alCSeqGetLoc = 0x8008DE80;
+alCSeqSetLoc = 0x8008DF20;
+__getTrackByte = 0x8008DFC0;
+__readVarLen = 0x8008E084;
+alCSeqNextEvent = 0x8008E0E4;
+alCSeqNew = 0x8008E3DC;
+alCSeqNewMarker = 0x8008E4F0;
+alCSeqGetTicks = 0x8008E65C;
+alCSeqSecToTicks = 0x8008E664;
+alCSeqTicksToSec = 0x8008E760;
+__alCSeqNextDelta = 0x8008E7CC;
+
+//
+
+// cspsetseq.c
+
+alCSPSetSeq = 0x8008E940;
+
+//
+
+// cents2ratio.c
+
+alCents2Ratio = 0x8008E980;
+
+//
+
+// sndpsetsound.c
+
+alSndpSetSound = 0x8008E9D0;
+
+//
+
+// sndplayer.c
+
+_removeEvents = 0x8008E9F0;
+_handleEvent = 0x8008EA7C;
+alSndpNew = 0x8008EFC4;
+
+//
+
+// sndpallocate.c
+
+alSndpAllocate = 0x8008F100;
+
+// 
+
+// sndpsetfxmix.c
+
+alSndpSetFXMix = 0x8008F1A0;
+
+//
+
+// sndpsetpitch.c
+
+alSndpSetPitch = 0x8008F200;
+
+//
+
+// sndpsetpan.c
+
+alSndpSetPan = 0x8008F260;
+
+//
+
+// sndpsetvol.c
+
+alSndpSetVol = 0x8008F2C0;
+
+//
+
+// sndpdeallocate.c
+
+alSndpDeallocate = 0x8008F320;
+
+//
+
+// sndpplay.c
+
+alSndpPlay = 0x8008F370;
+
+//
+
+// seqplayer.c
+
+__setInstChanState = 0x8008F3E0;
+__resetPerfChanState = 0x8008F434;
+__initFromBank = 0x8008F4B4;
+__vsDelta = 0x8008F570;
+__vsVol = 0x8008F594;
+__seqpReleaseVoice = 0x8008F61C;
+__voiceNeedsNoteKill = 0x8008F748;
+__unmapVoice = 0x8008F7F0;
+__postNextSeqEvent = 0x8008F860;
+__handleMetaMsg = 0x8008F93C;
+__vsPan = 0x8008F9B4;
+__lookupVoice = 0x8008F9FC;
+__mapVoice = 0x8008FA70;
+__lookupSoundQuick = 0x8008FAE0;
+__handleMIDIMsg = 0x8008FBDC;
+__seqpVoiceHandler = 0x800903FC;
+__seqpStopOsc = 0x80090A20;
+__initChanState = 0x80090B24;
+alSeqpNew = 0x80090B94;
+
+//
+
+// event.c
+
+alEvtqFlushType = 0x80090D20;
+alEvtqFlush = 0x80090DCC;
+alEvtqPostEvent = 0x80090E3C;
+alEvtqNextEvent = 0x80090F60;
+alEvtqNew = 0x80090FEC;
+
+//
+
+// synaddplayer.c
+
+alSynAddPlayer = 0x80091060;
+
+//
+
+// synstopvoice.c
+
+alSynStopVoice = 0x800910B0;
+
+//
+
+// synfreevoice.c
+
+alSynFreeVoice = 0x80091130;
+
+//
 
 // writebackdcache.s
 
 osWritebackDCache = 0x80091890;
+
+//
+
+// getcount.s
+
+osGetCount = 0x80091950;
 
 //
 
@@ -80,6 +539,9 @@ __ll_mod = 0x800921F8;
 __ll_rshift = 0x80092294;
 
 //
+
+osEepromWrite = 0x80094B20;
+__osEepStatus = 0x80094DDC;
 
 // getsr.s
 
@@ -99,8 +561,6 @@ __osSetFpcCsr = 0x80095400;
 
 //
 
-osEepromWrite = 0x80094B20;
-__osEepStatus = 0x80094DDC;
 
 // exceptasm.s 
 
@@ -173,6 +633,33 @@ __osRunningThread = 0x800BF7B0;
 __osFaultedThread = 0x800BF7B4;
 //
 
+// vi.c 
+
+__osViInit = 0x80097330;
+__osViCurr = 0x800BF840;
+__osViNext = 0x800BF844;
+
+//
+
+// 
+
+__osSpSetStatus = 0x80098870;
+
+//
+
+// pfschecker.c
+
+osPfsChecker = 0x80099770;
+
+//
+
+// timerintr.c
+
+__osCurrentTime = 0x8016EA70; // type:s64
+__osBaseCounter = 0x8016EA78;
+
+//
+
 __osSiCreateAccessQueue = 0x800989B0;
 __osSiGetAccess = 0x80098A00;
 __osSiRelAccess = 0x80098A44;
@@ -180,8 +667,7 @@ __osSiRawStartDma = 0x80098A70;
 _Litob = 0x8009DB10;
 
 
-
-D_8009FC30 = 0x8009FC30;
+rspbootTextStart = 0x8009FB60; // name_end:rspbootTextEnd
 D_800A82D3 = 0x800A82D3;
 D_800A82F0 = 0x800A82F0; // type:asciz
 D_800ABD01 = 0x800ABD01;
@@ -193,11 +679,13 @@ D_800BFB3E = 0x800BFB3E;
 D_800BFDC0 = 0x800BFDC0; // type:asciz
 D_800BFC70 = 0x800BFC70; // type:asciz
 D_800C0D80 = 0x800C0D80; // type:asciz
+D_800C12A0 = 0x800C12A0; // type:asciz
 D_800C1670 = 0x800C1670; // type:asciz
 D_800C18C0 = 0x800C18C0; // type:asciz
 D_800C1A20 = 0x800C1A20; // type:asciz
 D_800C1B10 = 0x800C1B10; // type:asciz
 D_800C1C20 = 0x800C1C20; // type:asciz
+D_800C1460 = 0x800C1460; // type:asciz
 D_800C23E0 = 0x800C23E0; // type:asciz
 D_800C2650 = 0x800C2650;
 D_800C2BB0 = 0x800C2BB0; // type:asciz
@@ -212,6 +700,9 @@ idle_thread = 0x800DC4E0;
 idle_stack = 0x800E46A0;
 main_thread = 0x800DD6A0;
 controller_thread = 0x800DE860;
+levelPalandID = 0x800F3950;
+curSegmentSize = 0x800F3A30;
+cdata = 0x800F38A0;
 Player = 0x800FB820;
 D_8016ED20 = 0x8016ED20;
 D_8016EE18 = 0x8016EE18;
@@ -228,7 +719,7 @@ D_801AF18C = 0x801AF18C;
 D_801AF2A0 = 0x801AF2A0;
 D_801AF2A8 = 0x801AF2A8;
 D_801AF810 = 0x801AF810;
-D_801AF8C4 = 0x801AF8C4;
+D_801AF8C4 = 0x801AF8C4; 
 D_801AF8D8 = 0x801AF8D8;
 D_801AF8DC = 0x801AF8DC;
 D_801B52E0 = 0x801B52E0;
