@@ -53,7 +53,7 @@ typedef struct D_800F38A0_struct {
     u16 unk46;
 } D_800F38A0_struct;
 
-D_800F38A0_struct D_800F38A0; 
+D_800F38A0_struct D_800F38A0;
 
 extern u8 DoraFileHandle;
 extern const char DoraVersion[] = "DORA_0221_MRV10";
@@ -82,28 +82,30 @@ void func_80000800() {
 
     idx = func_80013DDC(D_800E6A20, 16);
 
-    D_800E6A20[idx].unk1 = 2;D_800E6A20[idx].unk2 = 1;D_800E6A20[idx].unk8 = 1;D_800E6A20[idx].unkC = 0;
+    D_800E6A20[idx].unk1 = 2;D_800E6A20[idx].unk2 = 1;D_800E6A20[idx].unk8 =
+1;D_800E6A20[idx].unkC = 0;
 
     idx = func_80013DDC(D_800E6A20, 16);
 
-    
-    D_800E6A20[idx].unk1 = 2;D_800E6A20[idx].unk2 = 1;D_800E6A20[idx].unk8 = 60;D_800E6A20[idx].unkC = 0;
+
+    D_800E6A20[idx].unk1 = 2;D_800E6A20[idx].unk2 = 1;D_800E6A20[idx].unk8 =
+60;D_800E6A20[idx].unkC = 0;
 
     idx = func_80013DDC(D_800E6A20, 16);
 
-    D_800E6A20[idx].unk1 = 3;D_800E6A20[idx].unkC = 3600;D_800E6A20[idx].unk2 = -1;D_800E6A20[idx].unk8 = 60;
+    D_800E6A20[idx].unk1 = 3;D_800E6A20[idx].unkC = 3600;D_800E6A20[idx].unk2 =
+-1;D_800E6A20[idx].unk8 = 60;
 
     func_80013DDC(D_800E6A20, 16);
     func_80013F00(&D_800F5FB0, &D_801BAAA0, &D_801BAA80);
     D_800F5FB0.unk1 = 0x14;
-    osCreatePiManager(OS_PRIORITY_PIMGR, &piMesgQueue, piMsg, ARRAY_COUNT(piMsg));
-    osCreateMesgQueue(&D_800E3F18, &D_800E3F30, 1);
+    osCreatePiManager(OS_PRIORITY_PIMGR, &piMesgQueue, piMsg,
+ARRAY_COUNT(piMsg)); osCreateMesgQueue(&D_800E3F18, &D_800E3F30, 1);
     osCreateMesgQueue(&D_800EDDD0, &D_800EDDE8, 1);
 }
 
-void createScheduler(InternalScheduler *sched, void *stack, OSPri priority, u8 mode, u8 numFields) {
-    sched->sc.curRSPTask = 0;
-    sched->sc.curRDPTask = 0;
+void createScheduler(InternalScheduler *sched, void *stack, OSPri priority, u8
+mode, u8 numFields) { sched->sc.curRSPTask = 0; sched->sc.curRDPTask = 0;
     sched->sc.clientList = 0;
     sched->sc.frameCount = 0;
     sched->sc.audioListHead = 0;
@@ -129,8 +131,8 @@ void createScheduler(InternalScheduler *sched, void *stack, OSPri priority, u8 m
     sched->unk290 = 0;
     sched->unk298 = 0;
 
-    osCreateThread(&sched->sc.thread, DORA_THREAD_SCHED_ID, func_80000BC0, (void *)sched, stack, priority);
-    osStartThread(&sched->sc.thread);
+    osCreateThread(&sched->sc.thread, DORA_THREAD_SCHED_ID, func_80000BC0, (void
+*)sched, stack, priority); osStartThread(&sched->sc.thread);
 }
 
 void osScAddClient(InternalScheduler *sched, OSScClient *c, OSMesgQueue *msgQ) {
@@ -203,8 +205,9 @@ void __scMain(void *arg) {
                 break;
 
             case (PRE_NMI_MSG):
-                for (client = sched->sc.clientList; client != 0; client = client->next) {
-                    osSendMesg(client->msgQ, (OSMesg)&sched->sc.prenmiMsg, OS_MESG_NOBLOCK);
+                for (client = sched->sc.clientList; client != 0; client =
+client->next) { osSendMesg(client->msgQ, (OSMesg)&sched->sc.prenmiMsg,
+OS_MESG_NOBLOCK);
                 }
                 break;
         }
@@ -224,19 +227,21 @@ void __scHandleRetrace(InternalScheduler* sched) {
 
     sched->sc.frameCount++;
 
-    while (osRecvMesg(&sched->sc.cmdQ, (OSMesg *)&rspTask, OS_MESG_NOBLOCK) != -1) {
+    while (osRecvMesg(&sched->sc.cmdQ, (OSMesg *)&rspTask, OS_MESG_NOBLOCK) !=
+-1) {
         __scAppendList(sched, rspTask);
     }
 
     if (sched->sc.doAudio && sched->sc.curRSPTask) {
         __scYield(sched);
     } else {
-        state = ((sched->sc.curRSPTask == 0) << 1) | (sched->sc.curRDPTask == 0);
-        if (__scSchedule(sched, &sp, &dp, state) != state) __scExec(sched, sp, dp);
+        state = ((sched->sc.curRSPTask == 0) << 1) | (sched->sc.curRDPTask ==
+0); if (__scSchedule(sched, &sp, &dp, state) != state) __scExec(sched, sp, dp);
     }
 
     for (client = sched->sc.clientList; client != 0; client = client->next) {
-        osSendMesg(client->msgQ, (OSMesg)&sched->sc.retraceMsg, OS_MESG_NOBLOCK);
+        osSendMesg(client->msgQ, (OSMesg)&sched->sc.retraceMsg,
+OS_MESG_NOBLOCK);
     }
 }
 
@@ -247,9 +252,9 @@ void __scHandleRSP(InternalScheduler* sched)
 
     t = sched->sc.curRSPTask;
     sched->sc.curRSPTask = 0;
-    
 
-    
+
+
     if ((t->state & OS_SC_YIELD) && osSpTaskYielded(&t->list)) {
         t->state |= OS_SC_YIELDED;
 
@@ -260,7 +265,7 @@ void __scHandleRSP(InternalScheduler* sched)
                 sched->sc.gfxListTail = t;
         }
 
-        
+
     } else {
         t->state &= ~OS_SC_NEEDS_RSP;
         __scTaskComplete(sched, t);
@@ -283,7 +288,7 @@ void __scHandleRDP(InternalScheduler* sched) {
     }
     else{
         sched->unk288 = -(sched->sc.unk284 - t->unk58);
-        
+
     }
 
 
@@ -292,16 +297,17 @@ void __scHandleRDP(InternalScheduler* sched) {
     __scTaskComplete(sched, t);
 
     state = ((sched->sc.curRSPTask == 0) << 1) | (sched->sc.curRDPTask == 0);
-    if ((__scSchedule(sched, &sp, &dp, state)) != state) __scExec(sched, sp, dp);
+    if ((__scSchedule(sched, &sp, &dp, state)) != state) __scExec(sched, sp,
+dp);
 }
 
-OSScTask *__scTaskReady(OSScTask *t) 
+OSScTask *__scTaskReady(OSScTask *t)
 {
     int rv = 0;
     void *a;
-    void *b;    
+    void *b;
 
-    if (t) {    
+    if (t) {
         if ((a=osViGetCurrentFramebuffer()) != (b=osViGetNextFramebuffer())) {
             return 0;
         }
@@ -328,13 +334,13 @@ s32 __scTaskComplete(InternalScheduler *sched, OSScTask *t) {
                 }
                 if(D_8015A392 & 2){
                     s32 i;
-                    
+
                     u16* ptr;
                     s32 ts2;
                     char buf[34];
-                    
+
                     void* fb = t->framebuffer;
-                    
+
                     sprintf(buf, "Version. %s", DoraVersion);
                     func_80003364(fb,16,12,buf);
                     if(D_800F3944->unk8 != 0){
@@ -343,34 +349,32 @@ s32 __scTaskComplete(InternalScheduler *sched, OSScTask *t) {
                         sprintf(buf, "Item : 0x%llx", DoraItem);
                         func_80003364(fb,16,28,buf);
                         func_80003364(fb,16,36,"Event :");
-                        
+
                         ptr = (u16*)&D_800F38A0;
                         for(i = 0,ts2 = 44; i < 18; i++){
-                            sprintf(buf, "[%d] : 0x%x", i, ((D_800F38A0_struct*)ptr)->unk46);
-                            func_80003364(fb, 0x20, ts2, buf);
-                            ptr++;
-                            ts2 += 8;
+                            sprintf(buf, "[%d] : 0x%x", i,
+((D_800F38A0_struct*)ptr)->unk46); func_80003364(fb, 0x20, ts2, buf); ptr++; ts2
++= 8;
                         }
                     }
                     else if(D_800F3944->unk0 != 0){
-                        sprintf(buf,"RAM SIZE : 0x%lx (%d)", DoraRamSize, DoraRamSize);
-                        func_80003364(fb,16,28,buf);
-                        sprintf(buf,"ROM SIZE : 0x%lx (%d)", DoraRomSize, DoraRomSize);
-                        func_80003364(fb,16,36,buf);
+                        sprintf(buf,"RAM SIZE : 0x%lx (%d)", DoraRamSize,
+DoraRamSize); func_80003364(fb,16,28,buf); sprintf(buf,"ROM SIZE : 0x%lx (%d)",
+DoraRomSize, DoraRomSize); func_80003364(fb,16,36,buf);
                     }
                     else{
                         sprintf(buf, "TexRec num : %d",DoraTexrecNum);
                         func_80003364(fb,16,28,buf);
                         sprintf(buf, "CFB render : 0x%x", D_800E69C0.unkE);
                         func_80003364(fb,16,36,buf);
-                        
+
                         sprintf(buf, "SYS CALL : 0x%x", D_800E69C0.unkD);
                         func_80003364(fb,16,44,buf);
-                        
-                        
+
+
                     }
                 }
-                osViSwapBuffer(t->framebuffer); 
+                osViSwapBuffer(t->framebuffer);
             }
         }
         return 1;
@@ -423,7 +427,8 @@ void __scExec(InternalScheduler *sched, OSScTask *sp, OSScTask *dp) {
     }
 
     if (dp && (dp != sp)) {
-        rv = osDpSetNextBuffer(dp->list.t.output_buff, *dp->list.t.output_buff_size);
+        rv = osDpSetNextBuffer(dp->list.t.output_buff,
+*dp->list.t.output_buff_size);
 
         dp_busy = 1;
         dpCount = 0;
@@ -442,9 +447,8 @@ void __scYield(InternalScheduler *sched) {
     }
 }
 
-s32 __scSchedule(InternalScheduler* sched, OSScTask **sp, OSScTask **dp, s32 availRCP) {
-    s32 avail = availRCP;
-    OSScTask *gfx = sched->sc.gfxListHead;
+s32 __scSchedule(InternalScheduler* sched, OSScTask **sp, OSScTask **dp, s32
+availRCP) { s32 avail = availRCP; OSScTask *gfx = sched->sc.gfxListHead;
     OSScTask *audio = sched->sc.audioListHead;
 
     if (sched->sc.doAudio && (avail & OS_SC_SP)) {
@@ -463,7 +467,7 @@ s32 __scSchedule(InternalScheduler* sched, OSScTask **sp, OSScTask **dp, s32 ava
             switch (gfx->flags & OS_SC_TYPE_MASK) {
                 case (OS_SC_XBUS):
                     if (gfx->state & OS_SC_YIELDED) {
-                    
+
 
                         if (avail & OS_SC_SP) {
                             *sp = gfx;
@@ -477,14 +481,16 @@ s32 __scSchedule(InternalScheduler* sched, OSScTask **sp, OSScTask **dp, s32 ava
                             }
 
                             sched->sc.gfxListHead = sched->sc.gfxListHead->next;
-                            if (sched->sc.gfxListHead == NULL) sched->sc.gfxListTail = NULL;
+                            if (sched->sc.gfxListHead == NULL)
+sched->sc.gfxListTail = NULL;
                         }
                     } else {
                         if (avail == (OS_SC_SP | OS_SC_DP)) {
                             *sp = *dp = gfx;
                             avail &= ~(OS_SC_SP | OS_SC_DP);
                             sched->sc.gfxListHead = sched->sc.gfxListHead->next;
-                            if (sched->sc.gfxListHead == NULL) sched->sc.gfxListTail = NULL;
+                            if (sched->sc.gfxListHead == NULL)
+sched->sc.gfxListTail = NULL;
                         }
                     }
 
@@ -503,7 +509,8 @@ s32 __scSchedule(InternalScheduler* sched, OSScTask **sp, OSScTask **dp, s32 ava
                             *dp = gfx;
                             avail &= ~OS_SC_DP;
                             sched->sc.gfxListHead = sched->sc.gfxListHead->next;
-                            if (sched->sc.gfxListHead == NULL) sched->sc.gfxListTail = NULL;
+                            if (sched->sc.gfxListHead == NULL)
+sched->sc.gfxListTail = NULL;
                         }
                     }
                     break;

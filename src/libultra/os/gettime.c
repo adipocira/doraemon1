@@ -1,16 +1,16 @@
-#include "ultra64.h"
 #include "PRInternal/osint.h"
+#include "ultra64.h"
 
 OSTime osGetTime() {
-    u32 tmptime;
-    u32 elapseCount;
-    OSTime currentCount;
-    register u32 saveMask;
+  u32 tmptime;
+  u32 elapseCount;
+  OSTime currentCount;
+  register u32 saveMask;
 
-    saveMask = __osDisableInt();
-    tmptime = osGetCount();
-    elapseCount = tmptime - __osBaseCounter;
-    currentCount = __osCurrentTime;  
-    __osRestoreInt(saveMask);
-    return currentCount + elapseCount;
+  saveMask = __osDisableInt();
+  tmptime = osGetCount();
+  elapseCount = tmptime - __osBaseCounter;
+  currentCount = __osCurrentTime;
+  __osRestoreInt(saveMask);
+  return currentCount + elapseCount;
 }
