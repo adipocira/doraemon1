@@ -26,8 +26,12 @@ __scAppendList = 0x80001368 ;
 __scExec = 0x800013D4 ;
 __scYield = 0x800014A8 ;
 __scSchedule = 0x800014E4 ;        
+ovlCheckSize = 0x800036D0;
+level_updateLifesFromBells = 0x8000BAD0;
 level_8000C930 = 0x8000C930;   
 stubbed_printf = 0x80011884;
+level_drawSprite = 0x80080F10;
+level_spriteMoveSpace = 0x80080FCC;
 
 // initialize.c 
 
@@ -127,9 +131,9 @@ osViGetCurrentFramebuffer = 0x8008B000;
 
 osSendMesg = 0x8008B040;
 
-// spgetstat.c
+// sptaskyielded.c
 
-__osSpGetStatus = 0x8008B190;
+osSpTaskYielded = 0x8008B190;
 
 //
 
@@ -514,9 +518,50 @@ alSynFreeVoice = 0x80091130;
 
 //
 
+// synsetvol.c
+
+alSynSetVol = 0x800911E0;
+
+//
+
+// synsetpitch.c 
+
+alSynSetPitch = 0x80091280;
+
+//
+
+// synallocvoice.c
+
+_allocatePVoice = 0x80091310;
+alSynAllocVoice = 0x800913F8;
+
+// 
+
+// synstartvoiceparam.c
+
+alSynStartVoiceParams = 0x80091540;
+
+//
+
+// synsetfxmix.c
+
+alSynSetFXMix = 0x80091630;
+
+//
+
+// visetspecial.c
+
+osViSetSpecialFeatures = 0x800916D0;
+
 // writebackdcache.s
 
 osWritebackDCache = 0x80091890;
+
+//
+
+// piread.c
+
+osPiReadIo = 0x80091910;
 
 //
 
@@ -540,8 +585,23 @@ __ll_rshift = 0x80092294;
 
 //
 
+// sp.c
+
+spFinish = 0x800924D0;
+spDraw = 0x80093C54;
+spInit = 0x800949C0;
+
+//
+
 osEepromWrite = 0x80094B20;
 __osEepStatus = 0x80094DDC;
+
+
+// settimer.c
+
+osSetTimer = 0x80095000;
+
+//
 
 // getsr.s
 

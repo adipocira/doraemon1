@@ -74,6 +74,9 @@ segments:
 
       - [0xE6D0, asm, zzGame]
       - [0x11DF0, asm, 11DF0]
+
+      - [0x8A910, asm, libultra/io/conteeplongwrite]
+      - [0x8AA50, asm, libultra/io/conteeplongread]
       
       - [0x8AB90, c, libultra/os/initialize]
       - [0x8AE30, c, libultra/os/createthread]
@@ -102,7 +105,7 @@ segments:
 
       - [0x8BC40, asm, libultra/os/sendmesg]
 
-      - [0x8BD90, asm, libultra/io/spgetstat]
+      - [0x8BD90, asm, libultra/io/sptaskyielded]
       - [0x8BE10, asm, libultra/io/vigetnextframebuf]
 
       - [0x8BE50, asm, libultra/libc/sprintf]
@@ -126,9 +129,7 @@ segments:
       - [0x8D0E0, asm, libultra/gu/sinf]
       - [0x8D2A0, asm, libultra/gu/cosf] 
       - [0x8D410, asm, libultra/gu/sqrtf]
-
       - [0x8D420, asm, libultra/gu/perspective] 
-
       - [0x8D6B0, asm, libultra/gu/lookat] 
 
       - [0x8D9E0, asm, libultra/audio/heapinit] 
@@ -175,16 +176,109 @@ segments:
       - [0x91C60, asm, libultra/audio/synaddplayer]
       - [0x91CB0, asm, libultra/audio/synstopvoice]
       - [0x91D30, asm, libultra/audio/synfreevoice]
-      - [0x91E80, asm, libultra/audio/synsetvol]
-#      - [0x91F10, asm, libultra/audio/synsetpitch]
-#      - [0x91FF8, asm, libultra/libultra/libultra1]
-#      - [0x92140, asm, libultra/libultra1]
-      - [0x91F10, asm, libultra/libultra1]
+      - [0x91DE0, asm, libultra/audio/synsetvol]
+      - [0x91E80, asm, libultra/audio/synsetpitch]
+      - [0x91F10, asm, libultra/audio/synallocvoice]
+      - [0x92140, asm, libultra/audio/synstartvoiceparam]
+      - [0x92230, asm, libultra/audio/synsetfxmix]
 
+      - [0x922D0, asm, libultra/io/visetspecial]
+
+      - [0x92490, asm, libultra/os/writebackdcache] #hasm
+
+      - [0x92510, asm, libultra/io/piread]
+
+      - [0x92550, asm, libultra/os/getcount] #hasm
+
+      - [0x925A0, asm, libultra/gu/translate]
+      - [0x92640, asm, libultra/gu/mtxutil]
+      - [0x928B0, asm, libultra/gu/scale]
+      - [0x92950, asm, libultra/gu/rotate]
+      - [0x92B40, asm, libultra/gu/mtxcatl]
 
       - [0x92C00, c, libultra/libc/ll]
-      - [0x92EC0, asm, libultra/libultra2]
+      
+      - [0x92EC0, asm, libultra/gu/mtxcatf]
 
+      - [0x930D0, asm, libultra/sp/sprite]
+
+      - [0x95720, asm, libultra/io/conteepwrite]
+
+      - [0x95C00, asm, libultra/os/settimer]
+
+      - [0x95CE0, asm, libultra/io/conteepread]
+
+      - [0x95FE0, asm, libultra/os/setsr]
+      - [0x95FF0, asm, libultra/os/getsr]
+      - [0x96000, asm, libultra/os/setfpccsr]
+
+      - [0x96010, asm, libultra/io/sirawread]
+      - [0x96060, asm, libultra/io/sirawwrite]
+
+      - [0x960B0, asm, libultra/os/exceptasm]
+      - [0x969B0, asm, libultra/os/invalicache]
+      - [0x96A30, asm, libultra/os/maptlbrdb]
+
+      - [0x96A90, asm, libultra/io/pirawread]
+
+      - [0x96AF0, asm, libultra/libc/bzero]
+
+      - [0x96B90, asm, libultra/os/sethwinterrupt]
+
+      - [0x96BE0, asm, libultra/io/leointerrupt]
+
+      - [0x97460, asm, libultra/os/interrupt]
+      - [0x974A0, asm, libultra/os/thread]
+
+      - [0x974E0, asm, libultra/io/piacs]
+
+      - [0x975A0, asm, libultra/os/getthreadpri]
+
+      - [0x975C0, asm, libultra/io/pirawdma]
+      - [0x976A0, asm, libultra/io/epirawdma]
+      - [0x97780, asm, libultra/io/devmgr]
+
+      - [0x97B30, asm, libultra/os/timerintr]
+
+      - [0x97F30, asm, libultra/io/vi]
+      - [0x98080, asm, libultra/io/vigetcurrcontext]
+      - [0x98090, asm, libultra/io/viswapcontext]
+      - [0x983F0, asm, libultra/io/spgetstat]
+
+      - [0x98400, asm, libultra/libc/xprintf]
+      - [0x990C0, asm, libultra/libc/string]
+      - [0x99160, asm, libultra/libc/bcopy]
+
+
+      - [0x99470, asm, libultra/io/spsetstat]
+      - [0x99480, asm, libultra/io/spsetpc]
+      - [0x994C0, asm, libultra/io/sprawdma]
+      - [0x99550, asm, libultra/io/sp]
+      - [0x99580, asm, libultra/io/dp]
+      - [0x995B0, asm, libultra/io/siacs]
+      - [0x99670, asm, libultra/io/sirawdma]
+      - [0x99720, asm, libultra/io/contpfs]
+      - [0x9A370, asm, libultra/io/pfschecker]
+      - [0x9ADE0, asm, libultra/io/pfsisplug]
+      - [0x9B110, asm, libultra/io/contramread]
+
+      - [0x9B480, asm, libultra/audio/syndelete]
+
+      - [0x9B490, asm, libultra/os/probetlb]
+
+      - [0x9B550, asm, libultra/io/ai]
+
+      - [0x9B580, asm, libultra/audio/drvnew]
+      - [0x9BD20, asm, libultra/audio/synallocfx]
+      - [0x9BDC0, asm, libultra/audio/mainbus]
+      - [0x9BF10, asm, libultra/audio/load]
+
+      - [0x9CA60, asm, libultra/libultra2]
+
+
+
+
+ 
       - [0xA0760, data]
 
       - [0xBF5C0, .data, libultra/os/initialize]
