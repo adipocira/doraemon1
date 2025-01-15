@@ -8,10 +8,13 @@ osAppNMIBuffer = 0x8000031C;
 
 entry = 0x80000400;
 bootproc = 0x80000450;
+
 idle_entry = 0x800004C0;
 main_entry = 0x80000550;
 main_entry_sub = 0x80000570;
-func_80000800  = 0x80000800;
+
+PI_startPI  = 0x80000800;
+
 createScheduler = 0x80000990;
 osScAddClient = 0x80000AE0;
 osScRemoveClient = 0x80000B30;
@@ -757,8 +760,9 @@ D_800C62E0 = 0x800C62E0; // type:asciz
 D_800CA210 = 0x800CA210;
 
 idle_thread = 0x800DC4E0;
-idle_stack = 0x800E46A0;
+idle_stack = 0x800DC6A0;
 main_thread = 0x800DD6A0;
+main_stack = 0x800DD860;
 controller_thread = 0x800DE860;
 levelPalandID = 0x800F3950;
 curSegmentSize = 0x800F3A30;

@@ -1,9 +1,10 @@
 #include "boot.h"
 #include "idle.h"
 #include "thread.h"
+#include "3930.h"
 
 InternalThread idle_thread;
-u8 idle_stack[800]; // size to determine
+u8 idle_stack[0x1000];
 
 void boot_proc(void* arg) {
     osInitialize();
