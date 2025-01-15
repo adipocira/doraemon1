@@ -49,6 +49,7 @@ OBJCOPY         := $(MIPS_BINUTILS_PREFIX)objcopy
 OBJDUMP         := $(MIPS_BINUTILS_PREFIX)objdump
 NM              := $(MIPS_BINUTILS_PREFIX)nm
 
+
 ASM_LIB_DIRS:= asm/libultra asm/libultra/libc asm/libultra/io asm/libultra/os asm/libultra/gu asm/libultra/audio asm/libultra/sp
 ASM_DIRS += $(ASM_LIB_DIRS)
 ASM_DIRS += asm asm/makerom asm/data
@@ -57,6 +58,11 @@ SRC_DIRS := $(shell find src -type d)
 
 ICONV           := iconv
 ICONV_FLAGS     := --from-code=UTF-8 --to-code=SHIFT-JIS
+
+ASM_PROC_DIR	:= tools/asm_processor
+ASM_PROC		:= python3 $(ASM_PROC_DIR)/build.py
+
+ASM_PROC_FLAGS  := --input-enc=utf-8 --output-enc=shift-jis
 
 OBJDUMP_FLAGS := -d -r -z -Mreg-names=32
 
@@ -68,7 +74,11 @@ O_FILES := $(foreach file,$(C_FILES),$(BUILD_DIR)/$(file:.c=.o)) \
            $(foreach file,$(S_FILES),$(BUILD_DIR)/$(file:.s=.o)) \
            $(foreach file,$(DATA_FILES),$(BUILD_DIR)/$(file:.bin=.o)) \
 
-INCLUDE_CFLAGS = -I . -I include -I lib/libultra -I lib/libulra/libc
+# Automatic dependency files
+DEP_FILES := $(O_FILES:.o=.d) \
+             $(O_FILES:.o=.asmproc.d)
+
+INCLUDE_CFLAGS = -I. -I include -I lib/libultra -I lib/libulra/libc
 
 OPT_FLAGS 	:= -mips2 -O2 
 C_FLAGS		:= -o32
@@ -113,6 +123,10 @@ postsplitdirs:
 
 setup: dirs split postsplitdirs
 
+# cc & asm-processor
+build/src/%.o: CC := $(ASM_PROC) $(ASM_PROC_FLAGS) $(CC) -- $(AS) $(AS_FLAGS) --
+
+
 $(BUILD_DIR)/src/libultra/libc/%.o: src/libultra/libc/%.c
 	@$(CC) -c $(C_FLAGS) $(OPT_FLAGS) -o $@ $<
 	@printf "[$(GREEN)  ido5.3  $(NO_COL)]  $<\n"
@@ -140,6 +154,8 @@ $(ROM).bin: $(ROM).elf
 
 $(ROM): $(ROM).bin
 	@cp $< $@
+
+-include $(DEP_FILES)
 
 ### Settings
 .SECONDARY:
