@@ -3,8 +3,6 @@
 #include "pistart.h"
 #include "thread.h"
 
-InternalThread main_thread;
-u8 main_stack[0x1000];
 
 void main_entry(void *);
 

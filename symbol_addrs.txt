@@ -760,7 +760,7 @@ D_800C62E0 = 0x800C62E0; // type:asciz
 D_800CA210 = 0x800CA210;
 
 idle_thread = 0x800DC4E0;
-idle_stack = 0x800DC6A0;
+idle_stack = 0x800E36A0;
 main_thread = 0x800DD6A0;
 main_stack = 0x800DD860;
 controller_thread = 0x800DE860;

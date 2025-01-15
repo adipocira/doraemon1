@@ -19,4 +19,9 @@ typedef struct InternalThread {
 #define DORA_THREAD_SCHED_ID 4
 #define DORA_THREAD_SCHED_PRIORITY 100
 
+extern InternalThread main_thread;
+extern u8 main_stack[0x1000];
+extern InternalThread idle_thread;
+extern u8 idle_stack[0x1000];
+
 #endif
