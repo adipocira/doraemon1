@@ -66,12 +66,12 @@ segments:
     subsegments:
       - [0x1050, c, boot]
       - [0x10C0, c, idle]
-      - [0x1400, asm, pistart]
+      - [0x1400, c, pistart]
       - [0x1590, asm, scheduler]
       - [0x22D0, asm, controller]
       - [0x2AF0, asm, 2AF0]
       - [0x3070, asm, save_file]
-      - [0x3930, asm, misc]
+      - [0x3930, c, misc]
       - [0x3A30, asm, 3A30]
 
 
@@ -293,6 +293,9 @@ segments:
       - { start: 0xCAE10, type: bss, vram: 0x800CA210, name: CAE10 }
       - { start: 0xCAE10, type: .bss, vram: 0x800DC4E0, name: threads}
       - { start: 0xCAE10, type: bss, vram: 0x800E3BE0, name: 800E3BE0}
+      - { start: 0xCAE10, type: .bss, vram: 0x800F03F0, name: misc}
+      - { start: 0xCAE10, type: bss, vram: 0x800F0400, name: 800F0400}
+
       - { start: 0x16C080, type: .bss, vram: 0x8016B480, name: libultra/os/initialize }
       - { start: 0x16C090, type: bss, vram: 0x8016B490, name: 16C090}
       - { start: 0x16E480, type: .bss, vram: 0x8016D880, name: libultra/os/seteventmesg}

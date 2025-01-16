@@ -28,7 +28,15 @@ __scTaskComplete = 0x80001084 ;
 __scAppendList = 0x80001368 ;
 __scExec = 0x800013D4 ;
 __scYield = 0x800014A8 ;
-__scSchedule = 0x800014E4 ;        
+__scSchedule = 0x800014E4 ;   
+
+// misc.c
+
+parse_args = 0x80002D30;
+args_d_option = 0x800F03F0;
+
+//
+
 ovlCheckSize = 0x800036D0;
 level_updateLifesFromBells = 0x8000BAD0;
 level_8000C930 = 0x8000C930;   
