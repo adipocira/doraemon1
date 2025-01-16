@@ -22,6 +22,6 @@ typedef struct InternalThread {
 extern InternalThread main_thread;
 extern u8 main_stack[0x1000];
 extern InternalThread idle_thread;
-extern u8 idle_stack[0x1000];
+extern u8 idle_stack[0x540];
 
 #endif

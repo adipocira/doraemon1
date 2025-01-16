@@ -71,7 +71,9 @@ segments:
       - [0x22D0, asm, controller]
       - [0x2AF0, asm, 2AF0]
       - [0x3070, asm, save_file]
-      - [0x3930, asm, 3930]
+      - [0x3930, asm, misc]
+      - [0x3A30, asm, 3A30]
+
 
       - [0xE6D0, asm, zzGame]
       - [0x11DF0, asm, 11DF0]
