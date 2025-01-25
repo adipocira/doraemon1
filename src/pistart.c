@@ -6,6 +6,7 @@
 void PI_startPI() {
     s32 i;
     s32 idx;
+    
     func_80003710_loadSegments();
 
     for (i = 0; i < 0x25800; i++) {

@@ -50,7 +50,7 @@ OBJDUMP         := $(MIPS_BINUTILS_PREFIX)objdump
 NM              := $(MIPS_BINUTILS_PREFIX)nm
 
 
-ASM_LIB_DIRS:= asm/libultra asm/libultra/libc asm/libultra/io asm/libultra/os asm/libultra/gu asm/libultra/audio asm/libultra/sp
+ASM_LIB_DIRS:= asm/libultra asm/libultra/libc asm/libultra/io asm/libultra/os asm/libultra/gu asm/libultra/audio asm/libultra/sp asm/rsp
 ASM_DIRS += $(ASM_LIB_DIRS)
 ASM_DIRS += asm asm/makerom asm/data
 DATA_DIRS := assets assets/makerom

@@ -38,8 +38,8 @@
 #define OS_SC_RETRACE_MSG       1
 #define OS_SC_DONE_MSG          2
 #define OS_SC_RDP_DONE_MSG      3
-#define OS_SC_PRE_NMI_MSG       4
-#define OS_SC_LAST_MSG          4	/* this should have highest number */
+#define OS_SC_PRE_NMI_MSG       5
+#define OS_SC_LAST_MSG          5	/* this should have highest number */
 #define OS_SC_MAX_MESGS         8
 
 typedef struct {

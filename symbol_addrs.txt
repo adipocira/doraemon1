@@ -38,6 +38,35 @@ args_d_option = 0x800F03F0;
 //
 
 ovlCheckSize = 0x800036D0;
+
+// audiomgr.c
+
+amCreateAudioMgr = 0x80006AA0;
+__amMain = 0x80006D94;
+__amHandleFrameMsg = 0x80006EE0;
+__amHandleDoneMsg = 0x80007090;
+__amDMA = 0x800070D0;
+__amDmaNew = 0x80007268;
+__clearAudioDMA = 0x800072A0;
+
+audFrameCt = 0x800ABCE0;
+nextDMA = 0x800ABCE4;
+curAcmdList = 0x800ABCE8;
+D_800ABCEC = 0x800ABCEC;
+
+__am = 0x800F0A00;
+dmaState = 0x800F2CE8;
+dmaBuffs = 0x800F2CF8;
+minFrameSize = 0x800F2F50;
+frameSize = 0x800F2F54;
+maxFrameSize = 0x800F2F58;
+maxRSPCmds = 0x800F2F5C;
+audDMAIOMesgBuf = 0x800F2F60;
+audDMAMessageQ = 0x800F3320;
+audDMAMessageBuf = 0x800F3338;
+
+//
+
 level_updateLifesFromBells = 0x8000BAD0;
 level_8000C930 = 0x8000C930;   
 stubbed_printf = 0x80011884;
@@ -724,6 +753,9 @@ osPfsChecker = 0x80099770;
 
 //
 
+sc = 0x800E3FC8;
+sched_cmdQ = 0x800E6268;
+
 // timerintr.c
 
 __osCurrentTime = 0x8016EA70; // type:s64
@@ -739,7 +771,9 @@ _Litob = 0x8009DB10;
 
 
 rspbootTextStart = 0x8009FB60; // name_end:rspbootTextEnd
-D_800A82D3 = 0x800A82D3;
+D_800A1030 = 0x800A1030;
+aspMainTextStart = 0x800A74B0; // name_end:aspMainTextEnd
+D_800A82D0 = 0x800A82D0;
 D_800A82F0 = 0x800A82F0; // type:asciz
 D_800ABD01 = 0x800ABD01;
 D_800AC062 = 0x800AC062;
@@ -765,8 +799,9 @@ D_800C3CD0 = 0x800C3CD0; // type:asciz
 D_800C3EF0 = 0x800C3EF0; // type:asciz
 D_800C4590 = 0x800C4590; // type:asciz
 D_800C62E0 = 0x800C62E0; // type:asciz
-D_800CA210 = 0x800CA210;
+aspMainDataStart = 0x800C9F50; // name_end:aspMainDataEnd
 
+D_800CA210 = 0x800CA210;
 idle_thread = 0x800DC4E0;
 idle_stack = 0x800E36A0;
 main_thread = 0x800DD6A0;

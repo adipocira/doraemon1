@@ -74,6 +74,8 @@ segments:
       - [0x3930, c, misc]
       - [0x3A30, asm, 3A30]
 
+      - [0x76A0, c, audiomgr]
+      - [0x7FC0, asm]
 
       - [0xE6D0, asm, zzGame]
       - [0x11DF0, asm, 11DF0]
@@ -282,7 +284,12 @@ segments:
 
 
  
-      - [0xA0760, data]
+      - [0xA0760, data, rspboot]
+      - [0xA0830, data]
+      
+      - [0xAC8E0, .data, audiomgr]
+
+      - [0xAC900, data]
 
       - [0xBF5C0, .data, libultra/os/initialize]
 
@@ -295,7 +302,8 @@ segments:
       - { start: 0xCAE10, type: bss, vram: 0x800E3BE0, name: 800E3BE0}
       - { start: 0xCAE10, type: .bss, vram: 0x800F03F0, name: misc}
       - { start: 0xCAE10, type: bss, vram: 0x800F0400, name: 800F0400}
-
+      - {start : 0xCAE10, type: .bss, vram: 0x800F0A00, name: audiomgr}
+      - {start : 0xCAE10, type: bss, vram: 0x800F33E0, name: 800F33E0}
       - { start: 0x16C080, type: .bss, vram: 0x8016B480, name: libultra/os/initialize }
       - { start: 0x16C090, type: bss, vram: 0x8016B490, name: 16C090}
       - { start: 0x16E480, type: .bss, vram: 0x8016D880, name: libultra/os/seteventmesg}
