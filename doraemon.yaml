@@ -74,11 +74,14 @@ segments:
       - [0x3930, c, misc]
       - [0x3A30, asm, 3A30]
 
+      - [0x71B0, asm, audio]
       - [0x76A0, c, audiomgr]
       - [0x7FC0, asm]
 
       - [0xE6D0, asm, zzGame]
-      - [0x11DF0, asm, 11DF0]
+      - [0x11DF0, c, 11DF0]
+      - [0x11F10, asm, 11F10]
+      - [0x12250, asm, 12250]
 
       - [0x8A910, asm, libultra/io/conteeplongwrite]
       - [0x8AA50, asm, libultra/io/conteeplongread]
@@ -300,6 +303,8 @@ segments:
       - { start: 0xCAE10, type: bss, vram: 0x800CA210, name: CAE10 }
       - { start: 0xCAE10, type: .bss, vram: 0x800DC4E0, name: threads}
       - { start: 0xCAE10, type: bss, vram: 0x800E3BE0, name: 800E3BE0}
+      - { start: 0xCAE10, type: .bss, vram: 0x800E3F10, name: 11DF0}
+      - { start: 0xCAE10, type: bss, vram: 0x800E3F30, name: 800E3F30}
       - { start: 0xCAE10, type: .bss, vram: 0x800F03F0, name: misc}
       - { start: 0xCAE10, type: bss, vram: 0x800F0400, name: 800F0400}
       - {start : 0xCAE10, type: .bss, vram: 0x800F0A00, name: audiomgr}

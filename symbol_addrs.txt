@@ -69,6 +69,18 @@ audDMAMessageBuf = 0x800F3338;
 
 level_updateLifesFromBells = 0x8000BAD0;
 level_8000C930 = 0x8000C930;   
+
+
+// 11DF0.c
+
+romCopy = 0x800111F0;
+func_80011264 = 0x80011264;
+func_800112DC = 0x800112DC;
+dmaMessageBuf = 0x800E3F10;
+dmaMessageQ = 0x800E3F18;
+
+//
+
 stubbed_printf = 0x80011884;
 level_drawSprite = 0x80080F10;
 level_spriteMoveSpace = 0x80080FCC;
