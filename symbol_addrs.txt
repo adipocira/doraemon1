@@ -94,6 +94,18 @@ bit_file = 0x800F5E90;
 
 //
 
+// ahuff.c
+
+ExpandFile = 0x80011890;
+InitializeTree = 0x8001194C;
+DecodeSymbol = 0x800119D4;
+UpdateModel = 0x80011A7C;
+RebuildTree = 0x80011B4C;
+swap_nodes = 0x80011D20;
+add_new_node = 0x80011E38;
+
+//
+
 level_drawSprite = 0x80080F10;
 level_spriteMoveSpace = 0x80080FCC;
 

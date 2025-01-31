@@ -82,7 +82,7 @@ segments:
       - [0x11DF0, c, 11DF0]
       - [0x11F10, asm, 11F10]
       - [0x12250, c, bitio]
-      - [0x12490, asm, ahuff]
+      - [0x12490, c, ahuff]
       - [0x12AC0, asm, zzTeller]
 
       - [0x8A910, asm, libultra/io/conteeplongwrite]
@@ -303,8 +303,10 @@ segments:
       - [0xC0870, rodata]
 
       - [0xC2130, .rodata, bitio]
-      
-      - [0xC2170, rodata]
+      - [0xC2170, .rodata, ahuff]
+
+      - [0xC2190, rodata]
+
 
       - { start: 0xCAE10, type: bss, vram: 0x800CA210, name: CAE10 }
       - { start: 0xCAE10, type: .bss, vram: 0x800DC4E0, name: threads}
