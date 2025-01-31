@@ -81,7 +81,19 @@ dmaMessageQ = 0x800E3F18;
 
 //
 
-stubbed_printf = 0x80011884;
+// bitio.c
+
+OpenInputBitFile = 0x80011650;
+InputBit = 0x8001166C;
+InputBits = 0x800116FC;
+getc = 0x800117D4;
+putc = 0x800117E8;
+memmove = 0x80011810;
+fatal_error = 0x80011884;
+bit_file = 0x800F5E90;
+
+//
+
 level_drawSprite = 0x80080F10;
 level_spriteMoveSpace = 0x80080FCC;
 

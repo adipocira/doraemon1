@@ -81,7 +81,9 @@ segments:
       - [0xE6D0, asm, zzGame]
       - [0x11DF0, c, 11DF0]
       - [0x11F10, asm, 11F10]
-      - [0x12250, asm, 12250]
+      - [0x12250, c, bitio]
+      - [0x12490, asm, ahuff]
+      - [0x12AC0, asm, zzTeller]
 
       - [0x8A910, asm, libultra/io/conteeplongwrite]
       - [0x8AA50, asm, libultra/io/conteeplongread]
@@ -300,6 +302,10 @@ segments:
 
       - [0xC0870, rodata]
 
+      - [0xC2130, .rodata, bitio]
+      
+      - [0xC2170, rodata]
+
       - { start: 0xCAE10, type: bss, vram: 0x800CA210, name: CAE10 }
       - { start: 0xCAE10, type: .bss, vram: 0x800DC4E0, name: threads}
       - { start: 0xCAE10, type: bss, vram: 0x800E3BE0, name: 800E3BE0}
@@ -309,6 +315,8 @@ segments:
       - { start: 0xCAE10, type: bss, vram: 0x800F0400, name: 800F0400}
       - {start : 0xCAE10, type: .bss, vram: 0x800F0A00, name: audiomgr}
       - {start : 0xCAE10, type: bss, vram: 0x800F33E0, name: 800F33E0}
+      - {start: 0xCAE10, type: .bss, vram: 0x800F5E90, name: bitio}
+      - {start: 0xCAE10, type: bss, vram: 0x800F5EA0, name: 800F5EA0}
       - { start: 0x16C080, type: .bss, vram: 0x8016B480, name: libultra/os/initialize }
       - { start: 0x16C090, type: bss, vram: 0x8016B490, name: 16C090}
       - { start: 0x16E480, type: .bss, vram: 0x8016D880, name: libultra/os/seteventmesg}
