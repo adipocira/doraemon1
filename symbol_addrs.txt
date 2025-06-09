@@ -33,7 +33,7 @@ __scSchedule = 0x800014E4 ;
 // misc.c
 
 parse_args = 0x80002D30;
-args_d_option = 0x800F03F0;
+debugger = 0x800F03F0;
 
 //
 

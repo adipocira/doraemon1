@@ -1,6 +1,6 @@
 #include "misc.h"
 
-s32 args_d_option;
+s32 debugger;
 
 void parse_args(char* argv) {
     s32 argc = 1;
@@ -35,7 +35,7 @@ void parse_args(char* argv) {
     while (argc >= 2 && *bufptr[1] == '-') {
         switch ((bufptr[1][1])) {
             case 'd':
-                args_d_option = TRUE;
+                debugger = TRUE;
                 break;
         }
         argc--;

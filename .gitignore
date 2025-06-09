@@ -6,6 +6,8 @@ asm/
 assets/
 expected/
 
+.venv/*
+
 # files
 *.z64
 *.o
