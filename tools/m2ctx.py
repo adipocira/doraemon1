@@ -20,7 +20,6 @@ CPP_FLAGS = [
     "-Ilib/libultra/",
 
     "-D_LANGUAGE_C",
-    "-DF3D_OLD",
     "-D__USE_ISOC99",
     "-DNDEBUG",
     "-D_FINALROM",
