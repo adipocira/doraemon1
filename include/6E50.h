@@ -9,6 +9,7 @@ typedef struct _80006250_arg1 {
     f32 near;
     f32 far;
     f32 scale;
+    f32 unk14;
 } _80006250_arg1;
 
 typedef struct _80006250_arg2 {
