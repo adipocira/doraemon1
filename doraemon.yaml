@@ -94,10 +94,11 @@ segments:
       - [0xC9E0, asm]
 
       - [0xCF20, c]
-      
+
       - [0xD530, asm]
       - [0xE020, asm]
-      - [0xE5B0, asm]
+      
+      - [0xE5B0, c]
  
       - [0xE6D0, asm, zzGame]
 
@@ -381,6 +382,10 @@ segments:
       - [0xBF5E0, data]
 
       - [0xC0870, rodata]
+
+      - [0xC1F00, .rodata, E5B0]
+
+      - [0xC1FE0, rodata]
 
       - [0xC2130, .rodata, bitio]
       - [0xC2170, .rodata, ahuff]
