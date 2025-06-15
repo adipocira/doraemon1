@@ -50,6 +50,7 @@ typedef struct  D_800E69C0_struct {
     u8 unk4[0x4];
     volatile u16 unk8;
     volatile u16 unkA;
+    u8 unkC;
     u8 unkD;
     u8 unkE;
     volatile s32 unk10;
