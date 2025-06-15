@@ -66,12 +66,11 @@ void func_8000C71C(Gfx** gfxPtr, void* imgAddr, u16 colour){
     }
 }
 
-#ifdef NON_MATCHING
 void func_8000C830(Gfx** gfxPtr, s32 near, s32 far, s32 r, s32 g, s32 b, s32 a){
-    gSPFogFactor(gfxPtr[0]++, 128000 / (far - near), (-near * 256 + 128000) / (far - near));
+    s32 factor = (-near * 256 + (u32)128000);
+    
+    gSPFogFactor(gfxPtr[0]++, 128000 / (far - near), factor / (far - near));
     
     gDPSetFogColor(gfxPtr[0]++, r,g,b,a);
+
 }
-#else
-#pragma GLOBAL_ASM("asm/nonmatchings/CF20/func_8000C830.s")
-#endif
