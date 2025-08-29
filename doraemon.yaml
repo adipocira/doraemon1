@@ -86,9 +86,9 @@ segments:
       - [0x71B0, asm, audio]
       - [0x76A0, c, audiomgr]
       - [0x7FC0, asm]
-
       - [0x9320, asm]
       - [0xA0C0, asm]
+
       - [0xB4E0, asm]
       - [0xC830, asm]
       - [0xC9E0, asm]
@@ -108,7 +108,7 @@ segments:
       - [0x12490, c, ahuff]
       - [0x12AC0, asm, zzTeller]
 
-      - [0x13940, asm]
+      - [0x13940, c]
       - [0x147B0, asm]
       - [0x14B00, asm]
       - [0x15040, asm]
@@ -376,6 +376,10 @@ segments:
       - [0xAC8E0, .data, audiomgr]
 
       - [0xAC900, data]
+
+      - [0xACC90, .data, 13940]
+
+      - [0xACCA0, data]
 
       - [0xBF5C0, .data, libultra/os/initialize]
 

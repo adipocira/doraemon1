@@ -1,3 +1,13 @@
+//segments 
+D_3F42E0_segment = 0x3F42E0;
+D_3F5A80_segment = 0x3F5A80;
+D_3DF820_segment = 0x3DF820;
+D_3F9980_segment = 0x3F9980;
+D_3FA940_segment = 0x3FA940;
+D_3FAB40_segment = 0x3FAB40;
+D_3FAD40_segment = 0x3FAD40;
+D_3FAF40_segment = 0x3FAF40;
+
 
 //parameters.s 
 
@@ -66,6 +76,12 @@ audDMAMessageQ = 0x800F3320;
 audDMAMessageBuf = 0x800F3338;
 
 //
+
+.L8000B1DC = 0x8000B1DC; // type:jtbl_label
+.L8000B238 = 0x8000B238; // type:jtbl_label
+.L8000B294 = 0x8000B294; // type:jtbl_label
+.L8000B2F0 = 0x8000B2F0; // type:jtbl_label
+
 
 level_updateLifesFromBells = 0x8000BAD0;
 level_8000C930 = 0x8000C930;   
@@ -846,8 +862,11 @@ controller_thread = 0x800DE860;
 D_800F3950 = 0x800F3950;
 curSegmentSize = 0x800F3A30;
 cdata = 0x800F38A0;
+D_800F5FA4 = 0x800F5FA4;
+D_800F5FA6 = 0x800F5FA6;
+texRec = 0x800F6000;
 players = 0x800FB820;
-D_8016ED20 = 0x8016ED20;
+D_8016ED20 = 0x8016ED20; 
 D_8016EE18 = 0x8016EE18;
 D_8016EEA0 = 0x8016EEA0;
 D_801ADA68 = 0x801ADA68;
