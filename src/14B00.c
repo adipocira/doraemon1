@@ -66,13 +66,9 @@ void func_80013F00(D_800F5FB0_struct* arg0, void* arg1, D_801BAA80_struct* arg2)
     arg0->unk3 = 0;
 }
 
-#ifndef NON_MATCHING
-#pragma GLOBAL_ASM("asm/nonmatchings/14B00/func_80013FE4.s")
-#else
 void func_80013FE4(D_800F5FB0_struct* arg0){
     s32 i;
     s32 j;
-    s32 ret;
 
     if(arg0->unk0 == 0){
         return;
@@ -114,54 +110,43 @@ void func_80013FE4(D_800F5FB0_struct* arg0){
         }
         else{
             if(arg0->unk2 == 1){
-                if((arg0->unkC == arg0->unk4+1) || arg0->unk18 <= 0.0){
+                if((arg0->unk4+1 == arg0->unkC) || arg0->unk18 <= 0.0){
                     arg0->unk18 = 0.0f;
                 }
                 else {
-                    arg0->unk18 =  arg0->unk18-arg0->unk14; 
+                    arg0->unk18 -=arg0->unk14; 
                 }
             }
             else if(arg0->unk1 == 0x32){
-                if(arg0->unkC != arg0->unk4+1){
-                    if(arg0->unk12 <= arg0->unk18){
-                        arg0->unk18 = arg0->unk12;
-                    }
-                    else{
-                        arg0->unk18 =  arg0->unk18 + arg0->unk14;
-                    }
+                if(arg0->unk4+1 == arg0->unkC || arg0->unk18 >= arg0->unk12){
+                    arg0->unk18 = arg0->unk12;
                 }
                 else{
-                    arg0->unk18 = arg0->unk12;
-                    
-
+                    arg0->unk18 += arg0->unk14;
                 }
-            } else if((arg0->unkC == arg0->unk4+1) || arg0->unk18 >= 255.0f){
+            } else if((arg0->unk4+1 == arg0->unkC) || arg0->unk18 >= 255.0f){
                 arg0->unk18 = 255.0f;
             } else {
-                arg0->unk18 = arg0->unk18 + arg0->unk14;
+                arg0->unk18 += arg0->unk14;
             }
             arg0->unk44 = arg0->unk18;
-            ret = arg0->unk4;
             
             if(arg0->unk4 >= arg0->unkC){
                 arg0->unk4 = 0;
                 
                 if(arg0->unk2 == 2){
                     arg0->unk0 = 3;
-                    ret = 0;
                 }
                 else{
                     arg0->unk0 = 0;
-                    ret = arg0->unk4;
                 } 
             }
 
-            arg0->unk4 = ret +1;
+            arg0->unk4 += 1;
         }
         
     }
 }
-#endif
 
 void func_80014358(Gfx** gfxPtr, D_800F5FB0_struct* arg1){
     
