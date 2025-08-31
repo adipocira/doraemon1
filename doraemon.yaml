@@ -110,7 +110,7 @@ segments:
 
       - [0x13940, c]
       - [0x147B0, asm]
-      - [0x14B00, asm]
+      - [0x14B00, c]
       - [0x15040, asm]
       - [0x15F60, asm]
       - [0x1D870, asm]
