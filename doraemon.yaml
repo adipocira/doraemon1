@@ -164,7 +164,7 @@ segments:
       - [0x82840, asm]
       - [0x89680, asm]
       - [0x89D30, asm]
-      - [0x8A6C0, asm]
+      - [0x8A6C0, c]
 
       - [0x8A910, asm, libultra/io/conteeplongwrite]
       - [0x8AA50, asm, libultra/io/conteeplongread]
@@ -398,16 +398,17 @@ segments:
 
 
       - { start: 0xCAE10, type: bss, vram: 0x800CA210, name: CAE10 }
-      - { start: 0xCAE10, type: .bss, vram: 0x800DC4E0, name: threads}
-      - { start: 0xCAE10, type: bss, vram: 0x800E3BE0, name: 800E3BE0}
-      - { start: 0xCAE10, type: .bss, vram: 0x800E3F10, name: 11DF0}
-      - { start: 0xCAE10, type: bss, vram: 0x800E3F30, name: 800E3F30}
-      - { start: 0xCAE10, type: .bss, vram: 0x800F03F0, name: misc}
-      - { start: 0xCAE10, type: bss, vram: 0x800F0400, name: 800F0400}
-      - {start : 0xCAE10, type: .bss, vram: 0x800F0A00, name: audiomgr}
-      - {start : 0xCAE10, type: bss, vram: 0x800F33E0, name: 800F33E0}
-      - {start: 0xCAE10, type: .bss, vram: 0x800F5E90, name: bitio}
-      - {start: 0xCAE10, type: bss, vram: 0x800F5EA0, name: 800F5EA0}
+      - { start: 0xCAE10, type: .bss, vram: 0x800DC4E0, name: threads }
+      - { start: 0xCAE10, type: bss, vram: 0x800E3BE0, name: 800E3BE0 }
+      - { start: 0xCAE10, type: .bss, vram: 0x800E3F10, name: 11DF0 }
+      - { start: 0xCAE10, type: bss, vram: 0x800E3F30, name: 800E3F30 }
+      - { start: 0xCAE10, type: .bss, vram: 0x800F03F0, name: misc }
+      - { start: 0xCAE10, type: bss, vram: 0x800F0400, name: 800F0400 }
+      - { start : 0xCAE10, type: .bss, vram: 0x800F0A00, name: audiomgr }
+      - { start : 0xCAE10, type: bss, vram: 0x800F33E0, name: 800F33E0 }
+      - { start: 0xCAE10, type: .bss, vram: 0x800F5E90, name: bitio }
+      - { start: 0xCAE10, type: bss, vram: 0x800F5EA0, name: 800F5EA0 }
+      - { start: 0xCAE10, type: .bss, vram: 0x8016B470, name: 8A6C0 }
       - { start: 0x16C080, type: .bss, vram: 0x8016B480, name: libultra/os/initialize }
       - { start: 0x16C090, type: bss, vram: 0x8016B490, name: 16C090}
       - { start: 0x16E480, type: .bss, vram: 0x8016D880, name: libultra/os/seteventmesg}

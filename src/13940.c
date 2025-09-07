@@ -2,30 +2,8 @@
 
 #include "11DF0.h"
 #include "13940.h"
+#include "TexRec.h"
 #include "segments.h"
-
-typedef struct D_801BABB0_struct {
-    u16 unk0;
-    u16 unk2;
-    s16 unk4;
-    s16 unk6;
-    u16 unk8;
-    u16 unkA;
-    u8 unkC[0x8];
-    u8** unk14;
-    u8 unk18[0x10];
-    u8 unk28;
-    u8 unk29;
-    u8 unk2A;
-} D_801BABB0_struct;
-
-typedef struct TexRec {
-    u16 num;
-    u16 amount;
-    u32 unk4;
-    s32* unk8;
-    u8* unkC;
-} TexRec;
 
 typedef struct D_800F5F88_struct {
     u8 unk0;
