@@ -125,13 +125,17 @@ add_new_node = 0x80011E38;
 level_drawSprite = 0x80080F10;
 level_spriteMoveSpace = 0x80080FCC;
 
+// 86AC0.c
+
+zzTexRecSubInit = 0x80089AC0;
+
 // initialize.c 
 
 osInitialize = 0x80089F90;
 osClockRate = 0x800BE9C0; // type:s64
 __osShutdown = 0x800BE9C8;
 __OSGlobalIntMask = 0x800BE9CC;
-osDDActive = 0x800BE9D0;
+osDDActive = 0x800BE9D0; 
 __osFinalrom = 0x8016B480;
 
 //

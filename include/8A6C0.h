@@ -3,7 +3,7 @@
 
 #include "ultra64.h"
 
-void func_80089AC0(s32 arg0);
+void zzTexRecSubInit(s32 arg0);
 void func_80089C90(void);
 
 #endif

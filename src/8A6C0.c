@@ -14,7 +14,7 @@ extern u8 D_800F6170[];
 extern D_801BABB0_struct* D_801EB188[];
 
 
-void func_80089AC0(s32 arg0){
+void zzTexRecSubInit(s32 arg0){
     s32 i;
     s32 idx;
     s32 cond; 
@@ -32,7 +32,7 @@ void func_80089AC0(s32 arg0){
             idx = 4;
             cond = 4;
             unk24 = 0xFF;
-            break;
+            break; 
         case 3:
             idx = 8;
             cond = 2;
@@ -40,6 +40,7 @@ void func_80089AC0(s32 arg0){
             break;
         default:
             if(unk24);
+            (void)"Bad case value......zzTexRecSubInit()\n";
             break;
     }
 

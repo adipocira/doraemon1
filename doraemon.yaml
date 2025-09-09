@@ -396,6 +396,11 @@ segments:
 
       - [0xC2190, rodata]
 
+      - [0xC7430, .rodata, 8A6C0]
+      
+      - [0xC7460, rodata]
+
+
 
       - { start: 0xCAE10, type: bss, vram: 0x800CA210, name: CAE10 }
       - { start: 0xCAE10, type: .bss, vram: 0x800DC4E0, name: threads }
