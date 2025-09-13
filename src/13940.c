@@ -10,20 +10,6 @@ typedef struct D_800F5F88_struct {
     s32* unk4;
 } D_800F5F88_struct;
 
-typedef struct D_800F3940_struct {
-    u8 unk0[0x3C];
-    s32 unk3C;
-    u8 unk40[0x64];
-    u8 unkA4;
-    u8 unkA5;
-    u8 unkA6;
-    u8 unkA7;
-    u8 unkA8;
-    u8 unkA9;
-    u8 unkAA[0x8];
-    u8 unkB2;
-} D_800F3940_struct;
-
 typedef struct D_800E6B20_struct {
     s16 unk0;
     s32 unk4;
@@ -55,28 +41,12 @@ typedef struct D_801591C0_struct {
     u8 unk2[0x66];
 } D_801591C0_struct;
 
-typedef struct D_800E6A20_struct {
-    u8 unk0;
-    u8 unk1;
-    s8 unk2;
-    s32 unk4;
-    s32 unk8;
-    s32 unkC;
-} D_800E6A20_struct;
-
 extern D_801591C0_struct D_801591C0[1];
 
-extern D_800E6A20_struct D_800E6A20[256];
-
-extern TexRec texRec;
 
 extern D_800F5F90_struct D_800F5F90;
 
 extern D_800F3920_struct D_800F3920;
-
-extern Cdata cdata;
-
-extern D_800F3940_struct* D_800F3940;
 
 extern D_801BABB0_struct D_801BABB0;
 extern s32 D_801BB488;
@@ -102,9 +72,6 @@ extern D_800F5F88_struct* D_801BA090[1];
 extern D_800F5F88_struct* D_800F5F84;
 extern D_800F5F88_struct* D_800F5F88;
 extern s32* D_800F5F8C;
-
-extern u8 D_800F6010[];
-extern u8 D_800F6170[];
 
 extern s32 D_800F5F9C;
 extern s32 D_800F5F98;

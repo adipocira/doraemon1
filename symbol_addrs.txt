@@ -855,6 +855,7 @@ D_800C3CD0 = 0x800C3CD0; // type:asciz
 D_800C3EF0 = 0x800C3EF0; // type:asciz
 D_800C4590 = 0x800C4590; // type:asciz
 D_800C62E0 = 0x800C62E0; // type:asciz
+D_800C6480 = 0x800C6480; // type:asciz
 aspMainDataStart = 0x800C9F50; // name_end:aspMainDataEnd
 
 D_800CA210 = 0x800CA210;

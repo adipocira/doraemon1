@@ -1,31 +1,5 @@
 #include "global.h"
 
-typedef struct D_801BAA80_struct{
-    u16 unk0[4];
-}D_801BAA80_struct;
-
-typedef struct D_800F5FB0_struct {
-    u8 unk0;
-    u8 unk1;
-    u8 unk2;
-    u8 unk3;
-    s32 unk4;
-    u32 unk8;
-    u32 unkC;
-    u8 unk10;
-    u8 unk11;
-    u8 unk12;
-    f32 unk14;
-    f32 unk18;
-    u16 unk1C[17];
-    D_801BAA80_struct* unk40;
-    u8 unk44;
-    void* unk48;
-}D_800F5FB0_struct;
-
-extern D_800F5FB0_struct D_800F5FB0;
-extern D_801BAA80_struct D_801BAA80;
-
 void func_80013F00(D_800F5FB0_struct* arg0, void* arg1, D_801BAA80_struct* arg2){
     s32 i;
     
