@@ -3,12 +3,6 @@
 
 #include "ultra64.h"
 
-
-typedef struct InternalSprite {
-
-} InternalSprite;
-
-
 void func_8000E320(void);
 void func_8000DF50(void);
 void func_8000DAD0(void);

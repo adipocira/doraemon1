@@ -122,8 +122,23 @@ add_new_node = 0x80011E38;
 
 //
 
-level_drawSprite = 0x80080F10;
-level_spriteMoveSpace = 0x80080FCC;
+// zzSprite.c
+
+zzSprite_drawSprite = 0x80080F10;
+func_80080F4C = 0x80080F4C;
+zzSprite_distCalc = 0x80080FCC;
+func_800810EC = 0x800810EC;
+zzSprite_drawSpriteImpl = 0x80081214;
+zzSprite_setAttr = 0x8008151C;
+zzSprite_setWH = 0x80081528;
+zzSprite_setDepth_68 = 0x8008153C;
+zzSprite_setCE = 0x80081558;
+zzSprite_setScales = 0x8008156C;
+zzSprite_setExp = 0x80081580;
+zzSprite_setSprite = 0x80081594;
+zzSprite_setBitmap = 0x8008159C;
+
+//
 
 // 86AC0.c
 

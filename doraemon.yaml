@@ -158,7 +158,7 @@ segments:
       - [0x7F4E0, asm]
       - [0x80550, asm]
       - [0x80BB0, asm]
-      - [0x81B10, asm]
+      - [0x81B10, c, zzSprite]
       - [0x821B0, asm]
       - [0x823D0, c]
       - [0x82840, asm]
@@ -380,6 +380,10 @@ segments:
       - [0xACC90, .data, 13940]
 
       - [0xACCA0, data]
+
+      - [0xB7490, .data, zzSprite]
+      
+      - [0xB74A0, data]
 
       - [0xBF5C0, .data, libultra/os/initialize]
 
