@@ -6,8 +6,8 @@ void func_800063A0(s16 playerIdx){
     Player* player = &players[playerIdx];
     s32 old = player->unk4;
 
-    switch(old){
-        case 0: 
+    switch(old){ 
+        case 0:  
           D_800F05B8 = 1;
           
           D_800F0548.fovy = 0.0f;
@@ -36,9 +36,9 @@ void func_800063A0(s16 playerIdx){
 }
 
 void func_800064F0(s16 playerIdx) {
-    Player* chosenPlayer = &players[playerIdx];
-    Player* playerA0 = &players[chosenPlayer->unkA0];
-    Player* playerA4 = &players[chosenPlayer->unkA4];
+    Player* chosenPlayer = GET_PLAYER_PTR(playerIdx);
+    Player* playerA0 = GET_PLAYER_PTR(chosenPlayer->unkA0);
+    Player* playerA4 = GET_PLAYER_PTR(chosenPlayer->unkA4);
     
     if (chosenPlayer->unk4 == 0) {
         D_800F05C8 = chosenPlayer->unkA8 + playerA0->pos.x;
