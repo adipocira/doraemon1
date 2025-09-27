@@ -18,7 +18,7 @@ typedef struct cdata_struct {
     u16 unk38;
     u16 unk3A;
     f32 unk3C;
-    u8 unk40;
+    s8 unk40;
     u8 unk41;
     u8 unk42;
     u16 unk44;
@@ -33,25 +33,33 @@ typedef struct cdata_struct {
     s32 unk7C;
 } Cdata;
 
-typedef struct Player{
-    s32 unk0;
-    s32 unk4;
-    s32 unk8;
-    s32 unk10;
-    Vec3f pos;
-    u8 unk1C[0x70];
-    u32 unk8C;
-    u8 unk90[0x10];
+typedef struct Player {
+    u32 unk0;
+    u32 unk4;
+    u32 unk8;
+    void* unkC;
+    Vec3f playerPos;
+    u32 unk1C;
+    u8 unk20[0x8];
+    Vec3f unk28;
+    u8 unk34[0x40];
+    s32 unk74;
+    u8 unk78[0x18];
+    Vec3f unk90;
+    u32 unk9C;
     s32 unkA0;
     s32 unkA4;
-    f32 unkA8;
-    f32 unkAC;
-    f32 unkB0;
-    f32 unkB4;
-    f32 unkB8;
-    f32 unkBC;
-    u8 unkC0[0x40];
-}Player;
+    u32 unkA8;
+    u32 unkAC;
+    u32 unkB0;
+    u32 unkB4;
+    u32 unkB8;
+    u32 unkBC;
+    s32 unkC0;
+    s32 unkC4;
+    s32 unkC8;
+    u8 unkCC[0x34];
+} Player;
 
 #define GET_PLAYER_PTR(idx) ((&players[(idx)]))
 

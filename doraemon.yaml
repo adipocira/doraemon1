@@ -156,7 +156,7 @@ segments:
       - [0x7B6C0, asm]
       - [0x7F2B0, asm]
       - [0x7F4E0, asm]
-      - [0x80550, asm]
+      - [0x80550, c]
       - [0x80BB0, asm]
       - [0x81B10, c, zzSprite]
       - [0x821B0, asm]
