@@ -7,10 +7,24 @@ typedef struct Vec3f {
     f32 x,y,z;
 } Vec3f;
 
+typedef union s32_f32{
+    s32 integer;
+    f32 fp;
+}s32_f32;
+
+typedef union s82x_s16{
+    u8 uchar[2];
+    s16 ishort;
+}char2x_short;
+
 typedef struct cdata_struct {
-    u8 unk0[0x1D];
+    u16* unk0;
+    u8 unk4[0x19];
     u8 nextstg;
-    u8 unk1E[0x12];
+    u8 unk1E[0x6];
+    u16 unk24;
+    u16 unk26;
+    u64 unk28;
     s32 unk30;
     u8 unk34;
     s8 unk35;
@@ -22,7 +36,35 @@ typedef struct cdata_struct {
     u8 unk41;
     u8 unk42;
     u16 unk44;
-    u8 unk46[0x24];
+    u8 unk46[0x4];
+    u8 unk4A;
+    u8 unk4B;
+    u8 unk4C;
+    u8 unk4D;    
+    u16 unk4E;
+    u8 unk50;
+    u8 unk51;
+    u8 unk52;
+    u8 unk53;
+    u8 unk54;
+    u8 unk55;
+    u16 unk56;
+    u8 unk58;
+    u8 unk59;
+    u8 unk5A;
+    u8 unk5B;
+    u8 unk5C;
+    u8 unk5D;
+    u16 unk5E;
+    u8 unk60;
+    u8 unk61;
+    u8 unk62;
+    u8 unk63;
+    u8 unk64;
+    u8 unk65;
+    u16 unk66;
+    u8 unk68;
+    u8 unk69;
     u8 unk6A;
     u8 unk6B[0x3];
     s16 unk6E;
@@ -33,8 +75,11 @@ typedef struct cdata_struct {
     s32 unk7C;
 } Cdata;
 
+typedef void (*PlayerUnk80Func)(s16);
+
 typedef struct Player {
-    s32 unk0;
+    s16 unk0;
+    s16 unk2;
     s32 unk4;
     s32 unk8;
     void* unkC;
@@ -42,24 +87,49 @@ typedef struct Player {
     u32 unk1C;
     u8 unk20[0x8];
     Vec3f unk28;
-    u8 unk34[0x40];
+    u8 unk34[0x10];
+    s32 unk44;
+    u16 unk48;
+    s16 unk4A;
+    s16 unk4C;
+    s16 unk4E;
+    s16 unk50;
+    s16 unk52;
+    u8 unk54[0x8];
+    f32 unk5C;
+    u8 unk60[0x6];
+    u8 unk66;
+    u8 unk67;
+    s16 unk68;
+    s16 unk6A;
+    s16 unk6C;
+    s16 unk6D;
+    s32 unk70;
     s32 unk74;
-    u8 unk78[0x14];
+    u8 unk78[0x8];
+    PlayerUnk80Func unk80;
+    s32 unk84;
+    s32 unk88;
     s32 unk8C;
     Vec3f unk90;
     u32 unk9C;
-    s32 unkA0;
-    s32 unkA4;
-    f32 unkA8;
-    f32 unkAC;
-    f32 unkB0;
-    f32 unkB4;
-    f32 unkB8;
-    f32 unkBC;
+    s32_f32 unkA0;
+    s32_f32 unkA4;
+    s32_f32 unkA8;
+    s32_f32 unkAC;
+    s32_f32 unkB0;
+    s32_f32 unkB4;
+    s32_f32 unkB8;
+    s32_f32 unkBC;
     s32 unkC0;
     s32 unkC4;
     s32 unkC8;
-    u8 unkCC[0x34];
+    u8 unkCC;
+    u8 unkCD;
+    u8 unkCE;
+    u8 unkCF[0x19];
+    s16 unkE8;
+    u8 unkEA[0x16];
 } Player;
 
 #define GET_PLAYER_PTR(idx) ((&players[(idx)]))
@@ -98,8 +168,7 @@ typedef struct D_800E69C0_struct {
     u8 unk25[0x17];
     volatile u8 unk3C;
     volatile u8 unk3D;
-    volatile u8 unk3E;
-    volatile u8 unk3F;
+    volatile char2x_short unk3E;
     volatile u8 unk40;
     volatile u8 unk41;
 } D_800E69C0_struct;

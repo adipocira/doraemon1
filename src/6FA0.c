@@ -37,15 +37,15 @@ void func_800063A0(s16 playerIdx){
 
 void func_800064F0(s16 playerIdx) {
     Player* chosenPlayer = GET_PLAYER_PTR(playerIdx);
-    Player* playerA0 = GET_PLAYER_PTR(chosenPlayer->unkA0);
-    Player* playerA4 = GET_PLAYER_PTR(chosenPlayer->unkA4);
+    Player* playerA0 = GET_PLAYER_PTR(chosenPlayer->unkA0.integer);
+    Player* playerA4 = GET_PLAYER_PTR(chosenPlayer->unkA4.integer);
     
     if (chosenPlayer->unk4 == 0) {
-        D_800F05C8 = chosenPlayer->unkA8 + playerA0->pos.x;
-        D_800F05CC = chosenPlayer->unkAC + playerA0->pos.y;
-        D_800F05D0 = chosenPlayer->unkB0 + playerA0->pos.z;
-        D_800F05D4 = chosenPlayer->unkB4 + playerA4->pos.x;
-        D_800F05D8 = chosenPlayer->unkB8 + playerA4->pos.y;
-        D_800F05DC = chosenPlayer->unkBC + playerA4->pos.z;
+        D_800F05C8 = chosenPlayer->unkA8.fp + playerA0->pos.x;
+        D_800F05CC = chosenPlayer->unkAC.fp + playerA0->pos.y;
+        D_800F05D0 = chosenPlayer->unkB0.fp + playerA0->pos.z;
+        D_800F05D4 = chosenPlayer->unkB4.fp + playerA4->pos.x;
+        D_800F05D8 = chosenPlayer->unkB8.fp + playerA4->pos.y;
+        D_800F05DC = chosenPlayer->unkBC.fp + playerA4->pos.z;
     }
 }

@@ -23,19 +23,19 @@ void func_80008C6C(s32, s32);
 
 void func_800817D0(s32 arg0){
 
-    if(D_800E69C0.unk3F < ++D_800E69C0.unk3D){
-        if(D_800E69C0.unk3E != 0){
+    if(D_800E69C0.unk3E.uchar[1] < ++D_800E69C0.unk3D){
+        if(D_800E69C0.unk3E.uchar[0] != 0){
             D_8016B0B0 = 255.0f; 
         }
         else{
             D_8016B0B0 = 0.0f;
         }
 
-        D_800E69C0.unk3E ^= 1;
+        D_800E69C0.unk3E.uchar[0] ^= 1;
         D_800E69C0.unk3D = 0; 
     }
     else{
-        if(D_800E69C0.unk3E != 0){
+        if(D_800E69C0.unk3E.uchar[0] != 0){
             D_8016B0B0 += D_8016B0B4;
         }
         else{
@@ -63,10 +63,10 @@ void func_8008191C(s32 arg0){
         case 1:
             D_800B6910 = 0;
             D_800E69C0.unk3D = 0;
-            D_800E69C0.unk3E = 1;
-            D_800E69C0.unk3F = 0x3C;
+            D_800E69C0.unk3E.uchar[0] = 1;
+            D_800E69C0.unk3E.uchar[1] = 0x3C;
 
-            D_8016B0B4 = 255.0 / (f32)D_800E69C0.unk3F;
+            D_8016B0B4 = 255.0 / (f32)D_800E69C0.unk3E.uchar[1];
             D_8016B0B0 = 0.0f;
             func_800151B4(&texRec, D_800F6010, D_800F6170, 0x58);
             D_8016B0B8 = func_80015200(&texRec, D_801E2008);
