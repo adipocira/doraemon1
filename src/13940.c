@@ -36,12 +36,17 @@ typedef struct D_800F3920_struct {
     s16 unk2;
 } D_800F3920_struct;
 
-typedef struct D_801591C0_struct {
+typedef struct D_801591C0_struct_unk48{
     s16 unk0;
-    u8 unk2[0x66];
-} D_801591C0_struct;
+    u8 unk2[0x1D];
+}D_801591C0_struct_unk48;
 
-extern D_801591C0_struct D_801591C0[1];
+typedef struct D_80159178_struct {
+    u8 unk0[0x48];
+    D_801591C0_struct_unk48 unk48[1];
+}D_80159178_struct;
+
+extern D_80159178_struct D_80159178[1];
 
 
 extern D_800F5F90_struct D_800F5F90;
@@ -213,7 +218,7 @@ s32 func_80012D40(s32 arg0, s32 arg1, u8 arg2) {
 
                 D_800E69C0.unkE = D_800F5F96[1];
                 D_800E69C0.unkD |= 1;
-                players[D_801591C0[cdata.unk41].unk0].unk8C &= ~0x4000;
+                players[D_80159178[cdata.unk41].unk48[0].unk0].unk8C &= ~0x4000;
                 D_800AC090 = 0;
                 D_800F3920.unk1 &= ~0x1;
                 return 0;
@@ -260,7 +265,7 @@ s32 func_80012D40(s32 arg0, s32 arg1, u8 arg2) {
                             D_800F3920.unk1 &= ~0x1;
                             D_800E6B20.unk20 = 0x4B;
                             D_800E6B20.unk22 = 0xB7;
-                            players[D_801591C0[cdata.unk41].unk0].unk8C &= ~0x4000;
+                            players[D_80159178[cdata.unk41].unk48[0].unk0].unk8C &= ~0x4000;
                             (&D_800F3940)[cdata.unk41]->unkB2 = 0;
                             (&D_800F3940)[cdata.unk41]->unkA9 = 0;
                             (&D_800F3940)[cdata.unk41]->unkA8 = 0;
@@ -296,7 +301,7 @@ s32 func_80012D40(s32 arg0, s32 arg1, u8 arg2) {
                 D_800E69C0.unkE = D_800F5F96[1];
                 D_800E6B20.unk20 = 0x4B;
                 D_800E6B20.unk22 = 0xB7;
-                players[D_801591C0[cdata.unk41].unk0].unk8C &= ~0x4000;
+                players[D_80159178[cdata.unk41].unk48[0].unk0].unk8C &= ~0x4000;
                 (&D_800F3940)[cdata.unk41]->unkB2 = 0;
                 (&D_800F3940)[cdata.unk41]->unkA9 = 0;
                 (&D_800F3940)[cdata.unk41]->unkA8 = 0;

@@ -21,7 +21,8 @@ typedef struct cdata_struct {
     u16* unk0;
     u8 unk4[0x19];
     u8 nextstg;
-    u8 unk1E[0x6];
+    u8 unk1E[0x4];
+    u16 unk22;
     u16 unk24;
     u16 unk26;
     u64 unk28;
@@ -35,6 +36,7 @@ typedef struct cdata_struct {
     s8 unk40;
     u8 unk41;
     u8 unk42;
+    u8 unk43;
     u16 unk44;
     u8 unk46[0x4];
     u8 unk4A;
@@ -95,9 +97,11 @@ typedef struct Player {
     s16 unk4E;
     s16 unk50;
     s16 unk52;
-    u8 unk54[0x8];
+    u8 unk54[0x4];
+    f32 unk58;
     f32 unk5C;
-    u8 unk60[0x6];
+    f32 unk60;
+    u8 unk64[0x2];
     u8 unk66;
     u8 unk67;
     s16 unk68;
@@ -109,7 +113,10 @@ typedef struct Player {
     u8 unk78[0x8];
     PlayerUnk80Func unk80;
     s32 unk84;
-    s32 unk88;
+    u8 unk88;
+    u8 unk89;
+    u8 unk8A;
+    u8 unk8B;
     s32 unk8C;
     Vec3f unk90;
     u32 unk9C;
@@ -121,13 +128,16 @@ typedef struct Player {
     s32_f32 unkB4;
     s32_f32 unkB8;
     s32_f32 unkBC;
-    s32 unkC0;
-    s32 unkC4;
-    s32 unkC8;
-    u8 unkCC;
-    u8 unkCD;
-    u8 unkCE;
-    u8 unkCF[0x19];
+    s32_f32 unkC0;
+    s32_f32 unkC4;
+    s32_f32 unkC8;
+    s32_f32 unkCC;
+    s32_f32 unkD0;
+    s32_f32 unkD4;
+    s32_f32 unkD8;
+    s32_f32 unkDC;
+    s32_f32 unkE0;
+    u8 unkE4[0x4];
     s16 unkE8;
     u8 unkEA[0x16];
 } Player;
@@ -242,6 +252,6 @@ extern u8 D_800F6170[];
 void func_80023FCC(s16);
 
 #define D_800F5FB0_sets(arg0, arg1, arg2) D_800F5FB0.unkC = (arg0);D_800F5FB0.unk2 = (arg1);D_800F5FB0.unk0 = (arg2)
-
+#define SQ(x) ((x) * (x))
 
 #endif
