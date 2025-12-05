@@ -1,5 +1,6 @@
 #include "6FA0.h"
 #include "6E50.h"
+#include "23B20.h"
 #include "global.h"
 
 void func_800063A0(s16 playerIdx){

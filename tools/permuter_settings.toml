@@ -1,6 +1,9 @@
 compiler_type = "ido"
 
 [preserve_macros]
+RAD2DEG = "int"
+DEG2RAD = "int"
+SQ = "void"
 NULL = "int"
 "g[DS]P.*" = "void"
 "gs[DS]P.*" = "void"

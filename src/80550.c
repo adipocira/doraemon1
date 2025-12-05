@@ -47,13 +47,15 @@ extern u16 D_8015A392;
 
 typedef struct D_801591C0_struct_unk48{
     s16 unk0;
-    u8 unk2[0x1D];
+    u8 unk2[0x66];
 }D_801591C0_struct_unk48;
 
 typedef struct D_80159178_struct {
     u8 unk0[0x48];
     D_801591C0_struct_unk48 unk48[1];
 }D_80159178_struct;
+
+extern D_80159178_struct D_80159178[1];
 
 typedef struct D_800B6558_struct{
     s32 unk0;
@@ -62,8 +64,6 @@ typedef struct D_800B6558_struct{
 }D_800B6558_struct;
 
 extern D_800B6558_struct D_800B6558;
-
-extern D_80159178_struct D_80159178[1];
 
 typedef struct D_800F3948_struct{
     u8 unk0[0x34];
@@ -169,12 +169,12 @@ s32 func_8007FE60(s32* arg0) {
 }
 
 void func_8007FE6C(){
-    s32 unk74 = GET_PLAYER_PTR(D_80159178[D_800F38E1].unk48[0].unk0)->unk74;
+    s32 unk74 = GET_PLAYER_PTR(D_80159178->unk48[D_800F38E1].unk0)->unk74;
     s8 i = 0;
     s8 j = 0;
 
     if(unk74 < 0){
-        GET_PLAYER_PTR(D_80159178[D_800F38E1].unk48[0].unk0)->unk74 = 0;
+        GET_PLAYER_PTR(D_80159178->unk48[D_800F38E1].unk0)->unk74 = 0;
         unk74 = 0;
     }
 

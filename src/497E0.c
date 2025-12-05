@@ -3,6 +3,8 @@
 #include "23B20.h"
 #include "73660.h"
 #include "9320.h"
+#include "11F10.h"
+
 
 #include "global.h"
 #include "libc/math.h"
@@ -17,7 +19,7 @@ extern D_801B58F8_struct D_801B58F8[1];
 
 typedef struct D_801591C0_struct_unk48{
     s16 unk0;
-    u8 unk2[0x1D];
+    u8 unk2[0x66];
 }D_801591C0_struct_unk48;
 
 typedef struct D_80159178_struct {
@@ -29,15 +31,32 @@ extern D_80159178_struct D_80159178[1];
 
 extern u8 D_800F38E1;
 extern f32 D_80159170;
-extern u8 D_800F9910;
+
+typedef struct D_800F9910_struct {
+    u8 unk0;
+    u8 unk1;
+    u16 unk2;
+    u16 unk4;
+    f32 unk8;
+    f32 unkC;
+    f32 unk10;
+    f32 unk14;
+    f32 unk18;
+    f32 unk1C;
+    f32 unk20;
+    
+    /* todo more*/
+}D_800F9910_struct;
+
+extern D_800F9910_struct D_800F9910;
 
 void func_80048BE0(s16 idx){
     Player* player = GET_PLAYER_PTR(idx);
     s32 pad[8];
 
-    func_80024E0C(idx, D_80159178[D_800F38E1].unk48[0].unk0);
+    func_80024E0C(idx, D_80159178->unk48[D_800F38E1].unk0);
 
-    func_80074E68(player->unk28.y, func_800253B0(idx, D_80159178[D_800F38E1].unk48[0].unk0));
+    func_80074E68(player->unk28.y, func_800253B0(idx, D_80159178->unk48[D_800F38E1].unk0));
 
     switch(player->unk4){
         case 0:
@@ -53,8 +72,8 @@ void func_80048BE0(s16 idx){
 
 void func_80048CD4(s16 idx){
     Player* player = GET_PLAYER_PTR(idx);
-    Player* p = GET_PLAYER_PTR(D_80159178[D_800F38E1].unk48[0].unk0);
-    f32 temp = func_80024E0C(idx, D_80159178[D_800F38E1].unk48[0].unk0);
+    Player* p = GET_PLAYER_PTR(D_80159178->unk48[D_800F38E1].unk0);
+    f32 temp = func_80024E0C(idx, D_80159178->unk48[D_800F38E1].unk0);
     s32 pad2;
     s32 pad5;
     s32 pad;
@@ -63,7 +82,7 @@ void func_80048CD4(s16 idx){
     s16 temp2;
     s16 temp3;
 
-    func_80074E68(player->unk28.y, func_800253B0(idx, D_80159178[D_800F38E1].unk48[0].unk0));
+    func_80074E68(player->unk28.y, func_800253B0(idx, D_80159178->unk48[D_800F38E1].unk0));
 
     switch(player->unk4){
         case 0:
@@ -172,7 +191,7 @@ void func_80048FB4(s16 idx){
 
             func_80059760(player);
 
-            if(D_800F9910 != 0){
+            if(D_800F9910.unk0 != 0){
                 player->unkB8.fp = 0.0f;
             }
             break;
@@ -242,7 +261,7 @@ void func_80048FB4(s16 idx){
 
             func_80059760(player); 
 
-            if(D_800F9910 != 0){
+            if(D_800F9910.unk0 != 0){
                 player->unkB8.fp = 0.0f;
             }
 
@@ -283,7 +302,7 @@ void func_80048FB4(s16 idx){
 
             func_80059760(player);
             
-            if(D_800F9910 != 0){
+            if(D_800F9910.unk0 != 0){
                 player->unkB8.fp = 0.0f;
             }
             
@@ -309,7 +328,7 @@ void func_80048FB4(s16 idx){
 
             func_80059760(player);
             
-            if(D_800F9910 != 0){
+            if(D_800F9910.unk0 != 0){
                 player->unkB8.fp = 0.0f;
             }
             break;

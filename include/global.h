@@ -7,10 +7,11 @@ typedef struct Vec3f {
     f32 x,y,z;
 } Vec3f;
 
-typedef union s32_f32{
+typedef union s32_f32_ptr{
     s32 integer;
     f32 fp;
-}s32_f32;
+    void* ptr;
+}s32_f32_ptr;
 
 typedef union s82x_s16{
     u8 uchar[2];
@@ -80,8 +81,7 @@ typedef struct cdata_struct {
 typedef void (*PlayerUnk80Func)(s16);
 
 typedef struct Player {
-    s16 unk0;
-    s16 unk2;
+    s32 unk0;
     s32 unk4;
     s32 unk8;
     void* unkC;
@@ -89,7 +89,10 @@ typedef struct Player {
     u32 unk1C;
     u8 unk20[0x8];
     Vec3f unk28;
-    u8 unk34[0x10];
+    u8 unk34[0x4];
+    u32 unk38;
+    s32 unk3C;
+    s32 unk40;
     s32 unk44;
     u16 unk48;
     s16 unk4A;
@@ -108,7 +111,8 @@ typedef struct Player {
     s16 unk6A;
     s16 unk6C;
     s16 unk6D;
-    s32 unk70;
+    s16 unk70;
+    s16 pad72;
     s32 unk74;
     u8 unk78[0x8];
     PlayerUnk80Func unk80;
@@ -120,29 +124,34 @@ typedef struct Player {
     s32 unk8C;
     Vec3f unk90;
     u32 unk9C;
-    s32_f32 unkA0;
-    s32_f32 unkA4;
-    s32_f32 unkA8;
-    s32_f32 unkAC;
-    s32_f32 unkB0;
-    s32_f32 unkB4;
-    s32_f32 unkB8;
-    s32_f32 unkBC;
-    s32_f32 unkC0;
-    s32_f32 unkC4;
-    s32_f32 unkC8;
-    s32_f32 unkCC;
-    s32_f32 unkD0;
-    s32_f32 unkD4;
-    s32_f32 unkD8;
-    s32_f32 unkDC;
-    s32_f32 unkE0;
-    u8 unkE4[0x4];
-    s16 unkE8;
-    u8 unkEA[0x16];
+    s32_f32_ptr unkA0;
+    s32_f32_ptr unkA4;
+    s32_f32_ptr unkA8;
+    s32_f32_ptr unkAC;
+    s32_f32_ptr unkB0;
+    s32_f32_ptr unkB4;
+    s32_f32_ptr unkB8;
+    s32_f32_ptr unkBC;
+    s32_f32_ptr unkC0;
+    s32_f32_ptr unkC4;
+    s32_f32_ptr unkC8;
+    s32_f32_ptr unkCC;
+    s32_f32_ptr unkD0;
+    s32_f32_ptr unkD4;
+    s32_f32_ptr unkD8;
+    s32_f32_ptr unkDC;
+    s32_f32_ptr unkE0;
+    s32_f32_ptr unkE4;
+    s32_f32_ptr unkE8;
+    s32_f32_ptr unkEC;
+    u8 unkF0[0x10];
 } Player;
 
 #define GET_PLAYER_PTR(idx) ((&players[(idx)]))
+#define GET_PLAYER(x) (players[x])
+
+#define RAD2DEG(x) ((f32)x * (180.0 / M_PI)) 
+#define DEG2RAD(x) ((f32)x * (M_PI / 180.0))
 
 extern Player players[5];
 
@@ -248,8 +257,6 @@ extern Cdata cdata;
 
 extern u8 D_800F6010[];
 extern u8 D_800F6170[];
-
-void func_80023FCC(s16);
 
 #define D_800F5FB0_sets(arg0, arg1, arg2) D_800F5FB0.unkC = (arg0);D_800F5FB0.unk2 = (arg1);D_800F5FB0.unk0 = (arg2)
 #define SQ(x) ((x) * (x))
