@@ -124,7 +124,8 @@ segments:
       - [0x3AA90, asm]
       - [0x3DD30, asm]
       - [0x41790, c]
-      - [0x44CC0, asm]
+      - [0x44CC0, c]
+      - [0x484C0, asm]
       - [0x497E0, c]
       - [0x4A610, asm]
       - [0x4BE90, asm]
@@ -403,7 +404,9 @@ segments:
 
       - [0xC42E0, .rodata, 41790]
 
-      - [0xC45E0, rodata]
+      - [0xC45E0, .rodata, 44CC0]
+
+      - [0xC48D0, rodata]
 
       - [0xC4A60, .rodata, 497E0]
 
