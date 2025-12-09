@@ -153,6 +153,18 @@ typedef struct Player {
 #define RAD2DEG(x) ((f32)x * (180.0 / M_PI)) 
 #define DEG2RAD(x) ((f32)x * (M_PI / 180.0))
 
+#define NORM_ANGLE(x) \
+        if((x) >= 360.0f){\
+            for(; (x) >= 360.0f;){\
+                (x) -= 360.0f;\
+            }\
+        }\
+        else if((x) < 0.0f){\
+            for(; (x) < 0.0f; ){\
+                (x) += 360.0f;\
+            }\
+        }\
+
 extern Player players[5];
 
 extern struct _80006250_arg1 D_800F0548;

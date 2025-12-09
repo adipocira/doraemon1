@@ -75,7 +75,7 @@ void func_800440C0(s16 idx){
     s16 temp1 = D_80159178->unk48[D_800F38E1].unk0;
     s16 temp2;
     s32 pad[3];
-    f32 temp3;
+    f32 temp3; 
     
     switch(player->unk4){
         case 0:
@@ -242,16 +242,7 @@ void func_800440C0(s16 idx){
             player->unk90.z *= 0.99;
             player->unk28.y += 30.0f;
 
-            if(player->unk28.y >= 360.0f){
-                while( player->unk28.y >= 360.0f){
-                    player->unk28.y -= 360.0f;
-                }
-            }
-            else if(player->unk28.y < 0.0f){
-                while(player->unk28.y < 0.0f){
-                    player->unk28.y += 360.0f;
-                }
-            } 
+            NORM_ANGLE(player->unk28.y);
 
             player->unk8B -= 8;
             
@@ -320,16 +311,7 @@ void func_80044930(s16 idx){
             else{
                 player->unk28.x += 40.0f;
  
-                if(player->unk28.x >= 360.0f){
-                    for(; player->unk28.x >= 360.0f;){
-                        player->unk28.x -= 360.0f;
-                    }
-                }
-                else if(player->unk28.x < 0.0f){
-                    for(; player->unk28.x < 0.0f;){
-                        player->unk28.x += 360.0f;
-                    }
-                }
+                NORM_ANGLE(player->unk28.x);
 
                 func_8002507C(idx);
             }
@@ -883,31 +865,13 @@ void func_80046238(s16 idx){
             player->unk8 |= 1;
             player->unk74 = 0x140;
 
-            if(player->unk28.y >= 360.0f){
-                for(; player->unk28.y >= 360.0f;){
-                    player->unk28.y -= 360.0f;
-                }
-            }
-            else if(player->unk28.y < 0.0f){
-                for(; player->unk28.y < 0.0f;){
-                    player->unk28.y += 360.0f;
-                }
-            }
+            NORM_ANGLE(player->unk28.y);
 
             func_80024FC8(idx, 1.0f, 0.0f); 
 
             player->unk28.y -= 90.0f;
 
-            if(player->unk28.y >= 360.0f){
-                for(; player->unk28.y >= 360.0f;){
-                    player->unk28.y -= 360.0f;
-                }
-            }
-            else if(player->unk28.y < 0.0f){
-                for(; player->unk28.y < 0.0f;){
-                    player->unk28.y += 360.0f;
-                }
-            }         
+            NORM_ANGLE(player->unk28.y);         
 
             player->unkD8.integer = 0xC8;
             player->unkC8.integer = 0xC8;
@@ -1212,16 +1176,7 @@ void func_80047084(s16 idx){
     Player* player = GET_PLAYER_PTR(idx);
     f32 temp;
 
-    if(player->unk28.y >= 360.0f){
-        for(; player->unk28.y >= 360.0f;){
-            player->unk28.y -= 360.0f;
-        }
-    }
-    else if(player->unk28.y < 0.0f){
-        for(; player->unk28.y < 0.0f;){
-            player->unk28.y += 360.0f;
-        }
-    }          
+    NORM_ANGLE(player->unk28.y);          
 
     switch(player->unk4){
         case 0:
@@ -1371,16 +1326,7 @@ void func_80047084(s16 idx){
 
     player->unkC0.fp += 30.0f;
 
-    if(player->unkC0.fp >= 360.0f){
-        for(;player->unkC0.fp >= 360.0f ;){
-            player->unkC0.fp -= 360.0f;
-        }
-    }
-    else if(player->unkC0.fp < 0.0f){
-        for(;player->unkC0.fp < 0.0f ;){
-            player->unkC0.fp += 360.0f;
-        }
-    }
+    NORM_ANGLE(player->unkC0.fp);
 
     temp = sinf(player->unkC0.fp * 3.14 / 180.0);
 

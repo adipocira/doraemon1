@@ -145,16 +145,7 @@ void func_80040BD8(s16 idx){
 
                     player->unk28.y += temp2;
 
-                if(player->unk28.y >= 360.0f){
-                    for(; player->unk28.y >= 360.0f;){
-                        player->unk28.y -= 360.0f;
-                    }
-                }
-                else if(player->unk28.y < 0.0f){
-                    for(; player->unk28.y < 0.0f;){
-                        player->unk28.y += 360.0f;
-                    }
-                }
+                NORM_ANGLE(player->unk28.y);
                     
                 if(temp2 < 1.0f && -0.1 < temp2 && player->unkCC.fp > 0.0f){
                         temp3 = 1.0f;
@@ -163,16 +154,7 @@ void func_80040BD8(s16 idx){
 
                 player->unkC8.fp += 3.0f;
 
-                if(player->unkC8.fp >= 360.0f){
-                    for(;player->unkC8.fp >= 360.0f;){
-                        player->unkC8.fp -= 360.0f;
-                    }
-                }
-                else if(player->unkC8.fp < 0.0f){
-                    for(;player->unkC8.fp < 0.0f;){
-                        player->unkC8.fp += 360.0f;
-                    }
-                }
+                NORM_ANGLE(player->unkC8.fp);
 
                 temp4 = sinf(player->unkC8.fp * 6.28 / 180.0) ;
                 temp8 = sinf((player->unkC8.fp + 30.0f) * 6.28 / 180.0) ;
@@ -396,16 +378,7 @@ void func_80041808(s16 idx){
     f32 temp;
     s16 temp3;
     
-    if(player->unk28.y >= 360.0f){
-        for(;player->unk28.y >= 360.0f;){
-            player->unk28.y -= 360.0f;
-        }
-    }
-    else if(player->unk28.y < 0.0f){
-        for(;player->unk28.y < 0.0f;){
-            player->unk28.y += 360.0f;
-        }        
-    }
+    NORM_ANGLE(player->unk28.y);
 
     func_8002513C(player);
 
@@ -520,16 +493,7 @@ void func_80041808(s16 idx){
 
     player->unkCC.fp += 3.0f;
 
-    if(player->unkCC.fp >= 360.0f){
-        for(; player->unkCC.fp >= 360.0f; ){
-            player->unkCC.fp -= 360.0f;
-        }
-    }
-    else if(player->unkCC.fp < 0.0f){
-        for(; player->unkCC.fp < 0.0f; ){
-            player->unkCC.fp += 360.0f;
-        }        
-    }
+    NORM_ANGLE(player->unkCC.fp);
 
     if(player->unkC8.fp != 0.0f){
         player->unkC8.fp = func_80025374(idx, player->unkC8.fp, 0.05);
@@ -649,17 +613,8 @@ void func_800420A4(s16 idx){
 
     player->unk8B = player->unkB8.integer;
     D_801414A0[player->unk38 + 2]->unk38 += 30.0f;
-    
-    if(D_801414A0[player->unk38 + 2]->unk38 >= 360.0f){
-        while(D_801414A0[player->unk38 + 2]->unk38 >= 360.0f){
-            D_801414A0[player->unk38 + 2]->unk38 -= 360.0f;
-        }
-    }
-    else if(D_801414A0[player->unk38 + 2]->unk38 < 0.0f){
-        while(D_801414A0[player->unk38 + 2]->unk38 < 0.0f){
-            D_801414A0[player->unk38 + 2]->unk38 += 360.0f;
-        }
-    }
+
+    NORM_ANGLE(D_801414A0[player->unk38 + 2]->unk38);
 }
 
 void func_80042418(s16 idx){
@@ -876,16 +831,7 @@ void func_80042A38(s16 idx){
         case 1:
             player->unkC8.fp += 5.0f;
 
-            if(player->unkC8.fp >= 360.0f){
-                for(; player->unkC8.fp >= 360.0f;){
-                    player->unkC8.fp -= 360.0f;
-                }
-            }
-            else if(player->unkC8.fp < 0.0f){ 
-                for(; player->unkC8.fp < 0.0f;){
-                    player->unkC8.fp += 360.0f;
-                }
-            }
+            NORM_ANGLE(player->unkC8.fp);
 
             player->unk90.x = sinf((player->unkC8.fp * 6.28) / 180.0) * 0.05 + (f64)player->unkA4.fp;
             player->unk90.z = sinf((player->unkC8.fp * 6.28) / 180.0) * 0.05 + (f64)player->unkA4.fp; 
@@ -1048,16 +994,7 @@ void func_800435A0(s16 idx){
     f32 temp3;
     s16 temp2; 
     
-    if(player->unk28.y >= 360.0f){
-        for(; player->unk28.y >= 360.0f;){
-            player->unk28.y -= 360.0f;
-        }
-    }
-    else if(player->unk28.y < 0.0f){
-        for(; player->unk28.y < 0.0f;){
-            player->unk28.y += 360.0f;
-        }
-    }
+    NORM_ANGLE(player->unk28.y);
 
     switch(player->unk4){
         case 0:
@@ -1225,16 +1162,7 @@ void func_800435A0(s16 idx){
 
         player->unkCC.fp += 3.0f;
 
-        if(player->unkCC.fp >= 360.0f){
-            for(; player->unkCC.fp >= 360.0f;){
-                player->unkCC.fp -= 360.0f;
-            }
-        }
-        else if(player->unkCC.fp < 0.0f){
-            for(; player->unkCC.fp < 0.0f;){
-                player->unkCC.fp += 360.0f;
-            }
-        }
+        NORM_ANGLE(player->unkCC.fp);
 
         if(player->unkC8.fp != 0.0f){
             player->unkC8.fp = func_80025374(idx, player->unkC8.fp, 0.05f);
