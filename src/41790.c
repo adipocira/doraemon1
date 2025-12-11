@@ -41,7 +41,8 @@ typedef struct func_80040BD8_struct_player{
 }func_80040BD8_struct_player;
 
 typedef struct D_801414A0_ptr_struct{
-    u8 unk0[0x34];
+    u8 unk0[0x30];
+    f32 unk30;
     f32 unk34;
     f32 unk38;
 }D_801414A0_ptr_struct; 

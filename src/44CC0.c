@@ -52,7 +52,8 @@ typedef struct D_800F9910_struct {
 extern D_800F9910_struct D_800F9910;
 
 typedef struct D_801414A0_ptr_struct{
-    u8 unk0[0x34];
+    u8 unk0[0x30];
+    f32 unk30;
     f32 unk34;
     f32 unk38;
 }D_801414A0_ptr_struct; 

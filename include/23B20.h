@@ -36,5 +36,6 @@ s32 func_80025288(s16 arg0, s16 arg1);
 void func_80025F18(f32, f32, f32, f32, f32, f32, f32);
 void func_80026380(void);
 void func_800259B4(void*, f32, f32, f32);
+s32 func_800249E4(s32, s32, s16, f32);
 
 #endif

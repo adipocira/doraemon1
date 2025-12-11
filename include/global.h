@@ -81,7 +81,8 @@ typedef struct cdata_struct {
 typedef void (*PlayerUnk80Func)(s16);
 
 typedef struct Player {
-    s32 unk0;
+    s16 unk0;
+    u16 unk2;
     s32 unk4;
     s32 unk8;
     void* unkC;
