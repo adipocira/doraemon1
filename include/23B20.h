@@ -31,7 +31,7 @@ s16 func_80024CA0(s16 arg0, s16 arg1, f32 arg2);
 u16 func_80025C48(s32 arg0, s32 arg1);
 f32 func_80025374(s16, f32, f32);
 void func_800255AC(void*, void*, f32, f32);
-s16 func_80023498(s32, s32, f32, f32, f32, f32, f32, f32);
+s16 func_80023498(s32, u16, f32, f32, f32, f32, f32, f32);
 s32 func_80025288(s16 arg0, s16 arg1);
 void func_80025F18(f32, f32, f32, f32, f32, f32, f32);
 void func_80026380(void);

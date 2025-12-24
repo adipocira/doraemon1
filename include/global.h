@@ -43,7 +43,7 @@ typedef struct cdata_struct {
     u8 unk4A;
     u8 unk4B;
     u8 unk4C;
-    u8 unk4D;    
+    u8 unk4D;
     u16 unk4E;
     u8 unk50;
     u8 unk51;
@@ -70,11 +70,14 @@ typedef struct cdata_struct {
     u8 unk69;
     u8 unk6A;
     u8 unk6B[0x3];
-    s16 unk6E;
-    s16 unk70;
-    s16 unk72;
+    u16 unk6E;
+    u16 unk70;
+    u8 unk72;
     u8 unk73;
-    u8 unk74[0x8];
+    s16 unk74;
+    u8 unk76;
+    s8 unk77;
+    u8 unk78[4];
     s32 unk7C;
 } Cdata;
 
@@ -153,6 +156,8 @@ typedef struct Player {
 
 #define RAD2DEG(x) ((f32)x * (180.0 / M_PI)) 
 #define DEG2RAD(x) ((f32)x * (M_PI / 180.0))
+
+#define RAD2DEG_ALT(x) (((f32)x * (2.0 * 3.14)) / 360.0)
 
 #define NORM_ANGLE(x) \
         if((x) >= 360.0f){\

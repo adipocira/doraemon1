@@ -13,12 +13,20 @@ typedef struct D_800F5F88_struct {
 typedef struct D_800E6B20_struct {
     s16 unk0;
     s32 unk4;
-    u8 unk8[0x12];
+    u8 unk8[0xE];
+    u8 unk16;
+    u8 unk17;
+    u8 unk18;
+    u8 unk19;
     u8 unk1A;
     u8 unk1B[0x5];
     u16 unk20;
     u16 unk22;
-    u8 unk24[0x6563];
+    u8 unk24;
+    u8 unk25;
+    u8 unk26[0x3];
+    u8 unk29;
+    u8 unk2A[0x655D];
     u8 unk6587;
 } D_800E6B20_struct;
 
@@ -219,7 +227,7 @@ s32 func_80012D40(s32 arg0, s32 arg1, u8 arg2) {
 
                 D_800E69C0.unkE = D_800F5F96[1];
                 D_800E69C0.unkD |= 1;
-                players[D_80159178->unk48[cdata.unk41].unk0].unk8C &= ~0x4000;
+                GET_PLAYER(D_80159178->unk48[cdata.unk41].unk0).unk8C &= ~0x4000;
                 D_800AC090 = 0;
                 D_800F3920.unk1 &= ~0x1;
                 return 0;
@@ -266,7 +274,7 @@ s32 func_80012D40(s32 arg0, s32 arg1, u8 arg2) {
                             D_800F3920.unk1 &= ~0x1;
                             D_800E6B20.unk20 = 0x4B;
                             D_800E6B20.unk22 = 0xB7;
-                            players[D_80159178->unk48[cdata.unk41].unk0].unk8C &= ~0x4000;
+                            GET_PLAYER(D_80159178->unk48[cdata.unk41].unk0).unk8C &= ~0x4000;
                             (&D_800F3940)[cdata.unk41]->unkB2 = 0;
                             (&D_800F3940)[cdata.unk41]->unkA9 = 0;
                             (&D_800F3940)[cdata.unk41]->unkA8 = 0;
@@ -302,7 +310,7 @@ s32 func_80012D40(s32 arg0, s32 arg1, u8 arg2) {
                 D_800E69C0.unkE = D_800F5F96[1];
                 D_800E6B20.unk20 = 0x4B;
                 D_800E6B20.unk22 = 0xB7;
-                players[D_80159178->unk48[cdata.unk41].unk0].unk8C &= ~0x4000;
+                GET_PLAYER(D_80159178->unk48[cdata.unk41].unk0).unk8C &= ~0x4000;
                 (&D_800F3940)[cdata.unk41]->unkB2 = 0;
                 (&D_800F3940)[cdata.unk41]->unkA9 = 0;
                 (&D_800F3940)[cdata.unk41]->unkA8 = 0;

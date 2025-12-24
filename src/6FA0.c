@@ -4,7 +4,7 @@
 #include "global.h"
 
 void func_800063A0(s16 playerIdx){
-    Player* player = &players[playerIdx];
+    Player* player = GET_PLAYER_PTR(playerIdx);
     s32 old = player->unk4;
 
     switch(old){ 

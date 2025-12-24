@@ -120,7 +120,7 @@ segments:
       - [0x2DE50, asm]
       - [0x32020, asm]
       - [0x368E0, asm]
-      - [0x386E0, asm]
+      - [0x386E0, c]
       - [0x3AA90, asm]
       - [0x3DD30, c]
       - [0x41790, c]
@@ -401,6 +401,10 @@ segments:
       - [0xC2170, .rodata, ahuff]
 
       - [0xC2190, rodata] 
+
+      - [0xC3960, .rodata, 386E0]
+
+      - [0xC3B20, rodata]
 
       - [0xC40C0, .rodata, 3DD30]
 
