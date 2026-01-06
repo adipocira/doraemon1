@@ -8,8 +8,7 @@ Builds `doraemon.z64`md5: c2166455e94e89e9e3ab612b4377c443
 
 * make
 * git
-* build-essential
-* binutils-mips-linux-gnu
+* a mips toolchain
 * python3
 
 Under debian based systems :
@@ -19,7 +18,12 @@ sudo apt update
 sudo apt install make git build-essential binutils-mips-linux-gnu python3
 ```
 
-Install splat using pip (requirements.txt)
+Under arch based systems :
+```bash
+sudo pacman -Syuu make git mips64-elf-binutils python3
+```
+
+Install the python dependencies using pip (requirements.txt)
 
 ---
 
@@ -32,8 +36,3 @@ make setup
 make 
 ```
 
----
-
-#### TODO
-
-Fix C files so IDO doesn't complain
