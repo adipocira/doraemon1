@@ -26,7 +26,7 @@ typedef struct cdata_struct {
     u16 unk22;
     u16 unk24;
     u16 unk26;
-    u64 unk28;
+    u64 item;
     s32 unk30;
     u8 unk34;
     s8 unk35;

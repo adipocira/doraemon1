@@ -19,7 +19,7 @@ void func_800248A4(s16 arg0, f32 arg1, f32 arg2, f32 arg3);
 void func_8002507C(s16 idx);
 void func_8002513C(struct Player*);
 void func_80025820(struct Player*, s32, f32);
-void func_80024F20(s32, f32);
+void func_80024F20(s16, f32);
 void func_80022F20(s16, void*);
 void func_80024874(s16, f32);
 void func_8002592C(struct Player*, struct Player*, f32, f32);
