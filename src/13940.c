@@ -1,7 +1,7 @@
-#include "global.h"
+#include "13940.h"
 
 #include "11DF0.h"
-#include "13940.h"
+#include "actor.h"
 #include "TexRec.h"
 #include "segments.h"
 
@@ -227,7 +227,7 @@ s32 func_80012D40(s32 arg0, s32 arg1, u8 arg2) {
 
                 D_800E69C0.unkE = D_800F5F96[1];
                 D_800E69C0.unkD |= 1;
-                GET_PLAYER(D_80159178->unk48[cdata.unk41].unk0).unk8C &= ~0x4000;
+                GET_ACTOR(D_80159178->unk48[cdata.unk41].unk0).flags &= ~0x4000;
                 D_800AC090 = 0;
                 D_800F3920.unk1 &= ~0x1;
                 return 0;
@@ -274,7 +274,7 @@ s32 func_80012D40(s32 arg0, s32 arg1, u8 arg2) {
                             D_800F3920.unk1 &= ~0x1;
                             D_800E6B20.unk20 = 0x4B;
                             D_800E6B20.unk22 = 0xB7;
-                            GET_PLAYER(D_80159178->unk48[cdata.unk41].unk0).unk8C &= ~0x4000;
+                            GET_ACTOR(D_80159178->unk48[cdata.unk41].unk0).flags &= ~0x4000;
                             (&D_800F3940)[cdata.unk41]->unkB2 = 0;
                             (&D_800F3940)[cdata.unk41]->unkA9 = 0;
                             (&D_800F3940)[cdata.unk41]->unkA8 = 0;
@@ -310,7 +310,7 @@ s32 func_80012D40(s32 arg0, s32 arg1, u8 arg2) {
                 D_800E69C0.unkE = D_800F5F96[1];
                 D_800E6B20.unk20 = 0x4B;
                 D_800E6B20.unk22 = 0xB7;
-                GET_PLAYER(D_80159178->unk48[cdata.unk41].unk0).unk8C &= ~0x4000;
+                GET_ACTOR(D_80159178->unk48[cdata.unk41].unk0).flags &= ~0x4000;
                 (&D_800F3940)[cdata.unk41]->unkB2 = 0;
                 (&D_800F3940)[cdata.unk41]->unkA9 = 0;
                 (&D_800F3940)[cdata.unk41]->unkA8 = 0;

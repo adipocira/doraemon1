@@ -48,7 +48,6 @@ void func_800810EC(InternalSprite* sp, u16* arg1, u16 arg2, u16 arg3, u16 arg4) 
     u16 sp38[6];
     s32 i;
 
-
     sp38[5] = -1;
 
     for (i = 0; i < 5; i++) {

@@ -1,7 +1,7 @@
 #include "80550.h"
 
 #include "zzSprite.h"
-#include "global.h"
+#include "actor.h"
 
 extern InternalSprite D_801D113C;
 extern InternalSprite D_801D1170;
@@ -17,9 +17,6 @@ extern u16* D_800B6570;
 extern u16* D_800B6574;
 extern u16* D_800B656C;
 
-extern u16 D_800F38E4;
-extern u16 D_800F38C2;
-extern u16 D_800F38C4;
 extern u16 D_800B50C0;
 
 extern u8* D_801D2270[0xA8];
@@ -35,8 +32,6 @@ extern u8* D_801D3AE0[0x3F0];
 extern u8* D_801D1208;
 
 extern u8 D_800F395B; 
-
-extern u8 D_800F38E1;
 
 extern s32 D_800B6500;
 
@@ -81,7 +76,7 @@ void func_8007F958(Gfx** gfxPtr){
     
     func_80080F4C(&D_801D113C, 0, 5, *D_800B6584);
 
-    if(!(D_800F38E4 & 0x20)){
+    if(!(cdata.unk44 & 0x20)){
         func_8007FE6C();
         D_801D1138 = &(&D_801D2270)[D_800F395B];
         zzSprite_drawSprite(&gfx, &D_801D113C);
@@ -89,13 +84,13 @@ void func_8007F958(Gfx** gfxPtr){
     
     func_80080F4C(&D_801D1170, 0, 5, *D_800B6584);
 
-    if(!(D_800F38E4 & 0x40)){
-        func_800810EC(&D_801D1170, D_800B651C, 0, 0, D_800F38C2);
+    if(!(cdata.unk44 & 0x40)){
+        func_800810EC(&D_801D1170, D_800B651C, 0, 0, cdata.unk22);
 
-        if(D_800F38C2 < 0xA){
+        if(cdata.unk22 < 0xA){
             zzSprite_distCalc(&D_801D1170, D_800B6570, 3, 0);
         }
-        else if(D_800F38C2 < 0x64){
+        else if(cdata.unk22 < 0x64){
             zzSprite_distCalc(&D_801D1170, D_800B6570, 2, 0);
         }
         else{
@@ -108,13 +103,13 @@ void func_8007F958(Gfx** gfxPtr){
 
     func_80080F4C(&D_801D11A4, 0, 5, *D_800B6584);
     
-    if(!(D_800F38E4 & 0x80)){
-        func_800810EC(&D_801D11A4, D_800B651C, 0, 0, D_800F38C4);
+    if(!(cdata.unk44 & 0x80)){
+        func_800810EC(&D_801D11A4, D_800B651C, 0, 0, cdata.unk24);
 
-        if(D_800F38C4 < 0xA){
+        if(cdata.unk24 < 0xA){
             zzSprite_distCalc(&D_801D11A4, D_800B6574, 3, 0);
         }
-        else if(D_800F38C4 < 0x64){
+        else if(cdata.unk24 < 0x64){
             zzSprite_distCalc(&D_801D11A4, D_800B6574, 2, 0);
         }
         else{
@@ -129,7 +124,7 @@ void func_8007F958(Gfx** gfxPtr){
         D_800B6500--;
     }
 
-    if(!(D_800F38E4 & 0x100) && D_800B6500 != 0){
+    if(!(cdata.unk44 & 0x100) && D_800B6500 != 0){
         func_80080F4C(&D_801D11D8, 0, 5, *D_800B6584);
         zzSprite_distCalc(&D_801D11D8, D_800B657C[D_800F0630 % 2], 0, 0);
         D_801D11D4 = &(&D_801D3320)[D_800F395B];
@@ -169,12 +164,12 @@ s32 func_8007FE60(s32* arg0) {
 }
 
 void func_8007FE6C(){
-    s32 unk74 = GET_PLAYER_PTR(D_80159178->unk48[D_800F38E1].unk0)->unk74;
+    s32 unk74 = GET_ACTOR_PTR(D_80159178->unk48[cdata.unk41].unk0)->unk74;
     s8 i = 0;
     s8 j = 0;
 
     if(unk74 < 0){
-        GET_PLAYER_PTR(D_80159178->unk48[D_800F38E1].unk0)->unk74 = 0;
+        GET_ACTOR_PTR(D_80159178->unk48[cdata.unk41].unk0)->unk74 = 0;
         unk74 = 0;
     }
 

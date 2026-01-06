@@ -1,11 +1,11 @@
 #include "6FA0.h"
 #include "6E50.h"
 #include "23B20.h"
-#include "global.h"
+#include "actor.h"
 
-void func_800063A0(s16 playerIdx){
-    Player* player = GET_PLAYER_PTR(playerIdx);
-    s32 old = player->unk4;
+void func_800063A0(s16 idx){
+    Actor* actor = GET_ACTOR_PTR(idx);
+    s32 old = actor->status;
 
     switch(old){ 
         case 0:  
@@ -18,11 +18,11 @@ void func_800063A0(s16 playerIdx){
           D_800F0548.scale = -2800.0f;
           D_800F0548.unk14 = -350.0f;
             
-          GET_PLAYER_PTR(playerIdx)->unk4 = 1;
+          GET_ACTOR_PTR(idx)->status = 1;
         case 1:
             if (!func_80012D40(12, 0, 1)) {
                 D_800F05B8 = 0;
-                func_80023FCC(playerIdx);
+                func_80023FCC(idx);
             }
             else if (D_800F0548.scale < 500.0f) {
                 D_800F0548.scale += 6.0f;
@@ -36,17 +36,18 @@ void func_800063A0(s16 playerIdx){
     }
 }
 
-void func_800064F0(s16 playerIdx) {
-    Player* chosenPlayer = GET_PLAYER_PTR(playerIdx);
-    Player* playerA0 = GET_PLAYER_PTR(chosenPlayer->unkA0.integer);
-    Player* playerA4 = GET_PLAYER_PTR(chosenPlayer->unkA4.integer);
+void func_800064F0(s16 idx) {
+    Actor* actor = GET_ACTOR_PTR(idx);
+    Actor* actor1 =  GET_ACTOR_PTR(actor->unkA0.integer);
+    Actor* actor2 = GET_ACTOR_PTR(actor->unkA4.integer);
     
-    if (chosenPlayer->unk4 == 0) {
-        D_800F05C8 = chosenPlayer->unkA8.fp + playerA0->pos.x;
-        D_800F05CC = chosenPlayer->unkAC.fp + playerA0->pos.y;
-        D_800F05D0 = chosenPlayer->unkB0.fp + playerA0->pos.z;
-        D_800F05D4 = chosenPlayer->unkB4.fp + playerA4->pos.x;
-        D_800F05D8 = chosenPlayer->unkB8.fp + playerA4->pos.y;
-        D_800F05DC = chosenPlayer->unkBC.fp + playerA4->pos.z;
+    if (actor->status == 0) {
+        D_800F05C8 = actor->unkA8.fp + actor1->pos.x;
+        D_800F05CC = actor->unkAC.fp + actor1->pos.y;
+        D_800F05D0 = actor->unkB0.fp + actor1->pos.z;
+
+        D_800F05D4 = actor->unkB4.fp + actor2->pos.x;
+        D_800F05D8 = actor->unkB8.fp + actor2->pos.y;
+        D_800F05DC = actor->unkBC.fp + actor2->pos.z;
     }
 }
