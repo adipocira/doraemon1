@@ -527,12 +527,12 @@ void func_800486B4(s16 idx){
             }
             break;
         case 2:
-            actor->unk58 *= 0.97;
-            actor->unk60 *= 0.97;
+            actor->dir.x *= 0.97;
+            actor->dir.z *= 0.97;
 
             func_800259B4(actor, actor1->pos.y, 4.0f, 0.5f);
 
-            if(actor->unk58 < 0.1 && actor->unk60 < 0.1){
+            if(actor->dir.x < 0.1 && actor->dir.z < 0.1){
                 actor->status = 3;
             }
 
@@ -552,8 +552,8 @@ void func_800486B4(s16 idx){
             }
 
             if(actor->unkE0.integer < 0x14){
-                actor->unk58 *= 0.99;
-                actor->unk60 *= 0.99;
+                actor->dir.x *= 0.99;
+                actor->dir.z *= 0.99;
             }
 
             func_8002507C(idx);

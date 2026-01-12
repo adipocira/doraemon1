@@ -158,7 +158,7 @@ void func_8003D130(s16 idx){
                         func_80024FC8(idx, 2.0f, actor->unkC0.fp);
                         actor->unkC0.fp -= 0.2;
                         D_801414A0[actor->unk38]->unk30 += 12.0f;
-                        func_80016EB8(&D_800F9910, cdata.nextstg, actor->pos.x, actor->pos.y, actor->pos.z, actor->unk58, actor->unk5C, actor->unk60);
+                        func_80016EB8(&D_800F9910, cdata.nextstg, actor->pos.x, actor->pos.y, actor->pos.z, actor->dir.x, actor->dir.y, actor->dir.z);
                         
                         if (D_800F9910.unk0 != 0) {
                             actor->status = 5;
@@ -203,10 +203,10 @@ void func_8003D130(s16 idx){
 
                 func_80024FC8(idx, actor->unkC4.fp, -1.0f);
                 
-                func_80016EB8(&D_800F9910, cdata.nextstg, actor->pos.x, actor->pos.y, actor->pos.z, actor->unk58, actor->unk5C, actor->unk60);
+                func_80016EB8(&D_800F9910, cdata.nextstg, actor->pos.x, actor->pos.y, actor->pos.z, actor->dir.x, actor->dir.y, actor->dir.z);
 
-                if(actor->pos.x + actor->unk58 < (actor->unkA0.fp + actor->unkA4.fp) && (actor->unkA4.fp - actor->unkA0.fp) < actor->pos.x + actor->unk58){
-                    if(actor->pos.z + actor->unk60 < (actor->unkA0.fp + actor->unkAC.fp) && (actor->unkAC.fp - actor->unkA0.fp) < actor->pos.z + actor->unk60){
+                if(actor->pos.x + actor->dir.x < (actor->unkA0.fp + actor->unkA4.fp) && (actor->unkA4.fp - actor->unkA0.fp) < actor->pos.x + actor->dir.x){
+                    if(actor->pos.z + actor->dir.z < (actor->unkA0.fp + actor->unkAC.fp) && (actor->unkAC.fp - actor->unkA0.fp) < actor->pos.z + actor->dir.z){
                         actor->pos.x = D_800F9910.unkC;
                         actor->pos.y = D_800F9910.unk10;
                         actor->pos.z = D_800F9910.unk14;                    
@@ -535,7 +535,7 @@ void func_8003E410(s16 idx){
             break;
         case 6:
             func_80024FC8(idx, 5.0f, --actor->unkAC.integer);
-            func_800180F0(&D_800F9910, cdata.nextstg, 13.0f, actor->pos.x, actor->pos.y, actor->pos.z, actor->unk58, actor->unk5C, actor->unk60);
+            func_800180F0(&D_800F9910, cdata.nextstg, 13.0f, actor->pos.x, actor->pos.y, actor->pos.z, actor->dir.x, actor->dir.y, actor->dir.z);
 
             if(D_800F9910.unk0 != 0){
                 actor->unkA0.integer = 7;
@@ -590,7 +590,7 @@ void func_8003EB68(s16 idx) {
             NORM_ANGLE(actor->rot.y);
             
             func_80024FC8(idx, 1.0f, -30.0f);
-            func_800180F0(&D_800F9910, cdata.nextstg, 10.0f, actor->pos.x, actor->pos.y, actor->pos.z, actor->unk58, actor->unk5C, actor->unk60);
+            func_800180F0(&D_800F9910, cdata.nextstg, 10.0f, actor->pos.x, actor->pos.y, actor->pos.z, actor->dir.x, actor->dir.y, actor->dir.z);
             
             if (D_800F9910.unk1 != 0) {
                 actor->pos.x = D_800F9910.unkC;
@@ -622,7 +622,7 @@ void func_8003EB68(s16 idx) {
                     func_80024FC8(idx, 4.0f, -30.0f);
                 }
                 
-                func_800180F0(&D_800F9910, cdata.nextstg, 10.0f, actor->pos.x, actor->pos.y, actor->pos.z, actor->unk58, actor->unk5C, actor->unk60);
+                func_800180F0(&D_800F9910, cdata.nextstg, 10.0f, actor->pos.x, actor->pos.y, actor->pos.z, actor->dir.x, actor->dir.y, actor->dir.z);
                 
                 if (D_800F9910.unk1 != 0) {
                     actor->pos.x = D_800F9910.unkC;
@@ -934,7 +934,7 @@ void func_8003F990(s16 idx) {
                 diff = actor->pos.y - p2->pos.y;
                 
                 if (diff < 20.0f) {
-                    actor->unkA0.fp = actor->unk5C;
+                    actor->unkA0.fp = actor->dir.y;
                     func_80022F48(idx, 4);
                     actor->status = 41;
                 } else if (diff < 40.0f) {
@@ -981,16 +981,16 @@ void func_8003F990(s16 idx) {
                 actor->status = 40;
             }
             if (diff > 100.0f) {
-                actor->unk5C = actor->unk5C * 0.93;
+                actor->dir.y = actor->dir.y * 0.93;
             } else {
-                actor->unk5C = actor->unk5C + 0.01;
+                actor->dir.y = actor->dir.y + 0.01;
             }
             if (diff > 240.0f) {
                 actor->status = 40;
             }
             
-            actor->unk58 = actor->unk58 * 0.98;
-            actor->unk60 = actor->unk60 * 0.98;
+            actor->dir.x = actor->dir.x * 0.98;
+            actor->dir.z = actor->dir.z * 0.98;
             
             func_80025454(actor, actor1, 16.0f);
             func_8002507C(idx);
@@ -1002,10 +1002,10 @@ void func_8003F990(s16 idx) {
         case 100:
             actor->unkA4.integer++;
             
-            if (actor->unk5C > 0.1) {
-                actor->unk5C *= 0.95;
-                actor->unk58 *= 0.95;
-                actor->unk60 *= 0.95;
+            if (actor->dir.y > 0.1) {
+                actor->dir.y *= 0.95;
+                actor->dir.x *= 0.95;
+                actor->dir.z *= 0.95;
             } else {
                 func_80022F48(idx, 2);
                 actor->status = 101;
@@ -1029,7 +1029,7 @@ void func_8003F990(s16 idx) {
                 dist = 1.0f;
             }
             
-            actor->unk5C = (y / dist) * 0.5 * 1.02;
+            actor->dir.y = (y / dist) * 0.5 * 1.02;
             temp1 = func_80025C48(actor->unkB8.fp - actor->pos.z, actor->unkB0.fp - actor->pos.x);
             
             if (dist < 50.0f) {
@@ -1058,12 +1058,12 @@ void func_8003F990(s16 idx) {
         case 102:
             actor->unkA4.integer++;
             
-            actor->unk58 = actor->unk58 * 0.5;
-            actor->unk60 = actor->unk60 * 0.5;
-            actor->unk5C = actor->unk5C - 0.01;
+            actor->dir.x = actor->dir.x * 0.5;
+            actor->dir.z = actor->dir.z * 0.5;
+            actor->dir.y = actor->dir.y - 0.01;
             
-            if (actor->unk5C < -1.0f) {
-                actor->unk5C = -1.0f;
+            if (actor->dir.y < -1.0f) {
+                actor->dir.y = -1.0f;
             }
             
             func_8002507C(idx);
@@ -1123,7 +1123,7 @@ void func_80040404(s16 idx) {
     switch (actor->status) {
         case 0:
             actor->unkB8.integer = 0;
-            actor->unk5C = 0.0f;
+            actor->dir.y = 0.0f;
             actor->unkE8.fp = 10.0f;
             actor->unk4E = 2;
             actor->unk6C = 0x16;
@@ -1133,14 +1133,14 @@ void func_80040404(s16 idx) {
             break;
         case 1:
             if (y < actor->pos.y) {
-                actor->unk5C -= 0.05;
-                if (actor->unk5C < -3.0f) {
-                    actor->unk5C = -3.0f;
+                actor->dir.y -= 0.05;
+                if (actor->dir.y < -3.0f) {
+                    actor->dir.y = -3.0f;
                 }
             } else if (actor->pos.y < y) {
-                actor->unk5C += 0.05;
-                if (actor->unk5C > 3.0f) {
-                    actor->unk5C = 3.0f;
+                actor->dir.y += 0.05;
+                if (actor->dir.y > 3.0f) {
+                    actor->dir.y = 3.0f;
                 }
             }
             

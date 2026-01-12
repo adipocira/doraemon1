@@ -134,7 +134,7 @@ void func_80037AE0(s16 idx){
             actor->flags |= 0x10;
             actor->unkA0.fp = actor->unk90.x;
             actor->unk90.x = actor->unk90.y = actor->unk90.z = actor->unk90.x * 0.1;
-            actor->unk5C = 2.5f;
+            actor->dir.y = 2.5f;
             actor->unkA4.fp = 0.0f;
             actor->unkA8.integer = 0;
             actor->unkAC.fp = D_80159170 / 4;
@@ -249,20 +249,20 @@ void func_80037AE0(s16 idx){
         return;
     }
 
-    func_8001B734(&D_800F9910, cdata.nextstg, actor->pos.x, actor->pos.y, actor->pos.z, actor->unk5C);
+    func_8001B734(&D_800F9910, cdata.nextstg, actor->pos.x, actor->pos.y, actor->pos.z, actor->dir.y);
 
     if(D_800F9910.unk0 != 0){    
         if(actor->unkB0.integer != 0){
             actor->unkB0.integer--;
-            actor->unk5C *= -0.5;
+            actor->dir.y *= -0.5;
         }
         else{
             actor->unkA8.integer = 1;
         }
     }
     else{
-        actor->pos.y += actor->unk5C;
-        actor->unk5C -= actor->unkAC.fp;
+        actor->pos.y += actor->dir.y;
+        actor->dir.y -= actor->unkAC.fp;
     }
 }
 
@@ -751,12 +751,12 @@ void func_80039254(s16 idx){
             }
 
             actor->unkA8.integer = 0;
-            actor->unk5C = 0.0f;
+            actor->dir.y = 0.0f;
             actor->unkAC.fp = D_80159170 / (2.0f * 1.0f);
             actor->unkB0.integer = 0;
             actor->status = 3;
         case 3:
-            func_8001B734(&D_800F9910, cdata.nextstg, actor->pos.x, actor->pos.y, actor->pos.z, actor->unk5C);
+            func_8001B734(&D_800F9910, cdata.nextstg, actor->pos.x, actor->pos.y, actor->pos.z, actor->dir.y);
             
             if(D_800F9910.unk0 != 0){
                 actor->pos.y = D_800F9910.unk10 + 1.0;
@@ -773,8 +773,8 @@ void func_80039254(s16 idx){
             }
             else{
                 actor->unkB0.integer++;
-                actor->pos.y += actor->unk5C;
-                actor->unk5C -= actor->unkAC.fp;
+                actor->pos.y += actor->dir.y;
+                actor->dir.y -= actor->unkAC.fp;
             }
             break;
         case 5:

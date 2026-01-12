@@ -52,9 +52,7 @@ typedef struct Actor {
     s16 unk50;
     s16 unk52;
     u8 unk54[0x4];
-    f32 unk58;
-    f32 unk5C;
-    f32 unk60;
+    Vec3f dir;
     u8 unk64[0x2];
     u8 unk66;
     u8 unk67;
