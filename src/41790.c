@@ -142,11 +142,11 @@ void func_80040BD8(s16 idx){
                 temp = func_80024CA0(0, idx, 200.0f);
             
                 if(temp != -1){
-                    temp2 = func_80074E68(actor->unk28.y, func_800253B0(idx, temp)) / 60.0f;
+                    temp2 = func_80074E68(actor->rot.y, func_800253B0(idx, temp)) / 60.0f;
 
-                    actor->unk28.y += temp2;
+                    actor->rot.y += temp2;
 
-                NORM_ANGLE(actor->unk28.y);
+                NORM_ANGLE(actor->rot.y);
                     
                 if(temp2 < 1.0f && -0.1 < temp2 && actor->unkCC.fp > 0.0f){
                         temp3 = 1.0f;
@@ -255,7 +255,7 @@ void func_80041268(s16 idx){
                 actor->unkA0.integer =(func_80011528(0) + 100) & 0x7F;
             }
 
-            func_80025820(actor, actor->unkA8.integer, 40.0f);
+            func_80025820(actor, actor->unkA8.fp, 40.0f);
             
             actor->unkA4.fp += 0.04;
 
@@ -275,7 +275,7 @@ void func_80041268(s16 idx){
                 actor->unkA0.integer =(func_80011528(0) + 100) & 0x7F;
             }
 
-            func_80025820(actor, actor->unkA8.integer, 40.0f);
+            func_80025820(actor, actor->unkA8.fp, 40.0f);
             
             actor->unkA4.fp -= 0.04;
 
@@ -314,12 +314,12 @@ void func_80041268(s16 idx){
             func_80059760(actor);
 
             if(actor->unkA0.integer & 1){
-                id = func_80023644(6, 0x183, 0.0f, 0.0f, 0.0f, 0.0f, actor->unk28.y, 0.0f);
+                id = func_80023644(6, 0x183, 0.0f, 0.0f, 0.0f, 0.0f, actor->rot.y, 0.0f);
 
                 if(id != -1){
                     GET_ACTOR_PTR(id)->flags |= 0x1000;
                     func_80022F20(id, func_8002C3AC);
-                    func_80025638(GET_ACTOR_PTR(id), actor, actor->unk28.y, 30.0f, 5.0f);
+                    func_80025638(GET_ACTOR_PTR(id), actor, actor->rot.y, 30.0f, 5.0f);
                     func_80024874(id, 0.2f);
                 }
             }
@@ -379,7 +379,7 @@ void func_80041808(s16 idx){
     f32 temp;
     s16 temp3;
     
-    NORM_ANGLE(actor->unk28.y);
+    NORM_ANGLE(actor->rot.y);
 
     func_8002513C(actor);
 
@@ -441,7 +441,7 @@ void func_80041808(s16 idx){
 
             if(D_800F9910.unk1 != 0){
                 if(actor->unkC8.fp == 0.0f){
-                    actor->unkB8.fp = func_80074E68(actor->unk28.y, func_80025C48(actor->unkA8.fp - actor->pos.z, actor->unkA0.fp - actor->pos.x));
+                    actor->unkB8.fp = func_80074E68(actor->rot.y, func_80025C48(actor->unkA8.fp - actor->pos.z, actor->unkA0.fp - actor->pos.x));
                     actor->unkC8.fp = actor->unkB8.fp / (func_80011528(0) % 5U + 1);
                 }
 
@@ -454,14 +454,14 @@ void func_80041808(s16 idx){
             
             break;
         case 2:
-            temp = func_80074E68(actor->unk28.y, func_800253B0(idx, actor->unkD4.integer));
+            temp = func_80074E68(actor->rot.y, func_800253B0(idx, actor->unkD4.integer));
 
             if(temp < 5.0f && temp > -5.0f){
                 actor->status = 3;
                 actor->unkD8.integer = 0x32;
             }
 
-            actor->unk28.y += temp * 0.1;
+            actor->rot.y += temp * 0.1;
             actor->unkC4.fp *= 0.9;
             break;
         case 3:
@@ -504,7 +504,7 @@ void func_80041808(s16 idx){
         }
     }
     else{
-        actor->unk28.y += sinf((actor->unkCC.fp * 3.14) / 180.0)  * 0.3;
+        actor->rot.y += sinf((actor->unkCC.fp * 3.14) / 180.0)  * 0.3;
     }
 
     actor->pos.y += cosf((actor->unkCC.fp * 3.14) / 180.0)  * 0.2;
@@ -786,8 +786,8 @@ void func_80042A38(s16 idx){
 
                     if(D_800F9910.unk0 != 0){
                         actor->pos.y = D_800F9910.unk10 + 0.5;
-                        actor->unk28.z = -(DEG2RAD(90) - func_8000AE70(D_800F9910.unk1C / sqrtf(1.0f - SQ(D_800F9910.unk1C)))) * 57.32484076; //RAD2DEG(x) x being more than 1...?
-                        actor->unk28.y = -func_8000B038(D_800F9910.unk20, D_800F9910.unk18) * 57.32484076; //RAD2DEG(x) x being more than 1...?
+                        actor->rot.z = -(DEG2RAD(90) - func_8000AE70(D_800F9910.unk1C / sqrtf(1.0f - SQ(D_800F9910.unk1C)))) * 57.32484076; //RAD2DEG(x) x being more than 1...?
+                        actor->rot.y = -func_8000B038(D_800F9910.unk20, D_800F9910.unk18) * 57.32484076; //RAD2DEG(x) x being more than 1...?
                         actor->unkBC.fp = D_800F9910.unk18;
                         actor->unkC0.fp = D_800F9910.unk1C;
                         actor->unkC4.fp = D_800F9910.unk20;
@@ -805,8 +805,8 @@ void func_80042A38(s16 idx){
                     
                     if(D_800F9910.unk0 != 0){
                         actor->pos.y = D_800F9910.unk10 - 0.5;
-                        actor->unk28.z = -(DEG2RAD(90) - func_8000AE70(D_800F9910.unk1C / sqrtf(1.0f - SQ(D_800F9910.unk1C)))) * 57.32484076; //RAD2DEG(x) x being more than 1...?
-                        actor->unk28.y = -func_8000B038(D_800F9910.unk20, D_800F9910.unk18) * 57.32484076; //RAD2DEG(x) x being more than 1...?
+                        actor->rot.z = -(DEG2RAD(90) - func_8000AE70(D_800F9910.unk1C / sqrtf(1.0f - SQ(D_800F9910.unk1C)))) * 57.32484076; //RAD2DEG(x) x being more than 1...?
+                        actor->rot.y = -func_8000B038(D_800F9910.unk20, D_800F9910.unk18) * 57.32484076; //RAD2DEG(x) x being more than 1...?
 
                         actor->unkBC.fp = D_800F9910.unk18;
                         actor->unkC0.fp = D_800F9910.unk1C;
@@ -923,8 +923,8 @@ void func_8004312C(s16 idx){
     switch(actor->status){ 
         case 0:
             actor->unkA0.integer = 0x1F4;
-            actor->unk28.z = -(DEG2RAD(90) - func_8000AE70(actor->unkA8.fp / sqrtf(1.0f - SQ(actor->unkA8.fp)))) * 57.32484076; //RAD2DEG(x) x being more than 1...?
-            actor->unk28.y = -func_8000B038(actor->unkAC.fp, actor->unkA4.fp) * 57.32484076; //RAD2DEG(x) x being more than 1...?
+            actor->rot.z = -(DEG2RAD(90) - func_8000AE70(actor->unkA8.fp / sqrtf(1.0f - SQ(actor->unkA8.fp)))) * 57.32484076; //RAD2DEG(x) x being more than 1...?
+            actor->rot.y = -func_8000B038(actor->unkAC.fp, actor->unkA4.fp) * 57.32484076; //RAD2DEG(x) x being more than 1...?
             func_8002524C(idx, actor->unkA4.fp, actor->unkA8.fp, actor->unkAC.fp); 
             actor->status = 1;
             break;
@@ -973,8 +973,8 @@ void func_8004312C(s16 idx){
                 }  
 
                 func_80025E14(&actor->unkA4.fp, &actor->unkA8.fp, &actor->unkAC.fp); 
-                actor->unk28.z = -(DEG2RAD(90) - func_8000AE70(actor->unkA8.fp / sqrtf(1.0f - SQ(actor->unkA8.fp)))) * 57.32484076; //RAD2DEG(x) x being more than 1...?
-                actor->unk28.y = -func_8000B038(actor->unkAC.fp, actor->unkA4.fp) * 57.32484076; //RAD2DEG(x) x being more than 1...?
+                actor->rot.z = -(DEG2RAD(90) - func_8000AE70(actor->unkA8.fp / sqrtf(1.0f - SQ(actor->unkA8.fp)))) * 57.32484076; //RAD2DEG(x) x being more than 1...?
+                actor->rot.y = -func_8000B038(actor->unkAC.fp, actor->unkA4.fp) * 57.32484076; //RAD2DEG(x) x being more than 1...?
                 func_8002524C(idx, actor->unkA4.fp, actor->unkA8.fp, actor->unkAC.fp); 
                 func_8002507C(idx);
             }
@@ -995,7 +995,7 @@ void func_800435A0(s16 idx){
     f32 temp3;
     s16 temp2; 
     
-    NORM_ANGLE(actor->unk28.y);
+    NORM_ANGLE(actor->rot.y);
 
     switch(actor->status){
         case 0:
@@ -1074,7 +1074,7 @@ void func_800435A0(s16 idx){
             func_800180F0(&D_800F9910, cdata.nextstg, 30.0f, actor->pos.x, actor->pos.y, actor->pos.z, actor->unk58, actor->unk5C, actor->unk60);
             if(D_800F9910.unk1 != 0){
                 if(actor->unkC8.fp == 0.0f){
-                    actor->unkB8.fp = func_80074E68(actor->unk28.y, func_80025C48(actor->unkA8.fp - actor->pos.z, actor->unkA0.fp - actor->pos.x));
+                    actor->unkB8.fp = func_80074E68(actor->rot.y, func_80025C48(actor->unkA8.fp - actor->pos.z, actor->unkA0.fp - actor->pos.x));
                     actor->unkC8.fp = actor->unkB8.fp / (func_80011528(0) % 5U + 1);
                 }
 
@@ -1088,20 +1088,20 @@ void func_800435A0(s16 idx){
             }
             break;
         case 2:
-            temp = func_80074E68(actor->unk28.y, func_800253B0(idx, actor->unkD4.integer));
+            temp = func_80074E68(actor->rot.y, func_800253B0(idx, actor->unkD4.integer));
 
             if(temp < 5.0f && temp > -5.0f){
                 actor->status = 3;
                 actor->unkD8.integer = 0xA;
             }
 
-            actor->unk28.y += temp * 0.2;
+            actor->rot.y += temp * 0.2;
             temp3 = actor->unkC4.fp;
             func_80024FC8(idx, temp3, actor->unkE8.fp);
             func_800180F0(&D_800F9910, cdata.nextstg, 30.0f, actor->pos.x, actor->pos.y, actor->pos.z, actor->unk58, actor->unk5C, actor->unk60);
             if(D_800F9910.unk1 != 0){
                 if(actor->unkC8.fp == 0.0f){
-                    actor->unkB8.fp = func_80074E68(actor->unk28.y, func_80025C48(actor->unkA8.fp - actor->pos.z, actor->unkA0.fp - actor->pos.x));
+                    actor->unkB8.fp = func_80074E68(actor->rot.y, func_80025C48(actor->unkA8.fp - actor->pos.z, actor->unkA0.fp - actor->pos.x));
                     actor->unkC8.fp = actor->unkB8.fp / (func_80011528(0) % 5U + 1);
                 }
 

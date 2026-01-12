@@ -682,6 +682,14 @@ osGetCount = 0x80091950;
 
 //
 
+// translate.c
+
+guTranslateF = 0x800919A0;
+guTranslate = 0x800919E8;
+
+//
+
+
 // ll.c 
 __ull_rshift = 0x80092000;
 __ull_rem = 0x8009202C;

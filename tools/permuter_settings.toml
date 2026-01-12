@@ -1,7 +1,8 @@
 compiler_type = "ido"
 
 [preserve_macros]
-"GET_PLAYER.*" = "struct Player*"
+"GET_ACTOR.*" = "struct Actor*"
+NORM_ANGLE = "void"
 RAD2DEG = "int"
 DEG2RAD = "int"
 ".*sets" = "void"

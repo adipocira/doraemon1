@@ -39,7 +39,7 @@ typedef struct Actor {
     Vec3f pos;
     u32 unk1C;
     u8 unk20[0x8];
-    Vec3f unk28;
+    Vec3f rot;
     u8 unk34[0x4];
     u32 unk38;
     s32 unk3C;

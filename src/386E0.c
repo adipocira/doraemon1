@@ -177,7 +177,7 @@ void func_80037AE0(s16 idx){
 
     temp = actor->unk48;
     if(temp == 0x33 || temp == 0x24 || temp == 0x38){
-        actor->unk28.y = func_8000ADE0(actor->unk28.y + 1.0);
+        actor->rot.y = func_8000ADE0(actor->rot.y + 1.0);
     } 
 
     temp1 = D_80141CB0[idx].unk0;
@@ -272,7 +272,7 @@ void func_800380BC(s16 idx){
     s16 temp;
 
     if (actor->status == 0){
-        actor->unk28.y = func_8000ADE0(actor->unk28.y + 1.0);
+        actor->rot.y = func_8000ADE0(actor->rot.y + 1.0);
         temp = D_80141CB0[idx].unk0;
         if(temp != -1){
             switch (actor->unk48) {
@@ -317,10 +317,10 @@ void func_80038224(s16 idx){
         case 0:
             func_8002524C(idx, 0.0f, 0.0f, 0.0f);
             actor->status = 1;
-            actor->unk28.z = 45.0f;
+            actor->rot.z = 45.0f;
             break;
         case 1:
-            actor->unk28.y = func_8000ADE0(actor->unk28.y + 1.0);
+            actor->rot.y = func_8000ADE0(actor->rot.y + 1.0);
             temp = D_80141CB0[idx].unk0;
 
             if(temp != -1){
@@ -396,10 +396,10 @@ void func_800385C0(s16 idx){
     s16 pad1;
     s32 pad2;
     
-    actor->unk28.y = func_8000ADE0(actor->unk28.y + 1.0);
+    actor->rot.y = func_8000ADE0(actor->rot.y + 1.0);
 
     if(actor->unk48 == 0x1C){
-        GET_ACTOR_PTR(actor->unkB4.integer)->unk28.y = actor->unk28.y;
+        GET_ACTOR_PTR(actor->unkB4.integer)->rot.y = actor->rot.y;
     }
 
     temp1 = actor->unk48 - 0x14;
@@ -427,10 +427,10 @@ void func_800385C0(s16 idx){
             func_80024874(idx, ((0x3C - actor->unkA0.integer) / 60.0f) * actor->unkA4.fp);
 
             actor->pos.y += 0.8;
-            actor->unk28.y = func_8000ADE0(actor->unk28.y + 17.0);
+            actor->rot.y = func_8000ADE0(actor->rot.y + 17.0);
 
             if(actor->unk48 == 0x1C){
-                GET_ACTOR_PTR(actor->unkB4.integer)->unk28.y = actor->unk28.y;
+                GET_ACTOR_PTR(actor->unkB4.integer)->rot.y = actor->rot.y;
                 GET_ACTOR_PTR(actor->unkB4.integer)->pos.y = actor->pos.y;
 
                 func_80024874(actor->unkB4.integer, actor->unk90.x);
@@ -519,10 +519,10 @@ void func_80038A0C(s16 idx){
         case 1:
             temp = func_8000ADE0(actor->unkA4.fp + 5.0f);
             actor->unkA4.fp = temp;
-            actor->pos.y = sinf(RAD2DEG_ALT(temp)) * 8.0f + actor->unkA0.fp;
+            actor->pos.y = sinf(DEG2RAD_ALT(temp)) * 8.0f + actor->unkA0.fp;
             break;
     }
-    actor->unk28.y = func_8000ADE0(actor->unk28.y + 3.0);
+    actor->rot.y = func_8000ADE0(actor->rot.y + 3.0);
 
     temp2 = D_80141CB0[idx].unk0;
     
@@ -716,7 +716,7 @@ void func_80039254(s16 idx){
     Actor* actor = GET_ACTOR_PTR(idx);
     Actor* actor1 = GET_ACTOR_PTR(D_80159178->unk48[cdata.unk41].unk0);
     f32 dist;
-    f32 r = RAD2DEG_ALT(actor->unk28.y);
+    f32 r = DEG2RAD_ALT(actor->rot.y);
     f32 r2;
     Vec3f pos;
     s16 id;
@@ -733,7 +733,7 @@ void func_80039254(s16 idx){
     dist = func_800391A4(idx, D_80159178->unk48[cdata.unk41].unk0, &pos);
 
     r = func_80025C48((actor1->pos.z - actor->pos.z) + pos.z, (actor1->pos.x - actor->pos.x) + pos.x);
-    r2 = RAD2DEG_ALT(r);
+    r2 = DEG2RAD_ALT(r);
  
     if(dist < 30.0f && !(actor1->flags & 0x4000)){
         actor1->unkAC.fp += sinf(r2) * (31.0f - dist);
@@ -782,19 +782,19 @@ void func_80039254(s16 idx){
                 actor->status = 8;
             }
             if(dist < 45.0f){ 
-                if(func_80074E68(actor->unk28.y, r) > 0.0f){
-                    temp = func_80074E68(actor->unk28.y, r);
+                if(func_80074E68(actor->rot.y, r) > 0.0f){
+                    temp = func_80074E68(actor->rot.y, r);
                 }
                 else{
-                    temp = -func_80074E68(actor->unk28.y, r);
+                    temp = -func_80074E68(actor->rot.y, r);
                 }
                 if(temp < 25.0f){
-                    temp = func_80074E68(actor->unk28.y, func_8000ADE0(actor1->unk28.y + 180.0f)) > 0.0f ? \
-                         func_80074E68(actor->unk28.y, func_8000ADE0(actor1->unk28.y + 180.0f)) : \
-                        -func_80074E68(actor->unk28.y, func_8000ADE0(actor1->unk28.y + 180.0f));
+                    temp = func_80074E68(actor->rot.y, func_8000ADE0(actor1->rot.y + 180.0f)) > 0.0f ? \
+                         func_80074E68(actor->rot.y, func_8000ADE0(actor1->rot.y + 180.0f)) : \
+                        -func_80074E68(actor->rot.y, func_8000ADE0(actor1->rot.y + 180.0f));
 
                     if(temp < 25.0f && func_80077548() != 0){
-                        temp2 = RAD2DEG_ALT(func_8000ADE0(actor->unk28.y + 45.0f));
+                        temp2 = DEG2RAD_ALT(func_8000ADE0(actor->rot.y + 45.0f));
                         D_800F0588.unk1C = D_800F0630;
                         D_800F0588.unk1B = 1;
                         D_800F0588.unk1D = 0;
@@ -961,7 +961,7 @@ void func_80039B8C(s16 idx){
             actor->unkA0.fp = (func_80011528(0) % 7U) + 2.5;
             actor->unkA4.fp = (func_80011528(0) % 2U) + 0.5;
             actor->unkA8.integer = 0x384;
-            actor->unk28.y = func_80011528(0) % 360U;
+            actor->rot.y = func_80011528(0) % 360U;
 
             func_80024FC8(idx, actor->unkA4.fp, actor->unkA0.fp);
             func_8002507C(idx);

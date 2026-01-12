@@ -55,7 +55,7 @@ void func_80048BE0(s16 idx){
 
     func_80024E0C(idx, D_80159178->unk48[cdata.unk41].unk0);
 
-    func_80074E68(actor->unk28.y, func_800253B0(idx, D_80159178->unk48[cdata.unk41].unk0));
+    func_80074E68(actor->rot.y, func_800253B0(idx, D_80159178->unk48[cdata.unk41].unk0));
 
     switch(actor->status){
         case 0:
@@ -81,7 +81,7 @@ void func_80048CD4(s16 idx){
     s16 temp2;
     s16 temp3;
 
-    func_80074E68(actor->unk28.y, func_800253B0(idx, D_80159178->unk48[cdata.unk41].unk0));
+    func_80074E68(actor->rot.y, func_800253B0(idx, D_80159178->unk48[cdata.unk41].unk0));
 
     switch(actor->status){
         case 0:
@@ -128,12 +128,12 @@ void func_80048CD4(s16 idx){
                 actor->status = 4;
             }
             if(actor->unkA0.integer == 0x1C){
-                temp2 = func_80023644(5, 0x141, 0.0f, 0.0f, 0.0f, 0.0f, actor->unk28.y, 0.0f);
+                temp2 = func_80023644(5, 0x141, 0.0f, 0.0f, 0.0f, 0.0f, actor->rot.y, 0.0f);
                 
                 if(temp2 != -1){
                     func_800242F0(temp2, 0, -1);
                     func_80022F20(temp2, func_8004EAC4);
-                    func_80025638(GET_ACTOR_PTR(temp2), actor, actor->unk28.y, 40.0f,10.0f);
+                    func_80025638(GET_ACTOR_PTR(temp2), actor, actor->rot.y, 40.0f,10.0f);
                 }
             }
             break;

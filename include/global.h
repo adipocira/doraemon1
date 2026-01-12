@@ -78,7 +78,17 @@ typedef struct cdata_struct {
 #define RAD2DEG(x) ((f32)x * (180.0 / M_PI)) 
 #define DEG2RAD(x) ((f32)x * (M_PI / 180.0))
 
-#define RAD2DEG_ALT(x) (((f32)x * (2.0 * 3.14)) / 360.0)
+#define DEG2RAD_ALT(x) (((f32)x * (2.0 * 3.14)) / 360.0)
+
+#define CLAMP_MAX_MIN(value, max, min) \
+    if((value) > (max)){\
+        (value) = (max);\
+    }\
+    else if((value) < (min)){\
+        (value) = (min);\
+    }\
+
+#define CLAMP_U8(value) CLAMP_MAX_MIN((value), 0xFF, 0)
 
 #define NORM_ANGLE(x) \
         if((x) >= 360.0f){\
