@@ -1123,7 +1123,7 @@ void func_800468C4(s16 idx){
 
             if(actor->a >= 254){
                 actor->flags &= ~0x10;
-                actor->a = 254;
+                actor->a = 255;
                 actor->unkB0.integer = 0x28;
                 actor->status = 102;
                 actor->dir.z = 0.0f;
