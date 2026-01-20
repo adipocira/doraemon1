@@ -8,6 +8,8 @@ D_3FAB40_segment = 0x3FAB40;
 D_3FAD40_segment = 0x3FAD40;
 D_3FAF40_segment = 0x3FAF40;
 
+// vi.s
+osTvType = 0x80000300;
 
 //parameters.s 
 

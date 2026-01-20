@@ -103,7 +103,7 @@ segments:
       - [0xE6D0, asm, zzGame]
 
       - [0x11DF0, c, 11DF0]
-      - [0x11F10, asm, 11F10]
+      - [0x11F10, c, 11F10]
       - [0x12250, c, bitio]
       - [0x12490, c, ahuff]
       - [0x12AC0, asm, zzTeller]
@@ -396,7 +396,7 @@ segments:
       - [0xC1F00, .rodata, E5B0]
 
       - [0xC1FE0, rodata]
-
+      - [0xC2110, .rodata, 11F10]
       - [0xC2130, .rodata, bitio]
       - [0xC2170, .rodata, ahuff]
 
@@ -440,6 +440,8 @@ segments:
       - { start: 0xCAE10, type: bss, vram: 0x800F0400, name: 800F0400 }
       - { start : 0xCAE10, type: .bss, vram: 0x800F0A00, name: audiomgr }
       - { start : 0xCAE10, type: bss, vram: 0x800F33E0, name: 800F33E0 }
+      - { start : 0xCAE10, type: .bss, vram: 0x800F3A40, name: 11F10 }
+      - { start : 0xCAE10, type: bss, vram: 0x800F3A50, name: 800F3A50 }
       - { start: 0xCAE10, type: .bss, vram: 0x800F5E90, name: bitio }
       - { start: 0xCAE10, type: bss, vram: 0x800F5EA0, name: 800F5EA0 }
       - { start: 0xCAE10, type: .bss, vram: 0x8016B470, name: 8A6C0 }
