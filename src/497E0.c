@@ -51,7 +51,7 @@ extern D_800F9910_struct D_800F9910;
 
 void func_80048BE0(s16 idx){
     Actor* actor = GET_ACTOR_PTR(idx);
-    s32 pad[8];
+    s32 pad[7];
 
     func_80024E0C(idx, D_80159178->unk48[cdata.unk41].unk0);
 
@@ -166,9 +166,9 @@ void func_80048FB4(s16 idx){
                 actor->unk74 = 0x258;
                 actor->status = 0x1F4;
                 
-                actor->unk90.x = 8.0f;
-                actor->unk90.y = 8.0f;
-                actor->unk90.z = 8.0f;
+                actor->scale.x = 8.0f;
+                actor->scale.y = 8.0f;
+                actor->scale.z = 8.0f;
             }
             else{
                 actor->status = 0x32;

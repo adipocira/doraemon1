@@ -41,11 +41,53 @@ typedef struct func_80040BD8_struct_actor{
 }func_80040BD8_struct_actor;
 
 typedef struct D_801414A0_ptr_struct{
-    u8 unk0[0x30];
+    u16 unk0; 
+    u16 unk2;
+    u16 unk4;
+    u16 unk6;
+    u16 unk8;
+    u8 unkA[0x2];
+    f32 unkC;
+    f32 unk10;
+    f32 unk14;
+    f32 unk18;
+    f32 unk1C;
+    f32 unk20;
+    f32 unk24;
+    f32 unk28;
+    f32 unk2C;
     f32 unk30;
     f32 unk34;
     f32 unk38;
-}D_801414A0_ptr_struct; 
+    f32 unk3C;
+    f32 unk40;
+    f32 unk44;
+    s32 unk48;
+    s32 unk4C;
+    u16 unk50;
+    u16 unk52;
+    f32 unk54;
+    f32 unk58;
+    f32 unk5C;
+    u8 unk60[0x80];
+    Mtx mtx;
+    u8 unk120[0x200];
+    u8 unk320;
+    u8 unk321;
+    u8 unk322;
+    u8 unk323;
+    u8 unk324[0xC];
+    f32 unk330;
+    f32 unk334;
+    f32 unk338;
+    f32 unk33C;
+    f32 unk340;
+    f32 unk344;
+    f32 unk348;
+    f32 unk34C;
+    f32 unk350;
+}D_801414A0_ptr_struct;
+extern D_801414A0_ptr_struct* D_801414A0[];
 
 typedef struct D_801414A0_struct{
     u8 unk0[0x8];
@@ -119,7 +161,7 @@ void func_80040BD8(s16 idx){
         
         switch(actor->status){
             case 0:
-                actor->unk8B = 0x64;
+                actor->a = 100;
                 actor->unkD8.fp = actor->unkB4.integer;
                 actor->unkDC.fp = -(f32)actor->unkB8.integer * 0.05;
                 actor->unkC8.fp = func_80011528(0) % 360U;
@@ -612,7 +654,7 @@ void func_800420A4(s16 idx){
             break;
     }
 
-    actor->unk8B = actor->unkB8.integer;
+    actor->a = actor->unkB8.integer;
     D_801414A0[actor->unk38 + 2]->unk38 += 30.0f;
 
     NORM_ANGLE(D_801414A0[actor->unk38 + 2]->unk38);
@@ -717,7 +759,7 @@ void func_80042758(s16 idx){
             actor->unkC8.fp = 0.05f;
             actor->unkCC.fp = 32.0f;
             actor->unkD0.fp = 200.0f;
-            actor->unkE0.fp = actor->unk90.x;
+            actor->unkE0.fp = actor->scale.x;
             actor->unkE4.integer = 0x1E;
             actor->status = 1; 
             break;
@@ -736,9 +778,9 @@ void func_80042758(s16 idx){
             actor->unkE4.integer--;
 
             if(actor->unkE4.integer >= 2){
-                actor->unk90.x += 0.4;
-                actor->unk90.z += 0.4;
-                actor->unk90.y += 0.4;
+                actor->scale.x += 0.4;
+                actor->scale.z += 0.4;
+                actor->scale.y += 0.4;
             }
             else{
                 actor->status = 3;
@@ -758,16 +800,16 @@ void func_80042758(s16 idx){
             actor->unkE4.integer--;
 
             if(actor->unkE4.integer >= 2){
-                actor->unk90.x -= 0.2;
-                actor->unk90.z -= +0.2;
-                actor->unk90.y -= 0.2;
+                actor->scale.x -= 0.2;
+                actor->scale.z -= +0.2;
+                actor->scale.y -= 0.2;
             }
             else{
                 actor->status = 1;
 
-                actor->unk90.x = actor->unkE0.fp;
-                actor->unk90.z = actor->unkE0.fp;
-                actor->unk90.y = actor->unkE0.fp;
+                actor->scale.x = actor->unkE0.fp;
+                actor->scale.z = actor->unkE0.fp;
+                actor->scale.y = actor->unkE0.fp;
             } 
             break;
     }
@@ -823,7 +865,7 @@ void func_80042A38(s16 idx){
             }
 
             actor->unkC8.fp = func_80011528(0) % 360U;
-            actor->unkA4.fp = actor->unk90.x;
+            actor->unkA4.fp = actor->scale.x;
             actor->unkB4.integer = 0;
             
             actor->status = 1;
@@ -834,9 +876,9 @@ void func_80042A38(s16 idx){
 
             NORM_ANGLE(actor->unkC8.fp);
 
-            actor->unk90.x = sinf((actor->unkC8.fp * 6.28) / 180.0) * 0.05 + (f64)actor->unkA4.fp;
-            actor->unk90.z = sinf((actor->unkC8.fp * 6.28) / 180.0) * 0.05 + (f64)actor->unkA4.fp; 
-            actor->unk90.y = cosf((actor->unkC8.fp * 3.14) / 180.0) * 0.08 + (f64)actor->unkA4.fp; 
+            actor->scale.x = sinf((actor->unkC8.fp * 6.28) / 180.0) * 0.05 + (f64)actor->unkA4.fp;
+            actor->scale.z = sinf((actor->unkC8.fp * 6.28) / 180.0) * 0.05 + (f64)actor->unkA4.fp; 
+            actor->scale.y = cosf((actor->unkC8.fp * 3.14) / 180.0) * 0.08 + (f64)actor->unkA4.fp; 
  
             if(actor->unkB4.integer != 0){
                 actor->unkB4.integer--;

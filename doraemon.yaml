@@ -114,7 +114,7 @@ segments:
       - [0x15040, c]
       - [0x15F60, asm]
       - [0x1D870, asm]
-      - [0x23B20, asm]
+      - [0x23B20, c]
       - [0x284C0, asm]
       - [0x29980, asm]
       - [0x2DE50, asm]
@@ -401,6 +401,10 @@ segments:
       - [0xC2170, .rodata, ahuff]
 
       - [0xC2190, rodata] 
+      
+      - [0xC2620, .rodata, 23B20]
+
+      - [0xC2710, rodata]
 
       - [0xC3960, .rodata, 386E0]
 

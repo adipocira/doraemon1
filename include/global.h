@@ -75,10 +75,13 @@ typedef struct cdata_struct {
     s32 unk7C;
 } Cdata;
 
-#define RAD2DEG(x) ((f32)x * (180.0 / M_PI)) 
+#define RAD2DEG(x) ((f32)x * (180.0 / M_PI))
 #define DEG2RAD(x) ((f32)x * (M_PI / 180.0))
 
 #define DEG2RAD_ALT(x) (((f32)x * (2.0 * 3.14)) / 360.0)
+#define DEG2RAD_ALT2(x) (((f32)x * 3.14) / 180.0)
+#define DEG2RAD_ALT3(x) ((f32)x * 0.0174)
+
 
 #define CLAMP_MAX_MIN(value, max, min) \
     if((value) > (max)){\
@@ -102,7 +105,19 @@ typedef struct cdata_struct {
             }\
         }\
 
-extern struct _80006250_arg1 D_800F0548;
+typedef struct D_800F0548_struct {
+    f32 unk0;
+    f32 unk4;
+    f32 unk8;
+    f32 unkC;
+    f32 unk10;
+    f32 unk14;
+} D_800F0548_struct;
+
+extern struct D_800F0548_struct D_800F0548;
+
+#define ABSOLUTE(value) ((value) > 0 ? (value) : -(value))
+#define ABSOLUTEF(value) ((value) > 0.0f ? (value) : -(value))
 
 extern f32 D_800C0D70;
 extern f32 D_800C0D74;

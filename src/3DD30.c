@@ -23,12 +23,53 @@ typedef struct D_80159178_struct {
 extern D_80159178_struct D_80159178[1];
 
 typedef struct D_801414A0_ptr_struct{
-    u8 unk0[0x30];
+    u16 unk0; 
+    u16 unk2;
+    u16 unk4;
+    u16 unk6;
+    u16 unk8;
+    u8 unkA[0x2];
+    f32 unkC;
+    f32 unk10;
+    f32 unk14;
+    f32 unk18;
+    f32 unk1C;
+    f32 unk20;
+    f32 unk24;
+    f32 unk28;
+    f32 unk2C;
     f32 unk30;
     f32 unk34;
     f32 unk38;
-}D_801414A0_ptr_struct; 
-
+    f32 unk3C;
+    f32 unk40;
+    f32 unk44;
+    s32 unk48;
+    s32 unk4C;
+    u16 unk50;
+    u16 unk52;
+    f32 unk54;
+    f32 unk58;
+    f32 unk5C;
+    u8 unk60[0x80];
+    Mtx mtx;
+    u8 unk120[0x200];
+    u8 unk320;
+    u8 unk321;
+    u8 unk322;
+    u8 unk323;
+    u8 unk324[0xC];
+    f32 unk330;
+    f32 unk334;
+    f32 unk338;
+    f32 unk33C;
+    f32 unk340;
+    f32 unk344;
+    f32 unk348;
+    f32 unk34C;
+    f32 unk350;
+}D_801414A0_ptr_struct;
+extern D_801414A0_ptr_struct* D_801414A0[];
 typedef struct D_801414A0_struct{
     u8 unk0[0x8];
     void* unk8;
@@ -1180,9 +1221,9 @@ void func_800407FC(s16 idx) {
         case 0:
             if (actor->unkA0.integer == 1) {
                 actor->unk74 = 0xA;
-                actor->unk90.x = 3.0f;
-                actor->unk90.y = 3.0f;
-                actor->unk90.z = 3.0f;
+                actor->scale.x = 3.0f;
+                actor->scale.y = 3.0f;
+                actor->scale.z = 3.0f;
             }
 
             actor->unk4E = 2;

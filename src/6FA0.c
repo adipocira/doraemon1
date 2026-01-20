@@ -11,11 +11,11 @@ void func_800063A0(s16 idx){
         case 0:  
           D_800F05B8 = 1;
           
-          D_800F0548.fovy = 0.0f;
-          D_800F0548.aspect = D_800C0D70;
-          D_800F0548.near = D_800C0D74;
-          D_800F0548.far = 0.0f; 
-          D_800F0548.scale = -2800.0f;
+          D_800F0548.unk0 = 0.0f;
+          D_800F0548.unk4 = D_800C0D70;
+          D_800F0548.unk8 = D_800C0D74;
+          D_800F0548.unkC = 0.0f; 
+          D_800F0548.unk10 = -2800.0f;
           D_800F0548.unk14 = -350.0f;
             
           GET_ACTOR_PTR(idx)->status = 1;
@@ -24,11 +24,11 @@ void func_800063A0(s16 idx){
                 D_800F05B8 = 0;
                 func_80023FCC(idx);
             }
-            else if (D_800F0548.scale < 500.0f) {
-                D_800F0548.scale += 6.0f;
-                if (D_800C0D78 < D_800F0548.scale) {
-                    D_800F0548.near += 2.0f;
-                    D_800F0548.scale += 2.0f;
+            else if (D_800F0548.unk10 < 500.0f) {
+                D_800F0548.unk10 += 6.0f;
+                if (D_800C0D78 < D_800F0548.unk10) {
+                    D_800F0548.unk8 += 2.0f;
+                    D_800F0548.unk10 += 2.0f;
                 }
             }
             

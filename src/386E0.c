@@ -132,8 +132,8 @@ void func_80037AE0(s16 idx){
     switch(actor->status){
         case 0:
             actor->flags |= 0x10;
-            actor->unkA0.fp = actor->unk90.x;
-            actor->unk90.x = actor->unk90.y = actor->unk90.z = actor->unk90.x * 0.1;
+            actor->unkA0.fp = actor->scale.x;
+            actor->scale.x = actor->scale.y = actor->scale.z = actor->scale.x * 0.1;
             actor->dir.y = 2.5f;
             actor->unkA4.fp = 0.0f;
             actor->unkA8.integer = 0;
@@ -145,7 +145,7 @@ void func_80037AE0(s16 idx){
             break;
         case 1:
             actor->unkA4.fp += 1.0f;
-            actor->unk90.x = actor->unk90.y = actor->unk90.z = (actor->unkA4.fp * actor->unkA0.fp) * 0.1;
+            actor->scale.x = actor->scale.y = actor->scale.z = (actor->unkA4.fp * actor->unkA0.fp) * 0.1;
 
             if(actor->unkA4.fp == 10.0f){
                 actor->flags &= ~0x10;
@@ -170,7 +170,7 @@ void func_80037AE0(s16 idx){
                 return;
             }
             
-            actor->unk90.x = actor->unk90.y = actor->unk90.z = (actor->unkA4.fp * actor->unkA0.fp) * (0.1/3.0);
+            actor->scale.x = actor->scale.y = actor->scale.z = (actor->unkA4.fp * actor->unkA0.fp) * (0.1/3.0);
             
             break;
     }
@@ -433,7 +433,7 @@ void func_800385C0(s16 idx){
                 GET_ACTOR_PTR(actor->unkB4.integer)->rot.y = actor->rot.y;
                 GET_ACTOR_PTR(actor->unkB4.integer)->pos.y = actor->pos.y;
 
-                func_80024874(actor->unkB4.integer, actor->unk90.x);
+                func_80024874(actor->unkB4.integer, actor->scale.x);
             }
             break;
         
@@ -557,16 +557,16 @@ void func_80038BDC(s16 idx){
             actor->unkB4.integer = 3;
             actor->flags |= 0x10;
             actor->status = 1;
-            actor->unkA0.fp = actor->unk90.x;
-            actor->unk90.x = 0.01f;
-            actor->unk90.y = 0.01f;
+            actor->unkA0.fp = actor->scale.x;
+            actor->scale.x = 0.01f;
+            actor->scale.y = 0.01f;
             actor->unkA8.fp = 3.0f;
             break;
         case 1:
-            actor->unk90.x += 0.01;
-            actor->unk90.y += 0.01;
+            actor->scale.x += 0.01;
+            actor->scale.y += 0.01;
 
-            if(actor->unkA0.fp <= actor->unk90.x){
+            if(actor->unkA0.fp <= actor->scale.x){
                 actor->unkA4.integer = 0x384;
                 actor->flags &= ~0x10;
                 actor->status = 2;
@@ -587,10 +587,10 @@ void func_80038BDC(s16 idx){
             }
             break;
         case 3:
-            actor->unk90.x -= 0.01;
-            actor->unk90.y -= 0.01;
+            actor->scale.x -= 0.01;
+            actor->scale.y -= 0.01;
 
-            if(actor->unk90.x < 0.02){
+            if(actor->scale.x < 0.02){
                 func_80023FCC(idx);
             }
             break;
@@ -668,9 +668,9 @@ void func_80039000(s16 idx){
     Actor* actor = GET_ACTOR_PTR(idx);
     Actor* actor1 = GET_ACTOR_PTR(actor->unkDC.integer);
 
-    actor->unk90.x = actor->unk90.y = actor->unk90.z = actor->unk90.x * 0.93;
+    actor->scale.x = actor->scale.y = actor->scale.z = actor->scale.x * 0.93;
 
-    if(actor->unk90.x < 0.05){
+    if(actor->scale.x < 0.05){
         func_80023FCC(idx);
     }
     else{
@@ -860,7 +860,7 @@ void func_80039254(s16 idx){
                 actor1 = GET_ACTOR_PTR(id);
                 
                 actor1->unkC8.integer = actor->unkC8.integer;
-                actor1->unkA4.fp = actor1->unk90.x;
+                actor1->unkA4.fp = actor1->scale.x;
   
                 GET_ACTOR_PTR(D_800F0588.unkA2)->unkA0.integer = id;
 
@@ -886,9 +886,9 @@ void func_80039254(s16 idx){
                 func_80023FCC(idx);
             }
             else{
-                temp = 0.95 * actor->unk90.x;
+                temp = 0.95 * actor->scale.x;
                 
-                actor->unk90.x = actor->unk90.y = actor->unk90.z = temp;
+                actor->scale.x = actor->scale.y = actor->scale.z = temp;
             }
             break;
         case 99:
@@ -989,10 +989,10 @@ void func_80039B8C(s16 idx){
             
             break;
         case 2:
-            actor->unk90.x -= 0.01;
-            actor->unk90.y -= 0.01;
+            actor->scale.x -= 0.01;
+            actor->scale.y -= 0.01;
 
-            if(actor->unk90.x < 0.02){
+            if(actor->scale.x < 0.02){
                 func_80023FCC(idx);
             }
             break;
