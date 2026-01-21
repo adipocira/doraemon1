@@ -109,7 +109,7 @@ segments:
       - [0x12AC0, asm, zzTeller]
 
       - [0x13940, c]
-      - [0x147B0, asm]
+      - [0x147B0, c]
       - [0x14B00, c]
       - [0x15040, c]
       - [0x15F60, asm]

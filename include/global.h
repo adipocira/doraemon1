@@ -201,9 +201,9 @@ typedef struct D_800E6A20_struct {
     u8 unk0;
     u8 unk1;
     s8 unk2;
-    s32 unk4;
-    s32 unk8;
-    s32 unkC;
+    u32 unk4;
+    u32 unk8;
+    u32 unkC;
 } D_800E6A20_struct;
 
 extern D_800E6A20_struct D_800E6A20[256];

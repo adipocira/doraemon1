@@ -1,5 +1,6 @@
 #include "823D0.h"
 
+#include "147B0.h"
 #include "global.h"
 #include "TexRec.h"
 

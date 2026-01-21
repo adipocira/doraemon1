@@ -1,6 +1,7 @@
 #include "13940.h"
 
 #include "11DF0.h"
+#include "147B0.h"
 #include "actor.h"
 #include "TexRec.h"
 #include "segments.h"
