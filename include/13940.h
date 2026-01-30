@@ -6,4 +6,6 @@
 s32 func_80012D40(s32 arg0, s32 arg1, u8 arg2);
 void func_8001392C(u8 arg0);
 
+extern u8 D_800AC090;
+
 #endif

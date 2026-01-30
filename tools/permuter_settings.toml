@@ -2,6 +2,7 @@ compiler_type = "ido"
 
 [preserve_macros]
 "GET_ACTOR.*" = "struct Actor*"
+ROMCOPY = "void"
 NORM_ANGLE = "void"
 RAD2DEG = "int"
 DEG2RAD = "int"

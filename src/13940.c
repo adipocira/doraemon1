@@ -31,6 +31,7 @@ typedef struct D_800E6B20_struct {
     u8 unk6587;
 } D_800E6B20_struct;
 
+
 typedef struct D_800F5F90_struct {
     u8 unk0;
     u8 unk1;
