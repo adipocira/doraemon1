@@ -75,12 +75,12 @@ typedef struct cdata_struct {
     s32 unk7C;
 } Cdata;
 
-#define RAD2DEG(x) ((f32)x * (180.0 / M_PI))
-#define DEG2RAD(x) ((f32)x * (M_PI / 180.0))
+#define RAD2DEG(x) (x * (180.0 / M_PI))
+#define DEG2RAD(x) (x * (M_PI / 180.0))
 
-#define DEG2RAD_ALT(x) (((f32)x * (2.0 * 3.14)) / 360.0)
-#define DEG2RAD_ALT2(x) (((f32)x * 3.14) / 180.0)
-#define DEG2RAD_ALT3(x) ((f32)x * 0.0174)
+#define DEG2RAD_ALT(x) ((x * (2.0 * 3.14)) / 360.0)
+#define DEG2RAD_ALT2(x) ((x * 3.14) / 180.0)
+#define DEG2RAD_ALT3(x) (x * 0.0174)
 
 
 #define CLAMP_MAX_MIN(value, max, min) \

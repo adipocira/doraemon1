@@ -87,7 +87,7 @@ typedef struct Actor {
     u8 a;
     s32 flags;
     Vec3f scale;
-    u32 unk9C;
+    f32 unk9C;
     s32_f32_ptr unkA0;
     s32_f32_ptr unkA4;
     s32_f32_ptr unkA8;

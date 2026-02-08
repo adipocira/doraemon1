@@ -102,10 +102,19 @@ typedef struct D_800F0588_struct{
 typedef struct D_801B58F8_struct {
     s32 unk0;
     f32 unk4;
-    u8 unk8[0x24];
+    u8 unk8[0x4];
+    f32 unkC;
+    f32 unk10;
+    f32 unk14;
+    s16 unk18;
+    f32 unk1C;
+    f32 unk20;
+    f32 unk24;
+    s16 unk28;
 }D_801B58F8_struct;
 
 extern D_801B58F8_struct D_801B58F8[1];
+
 
 typedef struct D_801414A8_struct {
     u8 unk0[0x30];
