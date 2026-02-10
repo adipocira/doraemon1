@@ -3,7 +3,7 @@
 
 #include "ultra64.h"
 
-void func_800063A0(s16 playerIdx);
-void func_800064F0(s16 playerIdx);
+void func_800063A0(s16 actorIdx);
+void func_800064F0(s16 actorIdx);
 
 #endif

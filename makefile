@@ -39,7 +39,7 @@ CYAN    := \033[0;36m
 WHITE    := \033[0;37m
 
 
-MIPS_BINUTILS_PREFIX := mips-linux-gnu-
+MIPS_BINUTILS_PREFIX := mips64-elf-
 
 CC          := tools/ido/$(DETECTED_OS)/5.3/cc
 
