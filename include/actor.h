@@ -22,11 +22,12 @@ typedef enum zzActors{
     ZZ_ACTORS_FIRE = 0x18A,
 }zzActors;
 
-typedef union s32_f32_ptr{
+typedef union ActorVariable{
     s32 integer;
     f32 fp;
     void* ptr;
-}s32_f32_ptr;
+    s16 shorts[2];
+}ActorVariable;
 
 typedef void (*ActorUnk80Func)(s16);
 
@@ -88,26 +89,26 @@ typedef struct Actor {
     s32 flags;
     Vec3f scale;
     f32 unk9C;
-    s32_f32_ptr unkA0;
-    s32_f32_ptr unkA4;
-    s32_f32_ptr unkA8;
-    s32_f32_ptr unkAC;
-    s32_f32_ptr unkB0;
-    s32_f32_ptr unkB4;
-    s32_f32_ptr unkB8;
-    s32_f32_ptr unkBC;
-    s32_f32_ptr unkC0;
-    s32_f32_ptr unkC4;
-    s32_f32_ptr unkC8;
-    s32_f32_ptr unkCC;
-    s32_f32_ptr unkD0;
-    s32_f32_ptr unkD4;
-    s32_f32_ptr unkD8;
-    s32_f32_ptr unkDC;
-    s32_f32_ptr unkE0;
-    s32_f32_ptr unkE4;
-    s32_f32_ptr unkE8;
-    s32_f32_ptr unkEC;
+    ActorVariable unkA0;
+    ActorVariable unkA4;
+    ActorVariable unkA8;
+    ActorVariable unkAC;
+    ActorVariable unkB0;
+    ActorVariable unkB4;
+    ActorVariable unkB8;
+    ActorVariable unkBC;
+    ActorVariable unkC0;
+    ActorVariable unkC4;
+    ActorVariable unkC8;
+    ActorVariable unkCC;
+    ActorVariable unkD0;
+    ActorVariable unkD4;
+    ActorVariable unkD8;
+    ActorVariable unkDC;
+    ActorVariable unkE0;
+    ActorVariable unkE4;
+    ActorVariable unkE8;
+    ActorVariable unkEC;
     u8 unkF0[0x10];
 } Actor;
 

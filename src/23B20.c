@@ -196,7 +196,7 @@ void func_80022F7C(s32* arg0, f32 arg1, f32 arg2, f32 arg3) {
             }
             if (sp7C != 0) {
                 for (i = 0; i != sp7C; i++) {
-                    ((s32_f32_ptr*)&sp44->unkA0)[i].integer = arg0[0];
+                    ((ActorVariable*)&sp44->unkA0)[i].integer = arg0[0];
                     arg0++;
                 }
             }
@@ -221,7 +221,7 @@ void func_80022F7C(s32* arg0, f32 arg1, f32 arg2, f32 arg3) {
                         arg0++;
                         switch (temp_v1) {
                             case 0:
-                                ((s32_f32_ptr*)&sp44->unkA0)[temp_a2].integer = var_v0;
+                                ((ActorVariable*)&sp44->unkA0)[temp_a2].integer = var_v0;
                                 var_t1--;
                                 break;
                             case 0x10000:
@@ -231,7 +231,7 @@ void func_80022F7C(s32* arg0, f32 arg1, f32 arg2, f32 arg3) {
                             case 0x20000:{
                                 temp_a0 = temp_a2 << 8;
                                 for (i = temp_a0; i != temp_a0 + (temp_a2 & 0xFF); i++) {
-                                    ((s32_f32_ptr*)&sp44->unkA0)[i].fp = ((s32_f32_ptr*)&sp44->unkA0)[i + 1].integer;
+                                    ((ActorVariable*)&sp44->unkA0)[i].fp = ((ActorVariable*)&sp44->unkA0)[i + 1].integer;
                                 }
                                 var_t1--;
                             }

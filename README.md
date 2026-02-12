@@ -1,4 +1,4 @@
-# Doraemon 1 ![Static Badge](https://img.shields.io/badge/code-229%2F872-green?style=flat-square&color=%230097e3) ![Static Badge](https://img.shields.io/badge/libultra-19%2F334-green?style=flat-square&color=%23f5cc07)
+# Doraemon 1 ![Static Badge](https://img.shields.io/badge/code-231%2F872-green?style=flat-square&color=%230097e3) ![Static Badge](https://img.shields.io/badge/libultra-19%2F334-green?style=flat-square&color=%23f5cc07)
 
 
 

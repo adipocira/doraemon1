@@ -593,7 +593,7 @@ void func_80028C00(s16 idx){
 
 void func_80028CF8(s16 idx){
     Actor* actor = GET_ACTOR_PTR(idx);
-    volatile s32_f32_ptr* ptr;
+    volatile ActorVariable* ptr;
     
 
     switch(actor->status){

@@ -153,7 +153,7 @@ segments:
       - [0x70DF0, asm]
       - [0x72610, asm]
       - [0x73660, asm]
-      - [0x789F0, asm]
+      - [0x789F0, c]
       - [0x78DE0, asm]
       - [0x7B6C0, asm]
       - [0x7F2B0, asm]
@@ -436,6 +436,10 @@ segments:
       - [0xC5D60, .rodata, 674A0]
 
       - [0xC5D70, rodata]
+
+      - [0xC6A50, .rodata, 789F0]
+      
+      - [0xC6A90, rodata,]
 
       - [0xC7060, .rodata, 823D0]
       

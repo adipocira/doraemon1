@@ -14,7 +14,13 @@ typedef union s82x_s16{
 
 typedef struct cdata_struct {
     u16* unk0;
-    u8 unk4[0x19];
+    f32 unk4;
+    f32 unk8;
+    f32 unkC;
+    f32 unk10;
+    f32 unk14;
+    f32 unk18;
+    u8 unk1C[0x1];
     u8 nextstg;
     u8 unk1E[0x4];
     u16 unk22;
