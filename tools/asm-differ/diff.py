@@ -534,9 +534,7 @@ def create_config(args: argparse.Namespace, project: ProjectSettings) -> Config:
         # Display options
         formatter=formatter,
         diff_mode=args.diff_mode or DiffMode.NORMAL,
-        base_shift=eval_int(
-            args.base_shift, "Failed to parse --base-shift (-S) argument as an integer."
-        ),
+        base_shift=0,
         skip_lines=args.skip_lines,
         compress=compress,
         show_rodata_refs=args.show_rodata_refs,
