@@ -38,16 +38,16 @@ void func_800063A0(s16 idx){
 
 void func_800064F0(s16 idx) {
     Actor* actor = GET_ACTOR_PTR(idx);
-    Actor* actor1 =  GET_ACTOR_PTR(actor->unkA0.integer);
-    Actor* actor2 = GET_ACTOR_PTR(actor->unkA4.integer);
+    Actor* actor1 =  GET_ACTOR_PTR(actor->actorVars.varA0.integer);
+    Actor* actor2 = GET_ACTOR_PTR(actor->actorVars.varA4.integer);
     
     if (actor->status == 0) {
-        D_800F05C8 = actor->unkA8.fp + actor1->pos.x;
-        D_800F05CC = actor->unkAC.fp + actor1->pos.y;
-        D_800F05D0 = actor->unkB0.fp + actor1->pos.z;
+        D_800F05C8 = actor->actorVars.varA8.fp + actor1->pos.x;
+        D_800F05CC = actor->actorVars.varAC.fp + actor1->pos.y;
+        D_800F05D0 = actor->actorVars.varB0.fp + actor1->pos.z;
 
-        D_800F05D4 = actor->unkB4.fp + actor2->pos.x;
-        D_800F05D8 = actor->unkB8.fp + actor2->pos.y;
-        D_800F05DC = actor->unkBC.fp + actor2->pos.z;
+        D_800F05D4 = actor->actorVars.varB4.fp + actor2->pos.x;
+        D_800F05D8 = actor->actorVars.varB8.fp + actor2->pos.y;
+        D_800F05DC = actor->actorVars.varBC.fp + actor2->pos.z;
     }
 }

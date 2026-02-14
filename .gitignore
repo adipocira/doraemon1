@@ -19,7 +19,8 @@ expected/
 !.vscode/c_cpp_properties.json
 
 ctx.c
-#permuter file
+#permuter files
 src/c.c 
+src/asm.s
 
 tools/ido

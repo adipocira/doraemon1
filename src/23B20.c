@@ -350,7 +350,7 @@ s16 func_80023644(u16 arg0, u16 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, f3
                     GET_ACTOR_PTR(temp2)->scale.x = (&D_801AF8C4[arg1])->unk18 * (&D_801AF8C4[arg1])->unk14;
                     GET_ACTOR_PTR(temp2)->scale.y = GET_ACTOR_PTR(temp2)->scale.x;
                     GET_ACTOR_PTR(temp2)->scale.z = GET_ACTOR_PTR(temp2)->scale.y;
-                    GET_ACTOR_PTR(temp2)->unkA0.integer = from;
+                    GET_ACTOR_PTR(temp2)->actorVars.varA0.integer = from;
                     GET_ACTOR_PTR(from)->unk70 = temp2;
 
                     if(!(GET_ACTOR_PTR(temp2)->flags & 0x100)){
@@ -404,7 +404,7 @@ s16 func_800238B0(s16 idx, u16 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, f32
                     GET_ACTOR_PTR(temp)->scale.x = (&D_801AF8C4[arg1])->unk18;
                     GET_ACTOR_PTR(temp)->scale.y = GET_ACTOR_PTR(temp)->scale.x;
                     GET_ACTOR_PTR(temp)->scale.z = GET_ACTOR_PTR(temp)->scale.y;
-                    GET_ACTOR_PTR(temp)->unkA0.integer = idx;
+                    GET_ACTOR_PTR(temp)->actorVars.varA0.integer = idx;
  
                     GET_ACTOR_PTR(idx)->unk70 = (u32)temp;
 
@@ -485,7 +485,7 @@ s16 func_80023A58(s16 idx, u16 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, f32
 
 
     for(i = 0; i < 0x18; i++){
-        actor[i].unkA0.integer = 0;
+        actor[i].actorVars.varA0.integer = 0;
     }
 
     D_80141CA2++;
@@ -1095,22 +1095,22 @@ void func_8002513C(Actor* actor){
     f32 z; 
     s32 temp;
     
-    x = actor->pos.x - actor->unkA0.fp;
+    x = actor->pos.x - actor->actorVars.varA0.fp;
     temp = 0;
-    z = actor->pos.z - actor->unkA8.fp;
+    z = actor->pos.z - actor->actorVars.varA8.fp;
 
-    if(actor->unkAC.fp < sqrtf(SQ(x) + SQ(z))){
+    if(actor->actorVars.varAC.fp < sqrtf(SQ(x) + SQ(z))){
         temp = 1;
-        actor->unkB8.fp = func_80074E68(actor->rot.y, func_80025C48(actor->unkA8.fp - actor->pos.z, actor->unkA0.fp - actor->pos.x));
+        actor->actorVars.varB8.fp = func_80074E68(actor->rot.y, func_80025C48(actor->actorVars.varA8.fp - actor->pos.z, actor->actorVars.varA0.fp - actor->pos.x));
     }
-    if(actor->unkB0.fp + actor->unkA4.fp < actor->pos.y){
+    if(actor->actorVars.varB0.fp + actor->actorVars.varA4.fp < actor->pos.y){
         temp |= 2;
     }
-    else if(actor->pos.y < actor->unkA4.fp){
+    else if(actor->pos.y < actor->actorVars.varA4.fp){
         temp |= 4;
     }
 
-    actor->unkB4.integer = temp;
+    actor->actorVars.varB4.integer = temp;
     
 }
 

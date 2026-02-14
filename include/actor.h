@@ -45,6 +45,32 @@ typedef struct ActorUnk34Struct{
     f32 unk20;
 }ActorUnk34Struct;
 
+typedef union ActorVariables{
+    struct {
+        ActorVariable varA0;
+        ActorVariable varA4;
+        ActorVariable varA8;
+        ActorVariable varAC;
+        ActorVariable varB0;
+        ActorVariable varB4;
+        ActorVariable varB8;
+        ActorVariable varBC;
+        ActorVariable varC0;
+        ActorVariable varC4;
+        ActorVariable varC8;
+        ActorVariable varCC;
+        ActorVariable varD0;
+        ActorVariable varD4;
+        ActorVariable varD8;
+        ActorVariable varDC;
+        ActorVariable varE0;
+        ActorVariable varE4;
+        ActorVariable varE8;
+        ActorVariable varEC;
+    };
+    ActorVariable rawVars[20];
+}ActorVariables;
+
 typedef struct Actor {
     s16 unk0;
     u16 unk2;
@@ -89,26 +115,7 @@ typedef struct Actor {
     s32 flags;
     Vec3f scale;
     f32 unk9C;
-    ActorVariable unkA0;
-    ActorVariable unkA4;
-    ActorVariable unkA8;
-    ActorVariable unkAC;
-    ActorVariable unkB0;
-    ActorVariable unkB4;
-    ActorVariable unkB8;
-    ActorVariable unkBC;
-    ActorVariable unkC0;
-    ActorVariable unkC4;
-    ActorVariable unkC8;
-    ActorVariable unkCC;
-    ActorVariable unkD0;
-    ActorVariable unkD4;
-    ActorVariable unkD8;
-    ActorVariable unkDC;
-    ActorVariable unkE0;
-    ActorVariable unkE4;
-    ActorVariable unkE8;
-    ActorVariable unkEC;
+    ActorVariables actorVars;
     u8 unkF0[0x10];
 } Actor;
 
