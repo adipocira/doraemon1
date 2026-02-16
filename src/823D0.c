@@ -3,6 +3,7 @@
 #include "147B0.h"
 #include "global.h"
 #include "TexRec.h"
+#include "9320.h"
 
 extern f32 D_8016B0B0;
 extern f32 D_8016B0B4;
@@ -17,10 +18,6 @@ extern u8 D_801E2008[];
 extern u8 D_801E2034[];
 
 extern u32 D_800E6A2C[4];
-
-
-void func_80008C6C(s32, s32);
-
 
 void func_800817D0(s32 arg0){
 

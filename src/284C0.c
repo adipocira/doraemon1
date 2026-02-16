@@ -39,7 +39,7 @@ typedef struct D_800E6B20_struct {
 
 extern D_800E6B20_struct D_800E6B20;
 
-extern s16 D_800F3950;
+extern u16 D_800F3950;
 
 void func_800278C0(u16 idx, Gfx** gfxPtr){
     D_8010B820_struct* ptr = (&D_8010B820)[idx];
