@@ -116,7 +116,9 @@ typedef struct Actor {
     Vec3f scale;
     f32 unk9C;
     ActorVariables actorVars;
-    u8 unkF0[0x10];
+    u8 unkF0[0x8];
+    s32 unkF8;
+    u8 unkFC[0x4];
 } Actor;
 
 #define GET_ACTOR_PTR(idx) ((&actors[(idx)]))

@@ -114,6 +114,8 @@ typedef struct D_800F9B08_struct{
     u16 unk83C;
     u8 unk83E[0x292];
     u16 unkAD0;
+    u8 unkAD2[0x3A];
+    u16 unkB0C;
 }D_800F9B08_struct; 
 
 extern D_800F9B08_struct D_800F9B08;
