@@ -11,131 +11,15 @@
 #include "B4E0.h"
 #include "1D870.h"
 
+#include "TexRec.h"
+
 #include "libc/math.h"
 #include "actor.h"
- 
-typedef struct D_800F9910_struct {
-    u8 unk0;
-    u8 unk1;
-    u16 unk2; 
-    u16 unk4;
-    f32 unk8; 
-    f32 unkC;
-    f32 unk10;
-    f32 unk14;
-    f32 unk18;
-    f32 unk1C;
-    f32 unk20;
-    
-    /* todo more*/
-}D_800F9910_struct;
 
-extern D_800F9910_struct D_800F9910;
-
-typedef struct func_80040BD8_struct_actor{
-    u8 unk0[0x34];
-    f32 unk34;
-    s32 unk38;
-    f32 unk3C;
-    f32 unk40;
-}func_80040BD8_struct_actor;
-
-typedef struct D_801414A0_ptr_struct{
-    u16 unk0; 
-    u16 unk2;
-    u16 unk4;
-    u16 unk6;
-    u16 unk8;
-    u8 unkA[0x2];
-    f32 unkC;
-    f32 unk10;
-    f32 unk14;
-    f32 unk18;
-    f32 unk1C;
-    f32 unk20;
-    f32 unk24;
-    f32 unk28;
-    f32 unk2C;
-    f32 unk30;
-    f32 unk34;
-    f32 unk38;
-    f32 unk3C;
-    f32 unk40;
-    f32 unk44;
-    s32 unk48;
-    s32 unk4C;
-    u16 unk50;
-    u16 unk52;
-    f32 unk54;
-    f32 unk58;
-    f32 unk5C;
-    u8 unk60[0x80];
-    Mtx mtx;
-    u8 unk120[0x200];
-    u8 unk320;
-    u8 unk321;
-    u8 unk322;
-    u8 unk323;
-    u8 unk324[0xC];
-    f32 unk330;
-    f32 unk334;
-    f32 unk338;
-    f32 unk33C;
-    f32 unk340;
-    f32 unk344;
-    f32 unk348;
-    f32 unk34C;
-    f32 unk350;
-}D_801414A0_ptr_struct;
-extern D_801414A0_ptr_struct* D_801414A0[];
-
-typedef struct D_801414A0_struct{
-    u8 unk0[0x8];
-    void* unk8;
-    void* unkC;
-    void* unk10;
-}D_801414A0_struct;
-
-extern D_801414A0_ptr_struct* D_801414A0[];
-
-typedef struct D_80141CB0_struct{
-    s16 unk0;
-    u8 unk2[0x6];
-    s16 unk8;
-    u8 unkA[0x3];
-}D_80141CB0_struct;
-
-extern D_80141CB0_struct D_80141CB0[];
-
-typedef struct D_801591C0_struct_unk48{
-    s16 unk0;
-    u8 unk2[0x66];
-}D_801591C0_struct_unk48;
-
-typedef struct D_80159178_struct {
-    u8 unk0[0x48];
-    D_801591C0_struct_unk48 unk48[1];
-}D_80159178_struct;
-
-extern D_80159178_struct D_80159178[1];
-
-typedef struct D_801B58F8_struct {
-    s32 unk0;
-    f32 unk4;
-    u8 unk8[0x4];
-    f32 unkC;
-    f32 unk10;
-    f32 unk14;
-    s16 unk18;
-    f32 unk1C;
-    f32 unk20;
-    f32 unk24;
-    s16 unk28;
-}D_801B58F8_struct;
-
-extern D_801B58F8_struct D_801B58F8[1];
+#include "common.h"
 
 extern f32 D_80159170;
+extern D_801BABB0_struct D_801BABB0;
 
 void func_80040B90(s16 idx){
     Actor* actor = GET_ACTOR_PTR(idx);

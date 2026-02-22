@@ -4,55 +4,7 @@
 #include "23B20.h"
 #include "73660.h"
 
-typedef struct D_801591C0_struct_unk48{
-    s16 unk0;
-    u8 unk2[0x66];
-}D_801591C0_struct_unk48;
-
-typedef struct D_80159178_struct {
-    u8 unk0[0x48];
-    D_801591C0_struct_unk48 unk48[1];
-}D_80159178_struct;
-
-extern D_80159178_struct D_80159178[1];
-
-typedef struct D_800E6B20_struct {
-    s16 unk0;
-    s32 unk4;
-    u8 unk8[0xE];
-    u8 unk16;
-    u8 unk17;
-    u8 unk18;
-    u8 unk19;
-    u8 unk1A;
-    u8 unk1B[0x5];
-    u16 unk20;
-    u16 unk22;
-    u8 unk24;
-    u8 unk25;
-    u8 unk26[0x3];
-    u8 unk29;
-    u8 unk2A[0x655D];
-    u8 unk6587;
-} D_800E6B20_struct;
-
-extern D_800E6B20_struct D_800E6B20;
-
-typedef struct D_800F9B08_struct{
-    u8 unk0[0x4B8];
-    u16 unk4B8;
-    u8 unk4BA[0x382];
-    u16 unk83C;
-    u8 unk83E[0x292];
-    u16 unkAD0;
-    u8 unkAD2[0x3A];
-    u16 unkB0C;
-}D_800F9B08_struct; 
-
-extern D_800F9B08_struct D_800F9B08;
-
-#define D_800E6B20_2022_sets(arg1, arg2) D_800E6B20.unk20 = (arg1);\
-D_800E6B20.unk22 = (arg2)\
+#include "common.h"
 
 void func_800662B0(s16 idx){
     Actor* actor;

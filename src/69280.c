@@ -13,104 +13,7 @@
 
 #include "55270.h"
 
-#define D_800E6B20_2022_sets(arg1, arg2) D_800E6B20.unk20 = (arg1);\
-D_800E6B20.unk22 = (arg2)\
-
-typedef struct D_801414A0_ptr_struct{
-    u16 unk0;
-    u16 unk2;
-    u16 unk4;
-    u16 unk6;
-    u16 unk8;
-    u8 unkA[0x2];
-    f32 unkC;
-    f32 unk10;
-    f32 unk14;
-    f32 unk18;
-    f32 unk1C;
-    f32 unk20;
-    f32 unk24;
-    f32 unk28;
-    f32 unk2C;
-    f32 unk30;
-    f32 unk34;
-    f32 unk38;
-    f32 unk3C;
-    f32 unk40;
-    f32 unk44;
-    s32 unk48;
-    s32 unk4C;
-    u16 unk50;
-    u16 unk52;
-    f32 unk54;
-    f32 unk58;
-    f32 unk5C;
-    u8 unk60[0x80];
-    Mtx mtx;
-    u8 unk120[0x200];
-    u8 unk320;
-    u8 unk321;
-    u8 unk322;
-    u8 unk323;
-    u8 unk324[0xC];
-    f32 unk330;
-    f32 unk334;
-    f32 unk338;
-    f32 unk33C;
-    f32 unk340;
-    f32 unk344;
-    f32 unk348;
-    f32 unk34C;
-    f32 unk350;
-}D_801414A0_ptr_struct;
-extern D_801414A0_ptr_struct* D_801414A0[];
-
-typedef struct D_800E6B20_struct {
-    s16 unk0;
-    s32 unk4;
-    u8 unk8[0xE];
-    u8 unk16;
-    u8 unk17;
-    u8 unk18;
-    u8 unk19;
-    u8 unk1A;
-    u8 unk1B[0x5];
-    u16 unk20;
-    u16 unk22;
-    u8 unk24;
-    u8 unk25;
-    u8 unk26[0x3];
-    u8 unk29;
-    u8 unk2A[0x655D];
-    u8 unk6587;
-} D_800E6B20_struct;
-
-extern D_800E6B20_struct D_800E6B20;
-
-typedef struct D_800F9B08_struct{
-    u8 unk0[0x4B8];
-    u16 unk4B8;
-    u8 unk4BA[0x382];
-    u16 unk83C;
-    u8 unk83E[0x292];
-    u16 unkAD0;
-    u8 unkAD2[0x3A];
-    u16 unkB0C;
-}D_800F9B08_struct; 
-
-extern D_800F9B08_struct D_800F9B08;
-
-typedef struct D_801591C0_struct_unk48{
-    s16 unk0;
-    u8 unk2[0x66];
-}D_801591C0_struct_unk48;
-
-typedef struct D_80159178_struct {
-    u8 unk0[0x48];
-    D_801591C0_struct_unk48 unk48[1];
-}D_80159178_struct;
-
-extern D_80159178_struct D_80159178[1];
+#include "common.h"
 
 extern s16 D_800FB340;
 
@@ -244,8 +147,6 @@ void func_80068890(s16 idx){
             }
             break;
             }
-
-
     }
 
     switch(actor->actorVars.varC0.integer){

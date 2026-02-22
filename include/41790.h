@@ -16,4 +16,12 @@ void func_80042A38(s16 idx);
 void func_8004312C(s16 idx);
 void func_800435A0(s16 idx);
 
+typedef struct func_80040BD8_struct_actor{
+    u8 unk0[0x34];
+    f32 unk34;
+    s32 unk38;
+    f32 unk3C;
+    f32 unk40;
+}func_80040BD8_struct_actor;
+
 #endif

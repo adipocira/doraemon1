@@ -8,36 +8,7 @@
 #include "9320.h"
 
 #include "libc/math.h"
-
-typedef struct D_8010B820_struct{
-    u8 unk0[0xA4];
-    s32 unkA4;
-    s32 unkA8;
-}D_8010B820_struct;
-
-extern D_8010B820_struct* D_8010B820;
-
-typedef struct D_800E6B20_struct {
-    s16 unk0;
-    s32 unk4;
-    u8 unk8[0xE];
-    u8 unk16;
-    u8 unk17;
-    u8 unk18;
-    u8 unk19;
-    u8 unk1A;
-    u8 unk1B[0x5];
-    u16 unk20;
-    u16 unk22;
-    u8 unk24;
-    u8 unk25;
-    u8 unk26[0x3];
-    u8 unk29;
-    u8 unk2A[0x655D];
-    u8 unk6587;
-} D_800E6B20_struct;
-
-extern D_800E6B20_struct D_800E6B20;
+#include "common.h"
 
 extern u16 D_800F3950;
 

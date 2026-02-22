@@ -6,67 +6,9 @@
 #include "TexRec.h"
 #include "segments.h"
 
-typedef struct D_800F5F88_struct {
-    u8 unk0;
-    s32* unk4;
-} D_800F5F88_struct;
+#include "common.h"
 
-typedef struct D_800E6B20_struct {
-    s16 unk0;
-    s32 unk4;
-    u8 unk8[0xE];
-    u8 unk16;
-    u8 unk17;
-    u8 unk18;
-    u8 unk19;
-    u8 unk1A;
-    u8 unk1B[0x5];
-    u16 unk20;
-    u16 unk22;
-    u8 unk24;
-    u8 unk25;
-    u8 unk26[0x3];
-    u8 unk29;
-    u8 unk2A[0x655D];
-    u8 unk6587;
-} D_800E6B20_struct;
-
-typedef struct D_800F5F90_struct {
-    u8 unk0;
-    u8 unk1;
-    u8 unk2;
-    u8 unk3;
-    u8 unk4;
-} D_800F5F90_struct;
-
-typedef struct D_800F3920_struct {
-    u8 unk0;
-    u8 unk1;
-    s16 unk2;
-} D_800F3920_struct;
-
-typedef struct D_801591C0_struct_unk48{
-    s16 unk0;
-    u8 unk2[0x66];
-}D_801591C0_struct_unk48;
-
-typedef struct D_80159178_struct {
-    u8 unk0[0x48];
-    D_801591C0_struct_unk48 unk48[1];
-}D_80159178_struct;
-
-extern D_80159178_struct D_80159178[1];
-
-
-
-extern D_800F5F90_struct D_800F5F90;
-
-extern D_800F3920_struct D_800F3920;
-
-extern D_801BABB0_struct D_801BABB0;
 extern s32 D_801BB488;
-
-extern D_800E6B20_struct D_800E6B20;
 
 extern u8 D_800ED0A7;
 
@@ -83,15 +25,14 @@ extern u16 D_800F5FA6;
 
 extern u16 D_800F5FA8[];
 
-extern D_800F5F88_struct* D_801BA090[1];
-extern D_800F5F88_struct* D_800F5F84;
-extern D_800F5F88_struct* D_800F5F88;
 extern s32* D_800F5F8C;
 
 extern s32 D_800F5F9C;
 extern s32 D_800F5F98;
 
 extern u16 D_800F5F80;
+
+extern D_801BABB0_struct D_801BABB0;
 
 u8 D_800AC090 = 0;
 

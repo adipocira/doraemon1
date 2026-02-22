@@ -4,20 +4,10 @@
 #include "9320.h"
 #include "11F10.h"
 
+#include "common.h"
+
 extern u16 D_800F3950;
 extern u16 D_800F3952;
-
-typedef struct D_801591C0_struct_unk48{
-    s16 unk0;
-    u8 unk2[0x66];
-}D_801591C0_struct_unk48;
-
-typedef struct D_80159178_struct {
-    u8 unk0[0x48];
-    D_801591C0_struct_unk48 unk48[1];
-}D_80159178_struct;
-
-extern D_80159178_struct D_80159178[1];
 
 void func_80065230(s16 idx){
     Actor* actor = GET_ACTOR_PTR(idx);

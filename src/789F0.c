@@ -7,47 +7,9 @@
 #include "23B20.h"
 #include "9320.h"
 
-typedef struct D_801591C0_struct_unk4{
-    u8 unk0[0x8];
-    s16 unk8;
-    u8 unkA[0x4];
-    s16 unkE;
-}D_801591C0_struct_unk4;
-
-typedef struct D_801591C0_struct_unk48{
-    s16 unk0;
-    u8 unk2[2];
-    D_801591C0_struct_unk4* unk4;
-    u8 unk8[0x60];
-}D_801591C0_struct_unk48;
-
-typedef struct D_80159178_struct {
-    u8 unk0[0x48];
-    D_801591C0_struct_unk48 unk48[1];
-}D_80159178_struct;
-
-extern D_80159178_struct D_80159178[1];
+#include "common.h"
 
 extern s16 D_800F062A;
-
-typedef struct D_80141CB0_struct{
-    s16 unk0;
-    u8 unk2[0x2];
-    s16 unk4;
-    s16 unk6;
-    s16 unk8;
-    s16 unkA;
-    u8 unkC;
-}D_80141CB0_struct;
-
-extern D_80141CB0_struct D_80141CB0[];
-
-typedef struct D_802BD4A8_struct{
-    f32 unk0;
-    u8 unk4[0x18];
-}D_802BD4A8_struct;
-
-extern D_802BD4A8_struct D_802BD4A8[];
 
 extern s16 D_802BD67A[];
 

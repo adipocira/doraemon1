@@ -7,26 +7,7 @@
 #include "7FC0.h"
 #include "9320.h"
 
-typedef struct D_801591C0_struct_unk48{
-    s16 unk0;
-    u8 unk2[0x66];
-}D_801591C0_struct_unk48;
-
-typedef struct D_80159178_struct {
-    u8 unk0[0x48];
-    D_801591C0_struct_unk48 unk48[1];
-}D_80159178_struct;
-
-extern D_80159178_struct D_80159178[1];
-
-typedef struct D_80141CB0_struct{
-    s16 unk0;
-    u8 unk2[0x6];
-    s16 unk8;
-    u8 unkA[0x3];
-}D_80141CB0_struct;
-
-extern D_80141CB0_struct D_80141CB0[];
+#include "common.h"
 
 extern f32 D_8014DF8C;
 extern f32 D_80142BCC;

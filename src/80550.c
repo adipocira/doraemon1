@@ -3,6 +3,8 @@
 #include "zzSprite.h"
 #include "actor.h"
 
+#include "common.h"
+
 extern InternalSprite D_801D113C;
 extern InternalSprite D_801D1170;
 extern InternalSprite D_801D11A4;
@@ -39,33 +41,6 @@ extern u16* D_800B657C[];
 extern u8 D_800F0630;
 
 extern u16 D_8015A392;
-
-typedef struct D_801591C0_struct_unk48{
-    s16 unk0;
-    u8 unk2[0x66];
-}D_801591C0_struct_unk48;
-
-typedef struct D_80159178_struct {
-    u8 unk0[0x48];
-    D_801591C0_struct_unk48 unk48[1];
-}D_80159178_struct;
-
-extern D_80159178_struct D_80159178[1];
-
-typedef struct D_800B6558_struct{
-    s32 unk0;
-    u8 unk4[0x10];
-    u16* unk14;
-}D_800B6558_struct;
-
-extern D_800B6558_struct D_800B6558;
-
-typedef struct D_800F3948_struct{
-    u8 unk0[0x34];
-    u32 unk34;
-}D_800F3948_struct;
-
-extern D_800F3948_struct* D_800F3948;
 
 void func_8007F950() {
 

@@ -8,46 +8,9 @@
 #include "actor.h"
 #include "libc/math.h"
 
-typedef struct D_801B58F8_struct {
-    s32 unk0;
-    f32 unk4;
-    u8 unk8[0x24];
-}D_801B58F8_struct;
-
-extern D_801B58F8_struct D_801B58F8[1];
-
-typedef struct D_801591C0_struct_unk48{
-    s16 unk0;
-    u8 unk2[0x66];
-}D_801591C0_struct_unk48;
-
-typedef struct D_80159178_struct {
-    u8 unk0[0x48];
-    D_801591C0_struct_unk48 unk48[1];
-}D_80159178_struct;
-
-extern D_80159178_struct D_80159178[1]; 
-
+#include "common.h"
 
 extern f32 D_80159170;
-
-typedef struct D_800F9910_struct {
-    u8 unk0;
-    u8 unk1;
-    u16 unk2;
-    u16 unk4;
-    f32 unk8;
-    f32 unkC;
-    f32 unk10;
-    f32 unk14;
-    f32 unk18;
-    f32 unk1C;
-    f32 unk20;
-    
-    /* todo more*/
-}D_800F9910_struct;
-
-extern D_800F9910_struct D_800F9910;
 
 void func_80048BE0(s16 idx){
     Actor* actor = GET_ACTOR_PTR(idx);

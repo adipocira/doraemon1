@@ -6,73 +6,10 @@
 #include "libc/math.h"
 #include "actor.h"
 
-typedef struct D_801AF8C4_struct{
-    u8 unk0[0x4];
-    s16 unk4;
-    s16 unk6;
-    s32 unk8;
-    s32 unkC;
-    s16 unk10;
-    s16 unk12;
-    f32 unk14;
-    f32 unk18; 
-    s32 unk1C;
-    ActorUnk80Func unk20;
-    s32 flags;
-}D_801AF8C4_struct;
+#include "common.h"
 
-extern D_801AF8C4_struct D_801AF8C4[];
 extern u8 D_80142AB0[];
 extern s32 D_801B52E0[];
-
-typedef struct D_801414A0_ptr_struct{
-    u16 unk0; 
-    u16 unk2;
-    u16 unk4;
-    u16 unk6;
-    u16 unk8;
-    u8 unkA[0x2];
-    f32 unkC;
-    f32 unk10;
-    f32 unk14;
-    f32 unk18;
-    f32 unk1C;
-    f32 unk20;
-    f32 unk24;
-    f32 unk28;
-    f32 unk2C;
-    f32 unk30;
-    f32 unk34;
-    f32 unk38;
-    f32 unk3C;
-    f32 unk40;
-    f32 unk44;
-    s32 unk48;
-    s32 unk4C;
-    u16 unk50;
-    u16 unk52;
-    f32 unk54;
-    f32 unk58;
-    f32 unk5C;
-    u8 unk60[0x80];
-    Mtx mtx;
-    u8 unk120[0x200];
-    u8 unk320;
-    u8 unk321;
-    u8 unk322;
-    u8 unk323;
-    u8 unk324[0xC];
-    f32 unk330;
-    f32 unk334;
-    f32 unk338;
-    f32 unk33C;
-    f32 unk340;
-    f32 unk344;
-    f32 unk348;
-    f32 unk34C;
-    f32 unk350;
-}D_801414A0_ptr_struct;
-extern D_801414A0_ptr_struct* D_801414A0[];
 
 extern u16 D_800B50F0[];
 
@@ -81,17 +18,6 @@ extern s16 D_801AF810[];
 extern u16 D_80141CA2;
 
 extern u16 D_800B5130[];
-
-typedef struct D_80141CB0_struct{
-    s16 unk0;
-    s16 unk2;
-    s16 unk4;
-    s16 unk6;
-    s16 unk8;
-    s16 unkA;
-    s16 unkC;
-}D_80141CB0_struct;
-extern D_80141CB0_struct D_80141CB0[];
 
 extern s16 D_801545E0;
 extern s16 D_801545E2;
@@ -116,26 +42,6 @@ extern f32 D_80154618;
 extern f32 D_8015461C;
 extern f32 D_80154620;
 extern f32 D_80154624;
-
-typedef struct D_80152360_struct{
-    u8 unk0;
-    u8 unk1[0x4];
-}D_80152360_struct;
-
-extern D_80152360_struct D_80152360[];
-
-typedef struct D_801525E0_struct {
-    s16 unk0;
-    s16 unk2;
-    s16 unk4;
-    u8 unk6[0x6];
-    s8 unkC;
-    s8 unkD;
-    s8 unkE;
-    s8 unkF;
-}D_801525E0_struct;
-
-extern D_801525E0_struct D_801525E0[];
 
 void func_80022F20(s16 idx, ActorUnk80Func arg1){
     Actor* actor = GET_ACTOR_PTR(idx);

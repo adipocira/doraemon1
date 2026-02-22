@@ -16,6 +16,8 @@
 #include "actor.h"
 #include "libc/math.h"
 
+#include "common.h"
+
 extern f32 D_80159170;
 extern s16 D_80141CAA;
 
@@ -26,112 +28,9 @@ extern s16 D_802BDE56;
 
 extern s16 D_800F0680;
 
-typedef struct D_800F9910_struct {
-    u8 unk0;
-    u8 unk1;
-    u16 unk2;
-    u16 unk4;
-    f32 unk8;
-    f32 unkC;
-    f32 unk10;
-    f32 unk14;
-    f32 unk18;
-    f32 unk1C;
-    f32 unk20;
-    
-    /* todo more*/
-}D_800F9910_struct;
-
-extern D_800F9910_struct D_800F9910;
-
-typedef struct D_80141CB0_struct{
-    s16 unk0;
-    u8 unk2[0x6];
-    s16 unk8;
-    u8 unkA[0x3];
-}D_80141CB0_struct;
-
-extern D_80141CB0_struct D_80141CB0[];
-
-typedef struct D_800E6B20_struct {
-    s16 unk0;
-    s32 unk4;
-    u8 unk8[0xE];
-    u8 unk16;
-    u8 unk17;
-    u8 unk18;
-    u8 unk19;
-    u8 unk1A;
-    u8 unk1B[0x5];
-    u16 unk20;
-    u16 unk22;
-    u8 unk24;
-    u8 unk25;
-    u8 unk26[0x3];
-    u8 unk29;
-    u8 unk2A[0x655D];
-    u8 unk6587;
-} D_800E6B20_struct;
-
-typedef struct D_801591C0_struct_unk48{
-    s16 unk0;
-    u8 unk2[0x66];
-}D_801591C0_struct_unk48;
-
-typedef struct D_80159178_struct {
-    u8 unk0[0x48];
-    D_801591C0_struct_unk48 unk48[1];
-}D_80159178_struct;
-
-extern D_80159178_struct D_80159178[1];
-
-extern D_800E6B20_struct D_800E6B20;
-
 extern u8 D_802BDB7C[];
 
-
-
-typedef struct D_800F0588_struct{
-    u8 unk0[0x1B];
-    u8 unk1B;
-    s8 unk1C;
-    s8 unk1D;
-    u8 unk1E[0x84];
-    s16 unkA2;
-}D_800F0588_struct;
-
-typedef struct D_801B58F8_struct {
-    s32 unk0;
-    f32 unk4;
-    u8 unk8[0x4];
-    f32 unkC;
-    f32 unk10;
-    f32 unk14;
-    s16 unk18;
-    f32 unk1C;
-    f32 unk20;
-    f32 unk24;
-    s16 unk28;
-}D_801B58F8_struct;
-
-extern D_801B58F8_struct D_801B58F8[1];
-
-
-typedef struct D_801414A8_struct {
-    u8 unk0[0x30];
-    f32 unk30;
-    u8 unk34[0x4];
-    s32 unk38;
-}D_801414A8_struct;
-
-extern D_801414A8_struct* D_801414A8;
-
-extern D_800F0588_struct D_800F0588;
-
 extern u8 D_800F0630;
-
-#define D_800E6B20_2022_sets(arg1, arg2) D_800E6B20.unk20 = (arg1);\
-D_800E6B20.unk22 = (arg2)\
 
 void func_80037AE0(s16 idx){
     Actor* actor = GET_ACTOR_PTR(idx);
