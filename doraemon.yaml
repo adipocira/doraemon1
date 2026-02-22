@@ -139,7 +139,7 @@ segments:
       - [0x661D0, c]
       - [0x66EB0, c]
       - [0x674A0, c]
-      - [0x675B0, asm]
+      - [0x675B0, c]
       - [0x682B0, asm]
       - [0x684A0, asm]
       - [0x69280, c]
@@ -442,7 +442,9 @@ segments:
 
       - [0xC5D60, .rodata, 674A0]
 
-      - [0xC5D70, rodata]
+      - [0xC5D70, .rodata, 675B0]
+
+      - [0xC5DE0, rodata]
 
       - [0xC5E50, .rodata, 69280]
 
@@ -450,7 +452,7 @@ segments:
 
       - [0xC6A50, .rodata, 789F0] 
       
-      - [0xC6A90, rodata,]
+      - [0xC6A90, rodata]
 
       - [0xC7060, .rodata, 823D0]
       

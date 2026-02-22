@@ -297,4 +297,22 @@ typedef struct D_800F3948_struct{
 
 extern D_800F3948_struct* D_800F3948;
 
+typedef struct D_80142BB8_struct {
+    u8 unk0[0x2CF0];
+    f32 unk2CF0;
+    f32 unk2CF4;
+    f32 unk2CF8;
+    f32 unk2CFC;
+    f32 unk2D00;
+    f32 unk2D04;
+    f32 unk2D08;
+    u8 unk2D0C[0xC];
+    f32 unk2D18;
+    f32 unk2D1C;
+    f32 unk2D20;
+    s16 unk2D24;
+}D_80142BB8_struct;
+
+extern D_80142BB8_struct D_80142BB8;
+
 #endif
