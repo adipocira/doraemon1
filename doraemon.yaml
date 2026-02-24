@@ -141,7 +141,7 @@ segments:
       - [0x674A0, c]
       - [0x675B0, c]
       - [0x682B0, asm]
-      - [0x684A0, asm]
+      - [0x684A0, c]
       - [0x69280, c]
       - [0x69E20, asm]
       - [0x6A480, asm]
@@ -388,6 +388,10 @@ segments:
 
       - [0xB6230, data]
 
+      - [0xB63A0, .data, 684A0]
+
+      - [0xB63D0, data]
+
       - [0xB7490, .data, zzSprite]
       
       - [0xB74A0, data]
@@ -446,6 +450,8 @@ segments:
 
       - [0xC5DE0, rodata]
 
+      - [0xC5DF0, .rodata, 684A0]
+
       - [0xC5E50, .rodata, 69280]
 
       - [0xC5E80, rodata]
@@ -479,7 +485,8 @@ segments:
       - { start: 0xCAE10, type: .bss, vram: 0x80158AD0, name: 284C0 }
       - { start: 0xCAE10, type: bss, vram: 0x80158AF0, name: 80158AF0 }
       - { start: 0xCAE10, type: .bss, vram: 0x801590C0, name: 65E30 }
-      - { start: 0xCAE10, type: bss, vram: 0x801590D0, name: 801590D0 }
+      - { start: 0xCAE10, type: .bss, vram: 0x801590D0, name: 684A0 }
+      - { start: 0xCAE10, type: bss, vram: 0x801590E0, name:  801590E0}
       - { start: 0xCAE10, type: .bss, vram: 0x8016B470, name: 8A6C0 }
       - { start: 0x16C080, type: .bss, vram: 0x8016B480, name: libultra/os/initialize }
       - { start: 0x16C090, type: bss, vram: 0x8016B490, name: 16C090}
