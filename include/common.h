@@ -212,12 +212,15 @@ typedef struct D_800F9B08_struct{
     u16 unk878;
     u8 unk87A[0x76];
     u16 unk8F0;
-    u8 unk8F2[0x1DE];
+    u8 unk8F2[0x166];
+    u16 unkA58;
+    u8 unkA5A[0x3A];
+    u16 unkA94;
+    u8 unkA96[0x3A];
     u16 unkAD0;
     u8 unkAD2[0x3A];
     u16 unkB0C;
 }D_800F9B08_struct; 
-
 extern D_800F9B08_struct D_800F9B08;
 
 typedef struct D_8010B820_struct{

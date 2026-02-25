@@ -18,6 +18,7 @@ extern u8 D_3DF820_segment[];
 
 extern u8 D_354270[0x14090];
 extern u8 D_368300[0x16EA0];
+extern u8 D_37F1A0[0x12860];
 extern u8 D_3A0350[0x12FA0];
 extern u8 D_3B32F0[0xD260];
 
