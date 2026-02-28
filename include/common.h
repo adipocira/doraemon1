@@ -280,7 +280,7 @@ extern D_800F5F90_struct D_800F5F90;
 typedef struct D_800F3920_struct {
     u8 unk0;
     u8 unk1;
-    s16 unk2;
+    u16 unk2;
 } D_800F3920_struct;
 
 extern D_800F3920_struct D_800F3920;

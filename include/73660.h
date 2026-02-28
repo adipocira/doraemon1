@@ -17,5 +17,6 @@ void func_80073B80(void*, void*);
 void func_80074EE0(struct Actor*, s16);
 void func_80075BD8(struct Actor*, s16);
 void func_80072FB0(struct Actor*);
+void func_80077D24(void);
 
 #endif

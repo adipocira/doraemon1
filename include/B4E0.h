@@ -6,5 +6,6 @@
 f32 func_8000B038(f32, f32);
 f32 func_8000AE70(f32 arg0);
 f32 func_8000ADE0(f32);
+void func_8000B120(u16);
 
 #endif

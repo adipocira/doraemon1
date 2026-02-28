@@ -153,12 +153,18 @@ typedef struct D_800E69C0_struct {
     u8 unk18[0x5];
     u8 unk1D[0x8];
     u8 unk25[0x17];
-    volatile u8 unk3C;
-    volatile u8 unk3D;
-    volatile char2x_short unk3E;
-    volatile u8 unk40;
-    volatile u8 unk41;
-} D_800E69C0_struct;
+    volatile char2x_short unk3C;
+    volatile char2x_short unk3E[5];
+    volatile s16 unk48;
+    volatile s16 unk4A;
+    volatile s16 unk4C;
+    volatile s16 unk4E;
+    volatile s16 unk50;
+    volatile s16 unk52;
+    volatile s16 unk54;
+    volatile s16 unk56;
+    volatile s16 unk58;
+} D_800E69C0_struct; 
 
 typedef struct D_801BAA80_struct{
     u16 unk0[4];

@@ -5,6 +5,7 @@
 #include "actor.h"
 #include "TexRec.h"
 #include "segments.h"
+#include "B4E0.h"
 
 #include "common.h"
 
