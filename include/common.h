@@ -334,4 +334,22 @@ typedef struct D_801D5F30_struct{
 
 extern D_801D5F30_struct D_801D5F30[];
 
+typedef struct D_802BD494_struct{
+    u8 unk0[0x96];
+    s16 unk96;
+    u16 unk98;
+    s16 unk9A;
+}D_802BD494_struct;
+
+extern D_802BD494_struct D_802BD494;
+
+typedef struct D_803361C0_struct{
+    u8 unk0[0x3C];
+    s32 unk3C;
+    s32 unk40;
+    u16 unk44;
+}D_803361C0_struct;
+extern D_803361C0_struct D_803361C0;
+
+
 #endif

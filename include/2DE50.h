@@ -5,5 +5,6 @@
 
 void func_8002D7AC(s16 idx);
 void func_8002D6BC(s16 idx);
+void func_80030ADC(s16 idx);
 
 #endif

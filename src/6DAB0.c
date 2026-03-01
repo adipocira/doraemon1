@@ -532,8 +532,6 @@ void func_8006CEB8(s16 idx) {
 }
 
  s32 __op_scene_11() {
-    Actor* actor;
-
     (void)"__op_scene_11...\n";
 
     switch (D_800E69C0.unk3C.ishort) {
@@ -555,10 +553,7 @@ void func_8006CEB8(s16 idx) {
             D_800E69C0.unk3C.ishort = 10;
             break;
         case 10:
-            actor = GET_ACTOR_PTR((0, D_800E69C0.unk48));
-            actor->pos.z -= 1.0f;
-
-            if (actor->pos.z <= -187.0f) {
+            if((GET_ACTOR_PTR(D_800E69C0.unk48)->pos.z -= 1.0f) <= -187.0f){
                 func_80023FCC(D_800E69C0.unk48);
                 D_800E69C0.unk58 = 0x3C;
                 D_800E69C0.unk3C.ishort = 20;
