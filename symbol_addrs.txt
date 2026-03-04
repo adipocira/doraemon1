@@ -79,6 +79,25 @@ audDMAMessageBuf = 0x800F3338;
 
 //
 
+// synsetpan.c
+
+alSynSetPan = 0x800094C0;
+
+//
+
+// csplayer.c
+
+alCSPNew = 0x80009560;
+__CSPVoiceHandler = 0x800096CC;
+__CSPPostNextSeqEvent = 0x80009C0C;
+__CSPHandleNextSeqEvent = 0x80009C7C;
+__CSPHandleMIDIMsg = 0x80009D44;
+__CSPHandleMetaMsg = 0x8000A670;
+__CSPRepostEvent = 0x8000A800;
+__setUsptFromTempo = 0x8000A8A0;
+
+//
+
 .L8000B1DC = 0x8000B1DC; // type:jtbl_label
 .L8000B238 = 0x8000B238; // type:jtbl_label
 .L8000B294 = 0x8000B294; // type:jtbl_label
@@ -850,6 +869,7 @@ __osSiRelAccess = 0x80098A44;
 __osSiRawStartDma = 0x80098A70;
 _Litob = 0x8009DB10;
 
+alGlobals = 0x800BF750;
 
 rspbootTextStart = 0x8009FB60; // name_end:rspbootTextEnd
 D_800A1030 = 0x800A1030;
