@@ -4,14 +4,16 @@
 #include "ultra64.h"
 #include <PR/sched.h>
 
-#define MAX_UPDATES             32
-#define MAX_EVENTS              32
-#define AUDIO_HEAP_SIZE         300000
+#define AUDIO_PRIORITY          90
 
-#define MAX_VOICES              22
+#define MAX_UPDATES             128
+#define MAX_EVENTS              32
+#define AUDIO_HEAP_SIZE         260000
+
+#define MAX_VOICES              30
 #define EXTRA_SAMPLES           80
 #define NUM_OUTPUT_BUFFERS      3      /* Need three of these */
-#define OUTPUT_RATE             44100
+#define OUTPUT_RATE             22050
 #define MAX_MESGS               20
 #define QUIT_MSG                10
 
@@ -38,6 +40,8 @@
 #define AUDIO_STACKSIZE         0x2000
 
 #define MAX_SEQ_LENGTH  20000
+
+#define NUM_FIELDS      1 
 
 
 typedef struct {

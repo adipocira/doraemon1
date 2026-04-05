@@ -8,6 +8,12 @@ D_3FAB40_segment = 0x3FAB40;
 D_3FAD40_segment = 0x3FAD40;
 D_3FAF40_segment = 0x3FAF40;
 
+_bankSegmentRom = 0x469EB0; 
+_tableSegmentRom = 0x473820;
+_bank2SegmentRom = 0x61A1B0;
+_table2SegmentRom = 0x625F40;
+
+
 // vi.s
 osTvType = 0x80000300;
 
@@ -50,6 +56,19 @@ debugger = 0x800F03F0;
 //
 
 ovlCheckSize = 0x800036D0;
+
+
+// audio.c
+
+initAudio = 0x800065B0;
+hp = 0x800F0640;
+bankPtr = 0x800F0650;
+bank2Ptr = 0x800F0654;
+c = 0x800F0658;
+
+
+audioHeap = 0x80258060;
+//
 
 // audiomgr.c
 
@@ -1090,7 +1109,6 @@ D_801FCB20 = 0x801FCB20;
 D_8020C820 = 0x8020C820;
 D_80224820 = 0x80224820;
 D_80234280 = 0x80234280;
-D_80258060 = 0x80258060;
 D_80297800 = 0x80297800;
 D_802BD000 = 0x802BD000;
 D_802BD07C = 0x802BD07C;

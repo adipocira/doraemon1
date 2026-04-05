@@ -22,10 +22,18 @@ extern u8 D_37F1A0[0x12860];
 extern u8 D_3A0350[0x12FA0];
 extern u8 D_3B32F0[0xD260];
 
+extern u8 _bankSegmentRom[0x9970];
+extern u8 _tableSegmentRom[0x1A6990];
+extern u8 _bank2SegmentRom[0xBD90];
+extern u8 _table2SegmentRom[];
+
+
 extern u8 D_8020C820[];
 
+#define SEGMENT_SIZE(segment) ((u32)&segment[sizeof(segment)] - (u32)segment)
+
 // Use this for ROMCOPY involving curSegmentSize
-#define ROMCOPY(segment, vram) curSegmentSize = (u32)&segment[sizeof(segment)] - (u32)segment; \
+#define ROMCOPY(segment, vram) curSegmentSize = SEGMENT_SIZE(segment); \
             D_800A82D8 = (vram);\
             romCopy(segment, D_800A82D8, curSegmentSize)
 
