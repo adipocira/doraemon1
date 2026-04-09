@@ -352,8 +352,13 @@ typedef struct D_803361C0_struct{
 extern D_803361C0_struct D_803361C0;
 
 typedef struct D_800F3944_struct{
-    u8 unk0[0x38];
-    u32 unk38;
+    u8 unk0[0x14];
+    s32 unk14;
+    u8 unk18[0x18];
+    s32 unk30;
+    s32 unk34;
+    s32 unk38;
+    s32 unk3C;
 }D_800F3944_struct;
 
 extern D_800F3944_struct* D_800F3944;

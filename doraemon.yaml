@@ -84,7 +84,7 @@ segments:
       - [0x6FA0, c, 6FA0]
 
       - [0x71B0, c, audio]
-      - [0x7310, asm]
+      - [0x7310, c]
       - [0x76A0, c, audiomgr]
       - [0x7FC0, asm]
       - [0x9320, asm]
@@ -409,6 +409,10 @@ segments:
 
       - [0xC0870, rodata]
 
+      - [0xC1980, .rodata, 7310]
+
+      - [0xC1AA0, rodata]
+
       - [0xC1B30, .rodata, csplayer]
 
       - [0xC1D70, rodata]
@@ -504,7 +508,7 @@ segments:
       - { start: 0xCAE10, type: .bss, vram: 0x800F03F0, name: misc }
       - { start: 0xCAE10, type: bss, vram: 0x800F0400, name: 800F0400 }
       - { start: 0xCAE10, type: .bss, vram: 0x800F0640, name: audio }
-      - { start: 0xCAE10, type: bss, vram: 0x800F0680, name: 800F0680 }
+      - { start: 0xCAE10, type: .bss, vram: 0x800F0680, name: 7310 }
       - { start : 0xCAE10, type: .bss, vram: 0x800F0A00, name: audiomgr }
       - { start : 0xCAE10, type: bss, vram: 0x800F33E0, name: 800F33E0 }
       - { start : 0xCAE10, type: .bss, vram: 0x800F3A40, name: 11F10 } 

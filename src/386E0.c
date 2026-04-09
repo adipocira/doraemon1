@@ -10,10 +10,11 @@
 //#include "89D30.h"
 #include "6FA0.h"
 #include "9320.h"
-#include "7FC0.h"
+#include "7310.h"
 #include "B4E0.h"
 
 #include "actor.h"
+#include "7FC0.h"
 #include "libc/math.h"
 
 #include "common.h"
@@ -25,8 +26,6 @@ extern s16 D_802BDE50;
 extern s16 D_802BDE52;
 extern s16 D_802BDE54;
 extern s16 D_802BDE56;
-
-extern s16 D_800F0680;
 
 extern u8 D_802BDB7C[];
 
@@ -124,7 +123,7 @@ void func_80037AE0(s16 idx){
             case 0x24:
                 cdata.item |= 0x80;
                 if (cdata.unk6E == 0) {
-                    cdata.unk74 = D_800F0680;
+                    cdata.unk74 = seqContexts[0].unk0;
                 }
                 cdata.unk6E = 0x4B0;
                 
@@ -199,7 +198,7 @@ void func_800380BC(s16 idx){
                 case 0x24:
                     cdata.item |= 0x80;
                     if (cdata.unk6E == 0) {
-                        cdata.unk74 = D_800F0680;
+                        cdata.unk74 = seqContexts[0].unk0;
                     }
                     cdata.unk6E = 0x4B0;
                 

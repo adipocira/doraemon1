@@ -70,6 +70,19 @@ c = 0x800F0658;
 audioHeap = 0x80258060;
 //
 
+// 7310.c
+
+alEvtqPrintEvtQueue = 0x80006710;
+alEvtqPrintAllocEvts = 0x800067E0;
+func_80006924 = 0x80006924;
+MidiStatus2Str = 0x80006A1C;
+
+seqContexts = 0x800F0680; // size:0x220
+D_800F08A0 = 0x800F08A0; // size:0x40
+soundContexts = 0x800F08E0; // size:0x120
+
+//
+
 // audiomgr.c
 
 amCreateAudioMgr = 0x80006AA0;
@@ -95,6 +108,15 @@ maxRSPCmds = 0x800F2F5C;
 audDMAIOMesgBuf = 0x800F2F60;
 audDMAMessageQ = 0x800F3320;
 audDMAMessageBuf = 0x800F3338;
+
+//
+
+// 7FC0.c
+
+_depth2Cents = 0x80007E5C;
+initOsc = 0x80007EAC;
+updateOsc = 0x80008184;
+stopOsc = 0x80008700;
 
 //
 
@@ -889,7 +911,7 @@ __osSiRawStartDma = 0x80098A70;
 _Litob = 0x8009DB10;
 
 alGlobals = 0x800BF750;
-
+freeOscStateList = 0x800F33E0;
 rspbootTextStart = 0x8009FB60; // name_end:rspbootTextEnd
 D_800A1030 = 0x800A1030;
 aspMainTextStart = 0x800A74B0; // name_end:aspMainTextEnd
