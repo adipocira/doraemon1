@@ -38,8 +38,17 @@ PINK    := \033[0;35m
 CYAN    := \033[0;36m
 WHITE    := \033[0;37m
 
+find-command = $(shell which $(1) 2>/dev/null)
 
-MIPS_BINUTILS_PREFIX := mips64-elf-
+ifneq      ($(call find-command,mips-linux-gnu-ld),)
+  MIPS_BINUTILS_PREFIX := mips-linux-gnu-
+else ifneq ($(call find-command,mips64-linux-gnu-ld),)
+  MIPS_BINUTILS_PREFIX := mips64-linux-gnu-
+else ifneq ($(call find-command,mips64-elf-ld),)
+  MIPS_BINUTILS_PREFIX := mips64-elf-
+else
+  $(error Unable to detect a suitable MIPS toolchain installed.)
+endif
 
 CC          := tools/ido/$(DETECTED_OS)/5.3/cc
 
