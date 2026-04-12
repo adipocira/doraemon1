@@ -4,6 +4,19 @@
 #include "ultra64.h"
 #include <PR/sched.h>
 
+#define  TREMELO_SIN        1
+#define  TREMELO_SQR        2
+#define  TREMELO_DSC_SAW    3
+#define  TREMELO_ASC_SAW    4
+#define  VIBRATO_SIN        128
+#define  VIBRATO_SQR        129
+#define  VIBRATO_DSC_SAW    130
+#define  VIBRATO_ASC_SAW    131
+
+#define  OSC_HIGH   0
+#define  OSC_LOW    1
+#define  TWO_PI     6.2831853
+
 #define AUDIO_PRIORITY          90
 
 #define MAX_UPDATES             128

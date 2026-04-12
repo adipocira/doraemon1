@@ -11,7 +11,9 @@
 SeqContext seqContexts[2];
 OSMesgQueue D_800F08A0[2];
 ALSeqFile* D_800F08D0;
-u8 D_800F08D8[0x8];
+ALBank* D_800F08D4;
+ALInstrument* D_800F08D8;
+ALSound* D_800F08DC;
 SoundContext soundContexts[6];
 
 extern u16 D_8015A392;

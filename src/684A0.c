@@ -3,9 +3,9 @@
 #include "23B20.h"
 #include "segments.h"
 #include "29980.h"
-#include "9320.h"
-#include "73660.h"
 #include "7FC0.h"
+#include "73660.h"
+#include "9320.h"
 #include "1D870.h"
 #include "11F10.h"
 

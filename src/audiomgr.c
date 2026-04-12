@@ -232,9 +232,6 @@ void __amHandleDoneMsg(AudioInfo* info) {
     }
 }
 
-u32 D_800ABCF0 = 0;
-u32 D_800ABCF4 = 0;
-
 s32 __amDMA(s32 addr, s32 len, void* state) {
     void* foundBuffer;
     s32 delta, addrEnd, buffEnd;

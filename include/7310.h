@@ -23,10 +23,33 @@ typedef struct SeqContext {
 
 typedef struct SoundContext {
     ALSndPlayer* soundPlayer;
-    u8 unk4[0x2C];
-} SoundContext;
+    s16 unk4;
+    s16 unk6;
+    ALSndId soundId;
+    u8 unkA[0x2];
+    s32 unkC;
+    s16 vol;
+    ALPan pan;
+    u8 unk13;
+    u8 unk14;
+    u8 unk15;
+    u8 unk16[0x2];
+    f32 unk18;
+    f32 soundPosX;
+    f32 soundPosY;
+    f32 soundPosZ;
+    s16 unk28;
+    s16 unk2A;
+    s16 unk2C;
+    s16 unk2E;
+} SoundContext; 
 
 extern SeqContext seqContexts[2];
+extern OSMesgQueue D_800F08A0[2];
+extern ALSeqFile* D_800F08D0;
+extern ALBank* D_800F08D4;
+extern ALInstrument* D_800F08D8;
+extern ALSound* D_800F08DC;
 extern SoundContext soundContexts[6];
 
 void alEvtqPrintAllocEvts(ALEventQueue *evtq);

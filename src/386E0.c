@@ -9,12 +9,12 @@
 //They forgot to include this header
 //#include "89D30.h"
 #include "6FA0.h"
-#include "9320.h"
+#include "7FC0.h"
 #include "7310.h"
 #include "B4E0.h"
 
 #include "actor.h"
-#include "7FC0.h"
+#include "9320.h"
 #include "libc/math.h"
 
 #include "common.h"

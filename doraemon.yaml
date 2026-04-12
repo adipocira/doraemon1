@@ -86,7 +86,7 @@ segments:
       - [0x71B0, c, audio]
       - [0x7310, c]
       - [0x76A0, c, audiomgr]
-      - [0x7FC0, asm]
+      - [0x7FC0, c]
       - [0x9320, asm]
       - [0xA0C0, c, synsetpan]
       - [0xA160, c, csplayer]
@@ -376,6 +376,7 @@ segments:
       - [0xA0830, data]
       
       - [0xAC8E0, .data, audiomgr]
+      - [0xAC8F0, .data, 7FC0]
 
       - [0xAC900, data]
 
@@ -411,7 +412,9 @@ segments:
 
       - [0xC1980, .rodata, 7310]
 
-      - [0xC1AA0, rodata]
+      - [0xC1AA0, .rodata, 7FC0]
+
+      - [0xC1B10, rodata]
 
       - [0xC1B30, .rodata, csplayer]
 
