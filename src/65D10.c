@@ -3,7 +3,7 @@
 #include "23B20.h"
 #include "global.h"
 
-#include "55270.h"
+#include "57820.h"
 #include "70DF0.h"
 
 extern u8 D_801E3CEC[];

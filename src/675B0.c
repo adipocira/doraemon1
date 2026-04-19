@@ -141,7 +141,7 @@ void func_80066BC8(s16 idx){
             actor->actorVars.varA4.integer = 0;
             actor->actorVars.varA8.integer = 0;
             actor->actorVars.varB4.integer = -1;
-            D_80142BB8.unk2D08 = 0.0f;
+            D_80142BB8[2].unk18 = 0.0f;
 
             ROMCOPY(D_368300, D_8020C820);
 
@@ -210,7 +210,7 @@ void func_80066BC8(s16 idx){
     switch(GET_ACTOR_PTR(idx)->actorVars.varA4.integer){
         case 0:
             
-            D_80142BB8.unk2D24 = 0;
+            D_80142BB8[2].unk34 = 0;
             D_801522E4 = 0xFF;
             D_801522E5 = 0xFF;
             D_801522E6 = 0xFF;
@@ -229,25 +229,25 @@ void func_80066BC8(s16 idx){
 
             CLAMP_MAX_MIN(temp2, 255.0f, 0.0f);
             
-            D_80142BB8.unk2D24 = 4;
-            D_80142BB8.unk2D04 = (255.0f - temp2) + 20.0f; 
-            D_80142BB8.unk2D18 = (sinf(DEG2RAD_ALT2(actor->actorVars.varA0.fp)) * 90.0f) + 165.0f;
+            D_80142BB8[2].unk34 = 4;
+            D_80142BB8[2].unk14 = (255.0f - temp2) + 20.0f; 
+            D_80142BB8[2].unk28 = (sinf(DEG2RAD_ALT2(actor->actorVars.varA0.fp)) * 90.0f) + 165.0f;
 
 
-            if(D_80142BB8.unk2D18 < 0.0f){
-                D_80142BB8.unk2D18 = 0.0f;
+            if(D_80142BB8[2].unk28 < 0.0f){
+                D_80142BB8[2].unk28 = 0.0f;
             }
-            if(D_80142BB8.unk2D18 > 255.0f){
-                D_80142BB8.unk2D18 = 255.0f;
+            if(D_80142BB8[2].unk28 > 255.0f){
+                D_80142BB8[2].unk28 = 255.0f;
             } 
 
-            D_80142BB8.unk2D1C = (255.0f - temp2) * 0.25;
-            D_80142BB8.unk2D20 = 0.0f;  
-            D_80142BB8.unk2CFC = 0.0f;
-            D_80142BB8.unk2CF0 = 0.0f;
-            D_80142BB8.unk2CF8 = 0.0f;
-            D_80142BB8.unk2D00 = -80.0f;
-            D_80142BB8.unk2CF4 = -1.0f;
+            D_80142BB8[2].unk2C = (255.0f - temp2) * 0.25;
+            D_80142BB8[2].unk30 = 0.0f;  
+            D_80142BB8[2].unkC = 0.0f;
+            D_80142BB8[2].unk0.x = 0.0f;
+            D_80142BB8[2].unk0.z = 0.0f;
+            D_80142BB8[2].unk10 = -80.0f;
+            D_80142BB8[2].unk0.y = -1.0f;
 
             
             D_801522E4 = (s8)(temp2 * 0.41) + 0x96;

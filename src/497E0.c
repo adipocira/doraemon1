@@ -4,6 +4,7 @@
 #include "73660.h"
 #include "9320.h"
 #include "11F10.h"
+#include "57820.h"
 
 #include "actor.h"
 #include "libc/math.h"

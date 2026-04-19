@@ -5,7 +5,7 @@
 #include "15F60.h"
 #include "11F10.h"
 #include "9320.h"
-#include "55270.h"
+#include "57820.h"
 #include "13940.h"
 #include "386E0.h"
 #include "1D870.h"

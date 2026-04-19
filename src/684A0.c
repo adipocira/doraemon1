@@ -220,10 +220,10 @@ void func_800678A0(s16 idx){
 
                 func_80022528(1, 3, actor->pos.x, actor->pos.y - 10.0f, actor->pos.z, 255.0f, 160.0f, 50.0f);
 
-                D_80142BB8.unk14 = 64.0f;
-                D_80142BB8.unk1690 = 0.0f;
-                D_80142BB8.unk168C = 255.0f;
-                D_80142BB8.unk1694 = 3.0f;
+                D_80142BB8[0].unk14 = 64.0f;
+                D_80142BB8[1].unk18 = 0.0f;
+                D_80142BB8[1].unk14 = 255.0f;
+                D_80142BB8[1].unk1C = 3.0f;
 
                 D_8014DF8C = 64.0f;
             }
@@ -243,11 +243,11 @@ void func_800678A0(s16 idx){
 
                     func_80022528(2, 2, actor->pos.x, actor->pos.y - 10.0f, actor->pos.z, 50.0f, 160.0f, 255.0f);
 
-                    D_80142BB8.unk1694 = 2.0f;
-                    D_80142BB8.unk2D0C = 2.0f;
-                    D_80142BB8.unk168C = 0.0f;
-                    D_80142BB8.unk2D08 = 0.0f;
-                    D_80142BB8.unk2D04 = 255.0f;   
+                    D_80142BB8[1].unk1C = 2.0f;
+                    D_80142BB8[2].unk1C = 2.0f;
+                    D_80142BB8[1].unk14 = 0.0f;
+                    D_80142BB8[2].unk18 = 0.0f;
+                    D_80142BB8[2].unk14 = 255.0f;   
 
                     for (i = 0; D_800B57A0[i] != -1; i++) {
                         D_801D5F30[i].unk1C = 0;

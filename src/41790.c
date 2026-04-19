@@ -3,7 +3,7 @@
 #include "11F10.h"
 #include "73660.h"
 #include "23B20.h"
-#include "55270.h"
+#include "57820.h"
 #include "9320.h"
 #include "29980.h"
 #include "15F60.h"

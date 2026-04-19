@@ -11,5 +11,7 @@ void func_8002CF48(s16 idx);
 void func_80028D80(s16 idx);
 void func_8002BE04(s16 idx);
 void func_8002BB54(s16 idx);
+void func_8002D07C(s16);
+void func_8002CC70(s16);
 
 #endif

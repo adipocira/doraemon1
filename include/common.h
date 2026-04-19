@@ -2,6 +2,7 @@
 #define COMMON_H
 
 #include "ultra64.h"
+#include "global.h"
 #include "actor.h"
 
 typedef struct D_801591C0_struct_unk4 {
@@ -300,32 +301,29 @@ typedef struct D_800F3948_struct{
 
 extern D_800F3948_struct* D_800F3948;
 
-typedef struct D_80142BB8_struct {
-    u8 unk0[0x14];
+typedef struct D_80142BB8_struct{
+    Vec3f unk0;
+    f32 unkC;
+    f32 unk10;
     f32 unk14;
-    u8 unk18[0x1674];
-    f32 unk168C;
-    f32 unk1690;
-    f32 unk1694;
-    u8 unk1698[0x1658];
-    f32 unk2CF0;
-    f32 unk2CF4;
-    f32 unk2CF8;
-    f32 unk2CFC;
-    f32 unk2D00;
-    f32 unk2D04;
-    f32 unk2D08;
-    f32 unk2D0C;
-    f32 unk2D10;
-    f32 unk2D14;
-    f32 unk2D18;
-    f32 unk2D1C;
-    f32 unk2D20;
-    s16 unk2D24;
-}D_80142BB8_struct;
-
-extern D_80142BB8_struct D_80142BB8;
-
+    f32 unk18;
+    f32 unk1C;
+    f32 unk20;
+    f32 unk24;
+    f32 unk28;
+    f32 unk2C;
+    f32 unk30;
+    s16 unk34;
+    u8 unk36[0x1002];
+    Light unk1038;
+    u8 pad1048[0x61C];
+    f32 unk1664;
+    f32 unk1668;
+    f32 unk166C;
+    f32 unk1670;
+    f32 unk1674;
+}D_80142BB8_struct; // size = 0x1678
+extern D_80142BB8_struct D_80142BB8[];
 typedef struct D_801D5F30_struct{
     u8 unk0[0x1C];
     u16 unk1C;

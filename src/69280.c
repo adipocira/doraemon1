@@ -11,7 +11,7 @@
 #include "13940.h"
 #include "9320.h"
 
-#include "55270.h"
+#include "57820.h"
 
 #include "common.h"
 

@@ -1,0 +1,14 @@
+#ifndef _57820_H
+#define _57820_H
+
+#include "ultra64.h"
+
+struct Actor;
+
+void func_80059760(struct Actor*);
+void func_800617D8(s16);
+void func_80064BC8(s16);
+void func_8005848C(s16);
+
+
+#endif
