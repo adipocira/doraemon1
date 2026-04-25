@@ -241,6 +241,17 @@ extern u8 D_800F6010[];
 extern u8 D_800F6170[];
 
 #define D_800F5FB0_sets(arg0, arg1, arg2) D_800F5FB0.unkC = (arg0);D_800F5FB0.unk2 = (arg1);D_800F5FB0.unk0 = (arg2)
+
+#define D_800E6B20_sets2(arg1, arg2, arg3, arg4, arg5, arg6, arg7) \
+D_800E6B20.unk20 = (arg1);\
+D_800E6B20.unk22 = (arg2);\
+D_800E6B20.unk19 = (arg3);\
+D_800E6B20.unk16 = (arg4);\
+D_800E6B20.unk24 = (arg5);\
+D_800E6B20.unk25 = (arg6);\
+D_800E6B20.unk29 = (arg7)
+
+
 #define SQ(x) ((x) * (x))
 
 #endif

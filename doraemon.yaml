@@ -133,7 +133,7 @@ segments:
       - [0x4BE90, asm]
       - [0x4D980, asm]
       - [0x4FE10, asm]
-      - [0x52E50, asm]
+      - [0x52E50, c]
       - [0x55270, c]
       - [0x57820, asm]
       - [0x65BF0, asm]
@@ -415,7 +415,7 @@ segments:
 
       - [0xC1980, .rodata, 7310]
 
-      - [0xC1AA0, .rodata, 7FC0]
+      - [0xC1AA0, .rodata, 7FC0] 
 
       - [0xC1B10, .rodata, 9320]
 
@@ -459,7 +459,7 @@ segments:
 
       - [0xC4C60, rodata]
 
-      - [0xC52A0, rodata]
+      - [0xC5190, .rodata, 52E50]
       
       - [0xC52B0, .rodata, 55270]
 

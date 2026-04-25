@@ -203,7 +203,9 @@ extern D_801525E0_struct D_801525E0[];
 typedef struct D_800F9B08_struct{
     u8 unk0[0x4B8];
     u16 unk4B8;
-    u8 unk4BA[0x30A];
+    u8 unk4BA[0x2CE];
+    u16 unk788;
+    u8 unk78A[0x3A];
     u16 unk7C4;
     u8 unk7C6[0x3A];
     u16 unk800;
@@ -211,7 +213,9 @@ typedef struct D_800F9B08_struct{
     u16 unk83C;
     u8 unk83E[0x3A];
     u16 unk878;
-    u8 unk87A[0x76];
+    u8 unk87A[0x3A];
+    u16 unk8B4;
+    u8 unk8B6[0x3A];
     u16 unk8F0;
     u8 unk8F2[0x166];
     u16 unkA58;
@@ -221,7 +225,7 @@ typedef struct D_800F9B08_struct{
     u16 unkAD0;
     u8 unkAD2[0x3A];
     u16 unkB0C;
-}D_800F9B08_struct; 
+}D_800F9B08_struct;
 extern D_800F9B08_struct D_800F9B08;
 
 typedef struct D_8010B820_struct{
@@ -237,7 +241,9 @@ typedef struct D_800F0588_struct{
     u8 unk1B;
     s8 unk1C;
     s8 unk1D;
-    u8 unk1E[0x84];
+    u8 unk1E[0x12];
+    s8 unk30;
+    u8 unk31[0x71];
     s16 unkA2;
 }D_800F0588_struct;
 
