@@ -280,9 +280,9 @@ void func_80068264(Actor* actor, f32 arg1, f32 arg2){
     f32 z;
     s16 id;
 
-    x = (func_80011528(0) % (s16)arg1) - (arg1 / 2);
-    y = (func_80011528(0) % (s16)arg1) - (arg1 / 2);
-    z = (func_80011528(0) % (s16)arg1) - (arg1 / 2);
+    x = (random(0) % (s16)arg1) - (arg1 / 2);
+    y = (random(0) % (s16)arg1) - (arg1 / 2);
+    z = (random(0) % (s16)arg1) - (arg1 / 2);
 
     id = func_80023644(6, 0x18A, actor->pos.x + x, actor->pos.y + arg2 + y, actor->pos.z + z, 0.0f, 0.0f, 0.0f);
 
@@ -300,9 +300,9 @@ void func_8006846C(Actor* actor, f32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg
     f32 z;
     s16 id;
 
-    x = (func_80011528(0) % (s16)arg1) - (arg1 / 2);
-    y = (func_80011528(0) % (s16)arg1) - (arg1 / 2);
-    z = (func_80011528(0) % (s16)arg1) - (arg1 / 2);
+    x = (random(0) % (s16)arg1) - (arg1 / 2);
+    y = (random(0) % (s16)arg1) - (arg1 / 2);
+    z = (random(0) % (s16)arg1) - (arg1 / 2);
 
     id = func_80023644(6, 0x18A, actor->pos.x + x, actor->pos.y + arg2 + y, actor->pos.z + z, 0.0f, 0.0f, 0.0f);
 

@@ -35,7 +35,7 @@ void func_80065230(s16 idx){
             switch(D_801590C0){
                 case 0:
                     func_80008C6C(2, 4);
-                    D_801590C0 = func_80011528(0) % 8U;
+                    D_801590C0 = random(0) % 8U;
                     D_801590C8 = 0;
                     break;
                 case 1:
@@ -82,7 +82,7 @@ void func_80065230(s16 idx){
             switch(D_801590C4){
                 case 0:
                     func_80008C6C(2, 5);
-                    D_801590C4 = func_80011528(0) % 8U;
+                    D_801590C4 = random(0) % 8U;
                     D_801590CC = 0;
                     break;
                 case 1:

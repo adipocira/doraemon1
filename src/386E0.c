@@ -866,10 +866,10 @@ void func_80039B8C(s16 idx){
 
     switch(actor->status){
         case 0:
-            actor->actorVars.varA0.fp = (func_80011528(0) % 7U) + 2.5;
-            actor->actorVars.varA4.fp = (func_80011528(0) % 2U) + 0.5;
+            actor->actorVars.varA0.fp = (random(0) % 7U) + 2.5;
+            actor->actorVars.varA4.fp = (random(0) % 2U) + 0.5;
             actor->actorVars.varA8.integer = 0x384;
-            actor->rot.y = func_80011528(0) % 360U;
+            actor->rot.y = random(0) % 360U;
 
             func_80024FC8(idx, actor->actorVars.varA4.fp, actor->actorVars.varA0.fp);
             func_8002507C(idx);

@@ -159,6 +159,20 @@ dmaMessageQ = 0x800E3F18;
 
 //
 
+// 11F10.c
+
+func_80011310 = 0x80011310;
+func_8001139C = 0x8001139C;
+rand = 0x800114B0;
+srand = 0x800114DC;
+random = 0x80011528; 
+func_80011564 = 0x80011564;
+func_80011610 = 0x80011610;
+
+next = 0x800F3A40;
+
+//
+
 // bitio.c
 
 OpenInputBitFile = 0x80011650;

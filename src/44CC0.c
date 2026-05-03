@@ -540,9 +540,9 @@ void func_80045568(s16 idx){
                 func_80023FCC(idx);
             }
             
-            temp2 = func_80011528(0) % 20U - 10.0f;
-            temp3 = func_80011528(0) % 20U - 10.0f;
-            temp4 = func_80011528(0) % 20U - 10.0f;
+            temp2 = random(0) % 20U - 10.0f;
+            temp3 = random(0) % 20U - 10.0f;
+            temp4 = random(0) % 20U - 10.0f;
             
             id = func_80023644(5, 0x18A, actor->pos.x + temp2, actor->pos.y + temp3, actor->pos.z + temp4, 0.0f, 0.0f, 0.0f);
 
@@ -577,7 +577,7 @@ void func_80045794(s16 idx){
             }
             break;
         case 11:
-            if(func_80011528(0) % 100U < 10){
+            if(random(0) % 100U < 10){
                 actor->flags |= 0x2000;
                 actor->a = 127;
             }
@@ -590,7 +590,7 @@ void func_80045794(s16 idx){
                 func_80008E10(0x5A, 2, idx);
                 actor->a = 0;
                 actor->flags &= ~0x2000;
-                func_800255AC(actor, actor1, func_80011528(0) % 360U, 300.0f);
+                func_800255AC(actor, actor1, random(0) % 360U, 300.0f);
                 actor->rot.y = func_800253B0(idx, D_80159178->unk48[cdata.unk41].unk0);
                 actor->status = 20;
             }
@@ -679,9 +679,9 @@ void func_80045B18(s16 idx){
             break;
         case 100:
             for(i = 0; i < 16; i++){
-                temp2 = func_80011528(0) % 40U - 40.0f;
-                temp3 = func_80011528(0) % 20U;
-                temp4 = func_80011528(0) % 40U - 40.0f;
+                temp2 = random(0) % 40U - 40.0f;
+                temp3 = random(0) % 20U;
+                temp4 = random(0) % 40U - 40.0f;
 
                 
                 id = func_80023498(6, 0x183, actor->pos.x + temp2, actor->pos.y + temp3, actor->pos.z + temp4, 0.0f, 0.0f, 0.0f);
@@ -743,7 +743,7 @@ void func_80045B18(s16 idx){
         case 150:
             func_80022F48(idx, 5);
             actor->actorVars.varB0.integer = 0x51;
-            actor->actorVars.varB4.integer = func_80011528(0) % 4U;
+            actor->actorVars.varB4.integer = random(0) % 4U;
             actor->status = 151;
             break;
         case 151: 
@@ -918,7 +918,7 @@ void func_80046238(s16 idx){
 
             actor->actorVars.varC0.fp -= 0.000416666;
 
-            if((func_80011528(0) & 0x7F) > 80U){
+            if((random(0) & 0x7F) > 80U){
                 temp = func_80023644(6, 0x183, actor->pos.x, (actor->actorVars.varC4.fp * 4.0f) + actor->pos.y, actor->pos.z, 0.0f, 0.0f, 0.0f);
             }
             else{
@@ -989,8 +989,8 @@ void func_800468C4(s16 idx){
             actor->flags |= 0x10;
 
             if(temp < 300.0f){
-                temp2 = (func_80011528(0) % 200U) - 200.0f;
-                temp3 = (func_80011528(0) % 200U) - 200.0f;
+                temp2 = (random(0) % 200U) - 200.0f;
+                temp3 = (random(0) % 200U) - 200.0f;
 
                 actor->pos.x = actor1->pos.x + temp2;
                 actor->pos.y = actor1->pos.y + 50.0f;
@@ -1007,9 +1007,9 @@ void func_800468C4(s16 idx){
             break;
         case 100:
             for(i = 0; i < 0x10; i++){
-                temp2 = func_80011528(0) % 40U - 40.0f;
-                temp3 = func_80011528(0) % 20U;
-                temp4 = func_80011528(0) % 40U - 40.0f;
+                temp2 = random(0) % 40U - 40.0f;
+                temp3 = random(0) % 20U;
+                temp4 = random(0) % 40U - 40.0f;
 
                 
                 id = func_80023498(6, 0x183, actor->pos.x + temp2, actor->pos.y + temp3, actor->pos.z + temp4, 0.0f, 0.0f, 0.0f);
@@ -1069,7 +1069,7 @@ void func_800468C4(s16 idx){
         case 150:
             func_80022F48(idx, 2);
             actor->actorVars.varB0.integer = 0x22;
-            actor->actorVars.varB4.integer = func_80011528(0) % 4U;
+            actor->actorVars.varB4.integer = random(0) % 4U;
             actor->status = 151;
             break;
         case 151: 

@@ -1664,8 +1664,8 @@ void func_80027014(f32 arg0, f32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, s
     temp_fs3 = (f32) arg6;
 
     for(i = 0; i < 5; i++) {
-        temp_t7 = (func_80011528(0) & 3) + 1;
-        temp_t9 = (func_80011528(0) & 3) + 1;
+        temp_t7 = (random(0) & 3) + 1;
+        temp_t9 = (random(0) & 3) + 1;
 
         temp_ft4 = arg3 - arg0;
         temp_ft5 = arg4 - arg1;
@@ -1680,34 +1680,34 @@ void func_80027014(f32 arg0, f32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, s
         sp8C = arg1 + ((temp_ft5 * temp_fa1) * 0.1);
         sp84 = arg2 + ((temp_fs0 * temp_fa1) * 0.1);
 
-        arg0 += (func_80011528(0) % temp_s0) - temp_fs3;
-        arg1 += (func_80011528(0) % temp_s0) - temp_fs3;
-        arg2 += (func_80011528(0) % temp_s0) - temp_fs3;
-        temp_fs5 += (func_80011528(0) % temp_s0) - temp_fs3;
-        sp90 += (func_80011528(0) % temp_s0) - temp_fs3;
-        sp88 += (func_80011528(0) % temp_s0) - temp_fs3;
-        sp94 += (func_80011528(0) % temp_s0) - temp_fs3;
-        sp8C += (func_80011528(0) % temp_s0) - temp_fs3;
-        sp84 += (func_80011528(0) % temp_s0) - temp_fs3;
-        arg3 += (func_80011528(0) % temp_s0) - temp_fs3;
-        arg4 += (func_80011528(0) % temp_s0) - temp_fs3;
-        arg5 += (func_80011528(0) % temp_s0) - temp_fs3;
+        arg0 += (random(0) % temp_s0) - temp_fs3;
+        arg1 += (random(0) % temp_s0) - temp_fs3;
+        arg2 += (random(0) % temp_s0) - temp_fs3;
+        temp_fs5 += (random(0) % temp_s0) - temp_fs3;
+        sp90 += (random(0) % temp_s0) - temp_fs3;
+        sp88 += (random(0) % temp_s0) - temp_fs3;
+        sp94 += (random(0) % temp_s0) - temp_fs3;
+        sp8C += (random(0) % temp_s0) - temp_fs3;
+        sp84 += (random(0) % temp_s0) - temp_fs3;
+        arg3 += (random(0) % temp_s0) - temp_fs3;
+        arg4 += (random(0) % temp_s0) - temp_fs3;
+        arg5 += (random(0) % temp_s0) - temp_fs3;
 
         #define Callfunc_800269EC(a, b, c, d, e, f) func_800269EC((a),(b),(c),(((a) + (d)) * 0.5) + temp_fs0,(((b) + (e)) * 0.5) + temp_fs1,(((c) + (f)) * 0.5) + f4,(d),(e),(f),arg7,arg8,arg9)
 
-        temp_fs0 = (func_80011528(0) & 7) - 4.0f;
-        temp_fs1 = (func_80011528(0) & 7) - 4.0f;
-        f4 = (func_80011528(0) & 7) - 4.0f;
+        temp_fs0 = (random(0) & 7) - 4.0f;
+        temp_fs1 = (random(0) & 7) - 4.0f;
+        f4 = (random(0) & 7) - 4.0f;
         Callfunc_800269EC(arg0, arg1, arg2, temp_fs5, sp90, sp88);
 
-        temp_fs0 = (func_80011528(0) & 7) - 4.0f;
-        temp_fs1 = (func_80011528(0) & 7) - 4.0f;
-        f4 = (func_80011528(0) & 7) - 4.0f;
+        temp_fs0 = (random(0) & 7) - 4.0f;
+        temp_fs1 = (random(0) & 7) - 4.0f;
+        f4 = (random(0) & 7) - 4.0f;
         Callfunc_800269EC(temp_fs5, sp90, sp88, sp94, sp8C, sp84);
 
-        temp_fs0 = (func_80011528(0) & 7) - 4.0f;
-        temp_fs1 = (func_80011528(0) & 7) - 4.0f;
-        f4 = (func_80011528(0) & 7) - 4.0f;
+        temp_fs0 = (random(0) & 7) - 4.0f;
+        temp_fs1 = (random(0) & 7) - 4.0f;
+        f4 = (random(0) & 7) - 4.0f;
         Callfunc_800269EC(sp94, sp8C, sp84, arg3, arg4, arg5);
     }
 }

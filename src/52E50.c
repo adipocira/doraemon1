@@ -82,8 +82,8 @@ void func_80052250(s16 idx){
                 func_800090B0(3);
 
                 for(i = 0; i < 5; i++){
-                    t1 = (func_80011528(0) % 100U) - 50.0f;
-                    t2 = (func_80011528(0) % 100U) - 50.0f;
+                    t1 = (random(0) % 100U) - 50.0f;
+                    t2 = (random(0) % 100U) - 50.0f;
 
                     id = func_80023644(6, 0x183, actor->pos.x + t1, actor->pos.y, actor->pos.z + t2, 0.0f, 0.0f, 0.0f);
 
@@ -192,7 +192,7 @@ void func_80052250(s16 idx){
                 actor->dir.y *= 0.9;
             }
             if(t1 > 90.0f || t1 < -90.0f){
-                if((func_80011528(0) & 0x64U) > 50){
+                if((random(0) & 0x64U) > 50){
                     actor->actorVars.varA0.integer = 90;
                     actor->status = 203;
                 }
@@ -533,15 +533,15 @@ void func_80052250(s16 idx){
                 actor->status = 1000;
             }
             for(i = 0; i < 1; i++){
-                t1 = (func_80011528(0) % 100U) - 50.0f;
-                t2 = (func_80011528(0) % 100U) - 50.0f;
+                t1 = (random(0) % 100U) - 50.0f;
+                t2 = (random(0) % 100U) - 50.0f;
 
                 id = func_80023644(6, 0x183, actor->pos.x + t1, actor->pos.y, actor->pos.z + t2, 0.0f, 0.0f, 0.0f);
 
                 if(id != -1){
                     func_80022F20(id, func_8002C0BC);
 
-                    if(func_80011528(0) & (0,actor->actorVars.varA0.integer < 100)){
+                    if(random(0) & (0,actor->actorVars.varA0.integer < 100)){
                         func_800242F0(id, 0, 2);
                         func_80008C6C(4, 2);
                     }
@@ -590,9 +590,9 @@ void func_80052250(s16 idx){
                     }
                 }
                 for(i = 0; i < 32; i++){
-                    t1 = (func_80011528(0) % 100U) - 50.0f;
-                    t2 = func_80011528(0) % 100U;
-                    t3 = (func_80011528(0) % 100U) - 50.0f;
+                    t1 = (random(0) % 100U) - 50.0f;
+                    t2 = random(0) % 100U;
+                    t3 = (random(0) % 100U) - 50.0f;
 
                     id = func_80023644(6, 0x189, actor->pos.x + t1, actor->pos.y + t2, actor->pos.z + t3, 0.0f, 0.0f, 0.0f);
                 }

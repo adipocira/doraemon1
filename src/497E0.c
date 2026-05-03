@@ -160,8 +160,8 @@ void func_80048FB4(s16 idx){
             break;
         case 0x64:
             func_80022F48(idx, 4);
-            actor->actorVars.varB0.fp = func_80011528(0) % 400U + actor->actorVars.varA4.fp - 200.0f;
-            actor->actorVars.varB4.fp = func_80011528(0) % 400U + actor->actorVars.varA8.fp - 200.0f;
+            actor->actorVars.varB0.fp = random(0) % 400U + actor->actorVars.varA4.fp - 200.0f;
+            actor->actorVars.varB4.fp = random(0) % 400U + actor->actorVars.varA8.fp - 200.0f;
 
             actor->actorVars.varAC.integer = 0x3C;
             actor->status = 0x65;

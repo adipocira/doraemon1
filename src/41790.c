@@ -55,7 +55,7 @@ void func_80040BD8(s16 idx){
                 actor->a = 100;
                 actor->actorVars.varD8.fp = actor->actorVars.varB4.integer;
                 actor->actorVars.varDC.fp = -(f32)actor->actorVars.varB8.integer * 0.05;
-                actor->actorVars.varC8.fp = func_80011528(0) % 360U;
+                actor->actorVars.varC8.fp = random(0) % 360U;
                 actor->actorVars.varCC.fp = 0.0f;
                 actor->actorVars.varD0.integer = 0xC8;
                 actor->actorVars.varD4.integer = -1;
@@ -124,7 +124,7 @@ void func_80040BD8(s16 idx){
                 }
 
                 if(actor->actorVars.varD0.integer <= 0){
-                    actor->actorVars.varD0.integer = func_80011528(0) % 120U + 0x78;
+                    actor->actorVars.varD0.integer = random(0) % 120U + 0x78;
                     actor->actorVars.varCC.fp = actor->actorVars.varD8.fp;
                 }
 
@@ -145,7 +145,7 @@ void func_80040BD8(s16 idx){
                         break;
                     case 2:
                         actor->actorVars.varCC.fp = 0.0f;
-                        actor->actorVars.varD0.integer = func_80011528(0) % 120U + 0x78;
+                        actor->actorVars.varD0.integer = random(0) % 120U + 0x78;
                         actor->actorVars.varD4.integer = 0;
                         break;
                 }
@@ -173,7 +173,7 @@ void func_80041268(s16 idx){
         case 1:
             func_80022F48(idx, 1);
             actor->actorVars.varA0.integer = 0x64;
-            actor->actorVars.varA8.fp = func_80011528(0) & 360U;
+            actor->actorVars.varA8.fp = random(0) & 360U;
             actor->dir.x = 0.0f;
             actor->status = 2;
             actor->dir.y = 0.0f;
@@ -184,8 +184,8 @@ void func_80041268(s16 idx){
             GET_ACTOR_PTR(idx)->actorVars.varA0.integer--;
 
             if(GET_ACTOR_PTR(idx)->actorVars.varA0.integer <= 0){
-                actor->actorVars.varA8.fp = func_80011528(0) & 360U;            
-                actor->actorVars.varA0.integer =(func_80011528(0) + 100) & 0x7F;
+                actor->actorVars.varA8.fp = random(0) & 360U;            
+                actor->actorVars.varA0.integer =(random(0) + 100) & 0x7F;
             }
 
             func_80025820(actor, actor->actorVars.varA8.fp, 40.0f);
@@ -204,8 +204,8 @@ void func_80041268(s16 idx){
             GET_ACTOR_PTR(idx)->actorVars.varA0.integer--;
 
             if(GET_ACTOR_PTR(idx)->actorVars.varA0.integer <= 0){
-                actor->actorVars.varA8.fp = func_80011528(0) & 360U;            
-                actor->actorVars.varA0.integer =(func_80011528(0) + 100) & 0x7F;
+                actor->actorVars.varA8.fp = random(0) & 360U;            
+                actor->actorVars.varA0.integer =(random(0) + 100) & 0x7F;
             }
 
             func_80025820(actor, actor->actorVars.varA8.fp, 40.0f);
@@ -322,8 +322,8 @@ void func_80041808(s16 idx){
             actor->actorVars.varC0.integer = 0;
             actor->actorVars.varC4.fp = 0.0f;
             actor->actorVars.varC8.fp = 0.0f;
-            actor->actorVars.varCC.fp = func_80011528(0) % 360U;
-            actor->actorVars.varD0.integer = func_80011528(0) % 400U + 0x1F4;
+            actor->actorVars.varCC.fp = random(0) % 360U;
+            actor->actorVars.varD0.integer = random(0) % 400U + 0x1F4;
             actor->status = 1;
             
             break;
@@ -344,7 +344,7 @@ void func_80041808(s16 idx){
                     }
                 }
             }
-            temp3 = (func_80011528(0) % 12U - 6);
+            temp3 = (random(0) % 12U - 6);
             
             if(temp3 > 0){
                 actor->actorVars.varBC.integer++;
@@ -375,7 +375,7 @@ void func_80041808(s16 idx){
             if(D_800F9910.unk1 != 0){
                 if(actor->actorVars.varC8.fp == 0.0f){
                     actor->actorVars.varB8.fp = func_80074E68(actor->rot.y, func_80025C48(actor->actorVars.varA8.fp - actor->pos.z, actor->actorVars.varA0.fp - actor->pos.x));
-                    actor->actorVars.varC8.fp = actor->actorVars.varB8.fp / (func_80011528(0) % 5U + 1);
+                    actor->actorVars.varC8.fp = actor->actorVars.varB8.fp / (random(0) % 5U + 1);
                 }
 
                 actor->pos.x = D_800F9910.unkC;
@@ -418,10 +418,10 @@ void func_80041808(s16 idx){
     actor->actorVars.varD0.integer--;
 
     if(actor->actorVars.varD0.integer <= 0){
-        actor->actorVars.varD0.integer = (func_80011528(0) % 400U) + 0x1F4;
+        actor->actorVars.varD0.integer = (random(0) % 400U) + 0x1F4;
 
         if(actor->actorVars.varC8.fp == 0.0f){
-            actor->actorVars.varC8.fp = func_80011528(0) % 180U;
+            actor->actorVars.varC8.fp = random(0) % 180U;
         }
     }
 
@@ -445,7 +445,7 @@ void func_80041808(s16 idx){
     switch(actor->actorVars.varB4.integer & 7){
         case 1:
             if(actor->actorVars.varC8.fp == 0.0f){
-               actor->actorVars.varC8.fp = actor->actorVars.varB8.fp / (func_80011528(0) % 5U + 1);
+               actor->actorVars.varC8.fp = actor->actorVars.varB8.fp / (random(0) % 5U + 1);
             }
             break;
         case 2:
@@ -755,7 +755,7 @@ void func_80042A38(s16 idx){
                     break;
             }
 
-            actor->actorVars.varC8.fp = func_80011528(0) % 360U;
+            actor->actorVars.varC8.fp = random(0) % 360U;
             actor->actorVars.varA4.fp = actor->scale.x;
             actor->actorVars.varB4.integer = 0;
             
@@ -936,11 +936,11 @@ void func_800435A0(s16 idx){
             actor->actorVars.varC0.integer = 0;
             actor->actorVars.varC4.fp = 0.0f;
             actor->actorVars.varC8.fp = 0.0f;
-            actor->actorVars.varCC.fp = func_80011528(0) % 360U;
-            actor->actorVars.varD0.integer = func_80011528(0) % 400U + 0x1F4;
+            actor->actorVars.varCC.fp = random(0) % 360U;
+            actor->actorVars.varD0.integer = random(0) % 400U + 0x1F4;
             
             actor->actorVars.varE0.fp = 0.01f;
-            actor->actorVars.varE4.integer = func_80011528(0) % 400U + 0x64;
+            actor->actorVars.varE4.integer = random(0) % 400U + 0x64;
             actor->status = 1;
             actor->actorVars.varE8.fp = 0.0f; 
             break;
@@ -965,7 +965,7 @@ void func_800435A0(s16 idx){
             actor->actorVars.varE4.integer--;
 
             if(actor->actorVars.varE4.integer <= 0){
-                actor->actorVars.varE4.integer = func_80011528(0) % 400U + 0x64;
+                actor->actorVars.varE4.integer = random(0) % 400U + 0x64;
                 actor->actorVars.varE0.fp *= -1.0f;
             }
 
@@ -978,7 +978,7 @@ void func_800435A0(s16 idx){
                 actor->actorVars.varE8.fp = -0.5;
             }
 
-            temp2 = func_80011528(0) % 12U - 6;
+            temp2 = random(0) % 12U - 6;
             
             if(temp2 > 0){
                 actor->actorVars.varBC.integer++;
@@ -1008,7 +1008,7 @@ void func_800435A0(s16 idx){
             if(D_800F9910.unk1 != 0){
                 if(actor->actorVars.varC8.fp == 0.0f){
                     actor->actorVars.varB8.fp = func_80074E68(actor->rot.y, func_80025C48(actor->actorVars.varA8.fp - actor->pos.z, actor->actorVars.varA0.fp - actor->pos.x));
-                    actor->actorVars.varC8.fp = actor->actorVars.varB8.fp / (func_80011528(0) % 5U + 1);
+                    actor->actorVars.varC8.fp = actor->actorVars.varB8.fp / (random(0) % 5U + 1);
                 }
 
                 actor->pos.x = D_800F9910.unkC; 
@@ -1035,7 +1035,7 @@ void func_800435A0(s16 idx){
             if(D_800F9910.unk1 != 0){
                 if(actor->actorVars.varC8.fp == 0.0f){
                     actor->actorVars.varB8.fp = func_80074E68(actor->rot.y, func_80025C48(actor->actorVars.varA8.fp - actor->pos.z, actor->actorVars.varA0.fp - actor->pos.x));
-                    actor->actorVars.varC8.fp = actor->actorVars.varB8.fp / (func_80011528(0) % 5U + 1);
+                    actor->actorVars.varC8.fp = actor->actorVars.varB8.fp / (random(0) % 5U + 1);
                 }
 
                 actor->pos.x = D_800F9910.unkC; 
@@ -1087,10 +1087,10 @@ void func_800435A0(s16 idx){
         actor->actorVars.varD0.integer--;
 
         if(actor->actorVars.varD0.integer <= 0){
-            actor->actorVars.varD0.integer = func_80011528(0) % 400U + 0x1F4;
+            actor->actorVars.varD0.integer = random(0) % 400U + 0x1F4;
 
             if(actor->actorVars.varC8.fp == 0.0f){
-                actor->actorVars.varC8.fp = func_80011528(0) % 180U;
+                actor->actorVars.varC8.fp = random(0) % 180U;
             }
         }
 
@@ -1109,7 +1109,7 @@ void func_800435A0(s16 idx){
         switch(actor->actorVars.varB4.integer & 7){
             case 1:
                 if(actor->actorVars.varC8.fp == 0.0f){
-                    actor->actorVars.varC8.fp = actor->actorVars.varB8.fp / (f32)(func_80011528(0) % 5U + 1);
+                    actor->actorVars.varC8.fp = actor->actorVars.varB8.fp / (f32)(random(0) % 5U + 1);
                 }
                 break;
             case 2:

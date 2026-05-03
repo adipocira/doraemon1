@@ -42,7 +42,7 @@ void func_8003D130(s16 idx){
             case 1:
                 if(func_80024E0C(idx, D_80159178->unk48[cdata.unk41].unk0) < actor->actorVars.varA0.fp * 4.0f){
                     actor->status = 2;
-                    actor->actorVars.varB0.integer = func_80011528(0) % 20U;
+                    actor->actorVars.varB0.integer = random(0) % 20U;
                 }
                 break;
             case 2:
@@ -51,9 +51,9 @@ void func_8003D130(s16 idx){
                 if(actor->actorVars.varB0.integer <= 0){
                     actor->status = 3;
 
-                    temp = func_80011528(0);
+                    temp = random(0);
                     actor->pos.x = (actor->actorVars.varA4.fp + (temp % (u32)(s32)(actor->actorVars.varA0.fp * 2))) - actor->actorVars.varA0.fp;
-                    temp2 = func_80011528(0);
+                    temp2 = random(0);
                     actor->pos.z = (actor->actorVars.varAC.fp + (temp2 % (u32)(s32)(actor->actorVars.varA0.fp * 2))) - actor->actorVars.varA0.fp;
                     actor->pos.y = actor->actorVars.varA8.fp;
 
@@ -132,7 +132,7 @@ void func_8003D130(s16 idx){
 
                 if(actor->actorVars.varB0.integer <= 0){
                     actor->status = 6;
-                    actor->actorVars.varB0.integer = func_80011528(0) % 150U + 0x96;
+                    actor->actorVars.varB0.integer = random(0) % 150U + 0x96;
                     actor->actorVars.varC4.fp = 0.0f;
                     func_80022F48(idx, 2);
                 }
@@ -523,10 +523,10 @@ void func_8003EB68(s16 idx) {
             actor->actorVars.varA4.fp = actor->pos.z;
             break;
         case 1:
-            temp = func_80011528(0) % 100U;
+            temp = random(0) % 100U;
             actor->actorVars.varA8.fp = (temp + actor->actorVars.varA0.fp) - 50.0f;
             
-            temp = func_80011528(0) % 100U;
+            temp = random(0) % 100U;
             actor->actorVars.varAC.fp = (temp + actor->actorVars.varA4.fp) - 50.0f;
             
             actor->status = 2;
@@ -700,7 +700,7 @@ void func_8003F190(s16 idx) {
             actor->actorVars.varB4.integer--;
             
             if (actor->actorVars.varB4.integer <= 0) {
-                actor->actorVars.varB4.integer = (func_80011528(0) % 400U) + 0x1F4;
+                actor->actorVars.varB4.integer = (random(0) % 400U) + 0x1F4;
                 GET_ACTOR(actor->actorVars.varA4.integer).actorVars.varA8.integer = 3;
                 
                 func_80022F48(idx, 1);

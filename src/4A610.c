@@ -296,7 +296,7 @@ void func_80049A10(s16 idx) {
         case 100:
             func_80022F48(idx, 0);
 
-            actor->actorVars.varA8.integer = (func_80011528(0) + 60) & 0x7F;
+            actor->actorVars.varA8.integer = (random(0) + 60) & 0x7F;
             actor->status = 101;
             break;
         case 101:
@@ -307,8 +307,8 @@ void func_80049A10(s16 idx) {
             }
             break;
         case 110:
-            actor->actorVars.varAC.fp = ((func_80011528(0) & 0x200) + actor->actorVars.varB4.fp) - 256.0f;
-            actor->actorVars.varB0.fp = ((func_80011528(0) & 0x200) + actor->actorVars.varB8.fp) - 256.0f;
+            actor->actorVars.varAC.fp = ((random(0) & 0x200) + actor->actorVars.varB4.fp) - 256.0f;
+            actor->actorVars.varB0.fp = ((random(0) & 0x200) + actor->actorVars.varB8.fp) - 256.0f;
 
             actor->actorVars.varA8.integer = 10;
             actor->status = 111;
@@ -565,8 +565,8 @@ void func_80049A10(s16 idx) {
             actor->actorVars.varBC.fp -= D_80159170 * 0.125;
             GET_ACTOR_PTR(actor->actorVars.varD4.integer)->pos.y += actor->actorVars.varBC.fp;
             func_80022528(1, 2, GET_ACTOR_PTR(actor->actorVars.varD4.integer)->pos.x, GET_ACTOR_PTR(actor->actorVars.varD4.integer)->pos.y,
-                          GET_ACTOR_PTR(actor->actorVars.varD4.integer)->pos.z, (f32)(func_80011528(0) & 0x3F),
-                          (f32)(func_80011528(0) & 0xFF), (f32)(func_80011528(0) & 0x1F));
+                          GET_ACTOR_PTR(actor->actorVars.varD4.integer)->pos.z, (f32)(random(0) & 0x3F),
+                          (f32)(random(0) & 0xFF), (f32)(random(0) & 0x1F));
             break;
         case 354:
             actor->actorVars.varA8.integer--;
@@ -659,8 +659,8 @@ void func_80049A10(s16 idx) {
 
             GET_ACTOR_PTR(actor->actorVars.varD4.integer)->pos.y += actor->actorVars.varBC.fp;
             func_80022528(1, 2, GET_ACTOR_PTR(actor->actorVars.varD4.integer)->pos.x, GET_ACTOR_PTR(actor->actorVars.varD4.integer)->pos.y,
-                          GET_ACTOR_PTR(actor->actorVars.varD4.integer)->pos.z, (f32)(func_80011528(0) & 0xFF),
-                          (f32)(func_80011528(0) & 0xFF), (f32)(func_80011528(0) & 0x1F));
+                          GET_ACTOR_PTR(actor->actorVars.varD4.integer)->pos.z, (f32)(random(0) & 0xFF),
+                          (f32)(random(0) & 0xFF), (f32)(random(0) & 0x1F));
 
             break;
         case 407:

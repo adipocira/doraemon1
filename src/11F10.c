@@ -3,7 +3,7 @@
 
 void ExpandFile(struct TREE* tree, struct BIT_FILE* input, u8* output);
 
-u32 seed;
+u32 next;
 
 s32 func_80011310(OSMesgQueue* mq){
     s32 i;
@@ -25,7 +25,6 @@ f32 func_8001139C(OSMesgQueue* mq){
     u32 start;
     u32 end;
     f64 temp;
-    f64 temp1;
     
     for(i = 0; i < 10; i++){
         osRecvMesg(mq, NULL, OS_MESG_BLOCK);
@@ -34,47 +33,47 @@ f32 func_8001139C(OSMesgQueue* mq){
     osRecvMesg(mq, NULL, OS_MESG_BLOCK);
     start = osGetCount();
     osRecvMesg(mq, NULL, OS_MESG_BLOCK);
-    end = osGetCount();
+    end = osGetCount() - start;
 
     if(osTvType == OS_TV_PAL){
-        temp = (f32)(end - start) * 21.48;
-        temp1 = temp / 1000.0;
+        temp = (f32)(end) * 21.48;
+        temp /= 1000.0;        
     }
     else{
-        temp = (end - start) * 21.91;
-        temp1 = temp / 1000.0;        
+        temp = (end) * 21.91;
+        temp /= 1000.0;        
     }
 
-    return temp1;
+    return temp;
 }
 
-u32 func_800114B0(void){
-    seed = seed * 0x41C64E6D + 0x3039;
+int rand(void){
+    next = next * 1103515245 + 12345;
 
-    return seed >> 0x10; 
+    return (unsigned int)(next/65536);
 }
 
-void func_800114DC(u32 s){
+void srand(u32 s){
     switch(s){
         case 0:
-            seed = 0;
+            next = 0;
             break;
         case 1:
-            seed = osGetCount();
+            next = osGetCount();
             break;
         default:
-            seed = s;
+            next = s;
             break;
     }
 }
 
-u32 func_80011528(s32 s){
+u32 random(s32 s){
     if(s == 0){
-        return func_800114B0();
+        return rand();
     }
     else{
-        func_800114DC(s);
-        return func_800114B0();
+        srand(s);
+        return rand();
     }
 }
 

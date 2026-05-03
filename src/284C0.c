@@ -111,11 +111,11 @@ void func_80027B50(s16 idx){
             temp = (actor->actorVars.varA8.integer - actor->actorVars.varA0.integer) > 0 ?  (actor->actorVars.varA8.integer - actor->actorVars.varA0.integer) : (actor->actorVars.varA8.integer - actor->actorVars.varA0.integer) * -1;
             temp2 = (actor->actorVars.varA4.integer - actor->actorVars.varAC.integer) > 0 ?  (actor->actorVars.varA4.integer - actor->actorVars.varAC.integer) : (actor->actorVars.varA4.integer - actor->actorVars.varAC.integer) * -1;
 
-            x = (func_80011528(0) % (u32)temp) + actor->actorVars.varA0.integer;
-            y = actor->actorVars.varA4.integer - func_80011528(0) % (u32)temp2;
+            x = (random(0) % (u32)temp) + actor->actorVars.varA0.integer;
+            y = actor->actorVars.varA4.integer - random(0) % (u32)temp2;
 
             if(actor->actorVars.varB0.integer < x && x < actor->actorVars.varB8.integer){
-                if(func_80011528(0) & 1){
+                if(random(0) & 1){
                     x = actor->actorVars.varA0.integer;
                 }
                 else{
@@ -129,7 +129,7 @@ void func_80027B50(s16 idx){
             actor->pos.x = x;
             actor->pos.y = y;
             
-            actor->actorVars.varD0.integer = func_80011528(0) % (u32)actor->actorVars.varCC.integer + 5;
+            actor->actorVars.varD0.integer = random(0) % (u32)actor->actorVars.varCC.integer + 5;
             
             z = cosf(DEG2RAD_ALT2((actor->rot.y)));
             
@@ -180,8 +180,8 @@ void func_80027E80(s16 idx){
             
             temp = (actor->actorVars.varA0.integer - actor->actorVars.varA4.integer) > 0 ?  (actor->actorVars.varA0.integer - actor->actorVars.varA4.integer) : (actor->actorVars.varA0.integer - actor->actorVars.varA4.integer) * -1;
             
-            actor->pos.x =  (s16)(func_80011528(0) % (u32)temp) + GET_ACTOR_PTR(idx)->actorVars.varA4.integer;
-            actor->actorVars.varD0.integer = (func_80011528(0) % (u32)actor->actorVars.varB8.integer) + 5;
+            actor->pos.x =  (s16)(random(0) % (u32)temp) + GET_ACTOR_PTR(idx)->actorVars.varA4.integer;
+            actor->actorVars.varD0.integer = (random(0) % (u32)actor->actorVars.varB8.integer) + 5;
             
             z = cosf(DEG2RAD_ALT2(actor->rot.y));
 

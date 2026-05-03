@@ -664,9 +664,9 @@ void func_80054670(s16 idx){
                 func_8002263C(3);
             }
             if(actor->actorVars.varA0.integer < 200 && !(actor->actorVars.varA0.integer % 8U)){
-                temp3 = ((func_80011528(0) % 300U) - 150.0f);
-                temp4 = (func_80011528(0) % 150U);
-                temp5 = ((func_80011528(0) % 300U) - 150.0f);
+                temp3 = ((random(0) % 300U) - 150.0f);
+                temp4 = (random(0) % 150U);
+                temp5 = ((random(0) % 300U) - 150.0f);
                 
                 func_80023644(6, 0x189, actor->pos.x + temp3, actor->pos.y + temp4, actor->pos.z + temp5, 0.0f, 0.0f, 0.0f);
                 func_80008C6C(0x5D, 3);
@@ -766,20 +766,20 @@ void func_80054670(s16 idx){
     actor->actorVars.varCC.integer = actor->unk74;
     
     if(actor->pos.y < actor->actorVars.varB0.fp){
-        actor->pos.x = (func_80011528(0) % 500U) + 24.0f - 250.0f;
+        actor->pos.x = (random(0) % 500U) + 24.0f - 250.0f;
         actor->pos.y = 700.0f;
-        actor->pos.z = (func_80011528(0) % 500U) + -977.0f - 250.0f;        
+        actor->pos.z = (random(0) % 500U) + -977.0f - 250.0f;        
     }
     if(actor2->pos.y < actor->actorVars.varB0.fp){
-        actor2->pos.x = (func_80011528(0) % 500U) + 24.0f - 250.0f;
+        actor2->pos.x = (random(0) % 500U) + 24.0f - 250.0f;
         actor2->pos.y = 700.0f;
-        actor2->pos.z = (func_80011528(0) % 500U) + -977.0f - 250.0f;
-        D_800F0548.unk0 = (func_80011528(0) % 500U) + 24.0f - 250.0f;
+        actor2->pos.z = (random(0) % 500U) + -977.0f - 250.0f;
+        D_800F0548.unk0 = (random(0) % 500U) + 24.0f - 250.0f;
         D_800F0548.unk4 = 700.0f; 
-        D_800F0548.unk8 = (func_80011528(0) % 500U) + -977.0f - 250.0f;
-        D_800F0548.unkC = (func_80011528(0) % 500U) + 24.0f - 250.0f;
+        D_800F0548.unk8 = (random(0) % 500U) + -977.0f - 250.0f;
+        D_800F0548.unkC = (random(0) % 500U) + 24.0f - 250.0f;
         D_800F0548.unk10 = 700.0f; 
-        D_800F0548.unk14 = (func_80011528(0) % 500U) + -977.0f - 250.0f;
+        D_800F0548.unk14 = (random(0) % 500U) + -977.0f - 250.0f;
     } 
 
     if(actor->actorVars.varB4.integer >= -0x63){
@@ -837,25 +837,25 @@ void func_8005691C(Actor* actor, s16 arg1){
     id = func_80023644(6, 0x18A, 0.0f, 0.0f, 0.0f, 0.0f, actor->rot.y + 20.0f + (arg1 * 120) , 0.0f);
 
     if(id != -1){
-        sp3C = (func_80011528(0) % 50U) - 25.0f;
-        sp38 = (func_80011528(0) % 50U);
-        sp34 = (func_80011528(0) % 50U) - 25.0f;
+        sp3C = (random(0) % 50U) - 25.0f;
+        sp38 = (random(0) % 50U);
+        sp34 = (random(0) % 50U) - 25.0f;
 
         switch(arg1){
             case 0:
-                sp44 = (func_80011528(0) % 64U) + 0xBF;
+                sp44 = (random(0) % 64U) + 0xBF;
                 sp40 = 0;
                 sp42 = 0;
                 break;
             case 1:
                 sp44 = 0;
-                sp40 = (func_80011528(0) % 64U) + 0xBF;
+                sp40 = (random(0) % 64U) + 0xBF;
                 sp42 = 0;
                 break;
             case 2:
                 sp44 = 0;
                 sp40 = 0;
-                sp42 = (func_80011528(0) % 64U) + 0xBF;
+                sp42 = (random(0) % 64U) + 0xBF;
                 break;            
         }
 
