@@ -137,7 +137,7 @@ segments:
       - [0x55270, c]
       - [0x57820, asm]
       - [0x5BB10, asm]
-      - [0x65BF0, asm]
+      - [0x65BF0, c]
       - [0x65D10, c]
       - [0x65E30, c]
       - [0x661D0, c]
@@ -467,6 +467,10 @@ segments:
       - [0xC5380, rodata]
 
       - [0xC56A0, rodata]
+      
+      - [0xC5C10, .rodata, 65BF0]
+     
+      - [0xC5C20, rodata]
 
       - [0xC5C40, .rodata, 65E30]
 

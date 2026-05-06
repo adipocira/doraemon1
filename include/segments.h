@@ -22,6 +22,7 @@ extern u8 D_368300[0x16EA0];
 extern u8 D_37F1A0[0x12860];
 extern u8 D_3A0350[0x12FA0];
 extern u8 D_3B32F0[0xD260];
+extern u8 D_3C0550[0xCF60];
 
 extern u8 _bankSegmentRom[0x9970];
 extern u8 _tableSegmentRom[0x1A6990];
