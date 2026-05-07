@@ -45,8 +45,7 @@ typedef struct cdata_struct {
     u8 unk4C;
     u8 unk4D;
     u16 unk4E;
-    u8 unk50;
-    u8 unk51;
+    u16 unk50;
     u8 unk52;
     u8 unk53;
     u8 unk54;
