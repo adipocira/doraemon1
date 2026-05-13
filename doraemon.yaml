@@ -149,7 +149,7 @@ segments:
       - [0x69280, c]
       - [0x69E20, asm]
       - [0x6A480, asm]
-      - [0x6B8C0, asm]
+      - [0x6B8C0, c]
       - [0x6D4C0, c]
       - [0x6DAB0, c]
       - [0x6F000, c]
@@ -493,6 +493,8 @@ segments:
       - [0xC5E80, rodata]
 
       - [0xC5EF0, rodata]
+
+      - [0xC6060, .rodata, 6B8C0]
 
       - [0xC60E0, .rodata, 6D4C0]
 
