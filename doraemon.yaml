@@ -461,6 +461,10 @@ segments:
       - [0xC4AF0, .rodata, 4A610]
 
       - [0xC4C60, rodata]
+      
+      - [0xC4E60, rodata]
+      
+      - [0xC4FB0, rodata]
 
       - [0xC5190, .rodata, 52E50]
       

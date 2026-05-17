@@ -62,113 +62,134 @@ void func_80022F48(s16 idx, s16 arg1){
 }
 
 #ifdef NON_MATCHING
-void func_80022F7C(s32* arg0, f32 arg1, f32 arg2, f32 arg3) {
-    s32 pad;
-    f32 temp_ft4;
-    s32 sp7C;
-    s32 var_v0;
-    s32 sp74;
-    s32 pad4;
-    s32 temp_a2;
-    s32 pad3;
-    s32 pad2;
-    s32 temp_v1;
-    s32 var_a0;
-    s32 var_a1;
-    s32 i;
-    s32 var_ft5;
-    s32 var_t1;
-    s32 temp_a0;
-    Actor* sp44;
-    s32 temp_t6;
+void func_80022F7C(func_80022F7C_arg0_struct_base* arg0, f32 x, f32 y, f32 z) {
+    s16 id;
+    s32 cat;
+    s32 actorVarId; // sp7C
+    s32 temp;
+    s32 t3; // sp74
+    s32 temp3;
+    f32 f1;
+    f32 f2;
+    f32 f3;
+    f32 f4;
+    f32 f5;
+    f32 f6;
+    f32 f7;
+    s32 t0;
+    s32 v1;
+    s32 a2;
+    Actor* actor;
+    u32 i;
+    s32 t1;
+    s32 t2;
 
-    while (*arg0 != -1) {
-        // this is probably bitfield stuff
-        temp_t6 = (u32)(*arg0 & 0x03C00000) >> 0x16; // max 15 if *arg0 = 0xFFFFFFFF
-        sp7C = (u32)(*arg0 & 0x7C000000) >> 0x1A; // max 31 if *arg0 = 0xFFFFFFFF
-        sp74 = *arg0 & 0x200000;
-        if (*arg0 & 0x80000000) {
-            var_v0 = func_80023644(temp_t6, *arg0, arg0[1] + arg1, arg0[2] + arg2, arg0[3] + arg3, arg0[4], arg0[5], arg0[6]);
-            arg0 += 7;
-        } else {
-            var_v0 = func_80023644(temp_t6, *arg0, arg0[1] + arg1, arg0[2] + arg2, arg0[3] + arg3, 0.0f, 0.0f, 0.0f);
-            arg0 += 4;
+    
+    while(arg0->unk0 != -1){
+        cat = (arg0->unk0  & 0x03C00000) >> 0x16; // 15
+        t0 = arg0->unk0 & 0xFFFF;
+        actorVarId = (arg0->unk0 & 0x7C000000) >> 0x1A; // 31
+        temp3 = arg0->unk0 & 0x80000000;
+        t3 = arg0->unk0 & 0x0200000;
+        
+        if(temp3){
+            f1 = func_80022F7C_var1(arg0)->basePosX;
+            f2 = func_80022F7C_var1(arg0)->basePosY;
+            f3 = func_80022F7C_var1(arg0)->basePosZ;
+            
+            f4 = func_80022F7C_var1(arg0)->baseDirX;
+            f5 = func_80022F7C_var1(arg0)->baseDirY;
+            f6 = func_80022F7C_var1(arg0)->baseDirZ;
+            
+            id = func_80023644(cat, t0, f1+x, f2+y, f3+z, f4, f5, f6);
+            func_80022F7C_var1(arg0)++;
         }
-        if (var_v0 != -1) {
-            sp44 = GET_ACTOR_PTR(var_v0);
-            if (sp74 != 0) {
-                sp44->unk64 = *arg0;
+        else{
+            f1 = func_80022F7C_var2(arg0)->basePosX;
+            f2 = func_80022F7C_var2(arg0)->basePosY;
+            f3 = func_80022F7C_var2(arg0)->basePosZ;
+
+            f4 = 0.0f;
+            
+            id = func_80023644(cat, t0, f1+x, f2+y, f3 +z, f4, f4, f4);
+            func_80022F7C_var2(arg0)++;
+        }
+        if(id != -1){
+            actor = GET_ACTOR_PTR(id);
+            if(t3 != 0){
+                actor->unk64 = arg0->unk0;
                 arg0++;
-            }
-            if (sp7C != 0) {
-                for (i = 0; i != sp7C; i++) {
-                    ((ActorVariable*)&sp44->unkA0)[i].integer = arg0[0];
+            } 
+            if(actorVarId != 0){
+                for(i = 0; i < actorVarId; i++){
+                    actor->actorVars.rawVars[i].integer = arg0->unk0;
                     arg0++;
                 }
             }
-        } else {
-            if (sp74 != 0) {
+        }
+        else{
+            if(t3 != 0){
                 arg0++;
             }
-            if (sp7C != 0) {
-                for (i = 0; i != sp7C; i++) {
+            if(actorVarId != 0){
+                for(i = 0; i < actorVarId; i++){
                     arg0++;
                 }
             }
         }
-        if (*arg0 & 0x100000) {
-            var_t1 = *arg0 & 0xFFFF;
-            if (*arg0 != -1U) {
+        if(arg0->unk0 & 0x0100000){
+            if(arg0->unk0 != -1){
+                t1 = arg0->unk0 & 0xFFFF;
                 arg0++;
-                if (var_v0 != -1U) {
-                    while (var_t1 != 0) {
-                        temp_v1 = *arg0 & 0xFFFF0000;
-                        temp_a2 = *arg0 & 0xFFFF;
+
+                if(id != -1){
+                    while(t1 != 0){
+                        v1 = arg0->unk0 & 0xFFFF0000;
+                        a2 = arg0->unk0 & 0xFFFF;
                         arg0++;
-                        switch (temp_v1) {
-                            case 0:
-                                ((ActorVariable*)&sp44->unkA0)[temp_a2].integer = var_v0;
-                                var_t1--;
+
+                        switch(v1){
+                            case 0x0:
+                                actor->actorVars.rawVars[a2].integer = id;
+                                t1--;
                                 break;
                             case 0x10000:
-                                sp44->unk84 = D_801B52E0[temp_a2];
-                                var_t1--;
+                                actor->unk84 = D_801B52E0[a2];
+                                t1--;
                                 break;
-                            case 0x20000:{
-                                temp_a0 = temp_a2 << 8;
-                                for (i = temp_a0; i != temp_a0 + (temp_a2 & 0xFF); i++) {
-                                    ((ActorVariable*)&sp44->unkA0)[i].fp = ((ActorVariable*)&sp44->unkA0)[i + 1].integer;
+                            case 0x20000:
+                                for (i = (u32)a2 >> 8; i < (((u32)a2 >> 8) + (a2 & 0xFF)); i++) {
+                                    t2 = actor->actorVars.rawVars[i].integer;
+                                    actor->actorVars.rawVars[i].fp = t2;
                                 }
-                                var_t1--;
-                            }
+
+                                t1--; 
                                 break;
                             case 0x40000:
-                                sp44->unk68 = temp_a2;
-                                var_t1--;
-                                break;
-                            default:
+                                actor->unk68 = a2;
+                                t1--;
                                 break;
                         }
                     }
-                } else {
-                    while (var_t1 != 0) {
-                        temp_v1 = *arg0 & 0xFFFF0000;
+                }
+                else{
+                    while(t1 != 0){
+                        v1 = arg0->unk0 & 0xFFFF0000;
                         arg0++;
-                        switch (temp_v1) {
-                        case 0x0:
-                            var_t1--;
-                            break;
-                        case 0x10000:
-                            var_t1--;
-                            break;
-                        case 0x20000:
-                            var_t1--;
-                            break;
-                        case 0x40000:
-                            var_t1--;
-                            break;
-                        default:
-                            break;
+
+                        switch(v1){
+                            case 0x0:
+                                t1--;
+                                break;
+                            case 0x10000:
+                                t1--;
+                                break;
+                            case 0x20000:
+                                t1--;
+                                break;
+                            case 0x40000:
+                                t1--;
+                                break;
                         }
                     }
                 }
@@ -180,7 +201,7 @@ void func_80022F7C(s32* arg0, f32 arg1, f32 arg2, f32 arg3) {
 #pragma GLOBAL_ASM("asm/nonmatchings/23B20/func_80022F7C.s")
 #endif
 
-void func_80023468(s32* arg0){
+void func_80023468(func_80022F7C_arg0_struct_base* arg0){
     func_80022F7C(arg0, 0.0f, 0.0f, 0.0f);
 }
 

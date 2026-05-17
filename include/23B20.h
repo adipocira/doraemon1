@@ -4,10 +4,31 @@
 #include "ultra64.h"
 #include "actor.h"
 
+typedef struct func_80022F7C_arg0_struct_base{
+    u32 unk0;
+}func_80022F7C_arg0_struct_base;
+
+typedef struct func_80022F7C_arg0_struct_var1{
+    func_80022F7C_arg0_struct_base unk0;
+    s32 basePosX;
+    s32 basePosY;
+    s32 basePosZ;
+    s32 baseDirX;
+    s32 baseDirY;
+    s32 baseDirZ;
+}func_80022F7C_arg0_struct_var1;
+
+typedef struct func_80022F7C_arg0_struct_var2{
+    func_80022F7C_arg0_struct_base unk0;
+    s32 basePosX;
+    s32 basePosY;
+    s32 basePosZ;
+}func_80022F7C_arg0_struct_var2;
+
 void func_80022F20(s16 idx, ActorUnk80Func arg1);
 void func_80022F48(s16 idx, s16 arg1);
-void func_80022F7C(s32* arg0, f32 arg1, f32 arg2, f32 arg3);
-void func_80023468(s32* arg0);
+void func_80022F7C(func_80022F7C_arg0_struct_base* arg0, f32 arg1, f32 arg2, f32 arg3);
+void func_80023468(func_80022F7C_arg0_struct_base* arg0);
 s16 func_80023498(u16 arg0, u16 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, f32 arg7);
 s16 func_80023644(u16 arg0, u16 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, f32 arg7);
 s16 func_800238B0(s16 idx, u16 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, f32 arg7);
@@ -71,5 +92,7 @@ void func_80026D50(f32 arg0, f32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, f
 s32 func_80026F58(s16 arg0, s16 arg1, s16 arg2, s16 arg3);
 void func_80027014(f32 arg0, f32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, s32 arg6, s32 arg7, s32 arg8, s32 arg9);
 
+#define func_80022F7C_var1(arg0) ((func_80022F7C_arg0_struct_var1*)(arg0))
+#define func_80022F7C_var2(arg0) ((func_80022F7C_arg0_struct_var2*)(arg0))
 
 #endif
