@@ -11,5 +11,6 @@ void func_8007835C(struct Actor*);
 s32 func_80078F78(struct Actor*);
 void func_800781E0(struct Actor*);
 void func_800785CC(struct Actor*);
+void func_800796A0(s16 idx);
 
 #endif

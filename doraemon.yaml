@@ -80,9 +80,7 @@ segments:
       - [0x4BE0, asm]
       
       - [0x6E50, c, 6E50]
-
       - [0x6FA0, c, 6FA0]
-
       - [0x71B0, c, audio]
       - [0x7310, c]
       - [0x76A0, c, audiomgr]
@@ -98,8 +96,8 @@ segments:
       - [0xCF20, c]
 
       - [0xD530, asm]
-      - [0xE020, asm]
-      
+
+      - [0xE020, c]
       - [0xE5B0, c]
  
       - [0xE6D0, asm, zzGame]
@@ -108,35 +106,46 @@ segments:
       - [0x11F10, c, 11F10]
       - [0x12250, c, bitio]
       - [0x12490, c, ahuff]
+
       - [0x12AC0, asm, zzTeller]
 
       - [0x13940, c]
       - [0x147B0, c]
       - [0x14B00, c]
       - [0x15040, c]
+
       - [0x15F60, asm]
       - [0x1D870, asm]
+
       - [0x23B20, c]
       - [0x284C0, c]
+
       - [0x29980, asm]
       - [0x2DE50, asm]
       - [0x32020, asm]
       - [0x368E0, asm]
+
       - [0x386E0, c]
+      
       - [0x3AA90, asm]
+      
       - [0x3DD30, c]
       - [0x41790, c]
       - [0x44CC0, c]
       - [0x484C0, c]
       - [0x497E0, c]
       - [0x4A610, c]
+
       - [0x4BE90, asm]
       - [0x4D980, asm]
       - [0x4FE10, asm]
+
       - [0x52E50, c]
       - [0x55270, c]
+
       - [0x57820, asm]
       - [0x5BB10, asm]
+
       - [0x65BF0, c]
       - [0x65D10, c]
       - [0x65E30, c]
@@ -147,30 +156,42 @@ segments:
       - [0x682B0, c]
       - [0x684A0, c]
       - [0x69280, c]
+
       - [0x69E20, asm]
       - [0x6A480, asm]
+
       - [0x6B8C0, c]
       - [0x6D4C0, c]
       - [0x6DAB0, c]
       - [0x6F000, c]
+
       - [0x6FBC0, asm]
       - [0x70900, asm]
+
       - [0x70DF0, c]
+
       - [0x72610, asm]
       - [0x73660, asm]
+
       - [0x789F0, c]
+
       - [0x78DE0, asm]
       - [0x7B6C0, asm]
       - [0x7F2B0, asm]
       - [0x7F4E0, asm]
       - [0x80550, asm]
       - [0x80BB0, asm]
+
       - [0x81B10, c, zzSprite]
+
       - [0x821B0, asm]
+      
       - [0x823D0, c]
+      
       - [0x82840, asm]
       - [0x89680, asm]
       - [0x89D30, asm]
+      
       - [0x8A6C0, c]
 
       - [0x8A910, asm, libultra/io/conteeplongwrite]
@@ -384,6 +405,11 @@ segments:
 
       - [0xACAE0, data]
 
+      #- [0xACB70, .data, E020]
+      - [0xACB70, data]
+
+      - [0xACBC0, data]
+
       - [0xACC90, .data, 13940]
 
       - [0xACCA0, data]
@@ -425,6 +451,10 @@ segments:
       - [0xC1B30, .rodata, csplayer]
 
       - [0xC1D70, rodata]
+
+      - [0xC1E50, .rodata, E020]
+
+      - [0xC1EA0, rodata]
 
       - [0xC1F00, .rodata, E5B0]
 

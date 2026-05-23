@@ -20,9 +20,10 @@ typedef struct cdata_struct {
     f32 unk10;
     f32 unk14;
     f32 unk18;
-    u8 unk1C[0x1];
+    u8 unk1C;
     u8 nextstg;
-    u8 unk1E[0x4];
+    u8 unk1E[0x2];
+    u16 unk20;
     u16 unk22;
     u16 unk24;
     u16 unk26;
@@ -68,7 +69,9 @@ typedef struct cdata_struct {
     u8 unk68;
     u8 unk69;
     u8 unk6A;
-    u8 unk6B[0x3];
+    u8 unk6B;
+    u8 unk6C;
+    u8 unk6D;
     u16 unk6E;
     u16 unk70;
     u8 unk72;
