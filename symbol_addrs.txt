@@ -220,6 +220,12 @@ zzSprite_setBitmap = 0x8008159C;
 
 zzTexRecSubInit = 0x80089AC0;
 
+// conteeplongread.c
+osEepromLongRead = 0x80089E50;
+
+// conteeplongwrite.c
+osEepromLongWrite = 0x80089D10;
+
 // initialize.c 
 
 osInitialize = 0x80089F90;
@@ -334,6 +340,12 @@ osViGetNextFramebuffer = 0x8008B210;
 
 proutSprintf = 0x8008B250;
 sprintf = 0x8008B274;
+
+//
+
+// viswapbuf.c
+
+osViSwapBuffer = 0x8008B2D0;
 
 //
 
@@ -765,6 +777,28 @@ guTranslate = 0x800919E8;
 
 //
 
+// scale.c
+
+guScaleF = 0x80091CB0;
+guScale = 0x80091D04;
+
+//
+
+// rotate.c
+
+guRotateF = 0x80091D50;
+guRotate = 0x80091EE4;
+
+//
+
+//
+
+guMtxXFML = 0x80091F40;
+guMtxCatL = 0x80091FA0;
+
+
+//
+
 
 // ll.c 
 __ull_rshift = 0x80092000;
@@ -780,16 +814,31 @@ __ll_rshift = 0x80092294;
 
 //
 
-// sp.c
+// mtxcatf.c
 
-spFinish = 0x800924D0;
-spDraw = 0x80093C54;
-spInit = 0x800949C0;
+guMtxXFMF = 0x800922C0;
+guMtxCatF = 0x80092360;
+
 
 //
 
+// sprite.c
+
+spFinish = 0x800924D0;
+drawbitmap = 0x80092584;
+spDraw = 0x80093C54;
+spInit = 0x800949C0;
+spScissor = 0x80094AEC;
+spMove = 0x80094B10;
+
+// conteepwrite.c
+
 osEepromWrite = 0x80094B20;
+__osPackEepWriteData = 0x80094CD0;
 __osEepStatus = 0x80094DDC;
+
+//
+
 
 
 // settimer.c
@@ -797,6 +846,13 @@ __osEepStatus = 0x80094DDC;
 osSetTimer = 0x80095000;
 
 //
+
+// conteepread.c
+
+osEepromRead = 0x800950E0;
+__osPackEepReadData = 0x800952D0;
+
+// 
 
 // getsr.s
 
@@ -830,14 +886,8 @@ __osCleanupThread = 0x80095DA0;
 //
 
 D_800954C0 = 0x800954C0;
-osEepromRead = 0x800950E0;
 bzero = 0x80095EF0;
 
-// leointerrupt.c 
-
-__osLeoInterrupt = 0x80095FE0;
-
-//
 
 // sethwinterrupt.c
 
@@ -875,6 +925,15 @@ osInvalICache = 0x80095DB0;
 
 //
 
+// leointerrupt.c
+
+__osLeoInterrupt = 0x80095FE0;
+__osLeoAbnormalResume = 0x80096680;
+__osLeoResume = 0x80096768;
+
+
+//
+
 __osDisableInt = 0x80096860;
 __osRestoreInt = 0x80096880;
 
@@ -886,6 +945,115 @@ __osRunQueue = 0x800BF7A8;
 __osActiveQueue = 0x800BF7AC;
 __osRunningThread = 0x800BF7B0;
 __osFaultedThread = 0x800BF7B4;
+
+//
+
+// piacs.c
+
+__osPiCreateAccessQueue = 0x800968E0;
+__osPiGetAccess = 0x80096930;
+__osPiRelAccess = 0x80096974;
+
+//
+
+// getthreadpri.c
+
+osGetThreadPri = 0x800969A0;
+
+//
+
+// pirawdma.c
+
+__osPiRawStartDma = 0x800969C0;
+
+//
+
+// epirawdma.c
+
+__osEPiRawStartDma =  0x80096AA0;
+
+//
+
+// devmgr.c
+
+__osDevMgrMain = 0x80096B80;
+
+//
+
+// timerintr.c
+
+__osTimerServicesInit = 0x80096F30;
+__osTimerInterrupt = 0x80096FBC;
+__osSetTimerIntr = 0x80097134;
+__osInsertTimer = 0x800971A8;
+__osCurrentTime = 0x8016EA70; // type:s64
+__osBaseCounter = 0x8016EA78;
+
+//
+
+// vigetcurrcontext.c
+
+__osViGetCurrentContext = 0x80097480;
+
+//
+
+// viswapcontext.c
+
+__osViSwapContext = 0x80097490;
+
+//
+
+// xprintf.c
+
+_Printf = 0x80097800;
+_Putfld = 0x80097E70;
+
+//
+
+// string.c
+
+strchr = 0x800984C0;
+strlen = 0x800984EC;
+memcpy = 0x80098514;
+
+
+//
+
+// bcopy.s
+ 
+bcopy = 0x80098560;
+
+//
+
+// spsetpc.c
+
+__osSpSetPc = 0x80098880;
+
+//
+
+// sprawdma.c
+
+__osSpRawStartDma = 0x800988C0;
+
+//
+
+// dp.c
+
+__osDpDeviceBusy = 0x80098980;
+
+//
+
+// 
+
+
+
+//
+
+__osSiCreateAccessQueue = 0x800989B0;
+__osSiGetAccess = 0x80098A00;
+__osSiRelAccess = 0x80098A44;
+__osSiRawStartDma = 0x80098A70;
+
 //
 
 // vi.c 
@@ -896,32 +1064,116 @@ __osViNext = 0x800BF844;
 
 //
 
-// 
+// spgetstat.c
+
+__osSpGetStatus = 0x800977F0;
+
+//
+
+// spsetstat.c
 
 __osSpSetStatus = 0x80098870;
 
 //
 
+// sp.c
+
+__osSpDeviceBusy = 0x80098950;
+
+//
+
+// contpfs.c
+
+__osSumcalc = 0x80098B20;
+__osIdCheckSum = 0x80098B9C;
+__osRepairPackId = 0x80098C98;
+__osCheckPackId = 0x80098FE4;
+__osGetId = 0x80099148;
+__osCheckId = 0x8009934C;
+__osPfsRWInode = 0x80099464;
+__osPfsSelectBank = 0x80099700;
+
 // pfschecker.c
 
 osPfsChecker = 0x80099770;
+corrupted_init = 0x80099D5C;
+corrupted = 0x8009A040;
 
 //
 
 sc = 0x800E3FC8;
-sched_cmdQ = 0x800E6268;
+sched_cmdQ = 0x800E6268; 
 
-// timerintr.c
+// pfsisplug.c
 
-__osCurrentTime = 0x8016EA70; // type:s64
-__osBaseCounter = 0x8016EA78;
+osPfsIsPlug = 0x8009A1E0;
+__osPfsRequestData = 0x8009A37C;
+__osPfsGetInitData = 0x8009A454;
 
 //
 
-__osSiCreateAccessQueue = 0x800989B0;
-__osSiGetAccess = 0x80098A00;
-__osSiRelAccess = 0x80098A44;
-__osSiRawStartDma = 0x80098A70;
+// contramread.c
+
+__osContRamRead = 0x8009A510;
+__osPackRamReadData = 0x8009A724;
+
+
+//
+
+// syndelete.c
+
+alSynDelete = 0x8009A880;
+
+//
+
+// probetlb.c
+
+__osProbeTLB = 0x8009A890;
+
+//
+
+// ai.c
+
+__osAiDeviceBusy = 0x8009A950;
+
+//
+
+// drvrnew.c
+
+alSaveNew = 0x8009A980;
+alMainBusNew = 0x8009A9C4;
+alAuxBusNew = 0x8009AA18;
+alResampleNew = 0x8009AA6C;
+alLoadNew = 0x8009AAF4;
+alEnvmixerNew = 0x8009AB9C;
+_init_lpfilter = 0x8009AC40;
+alFxNew = 0x8009ACE0;
+
+//
+
+// synallocfx.c
+
+alSynAllocFX = 0x8009B120;
+
+//
+
+// mainbus.c
+
+alMainBusParam = 0x8009B1C0;
+alMainBusPull = 0x8009B1F0;
+
+//
+
+// load.c
+
+alLoadParam = 0x8009B310;
+alRaw16Pull = 0x8009B4E4;
+_decodeChunk = 0x8009B890;
+alAdpcmPull = 0X8009B9BC;
+
+
+//
+
 _Litob = 0x8009DB10;
 
 alGlobals = 0x800BF750;

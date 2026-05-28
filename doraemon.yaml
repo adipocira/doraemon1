@@ -387,7 +387,7 @@ segments:
 
       - [0x9B550, asm, libultra/io/ai]
 
-      - [0x9B580, asm, libultra/audio/drvnew]
+      - [0x9B580, asm, libultra/audio/drvrnew]
       - [0x9BD20, asm, libultra/audio/synallocfx]
       - [0x9BDC0, asm, libultra/audio/mainbus]
       - [0x9BF10, asm, libultra/audio/load]
@@ -473,6 +473,13 @@ segments:
 
       - [0xC27E0, rodata, C27E0] 
 
+      - [0xC2820, rodata]
+
+      - [0xC2FE0, rodata]
+
+      - [0xC3250, rodata]
+
+      - [0xC37B0, rodata]
 
       - [0xC3960, .rodata, 386E0]
 
