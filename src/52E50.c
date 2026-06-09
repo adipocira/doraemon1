@@ -38,7 +38,7 @@ void func_80052250(s16 idx){
             actor->unk8 = 0x100;
 
             func_80022F48(idx, 2);
-            actor->actorVars.varCC.integer = actor->unk74;
+            actor->actorVars.varCC.integer = actor->health;
 
             actor->actorVars.varB4.integer = 0;
             actor->actorVars.varB0.integer = 0;
@@ -642,18 +642,18 @@ void func_80052250(s16 idx){
             }
             break;
     }
-    if(actor->actorVars.varCC.integer != actor->unk74){
+    if(actor->actorVars.varCC.integer != actor->health){
         actor->status = 450;
     }
-    if(actor->unk74 <= 0){
-        actor->unk74 = 0;
+    if(actor->health <= 0){
+        actor->health = 0;
         actor->actorVars.varCC.integer = 0;
 
         if(actor->status < 900){
             actor->status = 900;
         }
     }
-    actor->actorVars.varCC.integer = actor->unk74;
+    actor->actorVars.varCC.integer = actor->health;
     temp4 = actor->actorVars.varB4.integer-- ^ 30;
     
     if(temp4 == 0){

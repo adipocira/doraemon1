@@ -56,7 +56,7 @@ void func_80054670(s16 idx){
             func_80022F48(idx, 9);
             
             actor->actorVars.varC8.integer = 0;
-            actor->actorVars.varCC.integer = actor->unk74;
+            actor->actorVars.varCC.integer = actor->health;
             
             actor->actorVars.varB0.fp = -10000.0f;
             actor->actorVars.varB4.integer = -0x64;
@@ -751,11 +751,11 @@ void func_80054670(s16 idx){
             break;
     }
 
-    if(actor->actorVars.varCC.integer != actor->unk74){
+    if(actor->actorVars.varCC.integer != actor->health){
         actor->status = 350;
     }
-    if(actor->unk74 <= 0){
-        actor->unk74 = 0;
+    if(actor->health <= 0){
+        actor->health = 0;
         actor->actorVars.varCC.integer = 0;
 
         if(actor->status < 900){
@@ -763,7 +763,7 @@ void func_80054670(s16 idx){
         }
     }
 
-    actor->actorVars.varCC.integer = actor->unk74;
+    actor->actorVars.varCC.integer = actor->health;
     
     if(actor->pos.y < actor->actorVars.varB0.fp){
         actor->pos.x = (random(0) % 500U) + 24.0f - 250.0f;
@@ -796,7 +796,7 @@ void func_80054670(s16 idx){
     if(actor->status < 902){
         func_8002646C(temp1, idx, 15.0f);
     }
-    if(actor2->unk74 <= 0){
+    if(actor2->health <= 0){
         D_800F05B8 = 0;
     }
 }

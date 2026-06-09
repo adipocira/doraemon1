@@ -127,7 +127,7 @@ void func_80048FB4(s16 idx){
             actor->actorVars.varA8.fp = actor->pos.z;
 
             if(actor->actorVars.varA0.integer != 0){
-                actor->unk74 = 0x258;
+                actor->health = 0x258;
                 actor->status = 0x1F4;
                 
                 actor->scale.x = 8.0f;

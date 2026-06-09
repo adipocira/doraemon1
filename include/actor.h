@@ -78,9 +78,7 @@ typedef struct Actor {
     s32 unk8;
     void* unkC;
     Vec3f pos;
-    u32 unk1C;
-    f32 unk20;
-    f32 unk24;
+    Vec3f unk1C;
     Vec3f rot;
     ActorUnk34Struct* unk34;
     s32 unk38;
@@ -104,7 +102,7 @@ typedef struct Actor {
     s16 unk6D;
     s16 unk70;
     s16 unk72;
-    s32 unk74;
+    s32 health;
     u8 unk78[0x8];
     ActorUnk80Func unk80;
     s32 unk84;

@@ -125,5 +125,5 @@ void func_8000D420(u32* stagePtr){
             break;
     }
 
-    GET_ACTOR_PTR(D_80159178->unk48[cdata.unk41].unk0)->unk74 = cdata.unk20;
+    GET_ACTOR_PTR(D_80159178->unk48[cdata.unk41].unk0)->health = cdata.unk20;
 }

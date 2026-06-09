@@ -400,7 +400,7 @@ s16 func_80023A58(s16 idx, u16 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, f32
     
     actor->unk70 = -1;
     actor->unk72 = ptr->unk10;
-    actor->unk74 = ptr->unk1C;
+    actor->health = ptr->unk1C;
     actor->unk80 = ptr->unk20;
     actor->unk84 = 0;
     
@@ -1245,10 +1245,10 @@ u16 func_80025C48(s32 arg0, s32 arg1){
 
     if(temp1 == 0){
         if(arg1 > 0){
-            return 0x5A;
+            return 90;
         }
         else{
-            return 0x10E;
+            return 270;
         }
     }
     if(temp2 == 0){
@@ -1256,24 +1256,24 @@ u16 func_80025C48(s32 arg0, s32 arg1){
             return 0;
         }
         else{
-            return 0xB4;
+            return 180;
         }
     }
 
     if(temp1 == temp2){
         if(arg0 > 0){
             if(arg1 > 0){
-                return 0x2D;
+                return 45;
             }
             else{
-                return 0x13B;
+                return 315;
             }
         }
         if(arg1 > 0){
-            return 0x87;
+            return 135;
         }
         else{
-            return 0xE1;
+            return 225;
         }
     }
 
@@ -1281,19 +1281,19 @@ u16 func_80025C48(s32 arg0, s32 arg1){
         ret = D_800B5130[(temp2*64) / temp1];
     }
     else{
-        ret = 0x5A - D_800B5130[(temp1*64) / temp2];
+        ret = 90 - D_800B5130[(temp1*64) / temp2];
     }
 
     if(arg1 < 0){
         if(arg0 < 0){
-            return ret + 0xB4; 
+            return ret + 180; 
         }
         else{
-            return (0x168 - ret) % 360;
+            return (360 - ret) % 360;
         }
     }
     if(arg0 < 0){
-        return 0xB4 - ret;
+        return 180 - ret;
     }
     else{
         return ret;

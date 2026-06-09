@@ -505,7 +505,7 @@ void func_80048970(s16 idx){
     switch(actor->status){
         case 0:
             if(actor->actorVars.varA0.integer == 1){
-                actor->unk74 = 0xA;
+                actor->health = 0xA;
                 
                 actor->scale.x = 3.0f;
                 actor->scale.y = 3.0f;

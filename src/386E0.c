@@ -98,10 +98,10 @@ void func_80037AE0(s16 idx){
                 break;
             case 0x16:
                 func_80008C6C(D_802BDE52, 0);
-                GET_ACTOR_PTR(temp1)->unk74 += 0x32;
+                GET_ACTOR_PTR(temp1)->health += 0x32;
 
-                if(GET_ACTOR_PTR(temp1)->unk74 >= 0xFB){
-                    GET_ACTOR_PTR(temp1)->unk74 = 0xFA;
+                if(GET_ACTOR_PTR(temp1)->health >= 0xFB){
+                    GET_ACTOR_PTR(temp1)->health = 0xFA;
                 }
                 func_80022F20(idx, func_80039000);
                 

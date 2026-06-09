@@ -136,7 +136,7 @@ void func_800655D0(s16 idx){
         GET_ACTOR_PTR(id)->unk64 = 8;
 
         if(D_8015A392 & 1){
-            GET_ACTOR_PTR(actor->actorVars.varD8.integer)->unk74 = 1;
+            GET_ACTOR_PTR(actor->actorVars.varD8.integer)->health = 1;
         }
 
         func_800073C0(0xE, 0);

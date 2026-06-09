@@ -809,7 +809,7 @@ void func_80046238(s16 idx){
         case 0:
             actor->rot.y += 90.0f;
             actor->unk8 |= 1;
-            actor->unk74 = 0x140;
+            actor->health = 0x140;
 
             NORM_ANGLE(actor->rot.y);
 

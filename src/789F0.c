@@ -99,11 +99,11 @@ void func_80078064(s16 idx){
         if(v1 != -1){
             f3 = (D_802BD4A8)[actor->unk48].unk0;
             
-            if(actor->unk74 != 0){
+            if(actor->health != 0){
                 ftemp = (f32)GET_ACTOR_PTR(v1)->unk66;
-                actor->unk74 -= (GET_ACTOR_PTR(v1)->unk66 * f3);
+                actor->health -= (GET_ACTOR_PTR(v1)->unk66 * f3);
             }
-            if(actor->unk74 > 0){
+            if(actor->health > 0){
                 func_80008C6C(D_802BD67A[actor->unk48], 1);
                 actor->unk52 = 0;
                 actor->unk50 = actor->unk52;
@@ -113,7 +113,7 @@ void func_80078064(s16 idx){
                 actor->actorVars.varC0.shorts[1] = 0x46;
             }
             else{
-                actor->unk74 = 0;
+                actor->health = 0;
                 actor->actorVars.varB8.shorts[0] = 0xB;
             }
         }

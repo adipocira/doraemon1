@@ -66,6 +66,7 @@ typedef struct {
 
 
 void    amCreateAudioMgr(ALSynConfig* c, OSPri priority, amConfig* amc);
+void    initAudio(void);
 
 extern ALHeap hp;
 extern ALBankFile* bankPtr;

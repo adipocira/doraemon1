@@ -139,12 +139,12 @@ s32 func_8007FE60(s32* arg0) {
 }
 
 void func_8007FE6C(){
-    s32 unk74 = GET_ACTOR_PTR(D_80159178->unk48[cdata.unk41].unk0)->unk74;
+    s32 unk74 = GET_ACTOR_PTR(D_80159178->unk48[cdata.unk41].unk0)->health;
     s8 i = 0;
     s8 j = 0;
 
     if(unk74 < 0){
-        GET_ACTOR_PTR(D_80159178->unk48[cdata.unk41].unk0)->unk74 = 0;
+        GET_ACTOR_PTR(D_80159178->unk48[cdata.unk41].unk0)->health = 0;
         unk74 = 0;
     }
 
