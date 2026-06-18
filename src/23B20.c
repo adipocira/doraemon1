@@ -35,6 +35,7 @@ extern f32 D_80154608;
 extern f32 D_8015460C;
 extern f32 D_80154610;
 
+
 extern u16 D_80141CA2;
  
 extern f32 D_80154614;

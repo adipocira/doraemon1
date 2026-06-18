@@ -125,7 +125,7 @@ void func_80068890(s16 idx){
             }
 
             if(temp == 0){
-                D_800F9B08.unkB0C &= ~0x1;
+                D_800F9B08[0x2F].unk8 &= ~0x1;
             }
             break;
             }
@@ -143,7 +143,7 @@ void func_80068890(s16 idx){
             }
 
             if(temp == 0){
-                D_800F9B08.unkAD0 &= ~0x1;
+                D_800F9B08[0x2E].unk8 &= ~0x1;
             }
             break;
             }

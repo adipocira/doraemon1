@@ -111,12 +111,12 @@ void func_80052250(s16 idx){
                 D_800E6B20_sets2(0x4B, 0xB7, cdata.unk6A, 1, 0xB, 4, 5);
                 D_800F0588.unk30 = 0;
                 GET_ACTOR_PTR(D_80159178->unk48[cdata.unk41].unk0)->flags &= ~0x4000;
-                D_800F9B08.unk788 &= (u16)~0x1;
-                D_800F9B08.unk7C4 &= (u16)~0x1;
-                D_800F9B08.unk800 &= (u16)~0x1;
-                D_800F9B08.unk83C &= (u16)~0x1;
-                D_800F9B08.unk878 &= (u16)~0x1;
-                D_800F9B08.unk8B4 &= (u16)~0x1;
+                D_800F9B08[0x20].unk8 &= (u16)~0x1;
+                D_800F9B08[0x21].unk8 &= (u16)~0x1;
+                D_800F9B08[0x22].unk8 &= (u16)~0x1;
+                D_800F9B08[0x23].unk8 &= (u16)~0x1;
+                D_800F9B08[0x24].unk8 &= (u16)~0x1;
+                D_800F9B08[0x25].unk8 &= (u16)~0x1;
                 actor->status = 102;
             }
             break;

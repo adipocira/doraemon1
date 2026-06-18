@@ -183,7 +183,7 @@ void func_800678A0(s16 idx){
             }
         }
         if(temp == 0){
-            D_800F9B08.unk878 &= ~0x1;
+            D_800F9B08[0x24].unk8 &= ~0x1;
         }
     }
 

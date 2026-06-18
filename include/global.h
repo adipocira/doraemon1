@@ -3,8 +3,11 @@
 
 #include "ultra64.h"
 
-typedef struct Vec3f {
-    f32 x,y,z;
+typedef union Vec3f {
+    struct {
+        f32 x,y,z;
+    };
+    f32 f[3];
 } Vec3f;
 
 typedef union s82x_s16{

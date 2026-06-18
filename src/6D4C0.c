@@ -124,8 +124,8 @@ void func_8006CACC(s16 idx){
             }
         }
         if(temp == 0){
-            D_800F9B08.unkA58 &= ~0x1;
-            D_800F9B08.unkA94 &= ~0x1;
+            D_800F9B08[0x2C].unk8 &= ~0x1;
+            D_800F9B08[0x2D].unk8 &= ~0x1;
         } 
     }
     switch(actor->actorVars.varA0.integer){

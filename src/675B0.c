@@ -47,8 +47,8 @@ void func_800669B0(s16 idx){
                 }
                 else{
                     func_800073C0(0x37, 1);
-                    D_800F9B08.unk800 &= 0xFFFE;
-                    D_800F9B08.unk8F0 &= 0xFFFE;
+                    D_800F9B08[0x22].unk8 &= ~0x1;
+                    D_800F9B08[0x26].unk8 &= ~0x1;
                     actor->status = 101;
                 }
             }
@@ -167,7 +167,7 @@ void func_80066BC8(s16 idx){
             }
 
             if(temp == 0){
-                D_800F9B08.unk83C &= ~0x1;
+                D_800F9B08[0x23].unk8 &= ~0x1;
             }
 
             break;
@@ -186,7 +186,7 @@ void func_80066BC8(s16 idx){
             }
 
             if(!temp){
-                D_800F9B08.unk878 &= ~0x1;
+                D_800F9B08[0x24].unk8 &= ~0x1;
             }
                 
             temp = 0;
@@ -201,7 +201,7 @@ void func_80066BC8(s16 idx){
             }
 
             if(temp == 0){
-                D_800F9B08.unk7C4 &= ~0x1;
+                D_800F9B08[0x21].unk8 &= ~0x1;
             }
             
             break;

@@ -27,6 +27,7 @@ typedef union ActorVariable{
     f32 fp;
     void* ptr;
     s16 shorts[2];
+    u8 uchars[4];
 }ActorVariable;
 
 typedef void (*ActorUnk80Func)(s16);

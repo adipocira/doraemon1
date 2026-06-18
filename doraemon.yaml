@@ -121,7 +121,9 @@ segments:
       - [0x284C0, c]
 
       - [0x29980, asm]
-      - [0x2DE50, asm]
+
+      - [0x2DE50, c]
+
       - [0x32020, asm]
       - [0x368E0, asm]
 
@@ -414,6 +416,10 @@ segments:
 
       - [0xACCA0, data]
 
+      - [0xB5EF0, .data, 2DE50]
+
+      - [0xB5F10, data]
+
       - [0xB6030, .data, 4A610]
 
       - [0xB6230, data]
@@ -475,7 +481,7 @@ segments:
 
       - [0xC2820, rodata]
 
-      - [0xC2FE0, rodata]
+      - [0xC2FE0, .rodata, 2DE50]
 
       - [0xC3250, rodata]
 

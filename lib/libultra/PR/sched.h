@@ -103,6 +103,7 @@ typedef struct {
     OSScTask    *curRDPTask;
     u32         frameCount;
     s32         doAudio;
+    volatile s32 unk284; //Mod
 } OSSched;
 
 void            osCreateScheduler(OSSched *s, void *stack, OSPri priority,

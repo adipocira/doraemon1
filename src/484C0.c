@@ -158,7 +158,7 @@ void func_800478C0(s16 idx){
             }
  
             if(actor->actorVars.varA0.integer == 6){
-                 D_800F9B08.unk4B8 &= ~1;
+                 D_800F9B08[0x14].unk8 &= ~1;
             }
             func_80025454(actor, actor1, 1.0f);
             break;
@@ -398,7 +398,7 @@ void func_800483BC(s16 idx){
             break;
         case 453:
             if(actor->actorVars.varA0.integer == 4){
-                D_800F9B08.unk83C &= ~1;
+                D_800F9B08[0x23].unk8 &= ~1;
                 actor->status = 455; 
             }
 

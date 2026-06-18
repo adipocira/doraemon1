@@ -20,6 +20,9 @@ void guMtxF2L(float mf[4][4], Mtx *m);
 void guMtxIdent(Mtx *m);
 void guMtxIdentF(float mf[4][4]);
 void guMtxL2F(float mf[4][4], Mtx *m);
+void guMtxCatL(Mtx *m, Mtx *n, Mtx *res);
+void guMtxXFML(Mtx *m, float x, float y, float z, 
+		      float *ox, float *oy, float *oz);
 void guNormalize(float *, float *, float *);
 void guLookAt(Mtx *m, float xEye, float yEye, float zEye,
              float xAt, float yAt, float zAt, 

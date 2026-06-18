@@ -1,4 +1,5 @@
 #include "audiomgr.h"
+#include "scheduler.h"
 
 typedef union {
 
@@ -46,9 +47,6 @@ typedef struct {
     AMDMABuffer* firstUsed;
     AMDMABuffer* firstFree;
 } AMDMAState;
-
-extern OSSched sc;
-extern OSMesgQueue* sched_cmdQ;
 
 AMAudioMgr __am;
 static u64 audioStack[AUDIO_STACKSIZE / sizeof(u64)];
@@ -136,7 +134,7 @@ void __amMain(void* arg) {
     AudioInfo* lastInfo = 0;
     OSScClient client;
 
-    osScAddClient(&sc, &client, &__am.audioFrameMsgQ);
+    osScAddClient(&sc.sc, &client, &__am.audioFrameMsgQ);
 
     while (!done) {
         (void)osRecvMesg(&__am.audioFrameMsgQ, (OSMesg*)&msg, OS_MESG_BLOCK);

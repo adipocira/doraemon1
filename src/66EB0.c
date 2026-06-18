@@ -101,7 +101,7 @@ void func_800662B0(s16 idx){
             break;
         case 103:
             if(func_80024CA0(4, idx, 100.0f) != -1){
-                D_800F9B08.unkAD0 &= ~1;
+                D_800F9B08[0x2E].unk8 &= ~1;
                 GET_ACTOR_PTR(idx)->status = 104;
             }
             break;
