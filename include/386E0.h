@@ -15,7 +15,7 @@ void func_80038BDC(s16 idx);
 void func_80038F4C(void);
 void func_80038FA8(void);
 void func_80039000(s16 idx);
-s32 func_80039110();
+s32 func_80039110(void);
 f32 func_800391A4(s16 idx1, s16 idx2, union Vec3f* pos);
 void func_80039254(s16 idx);
 void func_80039B1C(s32 arg0);

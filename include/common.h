@@ -396,4 +396,13 @@ typedef struct D_8014ABB8_struct{
 
 extern D_8014ABB8_struct D_8014ABB8;
 
+typedef struct D_801B58AC_struct{
+    u8 unk0[0x4CC];
+    f32 unk4CC;
+    u8 unk4D0[0x14];
+    u16 unk4E4;
+}D_801B58AC_struct;
+
+extern D_801B58AC_struct* D_801B58AC;
+
 #endif

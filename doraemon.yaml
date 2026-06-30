@@ -102,6 +102,8 @@ segments:
  
       - [0xE6D0, asm, zzGame]
 
+      - [0xFA60, asm]
+
       - [0x11DF0, c, 11DF0]
       - [0x11F10, c, 11F10]
       - [0x12250, c, bitio]
@@ -129,7 +131,7 @@ segments:
 
       - [0x386E0, c]
       
-      - [0x3AA90, asm]
+      - [0x3AA90, c]
       
       - [0x3DD30, c]
       - [0x41790, c]
@@ -192,7 +194,7 @@ segments:
       
       - [0x82840, asm]
       - [0x89680, asm]
-      - [0x89D30, asm]
+      - [0x89D30, asm, zzBGScreen]
       
       - [0x8A6C0, c]
 
@@ -420,6 +422,10 @@ segments:
 
       - [0xB5F10, data]
 
+      - [0xB5F40, .data, 3AA90]
+
+      - [0xB5F70, data]
+
       - [0xB6030, .data, 4A610]
 
       - [0xB6230, data]
@@ -448,6 +454,14 @@ segments:
 
       - [0xC0870, rodata]
 
+      - [0xC08B0, rodata]
+
+      - [0xC08F0, rodata]
+
+      - [0xC09C0, rodata]
+
+      - [0xC0D10, rodata]
+
       - [0xC1980, .rodata, 7310]
 
       - [0xC1AA0, .rodata, 7FC0] 
@@ -465,11 +479,18 @@ segments:
       - [0xC1F00, .rodata, E5B0]
 
       - [0xC1FE0, rodata]
+
+      - [0xC2060, rodata]
+
       - [0xC2110, .rodata, 11F10]
       - [0xC2130, .rodata, bitio]
       - [0xC2170, .rodata, ahuff]
 
       - [0xC2190, rodata] 
+
+      - [0xC2270, rodata]
+
+      - [0xC24C0, rodata]
       
       - [0xC2620, .rodata, 23B20]
 
@@ -489,7 +510,7 @@ segments:
 
       - [0xC3960, .rodata, 386E0]
 
-      - [0xC3B20, rodata]
+      - [0xC3B20, .rodata, 3AA90]
 
       - [0xC40C0, .rodata, 3DD30]
 
@@ -561,9 +582,13 @@ segments:
       
       - [0xC6A90, rodata] 
 
+      - [0xC6EE0, rodata]
+
       - [0xC7060, .rodata, 823D0]
       
       - [0xC7080, rodata]
+
+      - [0xC73A0, rodata]
 
       - [0xC7430, .rodata, 8A6C0]
       
@@ -587,6 +612,7 @@ segments:
       - { start: 0xCAE10, type: bss, vram: 0x800F5EA0, name: 800F5EA0 }
       - { start: 0xCAE10, type: .bss, vram: 0x80158AD0, name: 284C0 }
       - { start: 0xCAE10, type: bss, vram: 0x80158AF0, name: 80158AF0 }
+      - { start: 0xCAE10, type: .bss, vram: 0x80159040, name: 3AA90 }
       - { start: 0xCAE10, type: .bss, vram: 0x801590C0, name: 65E30 }
       - { start: 0xCAE10, type: .bss, vram: 0x801590D0, name: 684A0 }
       - { start: 0xCAE10, type: .bss, vram: 0x801590E0, name:  6DAB0 } 
