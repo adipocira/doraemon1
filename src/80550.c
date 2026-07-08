@@ -71,6 +71,7 @@ void func_8007F958(Gfx** gfxPtr){
         else{
             zzSprite_distCalc(&D_801D1170, D_800B6570, 1, 0);
         }
+
         D_801D116C = &(&D_801D2800)[D_800F395B];
 
         zzSprite_drawSprite(&gfx, &D_801D1170);
@@ -90,6 +91,7 @@ void func_8007F958(Gfx** gfxPtr){
         else{
             zzSprite_distCalc(&D_801D11A4, D_800B6574, 1, 0);
         }
+        
         D_801D11A0 = &(&D_801D2D90)[D_800F395B];
 
         zzSprite_drawSprite(&gfx, &D_801D11A4);
@@ -126,7 +128,6 @@ void func_8007FD00(Gfx** gfxPtr){
         zzSprite_distCalc(&D_801D120C, D_800B65BC, 1, 7);
         D_801D1208 = &(&D_801D3AE0)[D_800F395B];
         zzSprite_drawSprite(&gfx, &D_801D120C);
-        
     }
 
     *gfxPtr = gfx;
@@ -139,37 +140,35 @@ s32 func_8007FE60(s32* arg0) {
 }
 
 void func_8007FE6C(){
-    s32 unk74 = GET_ACTOR_PTR(D_80159178->unk48[cdata.unk41].unk0)->health;
+    s32 health = GET_ACTOR_PTR(D_80159178->unk48[cdata.unk41].unk0)->health;
     s8 i = 0;
     s8 j = 0;
 
-    if(unk74 < 0){
+    if(health < 0){
         GET_ACTOR_PTR(D_80159178->unk48[cdata.unk41].unk0)->health = 0;
-        unk74 = 0;
+        health = 0;
     }
 
-    if (unk74 >= 0xFB) {
-        unk74 = 0xFA;
+    if (health >= 0xFB) {
+        health = 0xFA;
     }
 
     func_80080F4C(&D_801D113C, 0, 5, *D_800B6558.unk14);
 
-
-
-    while(unk74 > 0){
+    while(health > 0){
         zzSprite_distCalc(&D_801D113C, D_800B6558.unk0, i, 0);
-        unk74 -= 0x32;  
+        health -= 0x32;  
         i++;
     }
 
-    if(unk74 != 0){
-        unk74 += 0x32;
+    if(health != 0){
+        health += 0x32;
         
-        while(unk74 > 0){
-            unk74 -= 0xA;
+        while(health > 0){
+            health -= 0xA;
             j++;
         }
-        zzSprite_distCalc(&D_801D113C, (&D_800B656C)[0-j], i-1, 0);
 
+        zzSprite_distCalc(&D_801D113C, (&D_800B656C)[0-j], i-1, 0);
     }
 }

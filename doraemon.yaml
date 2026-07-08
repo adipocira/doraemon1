@@ -183,7 +183,9 @@ segments:
       - [0x7B6C0, asm]
       - [0x7F2B0, asm]
       - [0x7F4E0, asm]
-      - [0x80550, asm]
+
+      - [0x80550, c]
+      
       - [0x80BB0, asm]
 
       - [0x81B10, c, zzSprite]
@@ -192,7 +194,7 @@ segments:
       
       - [0x823D0, c]
       
-      - [0x82840, asm]
+      - [0x82840, asm, zzFileSelect]
       - [0x89680, asm]
       - [0x89D30, asm, zzBGScreen]
       
@@ -583,6 +585,8 @@ segments:
       - [0xC6A90, rodata] 
 
       - [0xC6EE0, rodata]
+
+      - [0xC7040, rodata]
 
       - [0xC7060, .rodata, 823D0]
       
