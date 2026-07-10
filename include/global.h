@@ -155,7 +155,8 @@ typedef struct D_800E69C0_struct {
     volatile u8 unkF;
     volatile s32 unk10;
     volatile s32 unk14;
-    u8 unk18[0x5];
+    u8 unk18[0x4];
+    volatile u8 unk1C;
     u8 unk1D[0x8];
     u8 unk25[0x17];
     volatile char2x_short unk3C;
