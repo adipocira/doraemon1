@@ -348,28 +348,6 @@ typedef struct D_803361C0_struct{
 }D_803361C0_struct;
 extern D_803361C0_struct D_803361C0;
 
-typedef struct D_800F3944_struct{
-    s32 unk0;
-    s32 unk4;
-    s32 unk8;
-    s32 unkC;
-    s32 unk10;
-    s32 unk14;
-    u8 unk18[0x8];
-    s32 unk20;
-    s32 unk24;
-    s32 unk28;
-    s32 unk2C;
-    s32 unk30;
-    s32 unk34;
-    s32 unk38;
-    s32 unk3C;
-}D_800F3944_struct;
-
-extern D_800F3944_struct* D_800F3944;
-
-extern D_800F3944_struct* D_800F3948;
-
 typedef struct D_802BD2A4_struct{
     s8 unk0;
     s8 unk1;
@@ -404,5 +382,17 @@ typedef struct D_801B58AC_struct{
 }D_801B58AC_struct;
 
 extern D_801B58AC_struct* D_801B58AC;
+
+typedef struct D_800F3940_struct{
+    u32 unk0[16];
+    u32 unk40[16];
+    u16 unk80[16];
+    u16 unkA0;
+    u16 unkA2;
+    u8 unkA4[16];
+}D_800F3940_struct;
+
+extern D_800F3940_struct* D_800F3940[4];
+
 
 #endif

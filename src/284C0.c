@@ -6,6 +6,7 @@
 #include "23B20.h"
 #include "7FC0.h"
 #include "9320.h"
+#include "1D870.h"
 
 #include "libc/math.h"
 #include "common.h"
@@ -212,7 +213,7 @@ void func_80028024(s16 idx){
     
     switch((u32)actor->status){
         case 0:
-            if((&D_800F3940)[cdata.unk41]->unk0[actor->actorVars.varA0.integer] == 1){
+            if(D_800F3940[cdata.unk41]->unk0[actor->actorVars.varA0.integer] == 1){
                 if(actor->actorVars.varA8.integer & 1){
                     func_80007648(actor->actorVars.varAC.integer);
                 }
@@ -263,14 +264,14 @@ void func_80028024(s16 idx){
             }
             break;
         case 20:
-            (&D_800F3940)[cdata.unk41]->unk3C = 10;
-            (&D_800F3940)[cdata.unk41]->unkB2 = 0;
-            (&D_800F3940)[cdata.unk41]->unkA9 = 0;
-            (&D_800F3940)[cdata.unk41]->unkA8 = 0;
-            (&D_800F3940)[cdata.unk41]->unkA7 = 0;
-            (&D_800F3940)[cdata.unk41]->unkA6 = 0;
-            (&D_800F3940)[cdata.unk41]->unkA5 = 0;
-            (&D_800F3940)[cdata.unk41]->unkA4 = 0;  
+            (s32)D_800F3940[cdata.unk41]->unk0[15] = 10;
+            D_800F3940[cdata.unk41]->unkA4[14] = 0;
+            D_800F3940[cdata.unk41]->unkA4[5] = 0;
+            D_800F3940[cdata.unk41]->unkA4[4] = 0;
+            D_800F3940[cdata.unk41]->unkA4[3] = 0;
+            D_800F3940[cdata.unk41]->unkA4[2] = 0;
+            D_800F3940[cdata.unk41]->unkA4[1] = 0;
+            D_800F3940[cdata.unk41]->unkA4[0] = 0;  
             
             D_800E6B20.unk0 = 0;
             
@@ -322,55 +323,59 @@ void func_80028460(f32* arg0, f32 arg1){
     }
 }
 
+#ifdef NON_MATCHING
 void func_800284A4(f32 arg0, u8 arg1, u8 idx){
     f32 temp;
-    D_800F3940_struct* var_v1 = (&D_800F3940)[idx];
+    D_800F3940_struct* tempvar = D_800F3940[idx];
 
-    if((&D_800F3940)[idx]->unk34 != 0){
-        temp = arg1 * arg0;
+    if(tempvar->unk0[13] != 0){
+        temp = arg1;
+        temp *= arg0; 
     }
     else{
         temp = arg0;
     }
 
-    if((&D_800F3940)[idx]->unk3C != 0){
+    if(tempvar->unk0[15] != 0){
         D_800F0548.unk8 -= temp;
-        D_800F0548.unk14 -= temp;        
+        D_800F0548.unk14 -= temp;   
+        
     }
-    else if((&D_800F3940)[idx]->unk38 != 0){
+    else if(tempvar->unk0[14] != 0){
         D_800F0548.unk8 += temp;
-        D_800F0548.unk14 += temp;           
+        D_800F0548.unk14 += temp;  
+        
     }
-    else if((&D_800F3940)[idx]->unk2C != 0){
+    else if(tempvar->unk0[11] != 0){
         D_800F0548.unk4 -= temp;
         D_800F0548.unk10 -= temp;   
     }
-    else if((&D_800F3940)[idx]->unk28 != 0){
+    else if(tempvar->unk0[10] != 0){
         D_800F0548.unk4 += temp;
         D_800F0548.unk10 += temp;          
     }
-    else if((&D_800F3940)[idx]->unk24 != 0){
+    else if(tempvar->unk0[9] != 0){
         D_800F0548.unk0 -= temp;
         D_800F0548.unkC -= temp;   
     }
-    else if((&D_800F3940)[idx]->unk20 != 0){
+    else if(tempvar->unk0[8] != 0){
         D_800F0548.unk0 += temp;
         D_800F0548.unkC += temp;          
     }
-    else if((&D_800F3940)[idx]->unk8 != 0){
+    else if(tempvar->unk0[2] != 0){
         D_800F0548.unk4 -= temp;          
     }
-    else if((&D_800F3940)[idx]->unkC != 0){
+    else if(tempvar->unk0[3] != 0){
         D_800F0548.unk4 += temp;          
     }
-    else if((&D_800F3940)[idx]->unk4 != 0){
+    else if(tempvar->unk0[1] != 0){
         D_800F0548.unk0 -= temp;
         if(360.0 <= D_800F0548.unk0){
             D_800F0548.unk0 = 0.0f;
         }
 
     }
-    else if((&D_800F3940)[idx]->unk0[0] != 0){
+    else if(tempvar->unk0[0] != 0){
         D_800F0548.unk0 += temp;
         if(360.0 <= D_800F0548.unk0){
             D_800F0548.unk0 = 0.0f;
@@ -378,47 +383,51 @@ void func_800284A4(f32 arg0, u8 arg1, u8 idx){
 
     }
     else {
-        if((&D_800F3940)[idx]->unk30 != 0){
+        if(tempvar->unk0[12] != 0){
             D_800F0548.unk0 = D_800F0548.unk4 = 0.0f;
             D_800F0548.unk8 = 200.0f;
             D_800F0548.unk10 = D_800F0548.unk14 = 0.0f;
             D_800F0548.unkC = D_800F0548.unk10;  
         }
         do { } while (0);
+        
     }
+    
     if (!D_800F0548.unk10)
     {
     }
-    if(var_v1);
 }
+#else
+#pragma GLOBAL_ASM("asm/nonmatchings/284C0/func_800284A4.s")
+#endif
 
 #ifdef NON_MATCHING
 void func_8002875C(f32 arg0, u8 arg1, f32* arg2, u8 idx){
-    D_800F3940_struct* ptr = (&D_800F3940)[idx];
+    D_800F3940_struct* ptr = D_800F3940[idx];
     f32 temp;
 
-    if(ptr->unk34 != 0){
+    if(ptr->unk0[13] != 0){
         temp = arg1 * arg0;
     }
     else{
         temp = arg0;
     }
 
-    if(ptr->unk3C != 0){
+    if(ptr->unk0[15] != 0){
         *arg2 += temp;
 
         if(360.0 <= *arg2){
             *arg2 = 0.0f;
         }
     }
-    else if(ptr->unk38 != 0){
+    else if(ptr->unk0[14] != 0){
         *arg2 -= temp;
 
         if(360.0 <= *arg2){
             *arg2 = 0.0f;
         }        
     }
-    else if(ptr->unk30 == 1){
+    else if(ptr->unk0[12] == 1){
         *arg2 = 0.0f;
     }
     
@@ -429,17 +438,17 @@ void func_8002875C(f32 arg0, u8 arg1, f32* arg2, u8 idx){
 
 #ifdef NON_MATCHING
 void func_80028874(f32 arg0, u8 arg1, f32* arg2, f32* arg3, f32* arg4, u8 idx){
-    D_800F3940_struct* ptr = (&D_800F3940)[idx];
+    D_800F3940_struct* ptr = D_800F3940[idx];
     f32 temp;
 
-    if(ptr->unk34 != 0){
+    if(ptr->unk0[13] != 0){
         temp = arg1 * arg0;
     }
     else{
         temp = arg0;
     }
 
-    if(ptr->unk8 != 0){
+    if(ptr->unk0[2] != 0){
         *arg2 += temp;
 
         if(360.0 <= *arg2){
@@ -453,7 +462,7 @@ void func_80028874(f32 arg0, u8 arg1, f32* arg2, f32* arg3, f32* arg4, u8 idx){
             *arg2 = 0.0f;
         }
     }
-    else if(ptr->unk4 != 0){
+    else if(ptr->unk0[1] != 0){
         *arg3 -= temp;
 
         if(360.0 <= *arg3){
@@ -467,7 +476,7 @@ void func_80028874(f32 arg0, u8 arg1, f32* arg2, f32* arg3, f32* arg4, u8 idx){
             *arg3 = 0.0f;
         }
     }    
-    else if(ptr->unk10 != 0){
+    else if(ptr->unk0[4] != 0){
         *arg4 = 0.0f;
         *arg3 = 0.0f;
         *arg2 = 0.0f;

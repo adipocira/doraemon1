@@ -118,11 +118,11 @@ void func_8007FD00(Gfx** gfxPtr){
         func_8007F958(&gfx);
     }
 
-    if(cdata.unk40 == 1 && (&D_800F3940)[cdata.unk41]->unk34 != 0 && D_8015A392 & 8){
+    if(cdata.unk40 == 1 && D_800F3940[cdata.unk41]->unk0[13] != 0 && D_8015A392 & 8){
         func_80010F48(&gfx);
     }
 
-    if(D_800F3948->unk34 != 0 && D_8015A392 & 8){
+    if(D_800F3940[2]->unk0[13] != 0 && D_8015A392 & 8){
         func_80080F4C(&D_801D120C, 0, 0x28, *D_800B6584);
         func_800810EC(&D_801D120C, D_800B651C, 0, 7, D_800B50C0);
         zzSprite_distCalc(&D_801D120C, D_800B65BC, 1, 7);

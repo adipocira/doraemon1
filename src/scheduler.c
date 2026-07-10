@@ -306,7 +306,7 @@ s32 __scTaskComplete(InternalScheduler *sched, OSScTask *t) {
 
                     sprintf(buf, "Version. %s", DoraVersion);
                     func_80003364(fb,16,12,buf);
-                    if(D_800F3944->unk8 != 0){
+                    if(D_800F3940[1]->unk0[3] != 0){
                         sprintf(buf, "File Handle : %d",DoraFileHandle);
                         func_80003364(fb,16,28,buf);
                         sprintf(buf, "Item : 0x%llx", DoraItem);
@@ -320,7 +320,7 @@ s32 __scTaskComplete(InternalScheduler *sched, OSScTask *t) {
 += 8;
                         }
                     }
-                    else if(D_800F3944->unk0 != 0){
+                    else if(D_800F3940[1]->unk0[0] != 0){
                         sprintf(buf,"RAM SIZE : 0x%lx (%d)", DoraRamSize,
 DoraRamSize); func_80003364(fb,16,28,buf); sprintf(buf,"ROM SIZE : 0x%lx (%d)",
 DoraRomSize, DoraRomSize); func_80003364(fb,16,36,buf);

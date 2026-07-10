@@ -16,7 +16,7 @@ extern s16 D_802BD67A[];
 void func_80077DF0(s16 idx){
     Actor* actor = GET_ACTOR_PTR(idx);
 
-    func_80073B80((&D_800F3940)[(s16)actor->actorVars.varC4.integer], &D_80159178->unk48[(s16)actor->actorVars.varC4.integer].unk4);
+    func_80073B80(D_800F3940[(s16)actor->actorVars.varC4.integer], &D_80159178->unk48[(s16)actor->actorVars.varC4.integer].unk4);
     func_80078064(idx);
 
     switch(actor->actorVars.varB8.shorts[0]){

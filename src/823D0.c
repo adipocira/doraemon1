@@ -2,6 +2,7 @@
 
 #include "147B0.h"
 #include "global.h"
+#include "common.h"
 #include "TexRec.h"
 #include "9320.h"
 
@@ -48,7 +49,7 @@ void func_8008191C(s32 arg0){
 
     switch(D_800E69C0.unk3C.uchar[0]){
         case 0:
-            if((&D_800F3940)[cdata.unk41]->unk30 == 1){
+            if(D_800F3940[cdata.unk41]->unk0[12] == 1){
                 func_80008C6C(0xAD,0);
                 D_800E69C0.unk3C.uchar[0] = 1;
                 D_800F5FB0_sets(0x1E,2,1);
@@ -73,8 +74,8 @@ void func_8008191C(s32 arg0){
             
             break;
         case 2:
-            if(((&D_800F3940)[cdata.unk41]->unk30 == 1 && D_800E69C0.unk3E[1].uchar[0] & 2) || (&D_800E6A2C)[D_800E69C0.unk3E[1].uchar[1]][0] > 0x37){
-                if((&D_800F3940)[cdata.unk41]->unk30 == 1){
+            if((D_800F3940[cdata.unk41]->unk0[12] == 1 && D_800E69C0.unk3E[1].uchar[0] & 2) || (&D_800E6A2C)[D_800E69C0.unk3E[1].uchar[1]][0] > 0x37){
+                if(D_800F3940[cdata.unk41]->unk0[12] == 1){
                     func_80008C6C(0xAD,0);
                 }
                 else{

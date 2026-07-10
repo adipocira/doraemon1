@@ -189,12 +189,12 @@ void func_8006E400(s16 idx) {
             GET_ACTOR_PTR(D_800E69C0.unk3E[actor->actorVars.varA0.integer].ishort)->rot.z =
                 D_80159120[actor->actorVars.varA0.integer];
 
-            if ((&D_800F3940)[cdata.unk41]->unk30 == 1) {
+            if (D_800F3940[cdata.unk41]->unk0[12] == 1) {
                 actor->status = 9999;
             }
-            if ((&D_800F3940)[2]->unk10 == 1) {
+            if (D_800F3940[2]->unk0[4] == 1) {
                 func_80022F48(D_800E69C0.unk3E[1].ishort, ++actor->actorVars.varAC.integer % 17);
-            } else if ((&D_800F3940)[2]->unk14 == 1) {
+            } else if (D_800F3940[2]->unk0[5] == 1) {
                 GET_ACTOR_PTR(idx)->actorVars.varB4.integer++;
                 func_80022F48(D_800E69C0.unk3E[0].ishort, 0);
             }

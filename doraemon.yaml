@@ -584,6 +584,8 @@ segments:
       
       - [0xC6A90, rodata] 
 
+      - [0xC6D00, rodata]
+
       - [0xC6EE0, rodata]
 
       - [0xC7040, rodata]

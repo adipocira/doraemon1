@@ -194,34 +194,6 @@ typedef struct D_800F5FB0_struct {
     void* unk48;
 }D_800F5FB0_struct;
 
-typedef struct D_800F3940_struct {
-    s32 unk0[1];
-    u32 unk4;
-    u32 unk8;
-    u32 unkC;
-    u32 unk10;
-    u32 unk14;
-    u8 unk18[0x8];
-    u32 unk20;
-    u32 unk24;
-    u32 unk28;
-    u32 unk2C;
-    u32 unk30;
-    u32 unk34;
-    u32 unk38;
-    s32 unk3C;
-    u8 unk40[0x64];
-    u8 unkA4;
-    u8 unkA5;
-    u8 unkA6;
-    u8 unkA7;
-    u8 unkA8;
-    u8 unkA9;
-    u8 unkAA[0x8];
-    u8 unkB2;
-    s8 unkB3;
-}D_800F3940_struct;
-
 typedef struct D_800E6A20_struct {
     u8 unk0;
     u8 unk1;
@@ -232,8 +204,6 @@ typedef struct D_800E6A20_struct {
 } D_800E6A20_struct;
 
 extern D_800E6A20_struct D_800E6A20[256];
-
-extern D_800F3940_struct* D_800F3940;
 
 extern D_800F5FB0_struct D_800F5FB0;
 extern D_801BAA80_struct D_801BAA80;

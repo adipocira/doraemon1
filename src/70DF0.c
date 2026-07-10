@@ -142,7 +142,7 @@ void func_800701F0(s16 idx){
             func_800284A4(1.0f, 5, cdata.unk41);
             func_8002875C(1.0f, 5, &D_801522E0, 1);
 
-            if ((&D_800F3940)[cdata.unk41]->unk14 == 1) {
+            if (D_800F3940[cdata.unk41]->unk0[5] == 1) {
                 D_800F0548.unkC = 1220.0f;
                 D_800F0548.unk10 = 100.0f;
                 D_800F0548.unk14 = -0.0f;
@@ -158,7 +158,7 @@ void func_800701F0(s16 idx){
             }
             break;
         case 200:
-            if(D_800F3944->unk38 != 0){
+            if(D_800F3940[1]->unk0[14] != 0){
                 actor->status = 110;
                 break;
             }

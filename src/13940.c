@@ -46,13 +46,13 @@ s32 func_80012D40(s32 arg0, s32 arg1, u8 arg2) {
     }
 
     if (D_800AC090 == 0) {
-        (&D_800F3940)[cdata.unk41]->unkB2 = 1;
-        (&D_800F3940)[cdata.unk41]->unkA9 = 1;
-        (&D_800F3940)[cdata.unk41]->unkA8 = 1;
-        (&D_800F3940)[cdata.unk41]->unkA7 = 1;
-        (&D_800F3940)[cdata.unk41]->unkA6 = 1;
-        (&D_800F3940)[cdata.unk41]->unkA5 = 1;
-        (&D_800F3940)[cdata.unk41]->unkA4 = 1;
+        D_800F3940[cdata.unk41]->unkA4[14] = 1;
+        D_800F3940[cdata.unk41]->unkA4[5] = 1;
+        D_800F3940[cdata.unk41]->unkA4[4] = 1;
+        D_800F3940[cdata.unk41]->unkA4[3] = 1;
+        D_800F3940[cdata.unk41]->unkA4[2] = 1;
+        D_800F3940[cdata.unk41]->unkA4[1] = 1;
+        D_800F3940[cdata.unk41]->unkA4[0] = 1;
 
         D_800F5FA6 = 0;
 
@@ -112,7 +112,7 @@ s32 func_80012D40(s32 arg0, s32 arg1, u8 arg2) {
 
             D_800E6A20[D_800F5F98].unk1 = 2;D_800E6A20[D_800F5F98].unk2 = 1;D_800E6A20[D_800F5F98].unk8 = 60;D_800E6A20[D_800F5F98].unkC = 0;
         } else {
-            if ((&D_800F3940)[cdata.unk41]->unk3C != 0) {
+            if (D_800F3940[cdata.unk41]->unk0[15] != 0) {
                 D_800F5F90.unk0 = 0;
             } else {
                 D_800F5F90.unk0 = 1;
@@ -132,7 +132,7 @@ s32 func_80012D40(s32 arg0, s32 arg1, u8 arg2) {
             } else {
                 D_800E6A20[D_800F5F98].unk1 = 0;
                 func_80013ECC(D_800E6A20, D_800F5F98);
-                if ((&D_800F3940)[cdata.unk41]->unk3C != 0) {
+                if (D_800F3940[cdata.unk41]->unk0[15] != 0) {
                     D_800F5F90.unk0 = 0;
                 } else {
                     D_800F5F90.unk0 = 1;
@@ -145,11 +145,11 @@ s32 func_80012D40(s32 arg0, s32 arg1, u8 arg2) {
 
     } else {
         if (D_800F5F90.unk0 == 1) {
-            if ((&D_800F3940)[cdata.unk41]->unk3C != 0) {
+            if (D_800F3940[cdata.unk41]->unk0[15] != 0) {
                 D_800F5F90.unk1 = 1;
             }
         } else {
-            if ((&D_800F3940)[cdata.unk41]->unk3C == 0) {
+            if (D_800F3940[cdata.unk41]->unk0[15] == 0) {
                 D_800F5F90.unk0 = 1;
                 D_800F5F90.unk1 = 0;
             }
@@ -158,14 +158,14 @@ s32 func_80012D40(s32 arg0, s32 arg1, u8 arg2) {
 
             if (D_800F3920.unk0 == 0) {
                 D_800F5FA4[0] = 0;
-                (&D_800F3940)[cdata.unk41]->unk3C = 0xA;
-                (&D_800F3940)[cdata.unk41]->unkB2 = 0;
-                (&D_800F3940)[cdata.unk41]->unkA9 = 0;
-                (&D_800F3940)[cdata.unk41]->unkA8 = 0;
-                (&D_800F3940)[cdata.unk41]->unkA7 = 0;
-                (&D_800F3940)[cdata.unk41]->unkA6 = 0;
-                (&D_800F3940)[cdata.unk41]->unkA5 = 0;
-                (&D_800F3940)[cdata.unk41]->unkA4 = 0;
+                D_800F3940[cdata.unk41]->unk0[15] = 0xA;
+                D_800F3940[cdata.unk41]->unkA4[14] = 0;
+                D_800F3940[cdata.unk41]->unkA4[5] = 0;
+                D_800F3940[cdata.unk41]->unkA4[4] = 0;
+                D_800F3940[cdata.unk41]->unkA4[3] = 0;
+                D_800F3940[cdata.unk41]->unkA4[2] = 0;
+                D_800F3940[cdata.unk41]->unkA4[1] = 0;
+                D_800F3940[cdata.unk41]->unkA4[0] = 0;
                 D_800E6B20.unk6587 = 0;
 
                 D_800E69C0.unkE = D_800F5F96[1];
@@ -207,7 +207,7 @@ s32 func_80012D40(s32 arg0, s32 arg1, u8 arg2) {
 
                         } else {
                             D_800AC090 = 0;
-                            (&D_800F3940)[cdata.unk41]->unk3C = 0xA;
+                            D_800F3940[cdata.unk41]->unk0[15] = 0xA;
                             func_80015258(&texRec, D_800F5F9C);
                             func_80015258(&texRec, D_800F5FA0);
 
@@ -218,13 +218,13 @@ s32 func_80012D40(s32 arg0, s32 arg1, u8 arg2) {
                             D_800E6B20.unk20 = 0x4B;
                             D_800E6B20.unk22 = 0xB7;
                             GET_ACTOR(D_80159178->unk48[cdata.unk41].unk0).flags &= ~0x4000;
-                            (&D_800F3940)[cdata.unk41]->unkB2 = 0;
-                            (&D_800F3940)[cdata.unk41]->unkA9 = 0;
-                            (&D_800F3940)[cdata.unk41]->unkA8 = 0;
-                            (&D_800F3940)[cdata.unk41]->unkA7 = 0;
-                            (&D_800F3940)[cdata.unk41]->unkA6 = 0;
-                            (&D_800F3940)[cdata.unk41]->unkA5 = 0;
-                            (&D_800F3940)[cdata.unk41]->unkA4 = 0;
+                            D_800F3940[cdata.unk41]->unkA4[14] = 0;
+                            D_800F3940[cdata.unk41]->unkA4[5] = 0;
+                            D_800F3940[cdata.unk41]->unkA4[4] = 0;
+                            D_800F3940[cdata.unk41]->unkA4[3] = 0;
+                            D_800F3940[cdata.unk41]->unkA4[2] = 0;
+                            D_800F3940[cdata.unk41]->unkA4[1] = 0;
+                            D_800F3940[cdata.unk41]->unkA4[0] = 0;
 
                             return 0;
                         }
@@ -254,13 +254,13 @@ s32 func_80012D40(s32 arg0, s32 arg1, u8 arg2) {
                 D_800E6B20.unk20 = 0x4B;
                 D_800E6B20.unk22 = 0xB7;
                 GET_ACTOR(D_80159178->unk48[cdata.unk41].unk0).flags &= ~0x4000;
-                (&D_800F3940)[cdata.unk41]->unkB2 = 0;
-                (&D_800F3940)[cdata.unk41]->unkA9 = 0;
-                (&D_800F3940)[cdata.unk41]->unkA8 = 0;
-                (&D_800F3940)[cdata.unk41]->unkA7 = 0;
-                (&D_800F3940)[cdata.unk41]->unkA6 = 0;
-                (&D_800F3940)[cdata.unk41]->unkA5 = 0;
-                (&D_800F3940)[cdata.unk41]->unkA4 = 0;
+                D_800F3940[cdata.unk41]->unkA4[14] = 0;
+                D_800F3940[cdata.unk41]->unkA4[5] = 0;
+                D_800F3940[cdata.unk41]->unkA4[4] = 0;
+                D_800F3940[cdata.unk41]->unkA4[3] = 0;
+                D_800F3940[cdata.unk41]->unkA4[2] = 0;
+                D_800F3940[cdata.unk41]->unkA4[1] = 0;
+                D_800F3940[cdata.unk41]->unkA4[0] = 0;
 
                 return 0;
                 break;

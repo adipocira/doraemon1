@@ -172,12 +172,12 @@ void func_80007A68(){
     
     seqp = seqContexts[0].seqPlayer;
     
-    if(D_8015A392 & 0x10 && D_800F3944->unk34 != 0){
+    if(D_8015A392 & 0x10 && D_800F3940[1]->unk0[13] != 0){
         alEvtqPrintAllocEvts(&seqp->evtq);
         func_80007520(0x100, 0);
         D_800ABCF0 = 0;
     }
-    if(D_8015A392 & 0x10 && D_800F3944->unk3C != 0 && seqContexts[0].unk4 == 0 && D_800ABCF0 == 0){
+    if(D_8015A392 & 0x10 && D_800F3940[1]->unk0[15] != 0 && seqContexts[0].unk4 == 0 && D_800ABCF0 == 0){
         func_800075A0(0, 0x100, 0);
         D_800ABCF0 = 1;
     }

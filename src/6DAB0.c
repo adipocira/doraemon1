@@ -158,7 +158,7 @@ void func_8006CEB8(s16 idx) {
             func_800284A4(1.0f, 5, cdata.unk41);
             func_8002875C(1.0f, 5, &D_801522E0, 1);
 
-            if ((&D_800F3940)[cdata.unk41]->unk14 == 1) {
+            if (D_800F3940[cdata.unk41]->unk0[5] == 1) {
                 D_800F0548.unkC = 0.0f;
                 D_800F0548.unk10 = 0.0f;
                 D_800F0548.unk14 = 0.0f;
