@@ -28,14 +28,14 @@ typedef struct TexRec {
     u16 num;
     u16 amount;
     u32 unk4;
-    s32* unk8;
+    D_801BABB0_struct** unk8;
     u8* unkC;
 } TexRec;
 
 extern TexRec texRec;
 
-#define texRecAccessPtr(iterator) ((D_801BABB0_struct*)texRec->unk8[texRec->unkC[(iterator)]])
-#define texRecAccess(iterator) ((D_801BABB0_struct*)texRec.unk8[texRec.unkC[(iterator)]])
+#define texRecAccessPtr(iterator) (texRec->unk8[texRec->unkC[(iterator)]])
+#define texRecAccess(iterator) (texRec.unk8[texRec.unkC[(iterator)]])
 
 
 #endif

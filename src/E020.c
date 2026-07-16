@@ -2,6 +2,7 @@
 #include "23B20.h"
 #include "73660.h"
 #include "78DE0.h"
+#include "7A2A0.h"
 #include "zzGame.h"
 
 #include "common.h"

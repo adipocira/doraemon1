@@ -179,7 +179,9 @@ segments:
 
       - [0x789F0, c]
 
-      - [0x78DE0, asm]
+      - [0x78DE0, c]
+
+      - [0x7A2A0, asm]
       - [0x7B6C0, asm]
       - [0x7F2B0, asm]
       - [0x7F4E0, asm]
@@ -582,7 +584,9 @@ segments:
 
       - [0xC6A50, .rodata, 789F0] 
       
-      - [0xC6A90, rodata] 
+      - [0xC6A90, .rodata, 78DE0] 
+
+      - [0xC6BC0, rodata]
 
       - [0xC6D00, rodata]
 

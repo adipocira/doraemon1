@@ -6,10 +6,14 @@
 #include "actor.h"
 
 typedef struct D_801591C0_struct_unk4 {
-    u8 unk0[0x8];
+    u8 unk0[0x4];
+    s16 unk4;
+    s16 unk6;
     s16 unk8;
     u8 unkA[0x4];
     s16 unkE;
+    u8 unk10[0x4];
+    s16 unk14;
 } D_801591C0_struct_unk4;
 
 typedef struct D_801591C0_struct_unk48 {
@@ -20,7 +24,18 @@ typedef struct D_801591C0_struct_unk48 {
 } D_801591C0_struct_unk48;
 
 typedef struct D_80159178_struct {
-    u8 unk0[0x48];
+    u8 unk0;
+    u8 unk1;
+    u16 unk2;
+    u16 unk4;
+    u8 unk6[0x6];
+    f32 unkC;
+    f32 unk10;
+    f32 unk14;
+    f32 unk18;
+    f32 unk1C;
+    f32 unk20;
+    u8 unk24[0x24];
     D_801591C0_struct_unk48 unk48[1];
 } D_80159178_struct;
 
@@ -219,7 +234,7 @@ typedef struct D_800F0588_struct{
     u8 unk0[0xF];
     u8 unkF[4];
     u8 pad13[0x1B-0x13];
-    u8 unk1B;
+    s8 unk1B;
     s8 unk1C;
     s8 unk1D;
     s16 unk1E;
