@@ -380,8 +380,6 @@ void func_80078DB0(s16 idx){
     }
 }
 
-//todo
-#ifdef NON_MATCHING
 s32 func_80078F78(Actor* actor){
     Vec3f* v0 = D_802BEDB8[actor->actorVars.varA8.integer];
     f32 fv0 = actor->actorVars.varB0.fp;
@@ -408,12 +406,13 @@ s32 func_80078F78(Actor* actor){
         }
         
     }
+    else{
+        return 0;
+    }
 
     return 0;
 }
-#else
-#pragma GLOBAL_ASM("asm/nonmatchings/78DE0/func_80078F78.s")
-#endif
+
 
 void func_800790FC(s16 idx){
     Actor* actor = GET_ACTOR_PTR(idx);
