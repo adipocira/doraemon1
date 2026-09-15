@@ -15,10 +15,8 @@ expected/
 *.csv
 *.d
 
-.vscode/*
-!.vscode/c_cpp_properties.json
-
 ctx.c
+
 #permuter files
 src/c.c 
 src/asm.s
