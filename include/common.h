@@ -348,12 +348,18 @@ typedef struct D_80142BB8_struct{
     s16 unk34;
     u8 unk36[0x1002];
     Light unk1038;
-    u8 pad1048[0x61C];
+    u8 pad1048[0x604];
+    f32 unk164C;
+    f32 unk1650;
+    f32 unk1654;
+    f32 unk1658;
+    f32 unk165C;
+    f32 unk1660;
     f32 unk1664;
     f32 unk1668;
     f32 unk166C;
     f32 unk1670;
-    f32 unk1674;
+    s16 unk1674;
 }D_80142BB8_struct; // size = 0x1678
 extern D_80142BB8_struct D_80142BB8[];
 typedef struct D_801D5F30_struct{

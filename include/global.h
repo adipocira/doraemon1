@@ -88,7 +88,15 @@ typedef struct cdata_struct {
                 (x) += 360.0f;\
             }\
         }\
-
+	
+#define NORM_ANGLE2(x) \
+            for(; (x) >= 360.0f;){\
+                (x) -= 360.0f;\
+            }\
+            for(; (x) < 0.0f; ){\
+                (x) += 360.0f;\
+            }\
+	   
 typedef struct D_800F0548_struct {
     f32 unk0;
     f32 unk4;

@@ -115,7 +115,8 @@ typedef struct Actor {
     Vec3f scale;
     f32 unk9C;
     ActorVariables actorVars;
-    u8 unkF0[0x8];
+    s32 unkF0;
+    u8 unkF4[0x4];
     s32 unkF8;
     u8 unkFC[0x4];
 } Actor;
