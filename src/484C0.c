@@ -10,6 +10,8 @@
 
 #include "libc/math.h"
 #include "actor.h"
+#include "zzGame.h"
+#include "zzEvents.h"
 
 #include "common.h"
 
@@ -45,7 +47,7 @@ void func_800478C0(s16 idx){
                     actor->status = 450;
                     break;
                 case 6:
-                    if(cdata.events[4] % 2U == id){ 
+                    if(cdata.events[ZZ_GAME0_LEVEL_1_4] % 0x2U == id){ //!@bug?
                         actor->actorVars.varA0.integer = 7;
                     } 
                     

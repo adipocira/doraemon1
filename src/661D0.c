@@ -6,6 +6,7 @@
 #include "23B20.h"
 #include "7FC0.h"
 #include "9320.h"
+#include "zzDebug.h"
 
 #include "common.h"
 
@@ -135,7 +136,7 @@ void func_800655D0(s16 idx){
 
         GET_ACTOR_PTR(id)->unk64 = 8;
 
-        if(D_8015A392 & 1){
+        if(D_8015A392 & DEBUG_FLAG(ZZ_DEBUG_FLAG_GODMODE)){
             GET_ACTOR_PTR(actor->actorVars.varD8.integer)->health = 1;
         }
 

@@ -123,6 +123,7 @@ segments:
       - [0x284C0, c]
 
       - [0x29980, asm]
+      - [0x2B0F0, asm]
 
       - [0x2DE50, c]
 

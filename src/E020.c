@@ -3,6 +3,7 @@
 #include "73660.h"
 #include "78DE0.h"
 #include "7A2A0.h"
+#include "zzDebug.h"
 #include "zzGame.h"
 
 #include "common.h"
@@ -46,7 +47,7 @@ void func_8000D420(u32* stagePtr){
     u32 stage = *stagePtr;
     s16 id;
 
-    D_8015A392 &= ~0x8;
+    D_8015A392 &= ~DEBUG_FLAG(ZZ_DEBUG_FLAG_MG);
     cdata.unk6B = 1;
 
     if(D_800F3952 == 1){

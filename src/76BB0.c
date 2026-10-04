@@ -7,6 +7,7 @@
 #include "386E0.h"
 #include "73660.h"
 #include "7F2B0.h"
+#include "zzDebug.h"
 #include "zzGame.h"
 #include "segments.h"
 #include "global.h"
@@ -766,15 +767,15 @@ void func_80077AC8(u16* arg0){
             D_8015A392 ^= j;
         }
     }
-    if(D_8015A392 & 0x20){
-        D_8015A392 ^= 0x20;
+    if(D_8015A392 & DEBUG_FLAG(ZZ_DEBUG_FLAG_5)){
+        D_8015A392 ^= DEBUG_FLAG(ZZ_DEBUG_FLAG_5);
         D_800E69C0.unk0 = 1;
         D_800E69C0.unk14 = 0x1E;
         D_800E69C0.unkA = 0x64;
     }
-    if(D_8015A392 & 0x40){
+    if(D_8015A392 & DEBUG_FLAG(ZZ_DEBUG_FLAG_6)){
         if(cdata.item);
-        D_8015A392 ^= 0x40;
+        D_8015A392 ^= DEBUG_FLAG(ZZ_DEBUG_FLAG_6);
         cdata.item = -1;
     }
 }

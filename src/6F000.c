@@ -10,6 +10,8 @@
 #include "7FC0.h"
 #include "common.h"
 #include "zzOpScene.h"
+#include "zzGame.h"
+#include "zzEvents.h"
 
 static s32 __op_scene_0(void);
 static s32 __op_scene_1(void);
@@ -54,7 +56,7 @@ void func_8006E400(s16 idx) {
     (void)"CORONA MNO %d\n";
     (void)"KING MNO %d\n";
 
-    if (cdata.events[0] & 0x4000 || D_800E69C0.unkA == 0xC8) {
+    if (cdata.events[ZZ_GAME0_LEVEL_DEVIL] & GAME_LEVEL_EVENT(ZZ_LEVEL_DEVIL_EVENT_FIGHT_WON) || D_800E69C0.unkA == 0xC8) {
         D_800E69C0.unkA = 0xC8;
         func_80022F20(idx, func_80071A10);
 

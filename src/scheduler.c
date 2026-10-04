@@ -4,6 +4,7 @@
 #include "3A30.h"
 #include "147B0.h"
 #include "14B00.h"
+#include "zzDebug.h"
 #include "zzTeller.h"
 #include "TexRec.h"
 #include "global.h"
@@ -268,7 +269,7 @@ s32 __scTaskComplete(InternalScheduler *sched, OSScTask *t){
 		            firsttime = 0;
 		        }
                 
-                if(D_8015A392 & 2){
+                if(D_8015A392 & DEBUG_FLAG(ZZ_DEBUG_FLAG_INFO)){
                     fb = t->framebuffer;
                     
                     sprintf(buf, "Version. %s", D_800A82F0);
