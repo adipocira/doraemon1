@@ -38,3 +38,10 @@ make setup
 make 
 ```
 
+## Contributing
+If you are interested in contributing to the repository, thank you! Heavily appreciated.
+After building the repository, you should have an `asm` folder with functions of the game from files that are not started and functions from the `nonmatching` folder
+
+You can check in [decomp.me doraemon preset](https://decomp.me/preset/136) to see if the function/file you are doing has already been attempted there
+
+If you need further assistance or have any questions, you can contact me [here](mailto:waxadipo@proton.me)
