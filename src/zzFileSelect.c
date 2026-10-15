@@ -6,6 +6,7 @@
 #include "TexRec.h"
 #include "global.h"
 #include "common.h"
+#include "controller.h"
 #include "segments.h"
 #include "7FC0.h"
 #include "9320.h"
@@ -32,7 +33,6 @@ extern s16 D_8016B230;
 extern s16 D_8016B232;
 extern s16 D_8016B2A8;
 
-extern s32 D_800E6270;
 extern s32 D_800ABCD0;
 extern s32 D_800B6954;
 extern s32 D_8016B250;
@@ -202,21 +202,21 @@ void func_80081C40(void){
 }
 
 void func_80081E44(){
-    D_800F3940_struct_unk0* v0 = &D_800F3940[cdata.unk41]->unk0;
+    D_800F3940_struct_unk0* v0 = &controllers[cdata.unk41]->unk0;
 
-    if(v0->unk0[12] == 0){
+    if(v0->buttonTimers[ZZ_TIMER_START_BUTTON] == 0){
         D_8016B228[1] &= ~0x1;
     }
-    if(v0->unk0[15] == 0){
+    if(v0->buttonTimers[ZZ_TIMER_A_BUTTON] == 0){
         D_8016B228[1] &= ~0x2;
     }
-    if(v0->unk0[14] == 0){
+    if(v0->buttonTimers[ZZ_TIMER_B_BUTTON] == 0){
         D_8016B228[1] &= ~0x4;
     }
-    if(v0->unk0[5] == 0){
+    if(v0->buttonTimers[ZZ_TIMER_L_TRIG] == 0){
         D_8016B228[1] &= ~0x20;
     }
-    if(v0->unk0[4] == 0){
+    if(v0->buttonTimers[ZZ_TIMER_R_TRIG] == 0){
         D_8016B228[1] &= ~0x10;
     }    
 }
@@ -229,7 +229,7 @@ void func_80081EEC(void){
     u16 i;
     u16 j;
 
-    temp_v0 = D_800F3940[cdata.unk41];
+    temp_v0 = controllers[cdata.unk41];
     temp_a1 = D_800B6930;
     
     if(temp_v0->unkB8 >= 0x3D && temp_v0->unkBC < 0x3D){
@@ -495,28 +495,28 @@ void func_80083CF4(){
     func_80081EEC();
 
     if(D_800B6930 == a0){
-        if(!(D_8016B228[1] & 0x2) && D_800F3940[cdata.unk41]->unk0.unk0[15] == 1){
+        if(!(D_8016B228[1] & 0x2) && controllers[cdata.unk41]->unk0.buttonTimers[ZZ_TIMER_A_BUTTON] == 1){
             D_8016B228[1] |= 2;
             D_800B6934 = 1;
             D_800B6938--;
             
             func_80008C6C(0xAD, 0);
         }
-        else if(!(D_8016B228[1] & 0x20) && D_800F3940[cdata.unk41]->unk0.unk0[5] == 1){
+        else if(!(D_8016B228[1] & 0x20) && controllers[cdata.unk41]->unk0.buttonTimers[ZZ_TIMER_L_TRIG] == 1){
             D_8016B228[1] |= 2;
             D_800B6934 = 20;
             D_800B6938--;
             
             func_80008C6C(0xAD, 0);            
         }
-        else if(!(D_8016B228[1] & 0x10) && D_800F3940[cdata.unk41]->unk0.unk0[4] == 1){
+        else if(!(D_8016B228[1] & 0x10) && controllers[cdata.unk41]->unk0.buttonTimers[ZZ_TIMER_R_TRIG] == 1){
             D_8016B228[1] |= 2;
             D_800B6934 = 30;
             D_800B6938--;
             
             func_80008C6C(0xAD, 0);            
         }
-        else if(!(D_8016B228[1] & 0x8) && D_800F3940[cdata.unk41]->unk0.unk0[13] == 1){
+        else if(!(D_8016B228[1] & 0x8) && controllers[cdata.unk41]->unk0.buttonTimers[ZZ_TIMER_Z_TRIG] == 1){
             D_8016B228[1] |= 2;
 
             if(sysGameData[D_800B6930].characterNO == 0){
@@ -667,7 +667,7 @@ void func_80084490(){
 }
 
 void func_800846D4(){
-    if(!(D_8016B228[1] & 2) && D_800F3940[cdata.unk41]->unk0.unk0[15] == 1){
+    if(!(D_8016B228[1] & 2) && controllers[cdata.unk41]->unk0.buttonTimers[ZZ_TIMER_A_BUTTON] == 1){
         D_8016B228[1] |= 2;
         D_800E6B20.unk0 = 0;
 
@@ -688,7 +688,7 @@ void func_800846D4(){
             D_800E69C0.unk3C.uchar[0] = 0x46;
         }
     }
-    else if(!(D_8016B228[1] & 4) && D_800F3940[cdata.unk41]->unk0.unk0[14] == 1){
+    else if(!(D_8016B228[1] & 4) && controllers[cdata.unk41]->unk0.buttonTimers[ZZ_TIMER_B_BUTTON] == 1){
         D_8016B228[1] |= 4;
         texRecAccess(D_8016B220[0])->unk2A = 0;
         texRecAccess(D_8016B220[1])->unk2A = 0;
@@ -865,7 +865,7 @@ void func_800856C4(){
     func_80081EEC();
 
     if(D_800B6930 == v1){
-        if(!(D_8016B228[1] & 2) && D_800F3940[cdata.unk41]->unk0.unk0[15] == 1){
+        if(!(D_8016B228[1] & 2) && controllers[cdata.unk41]->unk0.buttonTimers[ZZ_TIMER_A_BUTTON] == 1){
             D_8016B228[1] |= 2;
             
             D_800B6934 = 0x16;
@@ -873,7 +873,7 @@ void func_800856C4(){
             
             func_80008C6C(0xAD, 0);
         }
-        else if(!(D_8016B228[1] & 4) && D_800F3940[cdata.unk41]->unk0.unk0[14] == 1){
+        else if(!(D_8016B228[1] & 4) && controllers[cdata.unk41]->unk0.buttonTimers[ZZ_TIMER_B_BUTTON] == 1){
             D_8016B228[1] |= 4;
 
             texRecAccess(D_8016B0C8[0x50])->unk24 = 0x40;
@@ -927,7 +927,7 @@ void func_80085964(){
         
     }
     
-    if(!(D_8016B228[1] & 2) && D_800F3940[cdata.unk41]->unk0.unk0[15] == 1){
+    if(!(D_8016B228[1] & 2) && controllers[cdata.unk41]->unk0.buttonTimers[ZZ_TIMER_A_BUTTON] == 1){
         D_8016B228[1] |= 2;
 
         texRecAccess(D_8016B0C8[0x50])->unk24 = 0x40;
@@ -948,7 +948,7 @@ void func_80085964(){
             
         func_80008C6C(0xAD, 0);
     }
-    else if(!(D_8016B228[1] & 4) && D_800F3940[cdata.unk41]->unk0.unk0[14] == 1){
+    else if(!(D_8016B228[1] & 4) && controllers[cdata.unk41]->unk0.buttonTimers[ZZ_TIMER_B_BUTTON] == 1){
         D_8016B228[1] |= 4;
 
         texRecAccess(D_8016B0C8[0x50])->unk24 = 0x40;
@@ -1126,7 +1126,7 @@ void func_80086AC4(){
 
     if(D_800B6930 == v1){
         if (1);
-        if(!(D_8016B228[1] & 0x2) && D_800F3940[cdata.unk41]->unk0.unk0[15] == 1){
+        if(!(D_8016B228[1] & 0x2) && controllers[cdata.unk41]->unk0.buttonTimers[ZZ_TIMER_A_BUTTON] == 1){
             D_8016B228[1] |= 2;
             D_800B693C = D_800B6930 & 0xFFFF;
 
@@ -1143,7 +1143,7 @@ void func_80086AC4(){
             
             func_80008C6C(0xAD, 0);
         }
-        else if(!(D_8016B228[1] & 0x4) && D_800F3940[cdata.unk41]->unk0.unk0[14] == 1){
+        else if(!(D_8016B228[1] & 0x4) && controllers[cdata.unk41]->unk0.buttonTimers[ZZ_TIMER_B_BUTTON] == 1){
             do{
                 D_8016B228[1] |= 4; 
                 texRecAccess(D_8016B0C8[0x52])->unk24 = 0x40;
@@ -1182,7 +1182,7 @@ void func_80086EEC(){
     func_80081EEC();
 
     if(D_800B6930 == v1){
-        if(!(D_8016B228[1] & 0x2) && D_800F3940[cdata.unk41]->unk0.unk0[15] == 1){
+        if(!(D_8016B228[1] & 0x2) && controllers[cdata.unk41]->unk0.buttonTimers[ZZ_TIMER_A_BUTTON] == 1){
             D_8016B228[1] |= 2;
             if(D_800B6930 == D_800B693C){
                 func_80008C6C(0xAE, 0);
@@ -1203,7 +1203,7 @@ void func_80086EEC(){
                 func_80008C6C(0xAD, 0);
             }
         }
-        else if(!(D_8016B228[1] & 0x4) && D_800F3940[cdata.unk41]->unk0.unk0[14] == 1){
+        else if(!(D_8016B228[1] & 0x4) && controllers[cdata.unk41]->unk0.buttonTimers[ZZ_TIMER_B_BUTTON] == 1){
             D_8016B228[1] |= 4;
 
             texRecAccess(D_8016B0C8[0x54])->unk2A = 0;
@@ -1260,7 +1260,7 @@ void func_80087330(){
         
     }
     
-    if(!(D_8016B228[1] & 2) && D_800F3940[cdata.unk41]->unk0.unk0[15] == 1){
+    if(!(D_8016B228[1] & 2) && controllers[cdata.unk41]->unk0.buttonTimers[ZZ_TIMER_A_BUTTON] == 1){
         D_8016B228[1] |= 2;
 
         texRecAccess(D_8016B0C8[0x52])->unk24 = 0x40;
@@ -1283,7 +1283,7 @@ void func_80087330(){
             
         func_80008C6C(0xAD, 0);
     }
-    else if(!(D_8016B228[1] & 4) && D_800F3940[cdata.unk41]->unk0.unk0[14] == 1){
+    else if(!(D_8016B228[1] & 4) && controllers[cdata.unk41]->unk0.buttonTimers[ZZ_TIMER_B_BUTTON] == 1){
         D_8016B228[1] |= 4;
 
         texRecAccess(D_8016B0C8[0x52])->unk24 = 0x40;
@@ -1438,7 +1438,7 @@ void func_80087FF0(){
 }
 
 void func_8008805C(){
-    if(D_800F3940[cdata.unk41]->unk0.unk0[15] == 1){
+    if(controllers[cdata.unk41]->unk0.buttonTimers[ZZ_TIMER_A_BUTTON] == 1){
         D_800B6934 = 0;
     }
 }
@@ -1563,22 +1563,22 @@ void zzFileSelectSub(s32 arg0){
                 else{
                     D_8016B24C = 0;
                     D_800E69C0.unk8 = D_8016B250;
-                    D_800E6270 = 0;
+                    D_800E6270.unk0 = 0;
                 }
             }
-            else if(D_800F3940[0]->unk0.unk0[15] == 1){
+            else if(controllers[0]->unk0.buttonTimers[ZZ_TIMER_A_BUTTON] == 1){
                 func_80008C6C(0xAD, 0);
                 D_800F5FB0_sets(30,2,1);
                 D_800E69C0.unk3C.uchar[0] = 100;
             }
-            else if(D_800F3940[1]->unk0.unk0[15] == 1){
+            else if(controllers[1]->unk0.buttonTimers[ZZ_TIMER_A_BUTTON] == 1){
                 D_800B6954++;
                 D_800B6954 %= 5;
 
                 D_801BB3F0.unk14->unk14 = D_800B6958[D_800B6954];
                 D_801BB3F0.unk38->unk14 = D_800B6958[D_800B6954];
             }
-            else if(D_800F3940[1]->unk0.unk0[13] != 0 && D_800F3940[1]->unk0.unk0[5] == 1){
+            else if(controllers[1]->unk0.buttonTimers[ZZ_TIMER_Z_TRIG] != 0 && controllers[1]->unk0.buttonTimers[ZZ_TIMER_L_TRIG] == 1){
                 D_800E6B20.unk4 = D_801DB7E0;
                 D_800E6B20.unk0 = 2;
                 func_80002CAC();

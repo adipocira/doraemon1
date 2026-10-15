@@ -58,11 +58,11 @@ void func_800016D0(D_800E6270_struct* arg0){
 
                     for(k = 0; k < 16; k++){
                         if(btn & (1 << k) && !a1->unk48.unkA4[a1->unk48.unk80[k]] && a1->unkFC == 0){
-                            a1->unk48.unk0[a1->unk48.unk80[k]]++;
+                            a1->unk48.buttonTimers[a1->unk48.unk80[k]]++;
                         }
                         else{
-                            a1->unk48.unk40[a1->unk48.unk80[k]] = a1->unk48.unk0[a1->unk48.unk80[k]];  
-                            a1->unk48.unk0[a1->unk48.unk80[k]] = 0;
+                            a1->unk48.unk40[a1->unk48.unk80[k]] = a1->unk48.buttonTimers[a1->unk48.unk80[k]];  
+                            a1->unk48.buttonTimers[a1->unk48.unk80[k]] = 0;
                         }
                     }
 
@@ -111,7 +111,7 @@ void func_800016D0(D_800E6270_struct* arg0){
                 }
 
                 for(i = 0; i < 4; i++){
-                    D_800F3940[i] = &D_800E6270.unk1C4[D_800E6270.unk5[i]].unk48;
+                    controllers[i] = &D_800E6270.unk1C4[D_800E6270.unk5[i]].unk48;
                 }
 
                 sp78->unk0 = 0;
@@ -121,7 +121,7 @@ void func_800016D0(D_800E6270_struct* arg0){
             case 1:
                 if(D_800E69C0.unk8 == 0x7D0){
                     for(i = 0; i < 4; i++){
-                        D_800F3940[i] = &D_800E6270.unk1C4[D_800E6270.unk5[i]].unk48;
+                        controllers[i] = &D_800E6270.unk1C4[D_800E6270.unk5[i]].unk48;
                     }
                     
                     sp78->unk0 = 0;
@@ -201,7 +201,7 @@ s32 func_80001C38(OSMesgQueue* queue, OSMesg* msg, s32 count, void* arg3, D_800E
         }
 
         for(j = 0; j < 16; j++){
-            temp->unk48.unk0[j] = 0;
+            temp->unk48.buttonTimers[j] = 0;
             temp->unk48.unk80[j] = j;
             temp->unk48.unk40[j] = 0;
             temp->unk48.unkA4[j] = 0;

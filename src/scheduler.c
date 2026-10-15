@@ -1,6 +1,7 @@
 #include "scheduler.h"
 #include "thread.h"
 #include "common.h"
+#include "controller.h"
 #include "3A30.h"
 #include "147B0.h"
 #include "14B00.h"
@@ -275,7 +276,7 @@ s32 __scTaskComplete(InternalScheduler *sched, OSScTask *t){
                     sprintf(buf, "Version. %s", D_800A82F0);
                     func_80003364(fb, 0x10, 0xC, buf);
 
-                    if(D_800F3940[1]->unk0.unk0[2] != 0){
+                    if(controllers[1]->unk0.buttonTimers[ZZ_TIMER_D_CBUTTON] != 0){
                          
                         sprintf(buf, "File Handle : %d", D_800EEFB0[0]);
                         func_80003364(fb, 0x10, 0x1C, buf);
@@ -292,7 +293,7 @@ s32 __scTaskComplete(InternalScheduler *sched, OSScTask *t){
                         }
                         
                     }
-                    else if(D_800F3940[1]->unk0.unk0[0] != 0){ 
+                    else if(controllers[1]->unk0.buttonTimers[ZZ_TIMER_R_CBUTTON] != 0){ 
                         sprintf(buf, "RAM SIZE : 0x%lx (%d)", D_800F0514, D_800F0514);
                         func_80003364(fb, 0x10, 0x1C, buf);
                         

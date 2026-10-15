@@ -12,6 +12,7 @@
 #include "segments.h"
 #include "global.h"
 #include "common.h"
+#include "controller.h"
 
 #include "libc/math.h"
 
@@ -726,14 +727,14 @@ void func_800778C0(u16 arg0, u16 arg1, u16 arg2){
 void func_80077A48(){
     s16* temp = D_8015A370;
      
-    if(D_800F3940[0]->unk0.unkA2){
+    if(controllers[0]->unk0.unkA2){
         temp[0]++;
 
         if(temp[0] >= 0x10){
             temp[0] = 0;
         }
         
-        temp[*temp+1] = D_800F3940[0]->unk0.unkA2;
+        temp[*temp+1] = controllers[0]->unk0.unkA2;
         func_80077AC8(&D_8015A370);
     }
 }

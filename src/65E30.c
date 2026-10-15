@@ -3,6 +3,7 @@
 #include "actor.h"
 #include "9320.h"
 #include "11F10.h"
+#include "zzGame.h"
 
 #include "common.h"
 
@@ -132,7 +133,7 @@ void func_80065230(s16 idx){
                 D_800E69C0.unk0 = 1;
                 D_800E69C0.unk14 = 0x14;
                 cdata.unk42 = 0;
-                D_800F3950 = 0xD;
+                D_800F3950 = ZZ_GAME0_LEVEL_OVERWORLD_GROUND;
                 D_800F3952 = 1;
                 GET_ACTOR_PTR(idx)->status = 3;
             }            

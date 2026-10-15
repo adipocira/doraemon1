@@ -1,6 +1,8 @@
 #include "70DF0.h"
 #include "zzOpScene.h"
+#include "zzGame.h"
 #include "actor.h"
+#include "controller.h"
 #include "23B20.h"
 #include "global.h"
 #include "B4E0.h"
@@ -142,7 +144,7 @@ void func_800701F0(s16 idx){
             func_800284A4(1.0f, 5, cdata.unk41);
             func_8002875C(1.0f, 5, &D_801522E0, 1);
 
-            if (D_800F3940[cdata.unk41]->unk0.unk0[5] == 1) {
+            if (controllers[cdata.unk41]->unk0.buttonTimers[ZZ_TIMER_L_TRIG] == 1) {
                 D_800F0548.unkC = 1220.0f;
                 D_800F0548.unk10 = 100.0f;
                 D_800F0548.unk14 = -0.0f;
@@ -158,7 +160,7 @@ void func_800701F0(s16 idx){
             }
             break;
         case 200:
-            if(D_800F3940[1]->unk0.unk0[14] != 0){
+            if(controllers[1]->unk0.buttonTimers[ZZ_TIMER_B_BUTTON] != 0){
                 actor->status = 110;
                 break;
             }
@@ -209,7 +211,7 @@ void func_800701F0(s16 idx){
 
                 cdata.unk42 = 0;
 
-                D_800F3950 = 0xD;
+                D_800F3950 = ZZ_GAME0_LEVEL_OVERWORLD_GROUND;
                 D_800E69C0.unk0 = 1;
                 D_800E69C0.unk14 = 0x14;
                 cdata.unk44 = 0;

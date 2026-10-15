@@ -12,7 +12,9 @@
 #include "7FC0.h"
 #include "7310.h"
 #include "common.h"
+#include "controller.h"
 #include "zzGameData.h"
+#include "zzGame.h"
 
 #include "libc/math.h"
 
@@ -429,7 +431,7 @@ void func_800790FC(s16 idx){
 void func_80079180(s16 idx){
     Actor* actor = GET_ACTOR_PTR(idx);
     
-    func_80073B80(D_800F3940[(s16)actor->actorVars.varC4.integer], &D_80159178->unk48[(s16)actor->actorVars.varC4.integer].unk4);
+    func_80073B80(controllers[(s16)actor->actorVars.varC4.integer], &D_80159178->unk48[(s16)actor->actorVars.varC4.integer].unk4);
     func_80077164(actor, idx);
 
     switch(actor->actorVars.varB8.shorts[0]){
@@ -480,11 +482,11 @@ void func_8007928C(Actor* actor){
                 cdata.unk42 = 0;
                 D_800E69C0.syscalls = 0x60;
 
-                if(D_800F3940[cdata.unk41]->unk0.unk0[15] && D_800F3940[cdata.unk41]->unk0.unk0[14]){
-                    D_800F3950 = 6;
+                if(controllers[cdata.unk41]->unk0.buttonTimers[ZZ_TIMER_A_BUTTON] && controllers[cdata.unk41]->unk0.buttonTimers[ZZ_TIMER_B_BUTTON]){
+                    D_800F3950 = ZZ_GAME0_LEVEL_2_2;
                 }
                 else{
-                    D_800F3950 = 0xD;
+                    D_800F3950 = ZZ_GAME0_LEVEL_OVERWORLD_GROUND;
                 }
 
                 D_800E69C0.unk14 = 0x14;

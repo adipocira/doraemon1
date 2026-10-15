@@ -1,6 +1,7 @@
 #include "zzGame.h"
 
 #include "common.h"
+#include "controller.h"
 #include "global.h"
 #include "segments.h"
 #include "TexRec.h"
@@ -186,7 +187,7 @@ void func_8000DF50(_8000DAD0_arg0_struct* arg0){
     D_800CA230.unk8 = 0xF0;
     D_800CA230.unkC = 0xFF;
 
-    D_800F3940[0]->unk0.unk0[12] = 10;
+    controllers[0]->unk0.buttonTimers[ZZ_TIMER_START_BUTTON] = 10;
 
     cdata.nextstg = ZZ_GAME0_LEVEL_1_1;
     cdata.unk44 |= 8;
@@ -276,7 +277,7 @@ void func_8000E320(_8000DAD0_arg0_struct* arg0){
     D_800CA230.unk8 = 0xF0;
     D_800CA230.unkC = 0xFF;
 
-    D_800F3940[0]->unk0.unk0[12] = 10;
+    controllers[0]->unk0.buttonTimers[ZZ_TIMER_START_BUTTON] = 10;
 
     cdata.nextstg = ZZ_GAME0_LEVEL_1_1;
     cdata.unk44 |= 8;
@@ -350,7 +351,7 @@ void func_8000E72C(_8000DAD0_arg0_struct* arg0){
     D_800E69C0.unk18 = 0;
     D_800E69C0.cfb_render = 1;
 
-    D_800F3940[0]->unk0.unk0[12] = 10;
+    controllers[0]->unk0.buttonTimers[ZZ_TIMER_START_BUTTON] = 10;
 
     D_800F0530.unk0 = 30.0f;
     D_800F0530.unk4 = 1.3333334f;
@@ -418,7 +419,7 @@ void func_8000E9E8(_8000DAD0_arg0_struct* arg0){
     D_800E69C0.unk18 = 0;
     D_800E69C0.cfb_render = 3;
 
-    D_800F3940[0]->unk0.unk0[12] = 10;
+    controllers[0]->unk0.buttonTimers[ZZ_TIMER_START_BUTTON] = 10;
     cdata.nextstg = ZZ_GAME0_LEVEL_1_1;
 
     D_800F0530.unk0 = 30.0f;

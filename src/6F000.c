@@ -9,6 +9,7 @@
 #include "B4E0.h"
 #include "7FC0.h"
 #include "common.h"
+#include "controller.h"
 #include "zzOpScene.h"
 #include "zzGame.h"
 #include "zzEvents.h"
@@ -191,12 +192,12 @@ void func_8006E400(s16 idx) {
             GET_ACTOR_PTR(D_800E69C0.unk3E[actor->actorVars.varA0.integer].ishort)->rot.z =
                 D_80159120[actor->actorVars.varA0.integer];
 
-            if (D_800F3940[cdata.unk41]->unk0.unk0[12] == 1) {
+            if (controllers[cdata.unk41]->unk0.buttonTimers[ZZ_TIMER_START_BUTTON] == 1) {
                 actor->status = 9999;
             }
-            if (D_800F3940[2]->unk0.unk0[4] == 1) {
+            if (controllers[2]->unk0.buttonTimers[ZZ_TIMER_R_TRIG] == 1) {
                 func_80022F48(D_800E69C0.unk3E[1].ishort, ++actor->actorVars.varAC.integer % 17);
-            } else if (D_800F3940[2]->unk0.unk0[5] == 1) {
+            } else if (controllers[2]->unk0.buttonTimers[ZZ_TIMER_L_TRIG] == 1) {
                 GET_ACTOR_PTR(idx)->actorVars.varB4.integer++;
                 func_80022F48(D_800E69C0.unk3E[0].ishort, 0);
             }
@@ -245,7 +246,7 @@ void func_8006E400(s16 idx) {
                 D_800F3920.unk2 = 1;
 
                 D_800E69C0.unkA = 0x98;
-                D_800F3950 = 0xF;
+                D_800F3950 = ZZ_GAME0_LEVEL_INTRO_TOKYO;
 
                 cdata.unk42 = 0;
 

@@ -432,26 +432,6 @@ typedef struct D_801B58AC_struct{
 
 extern D_801B58AC_struct* D_801B58AC;
 
-typedef struct D_800F3940_struct_unk0{
-    u32 unk0[16];
-    u32 unk40[16];
-    u16 unk80[16];
-    u16 unkA0;
-    u16 unkA2;
-    u8 unkA4[16];
-}D_800F3940_struct_unk0;
-
-typedef struct D_800F3940_struct{
-    D_800F3940_struct_unk0 unk0;
-    s16 unkB4;
-    s16 unkB6;
-    s16 unkB8;
-    s16 unkBA;
-    s16 unkBC;
-}D_800F3940_struct;
-
-extern D_800F3940_struct* D_800F3940[4];
-
 typedef struct D_803050E4_struct{
     s16 unk0;
     s16 unk2;

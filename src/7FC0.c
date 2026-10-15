@@ -3,6 +3,7 @@
 #include "audio.h"
 #include "playseq.h"
 #include "segments.h"
+#include "controller.h"
 #include "11DF0.h"
 #include "zzDebug.h"
 
@@ -173,12 +174,12 @@ void func_80007A68(){
     
     seqp = seqContexts[0].seqPlayer;
     
-    if(D_8015A392 & DEBUG_FLAG(ZZ_DEBUG_FLAG_SOUND) && D_800F3940[1]->unk0.unk0[13] != 0){
+    if(D_8015A392 & DEBUG_FLAG(ZZ_DEBUG_FLAG_SOUND) && controllers[1]->unk0.buttonTimers[ZZ_TIMER_Z_TRIG] != 0){
         alEvtqPrintAllocEvts(&seqp->evtq);
         func_80007520(0x100, 0);
         D_800ABCF0 = 0;
     }
-    if(D_8015A392 & DEBUG_FLAG(ZZ_DEBUG_FLAG_SOUND) && D_800F3940[1]->unk0.unk0[15] != 0 && seqContexts[0].unk4 == 0 && D_800ABCF0 == 0){
+    if(D_8015A392 & DEBUG_FLAG(ZZ_DEBUG_FLAG_SOUND) && controllers[1]->unk0.buttonTimers[ZZ_TIMER_A_BUTTON] != 0 && seqContexts[0].unk4 == 0 && D_800ABCF0 == 0){
         func_800075A0(0, 0x100, 0);
         D_800ABCF0 = 1;
     }

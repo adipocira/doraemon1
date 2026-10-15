@@ -1,6 +1,7 @@
 #include "284C0.h"
 #include "actor.h"
 #include "global.h"
+#include "controller.h"
 #include "11F10.h"
 #include "13940.h"
 #include "23B20.h"
@@ -213,7 +214,7 @@ void func_80028024(s16 idx){
     
     switch((u32)actor->status){
         case 0:
-            if(D_800F3940[cdata.unk41]->unk0.unk0[actor->actorVars.varA0.integer] == 1){
+            if(controllers[cdata.unk41]->unk0.buttonTimers[actor->actorVars.varA0.integer] == 1){
                 if(actor->actorVars.varA8.integer & 1){
                     func_80007648(actor->actorVars.varAC.integer);
                 }
@@ -264,14 +265,14 @@ void func_80028024(s16 idx){
             }
             break;
         case 20:
-            (s32)D_800F3940[cdata.unk41]->unk0.unk0[15] = 10;
-            D_800F3940[cdata.unk41]->unk0.unkA4[14] = 0;
-            D_800F3940[cdata.unk41]->unk0.unkA4[5] = 0;
-            D_800F3940[cdata.unk41]->unk0.unkA4[4] = 0;
-            D_800F3940[cdata.unk41]->unk0.unkA4[3] = 0;
-            D_800F3940[cdata.unk41]->unk0.unkA4[2] = 0;
-            D_800F3940[cdata.unk41]->unk0.unkA4[1] = 0;
-            D_800F3940[cdata.unk41]->unk0.unkA4[0] = 0;  
+            (s32)controllers[cdata.unk41]->unk0.buttonTimers[ZZ_TIMER_A_BUTTON] = 10;
+            controllers[cdata.unk41]->unk0.unkA4[14] = 0;
+            controllers[cdata.unk41]->unk0.unkA4[5] = 0;
+            controllers[cdata.unk41]->unk0.unkA4[4] = 0;
+            controllers[cdata.unk41]->unk0.unkA4[3] = 0;
+            controllers[cdata.unk41]->unk0.unkA4[2] = 0;
+            controllers[cdata.unk41]->unk0.unkA4[1] = 0;
+            controllers[cdata.unk41]->unk0.unkA4[0] = 0;  
             
             D_800E6B20.unk0 = 0;
             
@@ -326,7 +327,7 @@ void func_80028460(f32* arg0, f32 arg1){
 #ifdef NON_MATCHING
 void func_800284A4(f32 arg0, u8 arg1, u8 idx){
     f32 temp;
-    D_800F3940_struct* tempvar = D_800F3940[idx];
+    D_800F3940_struct* tempvar = controllers[idx];
 
     if(tempvar->unk0[13] != 0){
         temp = arg1;
@@ -403,7 +404,7 @@ void func_800284A4(f32 arg0, u8 arg1, u8 idx){
 
 #ifdef NON_MATCHING
 void func_8002875C(f32 arg0, u8 arg1, f32* arg2, u8 idx){
-    D_800F3940_struct* ptr = D_800F3940[idx];
+    D_800F3940_struct* ptr = controllers[idx];
     f32 temp;
 
     if(ptr->unk0[13] != 0){
@@ -438,7 +439,7 @@ void func_8002875C(f32 arg0, u8 arg1, f32* arg2, u8 idx){
 
 #ifdef NON_MATCHING
 void func_80028874(f32 arg0, u8 arg1, f32* arg2, f32* arg3, f32* arg4, u8 idx){
-    D_800F3940_struct* ptr = D_800F3940[idx];
+    D_800F3940_struct* ptr = controllers[idx];
     f32 temp;
 
     if(ptr->unk0[13] != 0){

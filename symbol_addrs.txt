@@ -1264,6 +1264,7 @@ sysGameData = 0x800EEFC8; // size:0x50
 D_800F3950 = 0x800F3950;
 curSegmentSize = 0x800F3A30;
 cdata = 0x800F38A0; // size:0x80
+controllers = 0x800F3940;
 D_800F5FA4 = 0x800F5FA4;
 D_800F5FA6 = 0x800F5FA6;
 texRec = 0x800F6000;
