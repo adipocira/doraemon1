@@ -113,6 +113,13 @@ audDMAMessageBuf = 0x800F3338;
 
 // 7FC0.c
 
+zzAudioSeqPlaySeq = 0x800073C0;
+zzAudioSeqSetPan = 0x8000741C;
+zzAudioSeqSetPanMono = 0x800074A8;
+zzAudioSeqSetVol = 0x800076E4;
+zzAudioSeqInitSeq = 0x80007720;
+zzAudioSeqLoadSeq = 0x800079B0;
+zzAudioSeqProc = 0x80007A68;
 _depth2Cents = 0x80007E5C;
 initOsc = 0x80007EAC;
 updateOsc = 0x80008184;

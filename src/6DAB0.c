@@ -1,6 +1,7 @@
 #include "6DAB0.h"
 #include "zzOpScene.h"
 #include "zzGame.h"
+#include "zzAudio.h"
 #include "actor.h"
 #include "23B20.h"
 #include "global.h"
@@ -147,7 +148,7 @@ void func_8006CEB8(s16 idx) {
 
             D_800E69C0.cfb_render |= 1;
 
-            func_800073C0(0x2A, 0);
+            zzAudioSeqPlaySeq(ZZ_AUDIO_SEQ_INTRO_TOKYO, 0);
 
             D_800F5FB0.unk1C[0] = 1;
             D_800F5FB0_sets(1, 2, 1);
@@ -481,7 +482,7 @@ void func_8006CEB8(s16 idx) {
             D_800E69C0.unk3C.ishort = 10;
             break;
         case 10:
-            func_800073C0(0xB, 0);
+            zzAudioSeqPlaySeq(ZZ_AUDIO_SEQ_AMBUSH, 0);
 
             D_800F0548.unkC = 92.0f;
             D_800F0548.unk10 = 79.0f;
@@ -515,7 +516,7 @@ void func_8006CEB8(s16 idx) {
 
     switch (D_800E69C0.unk3C.ishort) {
         case 0:
-            func_800073C0(0x2B, 0);
+            zzAudioSeqPlaySeq(ZZ_AUDIO_SEQ_CORONA, 0);
 
             func_80023FCC(D_800E69C0.unk54);
             func_80023FCC(D_800E69C0.unk56);

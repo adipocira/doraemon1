@@ -4,13 +4,13 @@
 #include "ultra64.h"
 
 typedef struct SeqContext {
-    s16 unk0;
+    s16 seqIdx;
     s16 unk2;
-    s32 unk4;
+    s32 status;
     ALCSPlayer* seqPlayer; // alloc 0x7C;
     ALCSeq* currentSequence; // alloc 0xF8;
     void* dmaDataBuf; // alloc 0x2710;
-    s16 maxSeqLength;
+    s16 seqVol;
     ALPan pan;
     u8 unk17;
     u8 unk18;

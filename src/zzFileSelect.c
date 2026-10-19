@@ -1,6 +1,7 @@
 #include "zzFileSelect.h"
 #include "zzGameData.h"
 #include "zzBGScreen.h"
+#include "zzAudio.h"
 #include "save_file.h"
 #include "zzGame.h"
 #include "TexRec.h"
@@ -186,12 +187,12 @@ void func_80081C40(void){
     if(cdata.settings & GAME_SETTING(ZZ_GAME0_SETTING_AUDIO_MONO)){
         if(D_800ABCD0 != 0){
             D_800ABCD0 = 0;
-            func_800074A8(0);
+            zzAudioSeqSetPanMono(0);
         }
     }
     else if(D_800ABCD0 == 0){
         D_800ABCD0 = 1;
-        func_8000741C(0);
+        zzAudioSeqSetPan(0);
     }
     if(cdata.settings & GAME_SETTING(ZZ_GAME0_SETTING_BRIGHTNESS)){
         osViSetSpecialFeatures(OS_VI_DITHER_FILTER_ON | OS_VI_DIVOT_ON | OS_VI_GAMMA_DITHER_ON | OS_VI_GAMMA_ON);
@@ -1454,7 +1455,7 @@ void zzFileSelectSub(s32 arg0){
             break;
         case 1:
             if(D_800F5FB0.unk0 == 3){
-                func_800073C0(9, 0);
+                zzAudioSeqPlaySeq(ZZ_AUDIO_SEQ_FILE_SELECT_OVERWORLD_AIR, 0);
                 D_800E69C0.unk3C.uchar[0] = 10;
             }
             break;

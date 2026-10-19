@@ -8,6 +8,7 @@
 #include "9320.h"
 #include "1D870.h"
 #include "11F10.h"
+#include "zzAudio.h"
 
 #include "common.h"
 
@@ -213,7 +214,7 @@ void func_800678A0(s16 idx){
 
             if(func_80077548() != 0){
                 func_80068264(actor, 60.0f, 60.0f);
-                func_800073C0(0x20, 0);
+                zzAudioSeqPlaySeq(ZZ_AUDIO_SEQ_SHIP_FIGHT, 0);
 
                 actor->actorVars.varA0.integer = 2;
                 actor->actorVars.varA8.integer = 160;

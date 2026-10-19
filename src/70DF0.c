@@ -1,6 +1,7 @@
 #include "70DF0.h"
 #include "zzOpScene.h"
 #include "zzGame.h"
+#include "zzAudio.h"
 #include "actor.h"
 #include "controller.h"
 #include "23B20.h"
@@ -132,7 +133,7 @@ void func_800701F0(s16 idx){
 
             D_800E69C0.cfb_render |= 1;
 
-            func_800073C0(0x2F, 0);
+            zzAudioSeqPlaySeq(ZZ_AUDIO_SEQ_FAIRY_WORLD, 0);
 
             D_800F5FB0.unk1C[0] = 1;
             D_800F5FB0_sets(1, 2, 1);

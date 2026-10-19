@@ -10,6 +10,7 @@
 #include "7FC0.h"
 #include "13940.h"
 #include "9320.h"
+#include "zzAudio.h"
 
 #include "57820.h"
 
@@ -37,7 +38,7 @@ void func_80068680(s16 idx){
                     actor->status = 100;
                 }
                 else{
-                    func_800073C0(0x37, 1);
+                    zzAudioSeqPlaySeq(ZZ_AUDIO_SEQ_OPEN_DOOR, 1);
                     actor->status = 101;
                 }
             }

@@ -7,6 +7,7 @@
 #include "7FC0.h"
 #include "9320.h"
 #include "zzDebug.h"
+#include "zzAudio.h"
 
 #include "common.h"
 
@@ -104,7 +105,7 @@ void func_800655D0(s16 idx){
         GET_ACTOR_PTR(actor->actorVars.varBC.integer)->actorVars.varA0.integer = 1;
         actor->actorVars.varC0.integer = 0;
 
-        func_800073C0(0, 0);
+        zzAudioSeqPlaySeq(ZZ_AUDIO_SEQ_GRASS, 0);
         func_800240CC(8);
         D_80142BCC = 255.0f;
         D_8014DF8C = 255.0f;
@@ -140,7 +141,7 @@ void func_800655D0(s16 idx){
             GET_ACTOR_PTR(actor->actorVars.varD8.integer)->health = 1;
         }
 
-        func_800073C0(0xE, 0);
+        zzAudioSeqPlaySeq(ZZ_AUDIO_SEQ_ROBOT_FIGHT, 0);
 
         actor->actorVars.varC0.integer = 0x32;
 

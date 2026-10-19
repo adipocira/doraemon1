@@ -7,6 +7,7 @@
 #include "13940.h"
 #include "9320.h"
 #include "29980.h"
+#include "zzAudio.h"
 
 #include "segments.h"
 
@@ -46,7 +47,7 @@ void func_800669B0(s16 idx){
                     actor->status = 100;
                 }
                 else{
-                    func_800073C0(0x37, 1);
+                    zzAudioSeqPlaySeq(ZZ_AUDIO_SEQ_OPEN_DOOR, 1);
                     D_800F9B08[0x22].unk8 &= ~0x1;
                     D_800F9B08[0x26].unk8 &= ~0x1;
                     actor->status = 101;
@@ -296,7 +297,7 @@ void func_80066BC8(s16 idx){
             actor->actorVars.varB4.integer = func_80023644(2, 0x1B9, actor->pos.x, actor->pos.y, actor->pos.z, 0.0f, 180.0f, 0.0f);
 
             if(actor->actorVars.varB4.integer != -1){
-                func_800073C0(0xF, 0);
+                zzAudioSeqPlaySeq(ZZ_AUDIO_SEQ_FIGHT, 0);
                 GET_ACTOR_PTR(actor->actorVars.varB4.integer)->rot.y = func_800253B0(actor->actorVars.varB4.integer, temp1);
                 actor->actorVars.varA8.integer = 4;
             }
@@ -304,7 +305,7 @@ void func_80066BC8(s16 idx){
         case 4:
             if(func_80024E0C(actor->actorVars.varB4.integer, temp1) > 2000.0f){
                 if(GET_ACTOR_PTR(actor->actorVars.varB4.integer)->unk0 != 0 && GET_ACTOR_PTR(actor->actorVars.varB4.integer)->unk48 == 0x1B9){
-                    func_800073C0(3, 0);
+                    zzAudioSeqPlaySeq(ZZ_AUDIO_SEQ_VOLCANO, 0);
                     
                     actor->actorVars.varA8.integer = 0;
                     

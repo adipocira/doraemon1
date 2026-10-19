@@ -15,6 +15,7 @@
 #include "controller.h"
 #include "zzGameData.h"
 #include "zzGame.h"
+#include "zzAudio.h"
 
 #include "libc/math.h"
 
@@ -43,8 +44,7 @@ void func_800781E0(Actor* actor){
             actor->actorVars.varB8.uchars[3]--;
 
             if(!actor->actorVars.varB8.uchars[3]){
-                
-                func_800073C0(0x17, 0);
+                zzAudioSeqPlaySeq(ZZ_AUDIO_SEQ_LEVEL_FINISH, 0);
                 a0 = 1;
                 D_800F0588.unk1B = (u64)a0;
                 D_800F0588.unk1D = 0;
@@ -126,8 +126,8 @@ void func_8007835C(Actor* actor){
         temp = actor->actorVars.varB8.uchars[2]++ ^ 0x96;
         
         if(temp == 0){
-            func_800076E4(0x4E20, 0U);
-            func_800073C0(0x18, 0);
+            zzAudioSeqSetVol(0x4E20, 0U);
+            zzAudioSeqPlaySeq(ZZ_AUDIO_SEQ_LEVEL_DEATH, 0);
             func_8000B120(3U);
 
             D_800F3920.unk2 = 0x96;

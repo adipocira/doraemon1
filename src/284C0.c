@@ -256,10 +256,10 @@ void func_80028024(s16 idx){
         case 10:
             if(D_800F5FB0.unk0 == 3){
                 if(actor->actorVars.varA8.integer & 0x10){
-                    func_800076E4(0x4E20, actor->actorVars.varAC.integer);
+                    zzAudioSeqSetVol(0x4E20, actor->actorVars.varAC.integer);
                 }
                 if(actor->actorVars.varA8.integer & 0x40){
-                    func_800076E4(0x4E20, actor->actorVars.varC4.integer);
+                    zzAudioSeqSetVol(0x4E20, actor->actorVars.varC4.integer);
                 }
                 actor->status = 20;
             }

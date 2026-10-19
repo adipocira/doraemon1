@@ -5,6 +5,7 @@
 #include "73660.h"
 #include "11F10.h"
 #include "common.h"
+#include "zzAudio.h"
 
 #include "libc/math.h"
 
@@ -352,7 +353,7 @@ void func_8006B738(s16 idx){
 
                     if(a2 == 0 && func_80076FA0(0x40)){
                         if((D_800B5370 & 4) != 4){
-                            func_800073C0(0x37, 1);
+                            zzAudioSeqPlaySeq(ZZ_AUDIO_SEQ_OPEN_DOOR, 1);
                             id = func_80023644(8, 0x81, 3393.0f, 1231.0f, 518.0f, 0.0f, 270.0f, 0.0f);
 
                             if(id != -1){

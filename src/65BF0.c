@@ -2,6 +2,7 @@
 #include "7FC0.h"
 #include "23B20.h"
 #include "segments.h"
+#include "zzAudio.h"
 
 void func_80064FF0(s16 idx){
     s32 pad;
@@ -13,7 +14,7 @@ void func_80064FF0(s16 idx){
         case 2:
             break;
         case 0:
-            func_800073C0(0x10, 0);
+            zzAudioSeqPlaySeq(ZZ_AUDIO_SEQ_DEVIL_FIGHT, 0);
             ROMCOPY(D_3C0550, D_8020C820);
 
             actor->actorVars.varA0.integer = 1;

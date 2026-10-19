@@ -18,6 +18,7 @@
 #include "libc/math.h"
 
 #include "zzGameData.h"
+#include "zzAudio.h"
 
 #include "common.h"
 
@@ -125,11 +126,11 @@ void func_80037AE0(s16 idx){
             case 0x24:
                 cdata.item |= CDATA_ITEM(ZZ_ITEM_ANTI_DISASTER_STICKER);
                 if (cdata.unk6E == 0) {
-                    cdata.unk74 = seqContexts[0].unk0;
+                    cdata.unk74 = seqContexts[0].seqIdx;
                 }
                 cdata.unk6E = 0x4B0;
                 
-                func_800073C0(0x1F, 0);
+                zzAudioSeqPlaySeq(ZZ_AUDIO_SEQ_ANTIDISASTER_STICKER, 0);
                 func_80022F20(idx, func_80039000);
                 
                 actor->flags |= 0x1000;
@@ -200,11 +201,11 @@ void func_800380BC(s16 idx){
                 case 0x24:
                     cdata.item |= CDATA_ITEM(ZZ_ITEM_ANTI_DISASTER_STICKER);
                     if (cdata.unk6E == 0) {
-                        cdata.unk74 = seqContexts[0].unk0;
+                        cdata.unk74 = seqContexts[0].seqIdx;
                     }
                     cdata.unk6E = 0x4B0;
                 
-                    func_800073C0(0x1F, 0);
+                    zzAudioSeqPlaySeq(ZZ_AUDIO_SEQ_ANTIDISASTER_STICKER, 0);
                     break;
                 default:
                     func_80023FCC(idx);
@@ -237,7 +238,7 @@ void func_80038224(s16 idx){
                 actor->actorVars.varA0.integer = temp;
                 D_800E6B20_2022_sets(0x20, 0xB0);
 
-                func_800073C0(0x25, 1);
+                zzAudioSeqPlaySeq(ZZ_AUDIO_SEQ_ANYWHERE_DOOR_GET, 1);
                 func_80076F2C(actor->unk48);
                 func_800894B8(0x1E, 0xAE);
                 
@@ -269,7 +270,7 @@ void func_800383E4(s16 idx){
                 D_800E69C0.syscalls &= ~1;
                 D_800E6B20_2022_sets(0x20, 0xB0);
                 
-                func_800073C0(0x25, 1);
+                zzAudioSeqPlaySeq(ZZ_AUDIO_SEQ_ANYWHERE_DOOR_GET, 1);
                 func_80076F2C(actor->unk48);
                 func_800894B8(0x1E, 0xAE);
                 func_800778C0(D_802BDB7C[actor->unk48 - 0x14], 3, 6);

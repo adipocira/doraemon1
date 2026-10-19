@@ -7,6 +7,7 @@
 #include "13940.h"
 #include "11DF0.h"
 #include "7FC0.h"
+#include "zzAudio.h"
 
 #include "segments.h"
 #include "common.h"
@@ -34,7 +35,7 @@ void func_8006C8C0(s16 idx){
                     actor->status = 100;
                 }
                 else{
-                    func_800073C0(0x37, 1);
+                    zzAudioSeqPlaySeq(ZZ_AUDIO_SEQ_OPEN_DOOR, 1);
                     actor->status = 101;
                 }
             }
@@ -132,7 +133,7 @@ void func_8006CACC(s16 idx){
         case 0:
             break;
         case 1:
-            func_800073C0(0xF, 0);
+            zzAudioSeqPlaySeq(ZZ_AUDIO_SEQ_FIGHT, 0);
             actor->actorVars.varA0.integer = 2;
             break;
         case 2:

@@ -32,7 +32,7 @@ void main_entry_sub(void* arg) {
     createScheduler(&sched, D_800E6268, DORA_THREAD_SCHED_PRIORITY, D_800A82D0[3], 1);
     D_800E6268 = osScGetCmdQ(&sched);
     func_800065B0();
-    func_80007720();
+    zzAudioSeqInitSeq();
     func_800090E4();
 
     if (func_80001C38(&D_800E3FA8, &D_800E3FC0, 1, &D_800F3970, &D_800E6270, &D_800E6468, 1, 1) == -1) {

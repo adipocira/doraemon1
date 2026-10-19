@@ -13,17 +13,17 @@
 
 extern u16 D_8015A392;
 
-void func_800073C0(s16 seq, u8 seqIdx){
+void zzAudioSeqPlaySeq(s16 seq, u8 seqIdx){
     (void)"Audio Heap %d / %d \n";
     (void)"Audio Heap %d / %d %d\n";
 
     if(seq < D_800F08D0->seqCount && seqIdx < 2){
-        seqContexts[seqIdx].unk0 = seq;
-        seqContexts[seqIdx].unk4 = 2;
+        seqContexts[seqIdx].seqIdx = seq;
+        seqContexts[seqIdx].status = 2;
     }
 }
 
-void func_8000741C(u8 seqIdx){
+void zzAudioSeqSetPan(u8 seqIdx){
     s32 i;
     s32 j;
     ALCSPlayer* seqp = seqContexts[seqIdx].seqPlayer;
@@ -35,7 +35,7 @@ void func_8000741C(u8 seqIdx){
     }
 }
 
-void func_800074A8(u8 seqIdx){
+void zzAudioSeqSetPanMono(u8 seqIdx){
     s32 i;
     s32 j;
     ALCSPlayer* seqp = seqContexts[seqIdx].seqPlayer;
@@ -49,47 +49,47 @@ void func_800074A8(u8 seqIdx){
 
 void func_80007520(u16 arg0, u8 seqIdx){
     if(seqIdx < 2){
-        seqContexts[seqIdx].unk4 = 8;
+        seqContexts[seqIdx].status = 8;
         seqContexts[seqIdx].unk1A = arg0;
-        seqContexts[seqIdx].unk1C = seqContexts[seqIdx].maxSeqLength / arg0; 
+        seqContexts[seqIdx].unk1C = seqContexts[seqIdx].seqVol / arg0; 
         
     }
 }
 
 void func_800075A0(s16 seq, u16 arg1, u8 seqIdx){
     if(seqIdx < 2){
-        func_800073C0(seq, seqIdx);
-        seqContexts[seqIdx].maxSeqLength = 0;
+        zzAudioSeqPlaySeq(seq, seqIdx);
+        seqContexts[seqIdx].seqVol = 0;
         seqContexts[seqIdx].unk1A = arg1;
-        seqContexts[seqIdx].unk1C = 0x4E20 / arg1;
+        seqContexts[seqIdx].unk1C = 20000 / arg1;
     }
 }
 
 void func_80007648(u8 seqIdx){
     if(seqIdx < 2){
-        seqContexts[seqIdx].unk4 = 1;
+        seqContexts[seqIdx].status = 1;
     }
 }
 
 void func_8000767C(u8 seqIdx){
     if(seqIdx < 2){
-        seqContexts[seqIdx].unk4 = 5;
+        seqContexts[seqIdx].status = 5;
     }
 }
 
 void func_800076B0(u8 seqIdx){
     if(seqIdx < 2){
-        seqContexts[seqIdx].unk4 = 7;
+        seqContexts[seqIdx].status = 7;
     }
 }
 
-void func_800076E4(s16 arg0, u8 seqIdx){
+void zzAudioSeqSetVol(s16 seqVol, u8 seqIdx){
     if(seqIdx < 2){
-        seqContexts[seqIdx].maxSeqLength = arg0; 
+        seqContexts[seqIdx].seqVol = seqVol; 
     }
 }
 
-void func_80007720(){
+void zzAudioSeqInitSeq(){
     u8 i;
     ALSeqpConfig* c;
     ALCSPlayer* seqp;
@@ -118,13 +118,13 @@ void func_80007720(){
         dmaDataBuf = alHeapAlloc(&hp, 1, 0x2710);
         dmaMsgBuf = alHeapAlloc(&hp, 1, 0x18);
         
-        seqContexts[i].unk0 = 0;
+        seqContexts[i].seqIdx = 0;
         seqContexts[i].unk2 = -1;
-        seqContexts[i].unk4 = 0;
+        seqContexts[i].status = 0;
         seqContexts[i].seqPlayer = seqp;
         seqContexts[i].currentSequence = seq;
         seqContexts[i].dmaDataBuf = dmaDataBuf;
-        seqContexts[i].maxSeqLength = 0x4E20;
+        seqContexts[i].seqVol = 20000;
         seqContexts[i].pan = 64;
         seqContexts[i].unk17 = 0;
         seqContexts[i].unk18 = 5;
@@ -145,13 +145,13 @@ void func_80007720(){
 }
 
 
-void func_800079B0(u8 seqIdx){
+void zzAudioSeqLoadSeq(u8 seqIdx){
     u32 offs;
     u32 len;
-    s16 unk0 = seqContexts[seqIdx].unk0;
+    s16 seqNo = seqContexts[seqIdx].seqIdx;
 
-    offs = D_800F08D0->seqArray[unk0].offset;
-    len = D_800F08D0->seqArray[unk0].len;
+    offs = D_800F08D0->seqArray[seqNo].offset;
+    len = D_800F08D0->seqArray[seqNo].len;
     
     if(len % 2){
         len++;
@@ -160,10 +160,10 @@ void func_800079B0(u8 seqIdx){
     osInvalDCache(seqContexts[seqIdx].dmaDataBuf, len);
     osPiStartDma(seqContexts[seqIdx].dmaMsgBuf, OS_MESG_PRI_NORMAL, OS_READ, offs, seqContexts[seqIdx].dmaDataBuf, len, D_800F08A0);
     
-    seqContexts[seqIdx].unk2 = seqContexts[seqIdx].unk0;
+    seqContexts[seqIdx].unk2 = seqContexts[seqIdx].seqIdx;
 }
 
-void func_80007A68(){
+void zzAudioSeqProc(){
     u8 i;
     u8 j;
     OSMesg msg = NULL;
@@ -179,7 +179,7 @@ void func_80007A68(){
         func_80007520(0x100, 0);
         D_800ABCF0 = 0;
     }
-    if(D_8015A392 & DEBUG_FLAG(ZZ_DEBUG_FLAG_SOUND) && controllers[1]->unk0.buttonTimers[ZZ_TIMER_A_BUTTON] != 0 && seqContexts[0].unk4 == 0 && D_800ABCF0 == 0){
+    if(D_8015A392 & DEBUG_FLAG(ZZ_DEBUG_FLAG_SOUND) && controllers[1]->unk0.buttonTimers[ZZ_TIMER_A_BUTTON] != 0 && seqContexts[0].status == 0 && D_800ABCF0 == 0){
         func_800075A0(0, 0x100, 0);
         D_800ABCF0 = 1;
     }
@@ -188,62 +188,62 @@ void func_80007A68(){
         
         seqp = seqContexts[i].seqPlayer;
 
-        alCSPSetVol(seqp, seqContexts[i].maxSeqLength);
+        alCSPSetVol(seqp, seqContexts[i].seqVol);
 
-        switch(seqContexts[i].unk4){
+        switch(seqContexts[i].status){
 
             case 8:
                 if(seqp->state == AL_PLAYING){
                     if(seqContexts[i].unk1A){
                         seqContexts[i].unk1A--;
-                        seqContexts[i].maxSeqLength -= seqContexts[i].unk1C;
+                        seqContexts[i].seqVol -= seqContexts[i].unk1C;
                     }
                     if(!seqContexts[i].unk1A){
                         alCSPStop(seqp);
-                        seqContexts[i].unk4 = 0;
+                        seqContexts[i].status = 0;
                     }
                 }
                 else{
                     seqContexts[i].unk1A = 0;
-                    seqContexts[i].unk4 = 0;
-                    seqContexts[i].maxSeqLength = 0x4E20;
+                    seqContexts[i].status = 0;
+                    seqContexts[i].seqVol = 20000;
                 }
                 break;
             case 9:
                 if(seqp->state == AL_PLAYING){
                     if(seqContexts[i].unk1A){
                         seqContexts[i].unk1A--;
-                        seqContexts[i].maxSeqLength += seqContexts[i].unk1C;
+                        seqContexts[i].seqVol += seqContexts[i].unk1C;
 
-                        if(seqContexts[i].maxSeqLength > 0x7FFF){
-                            seqContexts[i].maxSeqLength = 0x7FFF;
+                        if(seqContexts[i].seqVol > 0x7FFF){
+                            seqContexts[i].seqVol = 0x7FFF;
                         }
                     }
                     if(!seqContexts[i].unk1A){
-                        seqContexts[i].unk4 = 0;
+                        seqContexts[i].status = 0;
                     }
                 }
                 break;
             case 1:
                 alCSPStop(seqp);
-                seqContexts[i].unk4 = 0;
+                seqContexts[i].status = 0;
                 break;            
             case 5:
                 alCSPStop(seqp);
-                seqContexts[i].unk4 = 6;
+                seqContexts[i].status = 6;
                 break;
             case 7:
                 alCSPPlay(seqp);
-                seqContexts[i].unk4 = 0;
+                seqContexts[i].status = 0;
                 break; 
             case 2:
                 if(seqp->state != AL_STOPPED){
                     alCSPStop(seqp);
-                    seqContexts[i].unk4 = 3;
+                    seqContexts[i].status = 3;
                 }
-                else if(seqContexts[i].unk0 != seqContexts[i].unk2){
-                    func_800079B0(i);
-                    seqContexts[i].unk4 = 4;
+                else if(seqContexts[i].seqIdx != seqContexts[i].unk2){
+                    zzAudioSeqLoadSeq(i);
+                    seqContexts[i].status = 4;
                 }
                 else{
                     alCSeqNewMarker(seqContexts[i].currentSequence, &m, 0U);
@@ -251,18 +251,18 @@ void func_80007A68(){
                     alCSPPlay(seqp);
 
                     if(seqContexts[i].unk1A){
-                        seqContexts[i].unk4 = 9;
+                        seqContexts[i].status = 9;
                     }
                     else{
-                        seqContexts[i].unk4 = 0;
+                        seqContexts[i].status = 0;
                     }
                 }
                 break;
             case 3:
                 if(seqp->state == AL_STOPPED){
-                    if(seqContexts[i].unk0 != seqContexts[i].unk2){
-                        func_800079B0(i);
-                        seqContexts[i].unk4 = 4;
+                    if(seqContexts[i].seqIdx != seqContexts[i].unk2){
+                        zzAudioSeqLoadSeq(i);
+                        seqContexts[i].status = 4;
                     }
                     else{
                         alCSeqNewMarker(seqContexts[i].currentSequence, &m, 0U);
@@ -270,10 +270,10 @@ void func_80007A68(){
                         alCSPPlay(seqp);
 
                         if(seqContexts[i].unk1A){
-                            seqContexts[i].unk4 = 9;
+                            seqContexts[i].status = 9;
                         }
                         else{
-                            seqContexts[i].unk4 = 0;
+                            seqContexts[i].status = 0;
                         }
                     }
                 }
@@ -287,10 +287,10 @@ void func_80007A68(){
                             alCSPPlay(seqp);
 
                             if(seqContexts[i].unk1A){
-                                seqContexts[i].unk4 = 9;
+                                seqContexts[i].status = 9;
                             }
                             else{
-                                seqContexts[i].unk4 = 0;
+                                seqContexts[i].status = 0;
                             }
                         }
                     }

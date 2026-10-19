@@ -12,6 +12,7 @@
 #include "controller.h"
 #include "zzOpScene.h"
 #include "zzGame.h"
+#include "zzAudio.h"
 #include "zzEvents.h"
 
 static s32 __op_scene_0(void);
@@ -174,7 +175,7 @@ void func_8006E400(s16 idx) {
 
             D_800E69C0.cfb_render |= 1;
 
-            func_800073C0(0x35, 0);
+            zzAudioSeqPlaySeq(ZZ_AUDIO_SEQ_INTRO_PALACE, 0);
 
             actor->status = 150;
             break;
