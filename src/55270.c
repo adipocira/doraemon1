@@ -13,6 +13,7 @@
 #include "15F60.h"
 #include "1D870.h"
 #include "common.h"
+#include "zzAudio.h"
  
 extern f32 D_80154614;
 extern f32 D_80154618;
@@ -165,7 +166,7 @@ void func_80054670(s16 idx){
             actor->actorVars.varA0.integer--;
 
             if(actor->actorVars.varA0.integer <= 0){
-                func_80008C6C(8, 2);
+                zzAudioSoundPlaySound(ZZ_AUDIO_SOUND_FALLING_BOSS, 2);
                 actor->status = 105;
                 actor->actorVars.varA4.fp = 0.0f;
             }
@@ -185,7 +186,7 @@ void func_80054670(s16 idx){
             func_80056894(actor);
             
             if(D_800F9910.unk1 != 0){
-                func_80008C6C(7, 2);
+                zzAudioSoundPlaySound(7, 2);
                 actor->dir.y *= -0.5;
                 actor->dir.x *= 0.75;
                 actor->dir.z *= 0.75;
@@ -285,7 +286,7 @@ void func_80054670(s16 idx){
                 id = func_80023644(5, 0x141, 0.0f, 0.0f, 0.0f, 0.0f, actor->rot.y, 0.0f);
 
                 if(id != -1){
-                    func_80008C6C(0x12, 2);
+                    zzAudioSoundPlaySound(0x12, 2);
                     func_80022F20(id, func_800543A4);
                     func_80025638(GET_ACTOR_PTR(id), actor, 330.0f, 30.0f, 40.0f);
                     func_80024FC8(id, 1.0f, 0.0f);
@@ -298,7 +299,7 @@ void func_80054670(s16 idx){
             break;
         case 200:
             func_80022F48(idx, 0);
-            func_80008C6C(8, 2);
+            zzAudioSoundPlaySound(ZZ_AUDIO_SOUND_FALLING_BOSS, 2);
 
             for(i = 0; i < 20; i++){
                 id = func_80023644(6, 0x161, actor->pos.x, actor->pos.y, actor->pos.z, 0.0f, 0.0f, 0.0f);
@@ -344,7 +345,7 @@ void func_80054670(s16 idx){
 
             if(actor->actorVars.varA0.integer <= 0){
                 actor->actorVars.varB4.integer = -0x64;
-                func_80008C6C(8, 2);
+                zzAudioSoundPlaySound(ZZ_AUDIO_SOUND_FALLING_BOSS, 2);
                 func_80022F48(idx, 0);
                 actor->unk8 = 0x100;
                 actor->actorVars.varA0.integer = 120;
@@ -442,7 +443,7 @@ void func_80054670(s16 idx){
                     actor->actorVars.varAC.integer = id;
 
                     if(id != -1){
-                        func_80008C6C(0x11, 2);
+                        zzAudioSoundPlaySound(0x11, 2);
                         actor3 = GET_ACTOR_PTR(actor->actorVars.varAC.integer);
 
                         if(actor3->unk38 != 0xFFFF){
@@ -498,7 +499,7 @@ void func_80054670(s16 idx){
                             func_80068264(actor3, 50.0f, 0.0f);
                         }
 
-                        func_80008C6C(0x11, 2);
+                        zzAudioSoundPlaySound(0x11, 2);
                         actor->status = 303;
                     }
 
@@ -522,7 +523,7 @@ void func_80054670(s16 idx){
                     func_80068264(actor3, 50.0f, 0.0f);
                 }
 
-                func_80008C6C(0x11, 2);
+                zzAudioSoundPlaySound(0x11, 2);
                 actor->status = 303;
             }
 
@@ -551,7 +552,7 @@ void func_80054670(s16 idx){
             break;
         case 350:
             func_80023644(6, 0x161, actor->pos.x, actor->pos.y + 30.0f, actor->pos.z, 0.0f, 0.0f, 0.0f);
-            func_80008C6C(0xD, 2);
+            zzAudioSoundPlaySound(ZZ_AUDIO_SOUND_HIT_BOSS, 2);
             
             actor->unk8 = 0x53F;
             actor->a = 255;
@@ -571,9 +572,9 @@ void func_80054670(s16 idx){
         case 900:
             cdata.events[cdata.nextstg] |= 0x4000;
             D_800E69C0.syscalls &= ~0x1;
-            func_80008C6C(0x44, 3);
+            zzAudioSoundPlaySound(0x44, 3);
             func_80023644(6, 0x161, actor->pos.x, actor->pos.y + 30.0f, actor->pos.z, 0.0f, 0.0f, 0.0f);
-            func_80008C6C(0xD, 2);
+            zzAudioSoundPlaySound(ZZ_AUDIO_SOUND_HIT_BOSS, 2);
             actor->a = 255;
             actor->unk4E = 0;
 
@@ -644,21 +645,21 @@ void func_80054670(s16 idx){
             }
             if((actor->actorVars.varA0.integer+1) % 8U == 0){
                 func_8005691C(actor, 0);
-                func_80008C6C(4, 2);
+                zzAudioSoundPlaySound(ZZ_AUDIO_SOUND_EXPLOSION, 2);
             }
             else{
                 func_8002263C(1);
             }
             if(actor->actorVars.varA0.integer < 380 && !((actor->actorVars.varA0.integer+3) % 8U)){
                 func_8005691C(actor, 1);
-                func_80008C6C(0xC, 3);
+                zzAudioSoundPlaySound(0xC, 3);
             }
             else{
                 func_8002263C(2);
             }
             if(actor->actorVars.varA0.integer < 260 && !((actor->actorVars.varA0.integer+5) % 8U)){
                 func_8005691C(actor, 2);
-                func_80008C6C(0xD, 2);
+                zzAudioSoundPlaySound(ZZ_AUDIO_SOUND_HIT_BOSS, 2);
             }
             else{
                 func_8002263C(3);
@@ -669,7 +670,7 @@ void func_80054670(s16 idx){
                 temp5 = ((random(0) % 300U) - 150.0f);
                 
                 func_80023644(6, 0x189, actor->pos.x + temp3, actor->pos.y + temp4, actor->pos.z + temp5, 0.0f, 0.0f, 0.0f);
-                func_80008C6C(0x5D, 3);
+                zzAudioSoundPlaySound(0x5D, 3);
             }
             break;
         case 906:
@@ -706,10 +707,10 @@ void func_80054670(s16 idx){
                         func_80022F20(id, func_8004F0B0);
 
                         if(actor->actorVars.varA0.integer == 2){
-                            func_80008C6C(0xD, 2);
+                            zzAudioSoundPlaySound(ZZ_AUDIO_SOUND_HIT_BOSS, 2);
                         }
                         else{
-                            func_80008C6C(0xD, 3);
+                            zzAudioSoundPlaySound(ZZ_AUDIO_SOUND_HIT_BOSS, 3);
                         }
                     }
                 }
@@ -787,7 +788,7 @@ void func_80054670(s16 idx){
         
         if(actor->actorVars.varB4.integer <= 0){
             actor->actorVars.varB4.integer = 0xE;
-            func_80008E10(0x13, 3, idx);
+            zzAudioSoundPlaySoundActor(0x13, 3, idx);
         }
     }
 

@@ -228,7 +228,7 @@ void func_80041268(s16 idx){
             GET_ACTOR_PTR(idx)->actorVars.varA0.integer--;
 
             if(GET_ACTOR_PTR(idx)->actorVars.varA0.integer <= 0){
-                func_80008E10(0x51, 2, idx);
+                zzAudioSoundPlaySoundActor(0x51, 2, idx);
                 actor->actorVars.varA0.integer = 0x20;
                 actor->status = 12;
             }
@@ -404,7 +404,7 @@ void func_80041808(s16 idx){
                 actor->actorVars.varBC.integer = 0;
                 actor->actorVars.varC0.integer = 0xA;
                 actor->actorVars.varC4.fp = 3.0f;
-                func_80008E10(0x53, 2, idx);
+                zzAudioSoundPlaySoundActor(0x53, 2, idx);
                 actor->status = 1;
             }
             break;
@@ -578,7 +578,7 @@ void func_80042418(s16 idx){
             if(temp < 100.0f){
                 actor->actorVars.varA8.fp = 4.0f;
                 actor->actorVars.varA4.integer = 0x3C;
-                func_80008E10(0x55, 2, idx);
+                zzAudioSoundPlaySoundActor(0x55, 2, idx);
                 actor->status = 11;
             }
 
@@ -608,7 +608,7 @@ void func_80042418(s16 idx){
             func_80059760(actor);
 
             if(D_800F9910.unk0 != 0){
-                func_80008E10(0x17, 2, idx);
+                zzAudioSoundPlaySoundActor(0x17, 2, idx);
                 actor->actorVars.varA4.integer = 0x3C;
                 func_80022F48(idx, 0);
                 actor->status = 13;
@@ -682,7 +682,7 @@ void func_80042758(s16 idx){
                 func_80021B90(idx);
             }
             else{
-                func_80008E10(0x59, 2, idx);
+                zzAudioSoundPlaySoundActor(0x59, 2, idx);
                 actor->actorVars.varE4.integer = 0x14;
                 actor->status = 4;
             }
@@ -796,7 +796,7 @@ void func_80042A38(s16 idx){
                 actor->actorVars.varB0.fp = actor->actorVars.varAC.fp; 
 
                 id = func_80023644(2, 0x70, actor->actorVars.varBC.fp * 10.0f + actor->pos.x, actor->actorVars.varC0.fp * 10.0f + actor->pos.y, actor->actorVars.varC4.fp * 10.0f + actor->pos.z, 0.0f, 0.0f, 0.0f); 
-                func_80008E10(0x54, 2, idx);
+                zzAudioSoundPlaySoundActor(0x54, 2, idx);
                 
                 if(id != -1){
                     GET_ACTOR_PTR(id)->actorVars.varA4.fp = actor->actorVars.varBC.fp;

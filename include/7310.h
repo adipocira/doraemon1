@@ -23,25 +23,21 @@ typedef struct SeqContext {
 
 typedef struct SoundContext {
     ALSndPlayer* soundPlayer;
-    s16 unk4;
+    s16 sound;
     s16 unk6;
     ALSndId soundId;
-    u8 unkA[0x2];
-    s32 unkC;
+    s32 status;
     s16 vol;
     ALPan pan;
-    u8 unk13;
+    u8 baseMix;
     u8 unk14;
-    u8 unk15;
-    u8 unk16[0x2];
-    f32 unk18;
+    f32 pitch;
     f32 soundPosX;
     f32 soundPosY;
     f32 soundPosZ;
-    s16 unk28;
-    s16 unk2A;
-    s16 unk2C;
-    s16 unk2E;
+    s16 maxVol;
+    s16 actorId;
+    s16 maxDist;
 } SoundContext; 
 
 extern SeqContext seqContexts[2];

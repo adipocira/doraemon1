@@ -47,7 +47,7 @@ void func_80001EF0(D_800F3958_struct* arg0){
             switch(*msg){
                 case 1:
                     zzAudioSeqProc();
-                    func_80009240();
+                    zzAudioSoundProc();
 
                     if(s4 == D_800E69C0.unk10){
                         break;

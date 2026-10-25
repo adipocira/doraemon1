@@ -4,6 +4,7 @@
 #include "9320.h"
 #include "11F10.h"
 #include "zzGame.h"
+#include "zzAudio.h"
 
 #include "common.h"
 
@@ -35,7 +36,7 @@ void func_80065230(s16 idx){
             }
             switch(D_801590C0){
                 case 0:
-                    func_80008C6C(2, 4);
+                    zzAudioSoundPlaySound(ZZ_AUDIO_SOUND_WING_GUST, 4);
                     D_801590C0 = random(0) % 8U;
                     D_801590C8 = 0;
                     break;
@@ -82,7 +83,7 @@ void func_80065230(s16 idx){
             }            
             switch(D_801590C4){
                 case 0:
-                    func_80008C6C(2, 5);
+                    zzAudioSoundPlaySound(ZZ_AUDIO_SOUND_WING_GUST, 5);
                     D_801590C4 = random(0) % 8U;
                     D_801590CC = 0;
                     break;

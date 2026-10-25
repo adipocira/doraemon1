@@ -95,12 +95,12 @@ void func_80037AE0(s16 idx){
     if(temp1 != -1){
         switch(temp){
             case 0x15:
-                func_80008C6C(D_802BDE50, 0);
+                zzAudioSoundPlaySound(D_802BDE50, 0);
                 cdata.bells++;
                 func_80022F20(idx, func_8002CF48);
                 break;
             case 0x16:
-                func_80008C6C(D_802BDE52, 0);
+                zzAudioSoundPlaySound(D_802BDE52, 0);
                 GET_ACTOR_PTR(temp1)->health += 50;
 
                 if(GET_ACTOR_PTR(temp1)->health >= 251){
@@ -139,7 +139,7 @@ void func_80037AE0(s16 idx){
             case 0x38:
                 cdata.item |= CDATA_ITEM(ZZ_ITEM_UPGRADE_SPRAY);
 
-                func_80008C6C(D_802BDE54, 0);
+                zzAudioSoundPlaySound(D_802BDE54, 0);
                 actor->actorVars.varDC.integer = temp1;
                 func_80022F20(idx, func_80039000);
                 actor->flags |= 0x1000;
@@ -147,7 +147,7 @@ void func_80037AE0(s16 idx){
             case 0x42:
                 cdata.item |= CDATA_ITEM(ZZ_ITEM_MINI_DORA);
                 cdata.lives++;
-                func_80008C6C(D_802BDE56, 0);
+                zzAudioSoundPlaySound(D_802BDE56, 0);
                 func_80022F20(idx, func_80039000);
                 break;
             default:
@@ -320,10 +320,10 @@ void func_800385C0(s16 idx){
             actor->actorVars.varA0.integer = 0x3C;
             
             if(D_802BDB7C[actor->unk48 - 0x14] >= 5){
-                func_80008C6C(0x9E, 0);
+                zzAudioSoundPlaySound(ZZ_AUDIO_SOUND_ITEM_GET, 0);
             }
             else{
-                func_80008C6C(0x9F, 0);
+                zzAudioSoundPlaySound(ZZ_AUDIO_SOUND_ITEM_GET_ALT, 0);
             }
 
             actor->status = 5;
@@ -450,7 +450,7 @@ void func_80038A0C(s16 idx){
 
         cdata.item |= CDATA_ITEM(ZZ_ITEM_UPGRADE_SPRAY);
 
-        func_80008C6C(D_802BDE54, 0);
+        zzAudioSoundPlaySound(D_802BDE54, 0);
         func_80023FCC(idx);
     }
     
@@ -485,7 +485,7 @@ void func_80038BDC(s16 idx){
             break;
         case 2:
             if(D_80141CB0[idx].unk0 != -1){
-                func_80008C6C(0xDB, 0);
+                zzAudioSoundPlaySound(ZZ_AUDIO_SOUND_BELL, 0);
                 cdata.bells++;
                 func_80022F20(idx, func_8002CF48);
             }
@@ -673,7 +673,7 @@ void func_80039254(s16 idx){
                 actor->pos.y = D_800F9910.unk10 + 1.0;
 
                 if(actor->actorVars.varB0.integer >= 0xB){
-                    func_80008C6C(7, 0);
+                    zzAudioSoundPlaySound(7, 0);
                 }
                 if(actor->unk68 == -1){
                     actor->status = 15;
@@ -722,7 +722,7 @@ void func_80039254(s16 idx){
                         p2->actorVars.varB8.fp = 25.0f;
                         p2->actorVars.varBC.fp = cosf(temp2) * 110.0f;
 
-                        func_80008C6C(0x55, 2);
+                        zzAudioSoundPlaySound(ZZ_AUDIO_SOUND_CHEST_OPEN, 2);
 
                         actor->status = 10;
                     } 
@@ -752,7 +752,7 @@ void func_80039254(s16 idx){
                 p2->actorVars.varBC.fp = -120.0f;                
             }
 
-            func_80008C6C(0x55, 2);
+            zzAudioSoundPlaySound(ZZ_AUDIO_SOUND_CHEST_OPEN, 2);
             
             actor->status = 10;
             break;
@@ -891,7 +891,7 @@ void func_80039B8C(s16 idx){
             func_8001B734(&D_800F9910, cdata.nextstg, actor->pos.x, actor->pos.y, actor->pos.z, actor->actorVars.varA0.fp);
 
             if(D_800F9910.unk0 != 0){
-                func_80008E10(0xDA, 3, idx);
+                zzAudioSoundPlaySoundActor(0xDA, 3, idx);
                 func_80022F20(idx, func_8002CF48);
                 return;
             }
@@ -910,7 +910,7 @@ void func_80039B8C(s16 idx){
     }
 
     if(D_80141CB0[idx].unk0 != -1){
-        func_80008C6C(0xDA, 0);
+        zzAudioSoundPlaySound(0xDA, 0);
         cdata.bells++;
         func_80022F20(idx, func_8002CF48);
     }

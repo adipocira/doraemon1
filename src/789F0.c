@@ -105,7 +105,7 @@ void func_80078064(s16 idx){
                 actor->health -= (GET_ACTOR_PTR(v1)->unk66 * f3);
             }
             if(actor->health > 0){
-                func_80008C6C(D_802BD67A[actor->unk48], 1);
+                zzAudioSoundPlaySound(D_802BD67A[actor->unk48], 1);
                 actor->unk52 = 0;
                 actor->unk50 = actor->unk52;
                 actor->unk6A = 0xA;

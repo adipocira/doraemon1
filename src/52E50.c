@@ -9,6 +9,7 @@
 #include "4D980.h"
 #include "libc/math.h"
 #include "common.h"
+#include "zzAudio.h"
 
 extern f32 D_80142BD0;
 extern f32 D_8014DF90;
@@ -55,7 +56,7 @@ void func_80052250(s16 idx){
             actor->unk8 = 0x53F;
             func_80022F48(idx, 3); 
             actor->actorVars.varB4.integer = 30;
-            func_80008C6C(0xE8, 3);
+            zzAudioSoundPlaySound(ZZ_AUDIO_SOUND_VOLCANO_GRUMBLE, 3);
 
             actor->actorVars.varA0.integer = 40;
             actor->actorVars.varA4.fp = 5.0f;
@@ -78,7 +79,7 @@ void func_80052250(s16 idx){
                 }
             }
             if(actor->pos.y < actor->actorVars.varA8.fp && actor->actorVars.varA8.fp - 100.0f < actor->pos.y){
-                func_80008C6C(0x23, 2);
+                zzAudioSoundPlaySound(0x23, 2);
                 func_800090B0(3);
 
                 for(i = 0; i < 5; i++){
@@ -130,7 +131,7 @@ void func_80052250(s16 idx){
             break;
         case 150:
             actor->unk8 = 0x100;
-            func_80008C6C(0xD1, 2);
+            zzAudioSoundPlaySound(0xD1, 2);
             func_80022F48(idx, 3);
             actor->actorVars.varB4.integer = 30;
             func_80024FC8(idx, 0.0f, 0.0f);
@@ -173,7 +174,7 @@ void func_80052250(s16 idx){
             }
             break;
         case 200:
-            func_80008C6C(0x44, 2);
+            zzAudioSoundPlaySound(0x44, 2);
             actor->actorVars.varA4.fp = 0.0f;
             actor->actorVars.varA8.fp = actor2->pos.y;
             actor->status = 201;
@@ -201,7 +202,7 @@ void func_80052250(s16 idx){
                 }
             }
             if(D_80141CB0[idx].unk0 != -1){
-                func_80008C6C(7, 2);
+                zzAudioSoundPlaySound(7, 2);
             }
 
             func_80024F20(idx, actor->actorVars.varA4.fp);
@@ -303,7 +304,7 @@ void func_80052250(s16 idx){
                 func_80024FC8(idx, -1.0f, 1.0f);
             }
             if(actor->actorVars.varA0.integer == 100){
-                func_80008C6C(0x17, 2);
+                zzAudioSoundPlaySound(0x17, 2);
             }
 
             func_800545DC(actor);
@@ -322,7 +323,7 @@ void func_80052250(s16 idx){
                 actor->status = 50;
             }
             if(actor->actorVars.varA0.integer == 8){
-                func_80008C6C(0x16, 2);
+                zzAudioSoundPlaySound(ZZ_AUDIO_SOUND_WING_FLAP, 2);
 
                 for(i = 0; i < 2; i++){
                     id = func_80023644(5, 0x141, 0.0f, 0.0f, 0.0f, 0.0f, actor->rot.y, 0.0f);
@@ -349,7 +350,7 @@ void func_80052250(s16 idx){
                 actor->status = 250;
             }
             if(actor->actorVars.varA0.integer == 8){
-                func_80008C6C(0x16, 2);
+                zzAudioSoundPlaySound(ZZ_AUDIO_SOUND_WING_FLAP, 2);
 
                 for(i = 0; i < 4; i++){
                     id = func_80023644(5, 0x141, 0.0f, 0.0f, 0.0f, 0.0f, actor->rot.y - 90.0f + (i * 60), 0.0f);
@@ -365,7 +366,7 @@ void func_80052250(s16 idx){
         case 450:
             func_80022F48(idx, 4);
             func_80023644(6, 0x161, actor->pos.x, actor->pos.y + 30.0f, actor->pos.z, 0.0f, 0.0f, 0.0f);
-            func_80008C6C(0xD, 2);
+            zzAudioSoundPlaySound(ZZ_AUDIO_SOUND_HIT_BOSS, 2);
 
             actor->unk8 = 0x53F;
             actor->actorVars.varB0.integer = 0;
@@ -439,7 +440,7 @@ void func_80052250(s16 idx){
             cdata.events[cdata.nextstg] |= 0x4000;
             D_800E69C0.syscalls &= ~0x1;
             func_80022F48(idx, 4);
-            func_80008C6C(0xD, 2);
+            zzAudioSoundPlaySound(ZZ_AUDIO_SOUND_HIT_BOSS, 2);
 
             actor->actorVars.varB0.integer = 0;
             actor->flags |= 0x10;
@@ -474,7 +475,7 @@ void func_80052250(s16 idx){
         case 903:
             if(actor->actorVars.varA4.fp < 0.1){
                 func_80022F48(idx, 5);
-                func_80008C6C(8, 2);
+                zzAudioSoundPlaySound(ZZ_AUDIO_SOUND_FALLING_BOSS, 2);
                 actor->actorVars.varB0.integer = 0;
                 actor->status = 904;
             }
@@ -488,7 +489,7 @@ void func_80052250(s16 idx){
             func_800545DC(actor);
 
             if(D_800F9910.unk1 != 0){
-                func_80008C6C(0xC, 2);
+                zzAudioSoundPlaySound(0xC, 2);
                 func_80022F48(idx, 6);
 
                 D_80142BD0 = 0.0f;
@@ -543,10 +544,10 @@ void func_80052250(s16 idx){
 
                     if(random(0) & (0,actor->actorVars.varA0.integer < 100)){
                         func_800242F0(id, 0, 2);
-                        func_80008C6C(4, 2);
+                        zzAudioSoundPlaySound(ZZ_AUDIO_SOUND_EXPLOSION, 2);
                     }
                     else{
-                        func_80008C6C(0xC, 2);
+                        zzAudioSoundPlaySound(0xC, 2);
                     }
                 }
                 
@@ -572,7 +573,7 @@ void func_80052250(s16 idx){
             actor->actorVars.varA0.integer--;
 
             if(actor->actorVars.varA0.integer <= 0){
-                func_80008C6C(0xDB, 2);
+                zzAudioSoundPlaySound(ZZ_AUDIO_SOUND_BELL, 2);
                 func_80023644(1, 0x15, actor->pos.x, actor->pos.y, actor->pos.z, 0.0f, 0.0f, 0.0f);
 
                 if(!func_80076FA0(0x30)){
@@ -601,7 +602,7 @@ void func_80052250(s16 idx){
                 D_800E69C0.syscalls |= 1;
             }
             if(actor->actorVars.varA0.integer == 2){
-                func_80008C6C(0xDB, 3);
+                zzAudioSoundPlaySound(ZZ_AUDIO_SOUND_BELL, 3);
             }
             break;
         case 1100:
@@ -658,7 +659,7 @@ void func_80052250(s16 idx){
     
     if(temp4 == 0){
         if(actor->actorVars.varB0.integer){
-            func_80008E10(0x16, 3, idx);
+            zzAudioSoundPlaySoundActor(0x16, 3, idx);
         }
     }
     else if(actor->actorVars.varB4.integer < -1){

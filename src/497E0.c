@@ -86,7 +86,7 @@ void func_80048CD4(s16 idx){
             actor->actorVars.varA0.integer--;
 
             if(actor->actorVars.varA0.integer < 0){
-                func_80008E10(0x17, 2, idx);
+                zzAudioSoundPlaySoundActor(0x17, 2, idx);
                 actor->actorVars.varA0.integer = 60;
                 func_80022F48(idx, 3);
                 actor->status = 4;
@@ -230,7 +230,7 @@ void func_80048FB4(s16 idx){
 
             if(actor->actorVars.varB8.fp <= 3.0f && actor->pos.y + 15.0f < ((&D_801B58F8[cdata.nextstg])->unk4 + 16.0f)){
                 if(actor->actorVars.varBC.fp * 0.3 < actor->actorVars.varBC.fp - sqrtf(SQ(actor->pos.z - actor->actorVars.varC4.fp) + SQ(actor->pos.x - actor->actorVars.varC0.fp))){
-                    func_80008E10(0x45, 2, idx);
+                    zzAudioSoundPlaySoundActor(0x45, 2, idx);
                     actor->actorVars.varB8.fp = 10.0f;
                 }    
             }

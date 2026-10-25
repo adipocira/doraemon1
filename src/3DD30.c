@@ -64,7 +64,7 @@ void func_8003D130(s16 idx){
                 break;
             case 3:
                 if(actor->actorVars.varC8.integer <= 0){
-                    func_80008E10(0x43, 3, idx);
+                    zzAudioSoundPlaySoundActor(0x43, 3, idx);
                     actor->actorVars.varC8.integer = 0xA;
                 }
                 else{
@@ -88,7 +88,7 @@ void func_8003D130(s16 idx){
                 if(D_800F9910.unk1 != 0){
                     actor->pos.y = D_800F9910.unk10 - 9.0f;
                     actor->status = 4;
-                    func_80008E10(0x45, 2, idx);
+                    zzAudioSoundPlaySoundActor(0x45, 2, idx);
                     actor->actorVars.varCC.integer = 0;
                     actor->actorVars.varC0.fp = 5.0f;
                     func_80022F48(idx, 3);
@@ -326,7 +326,7 @@ void func_8003DC20(s16 idx){
 
             if(actor->pos.y - actor->actorVars.varBC.fp < GET_ACTOR_PTR(D_80159178->unk48[cdata.unk41].unk0)->pos.y){
                 actor->status = 7;
-                func_80008E10(0x44, 2, idx);
+                zzAudioSoundPlaySoundActor(0x44, 2, idx);
                 actor->actorVars.varB8.fp = actor->actorVars.varB4.fp;
             }
             break;
@@ -462,7 +462,7 @@ void func_8003E410(s16 idx){
 
                 if(func_80025288(idx, D_80159178->unk48[cdata.unk41].unk0) < 0){
                     actor->rot.y = actor->actorVars.varAC.integer;
-                    func_80008E10(0x45, 2, idx);
+                    zzAudioSoundPlaySoundActor(0x45, 2, idx);
                     actor->actorVars.varA0.integer = 6;
                     actor->actorVars.varAC.integer = 7;
                     func_80022F48(idx, 1);
@@ -473,7 +473,7 @@ void func_8003E410(s16 idx){
 
                 if(func_80025288(idx, D_80159178->unk48[cdata.unk41].unk0) > 0){
                     actor->rot.y = actor->actorVars.varAC.integer;
-                    func_80008E10(0x45, 2, idx);
+                    zzAudioSoundPlaySoundActor(0x45, 2, idx);
                     actor->actorVars.varA0.integer = 6;
                     actor->actorVars.varAC.integer = 7;
                     func_80022F48(idx, 1);
@@ -592,7 +592,7 @@ void func_8003EB68(s16 idx) {
     actor->actorVars.varB0.integer = func_80024CA0(4, idx, 200.0f);
     
     if (actor->actorVars.varB0.integer != -1) {
-        func_80008E10(0x46, 2, idx);
+        zzAudioSoundPlaySoundActor(0x46, 2, idx);
         actor->status = 4;
     }
 }
@@ -772,7 +772,7 @@ void func_8003F190(s16 idx) {
             func_8002507C(idx);
             
             if (!(actor->actorVars.varB4.integer & 0x1F)) {
-                func_80008E10(0x47, 2, idx);
+                zzAudioSoundPlaySoundActor(0x47, 2, idx);
             }
             break;
         case 303:
@@ -790,7 +790,7 @@ void func_8003F190(s16 idx) {
             func_8002507C(idx);
             
             if (!(actor->actorVars.varB4.integer & 0xF)) {
-                func_80008E10(0x47, 2, idx);
+                zzAudioSoundPlaySoundActor(0x47, 2, idx);
             }
             break;
     }
@@ -864,7 +864,7 @@ void func_8003F990(s16 idx) {
             func_8002507C(idx);
             
             if (!(actor->actorVars.varA4.integer & 0x1F)) {
-                func_80008E10(0x47, 2, idx);
+                zzAudioSoundPlaySoundActor(0x47, 2, idx);
             }
             break;
         case 40:
@@ -910,7 +910,7 @@ void func_8003F990(s16 idx) {
             func_8002507C(idx);
             
             if (!(actor->actorVars.varA4.integer & 0xF)) {
-                func_80008E10(0x47, 2, idx);
+                zzAudioSoundPlaySoundActor(0x47, 2, idx);
             }
             break;
         case 41:
@@ -943,7 +943,7 @@ void func_8003F990(s16 idx) {
             func_8002507C(idx);
             
             if (!(actor->actorVars.varA4.integer & 0x1F)) {
-                func_80008E10(0x47, 2, idx);
+                zzAudioSoundPlaySoundActor(0x47, 2, idx);
             }
             break;
         case 100:
@@ -958,7 +958,7 @@ void func_8003F990(s16 idx) {
                 actor->status = 101;
             }
             if (!(actor->actorVars.varA4.integer & 0x1F)) {
-                func_80008E10(0x47, 2, idx);
+                zzAudioSoundPlaySoundActor(0x47, 2, idx);
             }
             
             func_8002507C(idx);
@@ -999,7 +999,7 @@ void func_8003F990(s16 idx) {
                 actor->status = 102;
             }
             if (!(actor->actorVars.varA4.integer & 0xF)) {
-                func_80008E10(0x47, 2, idx);
+                zzAudioSoundPlaySoundActor(0x47, 2, idx);
             }
             break;
         case 102:
@@ -1021,7 +1021,7 @@ void func_8003F990(s16 idx) {
                 actor->status = 10;
             }
             if (!(actor->actorVars.varA4.integer & 0x1F)) {
-                func_80008E10(0x47, 2, idx);
+                zzAudioSoundPlaySoundActor(0x47, 2, idx);
             }
             break;
         case 900:
@@ -1143,7 +1143,7 @@ void func_800407FC(s16 idx) {
             if (temp < 100.0f) {
                 actor->actorVars.varA8.fp = 4.0f;
                 actor->actorVars.varA4.integer = 0x3C;
-                func_80008E10(0x55, 2, idx);
+                zzAudioSoundPlaySoundActor(0x55, 2, idx);
                 actor->status = 11;
                 return;
             }
@@ -1163,7 +1163,7 @@ void func_800407FC(s16 idx) {
             actor->actorVars.varA4.integer--;
 
             if (actor->actorVars.varA4.integer <= 0) {
-                func_80008E10(0x17, 2, idx);
+                zzAudioSoundPlaySoundActor(0x17, 2, idx);
                 actor->actorVars.varA4.integer = 0x3C;
                 func_80022F48(idx, 2);
                 actor->status = 13;

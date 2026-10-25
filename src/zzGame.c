@@ -7,6 +7,7 @@
 #include "TexRec.h"
 #include "zzFileSelect.h"
 #include "zzTeller.h"
+#include "zzAudio.h"
 #include "7FC0.h"
 #include "9320.h"
 #include "B4E0.h"
@@ -506,7 +507,7 @@ void func_8000ED00(_8000DAD0_arg0_struct* arg0){
     }
 
     D_800F5FB0.unk0 = 0;
-    func_80008C6C(0x37, 0U);
+    zzAudioSoundPlaySound(ZZ_AUDIO_SOUND_DAME_DA_YO, 0);
 }
 #else
 #pragma GLOBAL_ASM("asm/nonmatchings/zzGame/func_8000ED00.s")

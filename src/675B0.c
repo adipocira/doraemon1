@@ -264,12 +264,12 @@ void func_80066BC8(s16 idx){
             if(func_80077548() != 0){
                 actor->actorVars.varB0.integer = 300;
                 actor->actorVars.varA8.integer = 2;
-                func_80008C6C(0xE8, 2);
+                zzAudioSoundPlaySound(ZZ_AUDIO_SOUND_VOLCANO_GRUMBLE, 2);
             }
             break;
         case 2:
             if(actor->actorVars.varB0.integer == 300){
-                func_80008C6C(0xE8, 3);
+                zzAudioSoundPlaySound(ZZ_AUDIO_SOUND_VOLCANO_GRUMBLE, 3);
             }
             
             actor->actorVars.varB0.integer--;

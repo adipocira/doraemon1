@@ -440,7 +440,7 @@ void func_8006B9AC(s16 idx){
                 func_80022F20(id, func_8006B738);
             }
 
-            func_80008C6C(0xE5, 5);
+            zzAudioSoundPlaySound(0xE5, 5);
 
             if(func_80076FA0(0x32)){
                 id = func_80023644(1, 0x32, 4575.0f, 1497.0f, -590.0f, 0.0f, 0.0f, 0.0f);
@@ -484,7 +484,7 @@ void func_8006B9AC(s16 idx){
             break;
         case 1:
             if(D_800F0548.unk4 == -50.0f){
-                func_80008C6C(1, 4);
+                zzAudioSoundPlaySound(ZZ_AUDIO_SOUND_THUNDER, 4);
             }
             if(D_800F0548.unk4 > -10.0f){
                 GET_ACTOR_PTR(idx)->status = 2;
@@ -495,7 +495,7 @@ void func_8006B9AC(s16 idx){
             break;
         case 2:
             if(D_800F0548.unk4 <= -10.0f){
-                func_80008C6C(0xE5, 5);
+                zzAudioSoundPlaySound(0xE5, 5);
                 GET_ACTOR_PTR(idx)->status = 1;
             }
 

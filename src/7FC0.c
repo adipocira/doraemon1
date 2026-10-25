@@ -153,7 +153,7 @@ void zzAudioSeqLoadSeq(u8 seqIdx){
     offs = D_800F08D0->seqArray[seqNo].offset;
     len = D_800F08D0->seqArray[seqNo].len;
     
-    if(len % 2){
+    if(len & 1){
         len++;
     }
 

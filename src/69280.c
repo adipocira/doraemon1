@@ -248,7 +248,7 @@ void func_80068F14(s16 idx){
         case 1:
             if(func_80024E0C(idx, temp) < 1600.0f && GET_ACTOR_PTR(temp)->pos.y > 40.0f){
                 if(actor->actorVars.varDC.integer != 0){
-                    func_80008E10(0xEB, 5, idx);
+                    zzAudioSoundPlaySoundActor(0xEB, 5, idx);
                 }
 
                 actor->status = 2;
@@ -270,7 +270,7 @@ void func_80068F14(s16 idx){
             break;
         case 4:
             if(actor->actorVars.varDC.integer != 0){
-                func_80008E10(0x63, 5, idx);
+                zzAudioSoundPlaySoundActor(0x63, 5, idx);
             }
             D_801414A0[actor->unk38 + 1]->unk30 = 0.0f;
             D_801414A0[actor->unk38 + 2]->unk30 = 225.0f;

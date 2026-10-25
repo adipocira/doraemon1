@@ -171,7 +171,7 @@ void func_800762B0(Actor* actor){
 
                     actor->unk50 = actor->unk52;
 
-                    func_80008C6C(D_802BD6F8[actor->unk48], 0);
+                    zzAudioSoundPlaySound(D_802BD6F8[actor->unk48], 0);
 
                 }
                 else{
@@ -190,7 +190,7 @@ void func_800762B0(Actor* actor){
 
                     if(actor->actorVars.varD0.shorts[1] > 300){
                         actor->actorVars.varD0.shorts[1] = 0;
-                        func_80008C6C(D_802BDE3E, 1);
+                        zzAudioSoundPlaySound(D_802BDE3E, 1);
                     }
                 }
             }
@@ -313,14 +313,14 @@ void func_80076768(){
 
         actor->unk6C = D_802BD49E[cdata.unk1C][0];
         func_80022F20(id, func_8002D3FC);
-        func_80008C6C(D_802BD668[cdata.unk1C], 0);
+        zzAudioSoundPlaySound(D_802BD668[cdata.unk1C], 0);
         actor->unk44 = D_802BD61C[cdata.unk1C];
     }
     else if(cdata.nextstg == ZZ_GAME0_LEVEL_3_2){
         id = func_800238B0(0, 7, pos.x, pos.y, pos.z, 0.0f, 0.0f, 0.0f);
         
         func_8007645C(id);
-        func_80008C6C(D_802BD668[actor->unk48], 0);
+        zzAudioSoundPlaySound(D_802BD668[actor->unk48], 0);
         actor->unk44 = D_802BD61C[cdata.unk1C];
         actor->actorVars.varC4.shorts[1] = cdata.unk41;
         return;
@@ -341,7 +341,7 @@ void func_80076768(){
         actor->unk44 = D_802BD61C[actor->unk48];
         
         if(cdata.unk6D != 1){
-            func_80008C6C(D_802BD668[actor->unk48], 1);
+            zzAudioSoundPlaySound(D_802BD668[actor->unk48], 1);
         }
         else{
             cdata.unk6D = 0;
@@ -764,7 +764,7 @@ void func_80077AC8(u16* arg0){
         }
         
         if(a0 == 1){
-            func_80008C6C(a2[1], 0);
+            zzAudioSoundPlaySound(a2[1], 0);
             D_8015A392 ^= j;
         }
     }

@@ -526,7 +526,7 @@ void func_80048970(s16 idx){
             if(temp < 50.0f){
                 actor->actorVars.varA4.fp = 2.0f;
                 actor->actorVars.varA0.integer = 0x28;
-                func_80008E10(0x55, 2, idx);
+                zzAudioSoundPlaySoundActor(0x55, 2, idx);
                 actor->status = 11;
             }
             break;
@@ -547,7 +547,7 @@ void func_80048970(s16 idx){
             func_80059760(actor);
 
             if(D_800F9910.unk0 != 0){
-                func_80008E10(0x17, 2, idx);
+                zzAudioSoundPlaySoundActor(0x17, 2, idx);
                 actor->actorVars.varA0.integer = 10;
                 actor->unk8 = 0x43E;
                 func_80022F48(idx, 2);

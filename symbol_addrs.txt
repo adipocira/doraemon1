@@ -127,6 +127,29 @@ stopOsc = 0x80008700;
 
 //
 
+// 9320.c
+
+zzAudioSoundCalcValues = 0x80008720;
+zzAudioSoundPlaySoundImpl = 0x80008A30;
+zzAudioSoundPlaySound = 0x80008C6C;
+zzAudioSoundPlaySoundAt = 0x80008D24;
+zzAudioSoundPlaySoundActor = 0x80008E10;
+zzAudioSoundSetVolZero = 0x80008EFC;
+zzAudioSoundSetVolFromProps = 0x80008F40;
+zzAudioSoundSetMaxVol0 = 0x80008FC4;
+zzAudioSoundSetMaxVol1 = 0x80008FEC;
+zzAudioSoundSetMix = 0x80009014;
+zzAudioSoundSetPitch = 0x8000903C;
+zzAudioSoundSetPan = 0x80009060;
+zzAudioSoundSetVol = 0x80009088;
+func_800090B0 = 0x800090B0;
+zzAudioSoundInitSound = 0x800090E4;
+zzAudioSoundProc = 0x80009240;
+
+audioSoundProps = 0x800ABD00;
+
+//
+
 // synsetpan.c
 
 alSynSetPan = 0x800094C0;

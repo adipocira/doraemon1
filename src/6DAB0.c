@@ -408,7 +408,7 @@ void func_8006CEB8(s16 idx) {
             D_800F0548.unk4 = 62.0f;
             D_800F0548.unk8 = 104.0f;
 
-            func_80008C6C(0x30, 1);
+            zzAudioSoundPlaySound(ZZ_AUDIO_SOUND_CORONA_JUMP, 1);
 
             D_800E69C0.unk3C.ishort = 10;
             break;
@@ -426,7 +426,7 @@ void func_8006CEB8(s16 idx) {
 
             if (GET_ACTOR_PTR(D_800E69C0.unk48)->pos.y <= 1.0) {
                 func_80022F48(D_800E69C0.unk48, 0);
-                func_80008C6C(0xA6, 1);
+                zzAudioSoundPlaySound(ZZ_AUDIO_SOUND_LANDING, 1);
 
                 return 0;
             }

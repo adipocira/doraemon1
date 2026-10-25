@@ -6,6 +6,7 @@
 #include "common.h"
 #include "controller.h"
 #include "zzGame.h"
+#include "zzAudio.h"
 #include "scheduler.h"
 #include "11F10.h"
 #include "386E0.h"
@@ -70,10 +71,10 @@ void func_8002D250(s16 idx){
                 if(ptr->unk0 == actor->unk50 || ptr->unk1 == actor->unk50){
                     
                     if(actor->actorVars.varB8.shorts[0] == 1){
-                        func_80008C6C(D_802BD70A[t2], 1);
+                        zzAudioSoundPlaySound(D_802BD70A[t2], 1);
                     }
                     else if(actor->actorVars.varB8.shorts[0] == 2){
-                        func_80008C6C(D_802BD71C[t2], 1);
+                        zzAudioSoundPlaySound(D_802BD71C[t2], 1);
                     }
                 }
             }
@@ -117,10 +118,10 @@ void func_8002D3FC(s16 idx){
                 if(ptr->unk0 == actor->unk50 || ptr->unk1 == actor->unk50){
                     
                     if(actor->actorVars.varB8.shorts[0] == 1){
-                        func_80008C6C(D_802BD70A[0], 1);
+                        zzAudioSoundPlaySound(D_802BD70A[0], 1);
                     }
                     else if(actor->actorVars.varB8.shorts[0] == 2){
-                        func_80008C6C(D_802BD71C[0], 1);
+                        zzAudioSoundPlaySound(D_802BD71C[0], 1);
                     }
                 }
             }
@@ -139,7 +140,7 @@ void func_8002D518(s16 idx){
             actor->health = 250;
             actor->unk4E = 0;
 
-            func_80008C6C(D_802BDE4C, 1);
+            zzAudioSoundPlaySound(D_802BDE4C, 1);
 
             actor->actorVars.varD8.fp = 0.0f;
             actor->actorVars.varE0.fp = 19.0f;
@@ -475,7 +476,7 @@ void func_8002E250(s16 idx){
 
                 actor->scale.x = actor->scale.y = actor->scale.z = 0.4f;
                 actor->actorVars.varA8.fp = 60.0f;
-                func_80008C6C(D_802BDE4E, 1);
+                zzAudioSoundPlaySound(D_802BDE4E, 1);
 
                 func_80022F20(idx, func_8002E4F8);
 
@@ -812,7 +813,7 @@ void func_8002F174(s16 idx) {
             func_80077DF0(idx);
             
             if (actor->unk6A == 0 && actor->unk50 == 2 && actor->unk52 == 0) {
-                func_80008C6C(D_802BDE5A, 1);
+                zzAudioSoundPlaySound(D_802BDE5A, 1);
             }
             break;
     }
@@ -851,7 +852,7 @@ void func_8002F2F0(s16 idx){
             actor->scale.y *= 5.0;
             actor->scale.z *= 5.0;
 
-            func_80008C6C(4, 1);
+            zzAudioSoundPlaySound(ZZ_AUDIO_SOUND_EXPLOSION, 1);
             GET_ACTOR_PTR(idx)->status = 1;
         case 1:
             actor->actorVars.varA8.fp = func_8000ADE0(actor->actorVars.varA8.fp + 10.0);
@@ -889,7 +890,7 @@ void func_8002F4C8(s16 idx){
                     actor->scale.x = 4.0f;
 
                     func_80022F20(idx, func_8002D7AC);
-                    func_80008C6C(0xE3, 3);
+                    zzAudioSoundPlaySound(0xE3, 3);
                 }
 
                 actor->scale.y = actor->scale.x;
@@ -1779,7 +1780,7 @@ void func_80031254(s16 idx){
 
 
     if(!(actor->actorVars.varB8.integer++ % 120)){
-        func_80008E10(0x54, 3, idx);
+        zzAudioSoundPlaySoundActor(ZZ_AUDIO_SOUND_SONAR_TORPEDO, 3, idx);
     }
     if(!(actor->actorVars.varB8.integer % 8)){
         func_80030E2C(actor);

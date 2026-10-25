@@ -253,7 +253,7 @@ void func_80081EEC(void){
         }
     }
     if(D_800B6930 != temp_a1){
-        func_80008C6C(0x26, 0);
+        zzAudioSoundPlaySound(ZZ_AUDIO_SOUND_CURSOR_MOVE, 0);
     }
 
     for(i = 0, j = 0; i < 4; i++, j += 2){
@@ -501,21 +501,21 @@ void func_80083CF4(){
             D_800B6934 = 1;
             D_800B6938--;
             
-            func_80008C6C(0xAD, 0);
+            zzAudioSoundPlaySound(ZZ_AUDIO_SOUND_OPTION_SELECT, 0);
         }
         else if(!(D_8016B228[1] & 0x20) && controllers[cdata.unk41]->unk0.buttonTimers[ZZ_TIMER_L_TRIG] == 1){
             D_8016B228[1] |= 2;
             D_800B6934 = 20;
             D_800B6938--;
             
-            func_80008C6C(0xAD, 0);            
+            zzAudioSoundPlaySound(ZZ_AUDIO_SOUND_OPTION_SELECT, 0);            
         }
         else if(!(D_8016B228[1] & 0x10) && controllers[cdata.unk41]->unk0.buttonTimers[ZZ_TIMER_R_TRIG] == 1){
             D_8016B228[1] |= 2;
             D_800B6934 = 30;
             D_800B6938--;
             
-            func_80008C6C(0xAD, 0);            
+            zzAudioSoundPlaySound(ZZ_AUDIO_SOUND_OPTION_SELECT, 0);            
         }
         else if(!(D_8016B228[1] & 0x8) && controllers[cdata.unk41]->unk0.buttonTimers[ZZ_TIMER_Z_TRIG] == 1){
             D_8016B228[1] |= 2;
@@ -530,7 +530,7 @@ void func_80083CF4(){
             D_800B6934 = 40;
             D_800B6938--;
             
-            func_80008C6C(0xAD, 0);            
+            zzAudioSoundPlaySound(ZZ_AUDIO_SOUND_OPTION_SELECT, 0);            
         }
     }
 }
@@ -674,7 +674,7 @@ void func_800846D4(){
 
         D_800B6938 = 0;
 
-        func_80008C6C(0xAD, 0);
+        zzAudioSoundPlaySound(ZZ_AUDIO_SOUND_OPTION_SELECT, 0);
 
         if(sysGameData[D_800B6930].characterNO == 0){
             D_800B6940 = 3;
@@ -685,7 +685,7 @@ void func_800846D4(){
             D_800E6B20.unk0 = 0;
             D_800B6938 = 0;
             
-            func_80008C6C(0xAD, 0);
+            zzAudioSoundPlaySound(ZZ_AUDIO_SOUND_OPTION_SELECT, 0);
             D_800E69C0.unk3C.uchar[0] = 0x46;
         }
     }
@@ -700,7 +700,7 @@ void func_800846D4(){
         D_800E6B20.unk22 = D_8016B2AC;
         D_800B6934 = 4;
         
-        func_80008C6C(0xAD, 0);
+        zzAudioSoundPlaySound(ZZ_AUDIO_SOUND_OPTION_SELECT, 0);
     }
     else{
         func_80011564(&D_8016B22C, &D_8016B22E, &D_8016B238, &D_8016B234, &D_8016B23C, &D_8016B230);
@@ -872,7 +872,7 @@ void func_800856C4(){
             D_800B6934 = 0x16;
             D_800B6938--;
             
-            func_80008C6C(0xAD, 0);
+            zzAudioSoundPlaySound(ZZ_AUDIO_SOUND_OPTION_SELECT, 0);
         }
         else if(!(D_8016B228[1] & 4) && controllers[cdata.unk41]->unk0.buttonTimers[ZZ_TIMER_B_BUTTON] == 1){
             D_8016B228[1] |= 4;
@@ -891,7 +891,7 @@ void func_800856C4(){
             D_800B6934 = 0;
             D_800B6938--;
             
-            func_80008C6C(0xAD, 0);
+            zzAudioSoundPlaySound(ZZ_AUDIO_SOUND_OPTION_SELECT, 0);
             D_800B6930 = 0;
         }
     }
@@ -947,7 +947,7 @@ void func_80085964(){
         D_800B6934 = 0x17;
         D_800B6938--;
             
-        func_80008C6C(0xAD, 0);
+        zzAudioSoundPlaySound(ZZ_AUDIO_SOUND_OPTION_SELECT, 0);
     }
     else if(!(D_8016B228[1] & 4) && controllers[cdata.unk41]->unk0.buttonTimers[ZZ_TIMER_B_BUTTON] == 1){
         D_8016B228[1] |= 4;
@@ -968,7 +968,7 @@ void func_80085964(){
         D_800B6934 = 0;
         D_800B6938--;
             
-        func_80008C6C(0xAD, 0);
+        zzAudioSoundPlaySound(ZZ_AUDIO_SOUND_OPTION_SELECT, 0);
         
         D_800B6930 = 0;
     }
@@ -1142,7 +1142,7 @@ void func_80086AC4(){
             D_800B6934 = 0x20;
             D_800B6938--;
             
-            func_80008C6C(0xAD, 0);
+            zzAudioSoundPlaySound(ZZ_AUDIO_SOUND_OPTION_SELECT, 0);
         }
         else if(!(D_8016B228[1] & 0x4) && controllers[cdata.unk41]->unk0.buttonTimers[ZZ_TIMER_B_BUTTON] == 1){
             do{
@@ -1162,7 +1162,7 @@ void func_80086AC4(){
             
             D_800B6938--;
             
-            func_80008C6C(0xAD, 0);        
+            zzAudioSoundPlaySound(ZZ_AUDIO_SOUND_OPTION_SELECT, 0);        
 
             D_800B6930 = 0;
         }
@@ -1186,7 +1186,7 @@ void func_80086EEC(){
         if(!(D_8016B228[1] & 0x2) && controllers[cdata.unk41]->unk0.buttonTimers[ZZ_TIMER_A_BUTTON] == 1){
             D_8016B228[1] |= 2;
             if(D_800B6930 == D_800B693C){
-                func_80008C6C(0xAE, 0);
+                zzAudioSoundPlaySound(ZZ_AUDIO_SOUND_ERROR_DELETE, 0);
                 return;
             }
             else{
@@ -1201,7 +1201,7 @@ void func_80086EEC(){
                 D_800B6934 = 0x21;
                 D_800B6938--;
             
-                func_80008C6C(0xAD, 0);
+                zzAudioSoundPlaySound(ZZ_AUDIO_SOUND_OPTION_SELECT, 0);
             }
         }
         else if(!(D_8016B228[1] & 0x4) && controllers[cdata.unk41]->unk0.buttonTimers[ZZ_TIMER_B_BUTTON] == 1){
@@ -1223,7 +1223,7 @@ void func_80086EEC(){
             D_800B6934 = 0;
             D_800B6938--;
             
-            func_80008C6C(0xAD, 0);        
+            zzAudioSoundPlaySound(ZZ_AUDIO_SOUND_OPTION_SELECT, 0);        
 
             D_800B6930 = 0;
         }
@@ -1282,7 +1282,7 @@ void func_80087330(){
         D_800B6934 = 0x22;
         D_800B6938--;
             
-        func_80008C6C(0xAD, 0);
+        zzAudioSoundPlaySound(ZZ_AUDIO_SOUND_OPTION_SELECT, 0);
     }
     else if(!(D_8016B228[1] & 4) && controllers[cdata.unk41]->unk0.buttonTimers[ZZ_TIMER_B_BUTTON] == 1){
         D_8016B228[1] |= 4;
@@ -1305,7 +1305,7 @@ void func_80087330(){
         D_800B6934 = 0;
         D_800B6938--;
             
-        func_80008C6C(0xAD, 0);
+        zzAudioSoundPlaySound(ZZ_AUDIO_SOUND_OPTION_SELECT, 0);
         
         D_800B6930 = 0;
     }
@@ -1553,7 +1553,7 @@ void zzFileSelectSub(s32 arg0){
         }
             break;
         case 70:
-            func_80008C6C(0xAD, 0);
+            zzAudioSoundPlaySound(ZZ_AUDIO_SOUND_OPTION_SELECT, 0);
             D_800F5FB0_sets(30,2,1);
             D_800E69C0.unk3C.uchar[0] = 100;
             break;
@@ -1568,7 +1568,7 @@ void zzFileSelectSub(s32 arg0){
                 }
             }
             else if(controllers[0]->unk0.buttonTimers[ZZ_TIMER_A_BUTTON] == 1){
-                func_80008C6C(0xAD, 0);
+                zzAudioSoundPlaySound(ZZ_AUDIO_SOUND_OPTION_SELECT, 0);
                 D_800F5FB0_sets(30,2,1);
                 D_800E69C0.unk3C.uchar[0] = 100;
             }

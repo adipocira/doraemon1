@@ -325,7 +325,7 @@ void func_80049A10(s16 idx) {
                 actor->actorVars.varC0.fp = 4.0f;
             }
 
-            func_80008E10(0x49, 2, idx);
+            zzAudioSoundPlaySoundActor(0x49, 2, idx);
             actor->status = 112;
             break;
         case 112:
@@ -476,7 +476,7 @@ void func_80049A10(s16 idx) {
                 actor->actorVars.varC0.fp = D_800B5430[actor->actorVars.varCC.integer].unkC;
             }
 
-            func_80008E10(0x49, 2, idx);
+            zzAudioSoundPlaySoundActor(0x49, 2, idx);
             GET_ACTOR_PTR(idx)->status = 304;
             break;
         case 304:
@@ -754,7 +754,7 @@ void func_8004AF68(s16 idx) {
                     actor->actorVars.varA4.integer = 60;
                     actor->actorVars.varA8.fp = 3.0f;
 
-                    func_80008E10(0x55, 2, idx);
+                    zzAudioSoundPlaySoundActor(0x55, 2, idx);
 
                     D_801414A0[actor->unk38 + 3]->unk30 = 0.0f;
                     D_801414A0[actor->unk38 + 4]->unk30 = 0.0f;
@@ -781,7 +781,7 @@ void func_8004AF68(s16 idx) {
                 actor->unk8 = 1;
 
                 if (D_800F9910.unk0 != 0) {
-                    func_80008E10(0x17, 2, idx);
+                    zzAudioSoundPlaySoundActor(0x17, 2, idx);
                     D_801414A0[actor->unk38 + 2]->unk30 = 0.0f;
 
                     actor->actorVars.varA4.integer = 60;

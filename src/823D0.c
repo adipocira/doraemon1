@@ -6,6 +6,7 @@
 #include "controller.h"
 #include "TexRec.h"
 #include "9320.h"
+#include "zzAudio.h"
 
 extern f32 D_8016B0B0;
 extern f32 D_8016B0B4;
@@ -51,7 +52,7 @@ void func_8008191C(D_800F3958_fptr arg0){
     switch(D_800E69C0.unk3C.uchar[0]){
         case 0:
             if(controllers[cdata.unk41]->unk0.buttonTimers[ZZ_TIMER_START_BUTTON] == 1){
-                func_80008C6C(0xAD,0);
+                zzAudioSoundPlaySound(ZZ_AUDIO_SOUND_OPTION_SELECT,0);
                 D_800E69C0.unk3C.uchar[0] = 1;
                 D_800F5FB0_sets(0x1E,2,1);
             }
@@ -77,7 +78,7 @@ void func_8008191C(D_800F3958_fptr arg0){
         case 2:
             if((controllers[cdata.unk41]->unk0.buttonTimers[ZZ_TIMER_START_BUTTON] == 1 && D_800E69C0.unk3E[1].uchar[0] & 2) || (&D_800E6A2C)[D_800E69C0.unk3E[1].uchar[1]][0] > 0x37){
                 if(controllers[cdata.unk41]->unk0.buttonTimers[ZZ_TIMER_START_BUTTON] == 1){
-                    func_80008C6C(0xAD,0);
+                    zzAudioSoundPlaySound(ZZ_AUDIO_SOUND_OPTION_SELECT,0);
                 }
                 else{
                     D_800B6910 = 1; 

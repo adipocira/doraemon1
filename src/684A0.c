@@ -206,7 +206,7 @@ void func_800678A0(s16 idx){
             func_80068264(actor, 60.0f, 60.0f);
 
             if(dist < 1200.0f && D_80159174 > 100.0f && actor2->pos.y > 650.0f && !(actor->actorVars.varA4.integer % 16U)){
-                func_80008E10(0xE, 3, idx);
+                zzAudioSoundPlaySoundActor(0xE, 3, idx);
             }
             break;
         case 1:
@@ -265,7 +265,7 @@ void func_800678A0(s16 idx){
                 func_8002263C(1);
             }
             if ((actor->actorVars.varA8.integer < 20) || (actor->actorVars.varA8.integer & 4)) {
-                func_80008E10(0xB, 3, idx);
+                zzAudioSoundPlaySoundActor(0xB, 3, idx);
             }
             
             func_80068264(actor, 60.0f, 60.0f);

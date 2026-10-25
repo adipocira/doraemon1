@@ -296,7 +296,7 @@ void func_80028320(s32 arg0, f32* arg1, f32 arg2, u8 arg3){
         *arg1 += arg2;
 
         if(!(arg0 < *arg1)){
-            func_80009088(((s32)(*arg1) & 7) << 0xC | 0xFFF, arg3);
+            zzAudioSoundSetVol(((s32)(*arg1) & 7) << 0xC | 0xFFF, arg3);
         }
     }
 }
@@ -311,7 +311,7 @@ void func_800283A4(f32* arg0, f32 arg1, u8 arg2){
         *arg0 -= arg1;
 
         if(!(*arg0 < 1.0)){
-            func_80009088(((s32)(*arg0)) << 0xC | 0xFFF, arg2);
+            zzAudioSoundSetVol(((s32)(*arg0)) << 0xC | 0xFFF, arg2);
         }
     }
 }

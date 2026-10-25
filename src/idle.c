@@ -33,7 +33,7 @@ void main_entry_sub(void* arg) {
     D_800E6268 = osScGetCmdQ(&sched);
     func_800065B0();
     zzAudioSeqInitSeq();
-    func_800090E4();
+    zzAudioSoundInitSound();
 
     if (func_80001C38(&D_800E3FA8, &D_800E3FC0, 1, &D_800F3970, &D_800E6270, &D_800E6468, 1, 1) == -1) {
         ptr->unkA = 2000;

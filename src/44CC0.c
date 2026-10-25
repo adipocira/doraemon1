@@ -131,7 +131,7 @@ void func_800440C0(s16 idx){
                 temp2 = func_80023644(5, 0x140, actor->pos.x, actor->pos.y + 15.0f, actor->pos.z, 0.0f, actor->rot.y, 0.0f);
 
                 if(temp2 != -1){
-                    func_80008E10(0x48, 2, idx);
+                    zzAudioSoundPlaySoundActor(0x48, 2, idx);
                     func_80024FC8(temp2, 4.0f, 0.0f);
                     func_8002507C(temp2);
                     func_800242F0(idx, 4, 0xFFFF);    
@@ -378,7 +378,7 @@ void func_80044ADC(s16 idx){
 
             if(actor->actorVars.varC8.fp <= 3.0f && D_800F9910.unk0 != 0){
                 if(actor->actorVars.varC0.fp * 0.3 < actor->actorVars.varC0.fp - sqrtf(SQ(actor->pos.z - actor->actorVars.varDC.fp) + SQ(actor->pos.x - actor->actorVars.varD8.fp))){
-                    func_80008E10(0x45, 2, idx);
+                    zzAudioSoundPlaySoundActor(0x45, 2, idx);
                     actor->actorVars.varC8.fp = 5.0f;
                 }
             }
@@ -389,7 +389,7 @@ void func_80044ADC(s16 idx){
             temp3 = func_80023644(6, 0x18A, actor->pos.x, actor->pos.y + 52.0f, actor->pos.z, 0.0f, actor->rot.y, 0.0f);
 
             if(temp3 != -1){
-                func_80008E10(0x58, 2, idx);
+                zzAudioSoundPlaySoundActor(0x58, 2, idx);
                 func_80024874(temp3, 0.04f); 
                 func_80022F20(temp3, func_800453B8);
                 func_80024FC8(temp3, actor->actorVars.varC0.fp, 2.0f);
@@ -587,7 +587,7 @@ void func_80045794(s16 idx){
             }
 
             if(func_80024CA0(0, idx, 300.0f) != -1){
-                func_80008E10(0x5A, 2, idx);
+                zzAudioSoundPlaySoundActor(0x5A, 2, idx);
                 actor->a = 0;
                 actor->flags &= ~0x2000;
                 func_800255AC(actor, actor1, random(0) % 360U, 300.0f);
@@ -756,7 +756,7 @@ void func_80045B18(s16 idx){
             }
 
             if(actor->actorVars.varB0.integer == 0xF && (id = func_80023498(5, 0x183, 0.0f, 0.0f, 0.0f,0.0f, actor->rot.y, 0.0f)) != -1){
-                func_80008E10(0x48, 2, idx);
+                zzAudioSoundPlaySoundActor(0x48, 2, idx);
                 func_80025638(GET_ACTOR_PTR(id), actor, actor->rot.y - 10.0f, 30.0f, 30.0f);
 
                 switch(actor->actorVars.varB4.integer){
@@ -888,7 +888,7 @@ void func_80046238(s16 idx){
             actor->actorVars.varC8.integer--;
 
             if(actor->actorVars.varC8.integer <= 0){
-                func_80008E10(0x5C, 2, idx);
+                zzAudioSoundPlaySoundActor(0x5C, 2, idx);
                 actor->actorVars.varC8.integer = 120;
                 actor->actorVars.varC0.fp = 0.05f;
                 actor->status = 8;
@@ -1235,7 +1235,7 @@ void func_80047084(s16 idx){
 
             if(actor->pos.y - actor->actorVars.varBC.fp < GET_ACTOR_PTR(D_80159178->unk48[cdata.unk41].unk0)->pos.y){
                 actor->status = 7;
-                func_80008E10(0x60, 2, idx);
+                zzAudioSoundPlaySoundActor(0x60, 2, idx);
                 actor->actorVars.varB8.fp = actor->actorVars.varB4.fp;
             }
             break;
