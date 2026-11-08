@@ -215,13 +215,13 @@ void func_8007645C(s16 idx){
     f32 fv0;
     s16 temp;
 
-    v1 = &D_801AF8C4[cdata.unk1C];
+    v1 = &D_801AF8C4[cdata.characterNO];
     temp = v1->unk6 - 1;
     
     s1 = v1->unkC;
-    s3 = &D_802BD2CC[cdata.unk1C];
-    a3 = &D_803361C0[cdata.unk1C];
-    a2 = &D_802BD494[cdata.unk1C];
+    s3 = &D_802BD2CC[cdata.characterNO];
+    a3 = &D_803361C0[cdata.characterNO];
+    a2 = &D_802BD494[cdata.characterNO];
     s2 = D_803050E4[a2->unkA][a2->unk12];
     
 
@@ -311,32 +311,32 @@ void func_80076768(){
     if(cdata.nextstg == ZZ_GAME0_LEVEL_1_2){
         id = func_800238B0(0, 6, pos.x, pos.y, pos.z, rot.x, rot.y, rot.z);
 
-        actor->unk6C = D_802BD49E[cdata.unk1C][0];
+        actor->unk6C = D_802BD49E[cdata.characterNO][0];
         func_80022F20(id, func_8002D3FC);
-        zzAudioSoundPlaySound(D_802BD668[cdata.unk1C], 0);
-        actor->unk44 = D_802BD61C[cdata.unk1C];
+        zzAudioSoundPlaySound(D_802BD668[cdata.characterNO], 0);
+        actor->unk44 = D_802BD61C[cdata.characterNO];
     }
     else if(cdata.nextstg == ZZ_GAME0_LEVEL_3_2){
         id = func_800238B0(0, 7, pos.x, pos.y, pos.z, 0.0f, 0.0f, 0.0f);
         
         func_8007645C(id);
         zzAudioSoundPlaySound(D_802BD668[actor->unk48], 0);
-        actor->unk44 = D_802BD61C[cdata.unk1C];
+        actor->unk44 = D_802BD61C[cdata.characterNO];
         actor->actorVars.varC4.shorts[1] = cdata.unk41;
         return;
     }
     else if(cdata.nextstg == ZZ_GAME0_LEVEL_2_2){
         id = func_800238B0(0, 8, pos.x, pos.y, pos.z, 0.0f, rot.y, 0/*.0*/);
-        actor->unk6C = D_802BD49E[cdata.unk1C][0];
+        actor->unk6C = D_802BD49E[cdata.characterNO][0];
         func_80022F20(id, func_8002D518);
-        actor->unk44 = D_802BD61C[cdata.unk1C];
+        actor->unk44 = D_802BD61C[cdata.characterNO];
     }
     else {
         if(cdata.nextstg == ZZ_GAME0_LEVEL_3_3){
             D_80159318 = 1;
         }
 
-        id = func_800238B0(0, cdata.unk1C, pos.x, pos.y, pos.z, rot.x, rot.y, rot.z);
+        id = func_800238B0(0, cdata.characterNO, pos.x, pos.y, pos.z, rot.x, rot.y, rot.z);
         actor->unk6C = D_802BD49E[actor->unk48][0];
         actor->unk44 = D_802BD61C[actor->unk48];
         
@@ -409,7 +409,7 @@ void func_80076B64(s16 idx){
                 }
                 break;
             case 6:
-                v0 = &D_802BD314[cdata.unk1C];
+                v0 = &D_802BD314[cdata.characterNO];
                     
                 func_800242F0(idx, 0x12, v0->unk0[0].unk0);
                 func_8002443C(idx, 0x12, v0->unk0[0].unk4, v0->unk0[0].unk8, v0->unk0[0].unkC);
@@ -418,9 +418,9 @@ void func_80076B64(s16 idx){
             
                 break;
             case 8:
-                v1 = &D_802BD3D4[cdata.unk1C];
+                v1 = &D_802BD3D4[cdata.characterNO];
 
-                if(cdata.unk1C == 0){
+                if(cdata.characterNO == 0){
                     func_800242F0(idx, 7, 0xFFFF);
                 }
                     
@@ -429,7 +429,7 @@ void func_80076B64(s16 idx){
                 func_800242F0(idx, 0x9, v1->unk0[1].unk0);
                 func_8002443C(idx, 0x9, v1->unk0[1].unk4, v1->unk0[1].unk8, v1->unk0[1].unkC);
                     
-                D_802BD63C->unkE0 = D_802BD65C[cdata.unk1C];
+                D_802BD63C->unkE0 = D_802BD65C[cdata.characterNO];
                 break;
         }
     }
@@ -527,7 +527,7 @@ void func_80077164(Actor* actor, s16 idx) {
     D_803361C0_struct_unk4* v1;
 
     if (actor->unk48 == 6 || actor->unk48 == 8) {
-        a3 = cdata.unk1C;
+        a3 = cdata.characterNO;
     } else {
         a3 = actor->unk48;
     }

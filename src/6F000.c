@@ -73,7 +73,7 @@ void func_8006E400(s16 idx) {
             }
             break;
         case 5:
-            cdata.unk44 |= 1;
+            cdata.hudFlags |= 1;
             actor->actorVars.varA4.integer = func_80023644(1, 0x2F, 150.0f, 60.0f, -410.0f, 0.0f, 0.0f, 0.0f);
             func_80022F20(actor->actorVars.varA4.integer, func_80030ADC);
 
@@ -102,7 +102,7 @@ void func_8006E400(s16 idx) {
         case 100:
             D_800F39AC = 0;
 
-            cdata.unk44 |= 1;
+            cdata.hudFlags |= 1;
             D_800E69C0.syscalls &= ~1;
             D_800E69C0.cfb_render |= 1;
 
@@ -254,7 +254,7 @@ void func_8006E400(s16 idx) {
                 D_800E69C0.unk0 = 1;
                 D_800E69C0.unk14 = 0x14;
 
-                cdata.unk44 = 0;
+                cdata.hudFlags = 0;
 
                 func_80023FCC(idx);
             }

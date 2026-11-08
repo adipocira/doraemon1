@@ -142,7 +142,7 @@ void func_80054670(s16 idx){
         case 1001:
             if(!func_80012D40(9, actor->actorVars.varD0.integer, 1)){
                 D_800E6B20_2022_sets(0x4B, 0xB7);\
-                D_800E6B20.unk19 = cdata.unk6A;\
+                D_800E6B20.unk19 = cdata.tellerSpeedDelay;\
                 D_800E6B20.unk16 = 1;\
                 D_800E6B20.unk24 = 0xB;\
                 D_800E6B20.unk25 = 4;\
@@ -215,7 +215,7 @@ void func_80054670(s16 idx){
         case 1051:
             if(!func_80012D40(9, actor->actorVars.varD0.integer+4, 1)){
                 D_800E6B20_2022_sets(0x4B, 0xB7);\
-                D_800E6B20.unk19 = cdata.unk6A;\
+                D_800E6B20.unk19 = cdata.tellerSpeedDelay;\
                 D_800E6B20.unk16 = 1;\
                 D_800E6B20.unk24 = 0xB;\
                 D_800E6B20.unk25 = 4;\
@@ -610,7 +610,7 @@ void func_80054670(s16 idx){
             if(!func_80012D40(9, (actor->actorVars.varD0.integer % 2U) + 8, 1)){
                 D_800E69C0.syscalls &= ~0x1;
                 D_800E6B20_2022_sets(0x4B, 0xB7);\
-                D_800E6B20.unk19 = cdata.unk6A;\
+                D_800E6B20.unk19 = cdata.tellerSpeedDelay;\
                 D_800E6B20.unk16 = 1;\
                 D_800E6B20.unk24 = 0xB;\
                 D_800E6B20.unk25 = 4;\

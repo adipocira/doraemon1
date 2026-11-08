@@ -4,6 +4,7 @@
 #include "ultra64.h"
 
 #define GAME_LEVEL_EVENT(x) (u32)(1 << (x))
+#define ZZ_EVENT_MAX 18
 
 typedef enum Game0LevelDevilEvents{
 	ZZ_LEVEL_DEVIL_EVENT_FIGHT_WON = 14,

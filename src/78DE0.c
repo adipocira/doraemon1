@@ -36,7 +36,7 @@ void func_800781E0(Actor* actor){
     
     switch(actor->actorVars.varB8.uchars[2]){
         case 0:
-            zzAudioSoundPlaySound(D_802BD6B0[cdata.unk1C], 1);
+            zzAudioSoundPlaySound(D_802BD6B0[cdata.characterNO], 1);
             actor->actorVars.varB8.uchars[2] = a0;
             actor->actorVars.varB8.uchars[3] = a0;
             break;
@@ -95,7 +95,7 @@ void func_8007835C(Actor* actor){
         actor->unk6A = 0xB;
         actor->unk50 = actor->unk52; 
         
-        zzAudioSoundPlaySound(D_802BD6F8[cdata.unk1C], 1);
+        zzAudioSoundPlaySound(D_802BD6F8[cdata.characterNO], 1);
         actor->actorVars.varB8.uchars[2]++;
     }
     else if(actor->actorVars.varB8.uchars[2] > 150){

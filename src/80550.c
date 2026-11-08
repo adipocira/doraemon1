@@ -53,7 +53,7 @@ void func_8007F958(Gfx** gfxPtr){
     
     func_80080F4C(&D_801D113C, 0, 5, *D_800B6584);
 
-    if(!(cdata.unk44 & 0x20)){
+    if(!(cdata.hudFlags & 0x20)){
         func_8007FE6C();
         D_801D1138 = &(&D_801D2270)[D_800F395B];
         zzSprite_drawSprite(&gfx, &D_801D113C);
@@ -61,7 +61,7 @@ void func_8007F958(Gfx** gfxPtr){
     
     func_80080F4C(&D_801D1170, 0, 5, *D_800B6584);
 
-    if(!(cdata.unk44 & 0x40)){
+    if(!(cdata.hudFlags & 0x40)){
         func_800810EC(&D_801D1170, D_800B651C, 0, 0, cdata.bells);
 
         if(cdata.bells < 10){
@@ -81,7 +81,7 @@ void func_8007F958(Gfx** gfxPtr){
 
     func_80080F4C(&D_801D11A4, 0, 5, *D_800B6584);
     
-    if(!(cdata.unk44 & 0x80)){
+    if(!(cdata.hudFlags & 0x80)){
         func_800810EC(&D_801D11A4, D_800B651C, 0, 0, cdata.lives);
 
         if(cdata.lives < 10){
@@ -103,7 +103,7 @@ void func_8007F958(Gfx** gfxPtr){
         D_800B6500--;
     }
 
-    if(!(cdata.unk44 & 0x100) && D_800B6500 != 0){
+    if(!(cdata.hudFlags & 0x100) && D_800B6500 != 0){
         func_80080F4C(&D_801D11D8, 0, 5, *D_800B6584);
         zzSprite_distCalc(&D_801D11D8, D_800B657C[D_800F0630 % 2], 0, 0);
         D_801D11D4 = &(&D_801D3320)[D_800F395B];
@@ -116,7 +116,7 @@ void func_8007F958(Gfx** gfxPtr){
 void func_8007FD00(Gfx** gfxPtr){
     Gfx* gfx = *gfxPtr;
 
-    if(!(cdata.unk44 & 1)){
+    if(!(cdata.hudFlags & 1)){
         func_8007F958(&gfx);
     }
 

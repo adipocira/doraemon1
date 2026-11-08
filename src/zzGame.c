@@ -102,7 +102,7 @@ void func_8000DAD0(_8000DAD0_arg0_struct* arg0){
         func_80077D90(1.0f);
     }
 
-    func_80012C24(&D_800E6B20, D_800AC0A0, &D_800B50A0, 0x4B, 0xB7, 0, 2, 2, cdata.unk6A);
+    func_80012C24(&D_800E6B20, D_800AC0A0, &D_800B50A0, 0x4B, 0xB7, 0, 2, 2, cdata.tellerSpeedDelay);
     
     D_800E6B20.unk16 = 1;
     D_800E6B20.unk24 = 0xB;\
@@ -191,7 +191,7 @@ void func_8000DF50(_8000DAD0_arg0_struct* arg0){
     controllers[0]->unk0.buttonTimers[ZZ_TIMER_START_BUTTON] = 10;
 
     cdata.nextstg = ZZ_GAME0_LEVEL_1_1;
-    cdata.unk44 |= 8;
+    cdata.hudFlags |= 8;
 
     D_800F0530.unk0 = 30.0f;
     D_800F0530.unk4 = 1.3333334f;
@@ -281,7 +281,7 @@ void func_8000E320(_8000DAD0_arg0_struct* arg0){
     controllers[0]->unk0.buttonTimers[ZZ_TIMER_START_BUTTON] = 10;
 
     cdata.nextstg = ZZ_GAME0_LEVEL_1_1;
-    cdata.unk44 |= 8;
+    cdata.hudFlags |= 8;
 
     D_800F0530.unk0 = 30.0f;
     D_800F0530.unk4 = 1.3333334f;

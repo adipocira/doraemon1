@@ -197,7 +197,7 @@ typedef struct D_801AF8C4_struct_unkC{
 }D_801AF8C4_struct_unkC;
 
 typedef struct D_801AF8C4_struct{
-    u8 unk0[0x4];
+    char* actorName;
     s16 unk4;
     s16 unk6;
     s32 unk8;

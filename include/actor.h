@@ -17,13 +17,20 @@ typedef enum ActorCategory{
 }zzActorCategory;
 
 typedef enum zzActors{
-    ZZ_ACTORS_PLAYER = 0x15E,
-    ZZ_ACTORS_TREE = 0x164,
-    ZZ_ACTORS_FIRE = 0x18A,
+	ZZ_ACTORS_DORAEMON,
+	ZZ_ACTORS_NOBITA,
+	ZZ_ACTORS_SHIZUKA,
+	ZZ_ACTORS_SUNEO,
+	ZZ_ACTORS_TAKESHI,
+	ZZ_ACTORS_CORONA,
+	ZZ_ACTORS_TORPEDO = 0x6D,
+	ZZ_ACTORS_SHADOW = 0x15E,
+	ZZ_ACTORS_TREE = 0x164,
+	ZZ_ACTORS_FIRE = 0x18A,
 }zzActors;
 
 typedef union ActorVariable{
-    s32 integer;
+   	s32 integer;
     f32 fp;
     void* ptr;
     s16 shorts[2];

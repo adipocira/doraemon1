@@ -284,7 +284,7 @@ void func_800383E4(s16 idx){
                 GET_ACTOR_PTR(D_80159178->unk48[cdata.unk41].unk0)->flags &= ~0x4000;
                 
                 D_800E6B20_2022_sets(0x4B, 0xB7);\
-                D_800E6B20.unk19 = cdata.unk6A;\
+                D_800E6B20.unk19 = cdata.tellerSpeedDelay;\
                 D_800E6B20.unk16 = 1;\
                 D_800E6B20.unk24 = 0xB;\
                 D_800E6B20.unk25 = 4;\
@@ -387,7 +387,7 @@ void func_800385C0(s16 idx){
                 func_80023FCC(D_800F0588.unkA2);
                 
                 D_800E6B20_2022_sets(0x4B, 0xB7);
-                D_800E6B20.unk19 = cdata.unk6A;
+                D_800E6B20.unk19 = cdata.tellerSpeedDelay;
                 
                 D_800E6B20.unk16 = 1;\
                 D_800E6B20.unk24 = 0xB;\

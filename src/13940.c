@@ -70,7 +70,7 @@ s32 func_80012D40(s32 arg0, s32 arg1, u8 arg2) {
         D_800F5F80 = D_800F5F88->unk0;
         D_800F5F8C = D_800F5F88->unk4;
 
-        D_800E6B20.unk1A = cdata.unk6A;
+        D_800E6B20.unk1A = cdata.tellerSpeedDelay;
         D_800F5F82 = 0;
         D_800F5F96[0] = 0;
         D_800F5FA4[0] = 0;
@@ -231,7 +231,7 @@ s32 func_80012D40(s32 arg0, s32 arg1, u8 arg2) {
                         }
 
                     } else {
-                        D_800E6B20.unk1A = cdata.unk6A;
+                        D_800E6B20.unk1A = cdata.tellerSpeedDelay;
                         D_800F5F8C++;
                         D_800E6B20.unk4 = *D_800F5F8C;
                         D_800E6B20.unk0 = 2;

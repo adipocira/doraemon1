@@ -4,6 +4,7 @@
 #include "zzAudio.h"
 #include "save_file.h"
 #include "zzGame.h"
+#include "zzTeller.h"
 #include "TexRec.h"
 #include "global.h"
 #include "common.h"
@@ -153,7 +154,7 @@ void func_80081C40(void){
 
     if(sysGameData[D_800EEFB0[0]].characterNO == 0){
         sysGameData[D_800EEFB0[0]].characterNO = 1;
-        cdata.unk1C = 0;
+        cdata.characterNO = 0;
         cdata.unk42 = 0;
 
         D_800F3950 = ZZ_GAME0_LEVEL_INTRO_DEBUG;
@@ -162,27 +163,27 @@ void func_80081C40(void){
     else{
         D_800F3950 = ZZ_GAME0_LEVEL_OVERWORLD_GROUND;
         cdata.unk42 = 0;
-        cdata.unk1C = sysGameData[D_800EEFB0[0]].characterNO - 1;
+        cdata.characterNO = sysGameData[D_800EEFB0[0]].characterNO - 1;
         D_800E69C0.unkA = 0x1F4;
     }
 
     cdata.unk20 = sysGameData[D_800EEFB0[0]].unk12;
-    cdata.unk78[0] = 0;
+    cdata.cameraMode = 0;
     cdata.lives = sysGameData[D_800EEFB0[0]].lives;
     cdata.bells = sysGameData[D_800EEFB0[0]].bells;
     cdata.item = sysGameData[D_800EEFB0[0]].item;
     cdata.settings = sysGameData[D_800EEFB0[0]].settings;
-    cdata.unk7C = sysGameData[D_800EEFB0[0]].unk20;
+    cdata.raceBestTime = sysGameData[D_800EEFB0[0]].raceBestTime;
     
-    for (i = 0; i < 18; i++) {
+    for (i = 0; i < ZZ_EVENT_MAX; i++) {
         cdata.events[i] = sysGameData[D_800EEFB0[0]].events[i];
     }
 
     if(cdata.settings & GAME_SETTING(ZZ_GAME0_SETTING_DIALOG_SPEED)){
-        cdata.unk6A = 5;
+        cdata.tellerSpeedDelay = ZZ_TELLER_SPEED_DELAY_FAST;
     }
     else{
-        cdata.unk6A = 0xA;
+        cdata.tellerSpeedDelay = ZZ_TELLER_SPEED_DELAY_SLOW;
     }
     if(cdata.settings & GAME_SETTING(ZZ_GAME0_SETTING_AUDIO_MONO)){
         if(D_800ABCD0 != 0){
@@ -203,21 +204,21 @@ void func_80081C40(void){
 }
 
 void func_80081E44(){
-    D_800F3940_struct_unk0* v0 = &controllers[cdata.unk41]->unk0;
+    D_800F3940_struct_unk0* controllerData = &controllers[cdata.unk41]->unk0;
 
-    if(v0->buttonTimers[ZZ_TIMER_START_BUTTON] == 0){
+    if(controllerData->buttonTimers[ZZ_TIMER_START_BUTTON] == 0){
         D_8016B228[1] &= ~0x1;
     }
-    if(v0->buttonTimers[ZZ_TIMER_A_BUTTON] == 0){
+    if(controllerData->buttonTimers[ZZ_TIMER_A_BUTTON] == 0){
         D_8016B228[1] &= ~0x2;
     }
-    if(v0->buttonTimers[ZZ_TIMER_B_BUTTON] == 0){
+    if(controllerData->buttonTimers[ZZ_TIMER_B_BUTTON] == 0){
         D_8016B228[1] &= ~0x4;
     }
-    if(v0->buttonTimers[ZZ_TIMER_L_TRIG] == 0){
+    if(controllerData->buttonTimers[ZZ_TIMER_L_TRIG] == 0){
         D_8016B228[1] &= ~0x20;
     }
-    if(v0->buttonTimers[ZZ_TIMER_R_TRIG] == 0){
+    if(controllerData->buttonTimers[ZZ_TIMER_R_TRIG] == 0){
         D_8016B228[1] &= ~0x10;
     }    
 }
@@ -225,28 +226,28 @@ void func_80081E44(){
 void func_80081EEC(void){
     static s16 D_800B696C = 0;
     
-    D_800F3940_struct* temp_v0;
+    D_800F3940_struct* controllerData;
     u8 temp_a1;
     u16 i;
     u16 j;
 
-    temp_v0 = controllers[cdata.unk41];
+    controllerData = controllers[cdata.unk41];
     temp_a1 = D_800B6930;
     
-    if(temp_v0->unkB8 >= 0x3D && temp_v0->unkBC < 0x3D){
+    if(controllerData->unkB8 >= 0x3D && controllerData->unkBC < 0x3D){
         if(D_800B6920[D_800B6930][0] != 0xFF){
             D_800B6930 = D_800B6920[D_800B6930][0];
         }
-    }else if(temp_v0->unkB8 < -0x3C && temp_v0->unkBC >= -0x3C){
+    }else if(controllerData->unkB8 < -0x3C && controllerData->unkBC >= -0x3C){
         if(D_800B6920[D_800B6930][1] != 0xFF){
             D_800B6930 = D_800B6920[D_800B6930][1];
         }
     }else {
-        if(temp_v0->unkB6 >= 0x3D && temp_v0->unkBA < 0x3D){
+        if(controllerData->unkB6 >= 0x3D && controllerData->unkBA < 0x3D){
             if(D_800B6920[D_800B6930][2] != 0xFF){
                 D_800B6930 = D_800B6920[D_800B6930][2];
             }
-        }else if(temp_v0->unkB6 < -0x3C && temp_v0->unkBA >= -0x3C){
+        }else if(controllerData->unkB6 < -0x3C && controllerData->unkBA >= -0x3C){
             if(D_800B6920[D_800B6930][3] != 0xFF){
                 D_800B6930 = D_800B6920[D_800B6930][3];
             }
@@ -1005,9 +1006,9 @@ void func_8008616C(void){
         sysGameData[D_800B6930].item = 0;
 
         sysGameData[D_800B6930].settings = 0;
-        sysGameData[D_800B6930].unk20 = 594000;
+        sysGameData[D_800B6930].raceBestTime = 594000;
         
-        for(i = 0; i < 18; i++){
+        for(i = 0; i < ZZ_EVENT_MAX; i++){
             sysGameData[D_800B6930].events[i] = 0;
         }
 
@@ -1342,7 +1343,7 @@ void func_80087BC8(){
         sysGameData[D_800B6930].item = sysGameData[D_800B693C].item;
 
         sysGameData[D_800B6930].settings = sysGameData[D_800B693C].settings;
-        sysGameData[D_800B6930].unk20 = sysGameData[D_800B693C].unk20;
+        sysGameData[D_800B6930].raceBestTime = sysGameData[D_800B693C].raceBestTime;
         
         for(i = 0; i < 18; i++){
             sysGameData[D_800B6930].events[i] = sysGameData[D_800B693C].events[i];

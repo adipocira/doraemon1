@@ -85,7 +85,7 @@ void func_8006CEB8(s16 idx) {
             break;
         case 100:
             D_800F39AC = 0;
-            cdata.unk44 |= 1;
+            cdata.hudFlags |= 1;
             D_800E69C0.syscalls &= ~1;
             D_800E69C0.cfb_render |= 1;
 
@@ -223,7 +223,7 @@ void func_8006CEB8(s16 idx) {
                 D_800F3950 = ZZ_GAME0_LEVEL_OVERWORLD_GROUND;
                 D_800E69C0.unk0 = 1;
                 D_800E69C0.unk14 = 0x14;
-                cdata.unk44 = 0;
+                cdata.hudFlags = 0;
             }
             break;
     }

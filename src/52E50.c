@@ -109,7 +109,7 @@ void func_80052250(s16 idx){
             D_800F0588.unk30 = 1;
 
             if(!func_80012D40(0xB, actor->actorVars.varD0.integer, 1)){
-                D_800E6B20_sets2(0x4B, 0xB7, cdata.unk6A, 1, 0xB, 4, 5);
+                D_800E6B20_sets2(0x4B, 0xB7, cdata.tellerSpeedDelay, 1, 0xB, 4, 5);
                 D_800F0588.unk30 = 0;
                 GET_ACTOR_PTR(D_80159178->unk48[cdata.unk41].unk0)->flags &= ~0x4000;
                 D_800F9B08[0x20].unk8 &= (u16)~0x1;
@@ -563,7 +563,7 @@ void func_80052250(s16 idx){
         case 1001:
             if(!func_80012D40(0xB, actor->actorVars.varD0.integer % 2U + 4, 1)){
                 D_800E69C0.syscalls &= ~0x1;
-                D_800E6B20_sets2(0x4B, 0xB7, cdata.unk6A, 1, 0xB, 4, 5);
+                D_800E6B20_sets2(0x4B, 0xB7, cdata.tellerSpeedDelay, 1, 0xB, 4, 5);
                 actor2->flags &= ~0x4000;
                 D_800F0588.unk30 = 0;
                 actor->status = 906;
@@ -613,7 +613,7 @@ void func_80052250(s16 idx){
             break;
         case 1101:
             if(!func_80012D40(0xB, 6, 1)){
-                D_800E6B20_sets2(0x4B, 0xB7, cdata.unk6A, 1, 0xB, 4, 5);
+                D_800E6B20_sets2(0x4B, 0xB7, cdata.tellerSpeedDelay, 1, 0xB, 4, 5);
                 actor2->flags &= ~0x4000;
                 D_800F0588.unk30 = 0;
                 func_80023FCC(idx);

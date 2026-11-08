@@ -204,7 +204,7 @@ void func_8004B290(s16 idx){
         case 601:
             if(!func_80012D40(3, actor->unkF0, 1)){
                 D_800E6B20_2022_sets(0x4B, 0xB7);\
-                D_800E6B20.unk19 = cdata.unk6A;\
+                D_800E6B20.unk19 = cdata.tellerSpeedDelay;\
                 D_800E6B20.unk16 = 1;\
                 D_800E6B20.unk24 = 0xB;\
                 D_800E6B20.unk25 = 4;\
@@ -578,7 +578,7 @@ void func_8004B290(s16 idx){
                 D_800E69C0.syscalls &= ~0x1;
                 
                 D_800E6B20_2022_sets(0x4B, 0xB7);
-                D_800E6B20.unk19 = cdata.unk6A;
+                D_800E6B20.unk19 = cdata.tellerSpeedDelay;
                 
                 D_800E6B20.unk16 = 1;\
                 D_800E6B20.unk24 = 0xB;\

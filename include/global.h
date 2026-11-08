@@ -23,7 +23,7 @@ typedef struct cdata_struct {
     f32 unk10;
     f32 unk14;
     f32 unk18;
-    u8 unk1C;
+    u8 characterNO;
     u8 nextstg;
     u8 unk1E[0x2];
     u16 unk20;
@@ -42,9 +42,9 @@ typedef struct cdata_struct {
     u8 unk41;
     u8 unk42;
     u8 settings;
-    u16 unk44;
+    u16 hudFlags;
     u16 events[18];
-    u8 unk6A;
+    u8 tellerSpeedDelay;
     u8 unk6B;
     u8 unk6C;
     u8 unk6D;
@@ -55,8 +55,9 @@ typedef struct cdata_struct {
     s16 unk74;
     u8 unk76;
     s8 unk77;
-    u8 unk78[4];
-    s32 unk7C;
+    u8 cameraMode;
+    u8 unk79[3];
+    s32 raceBestTime;
 } Cdata;
 
 #define RAD2DEG(x) (x * (180.0 / M_PI))

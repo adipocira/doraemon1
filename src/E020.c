@@ -51,14 +51,14 @@ void func_8000D420(u32* stagePtr){
     cdata.unk6B = 1;
 
     if(D_800F3952 == 1){
-        D_80159178->unk48[cdata.unk41].unk0 = func_800238B0(0, cdata.unk1C, D_801B58F8[stage].unk1C, D_801B58F8[stage].unk20, D_801B58F8[stage].unk24,0.0f, D_801B58F8[stage].unk28,0.0f);
+        D_80159178->unk48[cdata.unk41].unk0 = func_800238B0(0, cdata.characterNO, D_801B58F8[stage].unk1C, D_801B58F8[stage].unk20, D_801B58F8[stage].unk24,0.0f, D_801B58F8[stage].unk28,0.0f);
         cdata.unk6D = 1;
     }
     else if((stage == ZZ_GAME0_LEVEL_INTRO_TOKYO || stage == ZZ_GAME0_LEVEL_INTRO_DEBUG || stage == ZZ_GAME0_LEVEL_OVERWORLD_GROUND) && (D_800E69C0.unk8 >= 0x97 && D_800E69C0.unk8 < 0x9A) || D_800E69C0.unk8 == 0xC8){
         D_800E69C0.unkF &= ~0x2;
     }
     else{
-        D_80159178->unk48[cdata.unk41].unk0 = func_800238B0(0, cdata.unk1C, D_801B58F8[stage].unkC, D_801B58F8[stage].unk10, D_801B58F8[stage].unk14, 0.0f, D_801B58F8[stage].unk18,0.0f);
+        D_80159178->unk48[cdata.unk41].unk0 = func_800238B0(0, cdata.characterNO, D_801B58F8[stage].unkC, D_801B58F8[stage].unk10, D_801B58F8[stage].unk14, 0.0f, D_801B58F8[stage].unk18,0.0f);
     }
     if(D_800E69C0.unk8 == 0x99){  
         func_80023644(8, 0x1D2, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);

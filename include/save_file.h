@@ -2,6 +2,7 @@
 #define SAVE_FILE_H
 
 #include "ultra64.h"
+#include "zzEvents.h"
 
 typedef struct SysGameData_unk0{
     union{
@@ -22,9 +23,9 @@ typedef struct SysGameData{
     u16 lives;
     u16 bells;
     u64 item;
-    s32 unk20;
+    s32 raceBestTime;
     u8 settings;
-    u16 events[18];
+    u16 events[ZZ_EVENT_MAX];
 }SysGameData;
 
 extern SysGameData sysGameData[4];

@@ -105,7 +105,7 @@ void func_8008191C(D_800F3958_fptr arg0){
             if (D_800F5FB0.unk0 == 3) {
                 func_80015258(&texRec, D_8016B0B8);
                 func_80015258(&texRec, D_8016B0BC);
-                cdata.unk44 = cdata.unk44 | 8;
+                cdata.hudFlags = cdata.hudFlags | 8;
                 D_800E69C0.unk3C.uchar[0] = 4;
                 
             }
