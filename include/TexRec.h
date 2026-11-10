@@ -4,22 +4,22 @@
 #include "ultra64.h"
 
 typedef struct D_801BABB0_struct {
-   	u16 unk0;
-    u16 unk2;
-    u16 unk4;
-    u16 unk6; 
+    u16 width;
+    u16 height;
+    u16 posX;
+    u16 posY; 
     u16 unk8;
     u16 unkA;
-    u8 unkC[0x4];
-    Gfx* unk10;
-	u16* unk14;
-	s32* unk18;
+    s32 texBit;
+    Gfx* gfx;
+    u16* pal;
+    s32* unk18;
 	u8 unk1C[0x8];
-	u8 unk24;
-	u8 unk25;
+	u8 alpha;
+	u8 rotateMode;
 	u8 unk26[0x2];
 	u8 unk28;
-	u8 unk29;
+	u8 gfxFlags;
 	u8 unk2A;
 }D_801BABB0_struct;
 

@@ -66,7 +66,7 @@ void func_800662B0(s16 idx){
                 GET_ACTOR_PTR(idx)->status = 100;
             }
             if(actor->actorVars.varA0.integer == 1){
-                D_800E6B20_2022_sets(0x4B, 0xB7);
+                D_800E6B20_setXY(75, 183);
 
                 GET_ACTOR_PTR(idx)->status = 52;
             }
@@ -88,7 +88,7 @@ void func_800662B0(s16 idx){
             break;
         case 101:
             if(actor->actorVars.varA0.integer == 1){
-                D_800E6B20_2022_sets(0x4B, 0xB7);
+                D_800E6B20_setXY(75, 183);
 
                 GET_ACTOR_PTR(idx)->status = 102;
             }

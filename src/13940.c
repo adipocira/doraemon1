@@ -88,18 +88,18 @@ s32 func_80012D40(s32 arg0, s32 arg1, u8 arg2) {
             func_800151B4(&texRec, D_800F6010, D_800F6170, 0x58);
         }
 
-        D_800F5F9C = func_80015200(&texRec, &D_801BABB0.unk0);
+        D_800F5F9C = func_80015200(&texRec, &D_801BABB0);
         texRecAccess(D_800F5F9C)->unk28 = 0xC8;
         texRecAccess(D_800F5F9C)->unk2A = 0;
 
         D_800F5FA0 = func_80015200(&texRec, D_801BB488);
-        texRecAccess(D_800F5FA0)->unk4 = 0x10;
-        texRecAccess(D_800F5FA0)->unk6 = 0xB4;
+        texRecAccess(D_800F5FA0)->posX = 16;
+        texRecAccess(D_800F5FA0)->posY = 180;
 
         texRecAccess(D_800F5FA0)->unk8 =
-            texRecAccess(D_800F5FA0)->unk0 + 0x10;
+            texRecAccess(D_800F5FA0)->width + 16;
         texRecAccess(D_800F5FA0)->unkA =
-            texRecAccess(D_800F5FA0)->unk2 + 0xB4;
+            texRecAccess(D_800F5FA0)->height + 180;
 
         texRecAccess(D_800F5FA0)->unk28 = 0xA;
         texRecAccess(D_800F5FA0)->unk2A = 0;
@@ -317,7 +317,7 @@ void func_8001392C(u8 arg0) {
             if (&D_800E6B20)
                 ;
 
-            D_801BABB0.unk14 = &D_801D1A00;
+            D_801BABB0.pal = &D_801D1A00;
             D_801BABB0.unk2A = 1;
 
             if (D_800ED0A7 & 0x20) {

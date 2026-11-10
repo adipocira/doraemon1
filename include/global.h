@@ -57,7 +57,7 @@ typedef struct cdata_struct {
     s8 unk77;
     u8 cameraMode;
     u8 unk79[3];
-    s32 raceBestTime;
+    u32 raceBestTime;
 } Cdata;
 
 #define RAD2DEG(x) (x * (180.0 / M_PI))

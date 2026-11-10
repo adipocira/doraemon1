@@ -173,7 +173,7 @@ typedef struct D_800E6B20_struct {
 
 extern D_800E6B20_struct D_800E6B20;
 
-#define D_800E6B20_2022_sets(arg1, arg2) D_800E6B20.unk20 = (arg1);\
+#define D_800E6B20_setXY(arg1, arg2) D_800E6B20.unk20 = (arg1);\
 D_800E6B20.unk22 = (arg2)\
 
 typedef struct D_801414A8_struct {
@@ -534,5 +534,12 @@ typedef struct D_800F0530_struct{
 }D_800F0530_struct;
 
 extern D_800F0530_struct D_800F0530;
+
+typedef struct D_802BED74_struct{
+    Vec3f pos;
+    s16 rotY;
+}D_802BED74_struct;
+
+extern D_802BED74_struct* D_802BED74[];
 
 #endif

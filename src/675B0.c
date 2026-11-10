@@ -40,7 +40,7 @@ void func_800669B0(s16 idx){
         case 1:
             if(dist < 30.0f){
                 func_80038F4C();
-                D_800E6B20_2022_sets(0x20, 0xB0);
+                D_800E6B20_setXY(32, 176);
                 func_800894B8(0x1E, 0xAE);
 
                 if(func_80076FA0(0x46) != 0){

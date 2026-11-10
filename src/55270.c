@@ -136,12 +136,12 @@ void func_80054670(s16 idx){
             actor->status = 1000;
             break;
         case 1000:
-            D_800E6B20_2022_sets(0x1C, 0xB4);
+            D_800E6B20_setXY(28, 180);
             actor->status = 1001;
             break;
         case 1001:
             if(!func_80012D40(9, actor->actorVars.varD0.integer, 1)){
-                D_800E6B20_2022_sets(0x4B, 0xB7);\
+                D_800E6B20_setXY(75, 183);\
                 D_800E6B20.unk19 = cdata.tellerSpeedDelay;\
                 D_800E6B20.unk16 = 1;\
                 D_800E6B20.unk24 = 0xB;\
@@ -209,12 +209,12 @@ void func_80054670(s16 idx){
             func_80025454(actor, actor2, 16.0f);
             break;
         case 1050:
-            D_800E6B20_2022_sets(0x1C, 0xB4);
+            D_800E6B20_setXY(28, 180);
             actor->status = 1051;
             break;
         case 1051:
             if(!func_80012D40(9, actor->actorVars.varD0.integer+4, 1)){
-                D_800E6B20_2022_sets(0x4B, 0xB7);\
+                D_800E6B20_setXY(75, 183);\
                 D_800E6B20.unk19 = cdata.tellerSpeedDelay;\
                 D_800E6B20.unk16 = 1;\
                 D_800E6B20.unk24 = 0xB;\
@@ -592,7 +592,7 @@ void func_80054670(s16 idx){
             if(func_80077548() != 0){
                 func_80025FE8(temp1, idx, 10.0f, 70.0f, -10.0f, 50.0f, 50.0f, 10.0f, 90.0f);
                 D_800F05B8 = 0;
-                D_800E6B20_2022_sets(0x1C, 0xB4);
+                D_800E6B20_setXY(28, 180);
                 actor->actorVars.varA0.integer = 90;
                 actor->status = 902;
             }
@@ -609,7 +609,7 @@ void func_80054670(s16 idx){
         case 903:
             if(!func_80012D40(9, (actor->actorVars.varD0.integer % 2U) + 8, 1)){
                 D_800E69C0.syscalls &= ~0x1;
-                D_800E6B20_2022_sets(0x4B, 0xB7);\
+                D_800E6B20_setXY(75, 183);\
                 D_800E6B20.unk19 = cdata.tellerSpeedDelay;\
                 D_800E6B20.unk16 = 1;\
                 D_800E6B20.unk24 = 0xB;\

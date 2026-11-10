@@ -197,13 +197,13 @@ void func_8004B290(s16 idx){
 
             func_80022F48(idx, 0);
 
-            D_800E6B20_2022_sets(0x1C, 0xB4);
+            D_800E6B20_setXY(28, 180);
 
             GET_ACTOR_PTR(idx)->status = 601;
             break;
         case 601:
             if(!func_80012D40(3, actor->unkF0, 1)){
-                D_800E6B20_2022_sets(0x4B, 0xB7);\
+                D_800E6B20_setXY(75, 183);\
                 D_800E6B20.unk19 = cdata.tellerSpeedDelay;\
                 D_800E6B20.unk16 = 1;\
                 D_800E6B20.unk24 = 0xB;\
@@ -566,7 +566,7 @@ void func_8004B290(s16 idx){
 
                 func_80022F48(idx, 0);
 
-                D_800E6B20_2022_sets(0x1C, 0xB4);
+                D_800E6B20_setXY(28, 180);
 
                 GET_ACTOR_PTR(idx)->status = 701;
             }
@@ -577,7 +577,7 @@ void func_8004B290(s16 idx){
                 
                 D_800E69C0.syscalls &= ~0x1;
                 
-                D_800E6B20_2022_sets(0x4B, 0xB7);
+                D_800E6B20_setXY(75, 183);
                 D_800E6B20.unk19 = cdata.tellerSpeedDelay;
                 
                 D_800E6B20.unk16 = 1;\

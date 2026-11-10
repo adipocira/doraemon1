@@ -101,7 +101,7 @@ void func_80052250(s16 idx){
             D_800F0588.unk30 = 1;
             break;
         case 600:
-            D_800E6B20_2022_sets(0x1C, 0xB4);
+            D_800E6B20_setXY(28, 180);
             actor->status = 601;
             D_800F0588.unk30 = 1;
             break;
@@ -556,7 +556,7 @@ void func_80052250(s16 idx){
 
         case 1000:
             if(func_80077548() != 0){
-                D_800E6B20_2022_sets(0x1C, 0xB4);
+                D_800E6B20_setXY(28, 180);
                 actor->status = 1001;
             }
             break;
@@ -607,7 +607,7 @@ void func_80052250(s16 idx){
             break;
         case 1100:
             if(func_80077548()){
-                D_800E6B20_2022_sets(0x1C, 0xB4);
+                D_800E6B20_setXY(28, 180);
                 actor->status = 1101;
             } 
             break;

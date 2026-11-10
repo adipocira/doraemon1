@@ -264,8 +264,8 @@ void func_80081EEC(void){
             D_800B696C = 0x40;
         }
         
-        texRecAccess(D_8016B0C8[j + 0x48])->unk24 = D_800B696C;
-        texRecAccess(D_8016B0C8[j + 0x49])->unk24 = D_800B696C;
+        texRecAccess(D_8016B0C8[j + 0x48])->alpha = D_800B696C;
+        texRecAccess(D_8016B0C8[j + 0x49])->alpha = D_800B696C;
     }
 }
 
@@ -298,8 +298,8 @@ void __loadItemCount(u8 idx){
 
     v0 = &D_8016B0C8[idx*2];
 
-    texRecAccess(v0[0x34])->unk10 = D_801BC748[count / 10];
-    texRecAccess(v0[0x35])->unk10 = D_801BC748[count % 10];
+    texRecAccess(v0[0x34])->gfx = D_801BC748[count / 10];
+    texRecAccess(v0[0x35])->gfx = D_801BC748[count % 10];
 }
 
 void __loadStone(u8 fileIdx) {
@@ -308,8 +308,8 @@ void __loadStone(u8 fileIdx) {
     u16 itemStones[3];
     u16 j;
     u64 item;
-    Gfx *sp70[6];
-    s16 *sp58[6];
+    Gfx* sp70[6];
+    u16* sp58[6];
 
     sp70[0] = D_801D8BA8; sp70[1] = D_801D9328; sp70[2] = D_801D9A48; 
     sp70[3] = D_801D8FB8; sp70[4] = D_801D9718;sp70[5] = D_801D9E38;
@@ -324,8 +324,8 @@ void __loadStone(u8 fileIdx) {
  
     for (i = 0; i < 3; i++) {
         if (item & CDATA_ITEM(itemStones[i])) {
-            texRecAccess(D_8016B0C8[fileIdx * 3 + i + 28])->unk10 = sp70[i];
-            texRecAccess(D_8016B0C8[fileIdx * 3 + i + 28])->unk14 = sp58[i];
+            texRecAccess(D_8016B0C8[fileIdx * 3 + i + 28])->gfx = sp70[i];
+            texRecAccess(D_8016B0C8[fileIdx * 3 + i + 28])->pal = sp58[i];
             texRecAccess(D_8016B0C8[fileIdx * 3 + i + 40])->unk2A = 0;
             
             D_8016B240[fileIdx * 3 + i] = 0;
@@ -338,9 +338,9 @@ void __loadStone(u8 fileIdx) {
                 }
             }
 
-            texRecAccess(D_8016B0C8[fileIdx * 3 + i + 28])->unk10 = sp70[i + 3];
-            texRecAccess(D_8016B0C8[fileIdx * 3 + i + 28])->unk14 = sp58[i + 3];
-            texRecAccess(D_8016B0C8[fileIdx * 3 + i + 40])->unk10 = &D_801BC748[count][0];
+            texRecAccess(D_8016B0C8[fileIdx * 3 + i + 28])->gfx = sp70[i + 3];
+            texRecAccess(D_8016B0C8[fileIdx * 3 + i + 28])->pal = sp58[i + 3];
+            texRecAccess(D_8016B0C8[fileIdx * 3 + i + 40])->gfx = &D_801BC748[count][0];
             texRecAccess(D_8016B0C8[fileIdx * 3 + i + 40])->unk2A = 1;
             
             D_8016B240[fileIdx * 3 + i] = 1;
@@ -369,31 +369,31 @@ void func_80082730(){
         func_800826FC(i);
     }
 
-    texRecAccess(D_8016B0C8[0x48])->unk24 = 0;
-    texRecAccess(D_8016B0C8[0x49])->unk24 = 0;
-    texRecAccess(D_8016B0C8[0x4A])->unk24 = 0x40;
-    texRecAccess(D_8016B0C8[0x4B])->unk24 = 0x40;
-    texRecAccess(D_8016B0C8[0x4C])->unk24 = 0x40;
-    texRecAccess(D_8016B0C8[0x4D])->unk24 = 0x40;
-    texRecAccess(D_8016B0C8[0x4E])->unk24 = 0x40;
-    texRecAccess(D_8016B0C8[0x4F])->unk24 = 0x40;
+    texRecAccess(D_8016B0C8[0x48])->alpha = 0;
+    texRecAccess(D_8016B0C8[0x49])->alpha = 0;
+    texRecAccess(D_8016B0C8[0x4A])->alpha = 64;
+    texRecAccess(D_8016B0C8[0x4B])->alpha = 64;
+    texRecAccess(D_8016B0C8[0x4C])->alpha = 64;
+    texRecAccess(D_8016B0C8[0x4D])->alpha = 64;
+    texRecAccess(D_8016B0C8[0x4E])->alpha = 64;
+    texRecAccess(D_8016B0C8[0x4F])->alpha = 64;
 
     D_8016B220[0] = func_80015200(&texRec, D_801BB3F0.unk0);
-    texRecAccess(D_8016B220[0])->unk4 = 0x80;
-    texRecAccess(D_8016B220[0])->unk6 = 0xAC;
-    texRecAccess(D_8016B220[0])->unk8 = texRecAccess(D_8016B220[0])->unk0 + 0x80;
-    texRecAccess(D_8016B220[0])->unkA = texRecAccess(D_8016B220[0])->unk2 + 0xAC;
+    texRecAccess(D_8016B220[0])->posX = 128;
+    texRecAccess(D_8016B220[0])->posY = 172;
+    texRecAccess(D_8016B220[0])->unk8 = texRecAccess(D_8016B220[0])->width + 128;
+    texRecAccess(D_8016B220[0])->unkA = texRecAccess(D_8016B220[0])->height + 172;
     texRecAccess(D_8016B220[0])->unk28 = 0xFF;
-    texRecAccess(D_8016B220[0])->unk24 = 0xFF;
+    texRecAccess(D_8016B220[0])->alpha = 255;
     texRecAccess(D_8016B220[0])->unk2A = 0;
 
     D_8016B220[1] = func_80015200(&texRec, D_801BB3F0.unk5C);
-    texRecAccess(D_8016B220[1])->unk4 = 0x84;
-    texRecAccess(D_8016B220[1])->unk6 = 0xB0;
-    texRecAccess(D_8016B220[1])->unk8 = texRecAccess(D_8016B220[1])->unk0 + 0x84;
-    texRecAccess(D_8016B220[1])->unkA = texRecAccess(D_8016B220[1])->unk2 + 0xB0;
+    texRecAccess(D_8016B220[1])->posX = 132;
+    texRecAccess(D_8016B220[1])->posY = 176;
+    texRecAccess(D_8016B220[1])->unk8 = texRecAccess(D_8016B220[1])->width + 132;
+    texRecAccess(D_8016B220[1])->unkA = texRecAccess(D_8016B220[1])->height + 176;
     texRecAccess(D_8016B220[1])->unk28 = 0xFA;
-    texRecAccess(D_8016B220[1])->unk24 = 0x88;
+    texRecAccess(D_8016B220[1])->alpha = 136;
     texRecAccess(D_8016B220[1])->unk2A = 0;
 }
 
@@ -401,10 +401,10 @@ void func_80082730(){
 //todo
 void func_80082B88(u8 arg0, s16 arg1, s16 arg2){
     #define MY_SETTER(idx, x, y) \
-    texRecAccess(D_8016B0C8[(idx)])->unk4 = (s32)(x); \
-    texRecAccess(D_8016B0C8[(idx)])->unk6 = (s32)(y); \
-    texRecAccess(D_8016B0C8[(idx)])->unk8 = texRecAccess(D_8016B0C8[(idx)])->unk0 + (s32)(x); \
-    texRecAccess(D_8016B0C8[(idx)])->unkA = texRecAccess(D_8016B0C8[(idx)])->unk2 + (s32)(y); 
+    texRecAccess(D_8016B0C8[(idx)])->posX = (s32)(x); \
+    texRecAccess(D_8016B0C8[(idx)])->posY = (s32)(y); \
+    texRecAccess(D_8016B0C8[(idx)])->unk8 = texRecAccess(D_8016B0C8[(idx)])->width + (s32)(x); \
+    texRecAccess(D_8016B0C8[(idx)])->unkA = texRecAccess(D_8016B0C8[(idx)])->height + (s32)(y); 
 
     MY_SETTER(arg0*2+0x5, (u16)arg1, (u16)arg2);
     MY_SETTER(arg0*2+0x6, (u16)arg1, (u16)arg2+32);
@@ -638,17 +638,17 @@ void func_80084490(){
     texRecAccess(D_8016B220[0])->unk2A = 1;
     texRecAccess(D_8016B220[1])->unk2A = 1;
     
-    texRecAccess(D_8016B220[0])->unk4 = 128;
-    texRecAccess(D_8016B220[0])->unk6 = 172;
+    texRecAccess(D_8016B220[0])->posX = 128;
+    texRecAccess(D_8016B220[0])->posY = 172;
 
-    texRecAccess(D_8016B220[0])->unk8 = texRecAccess(D_8016B220[0])->unk0 + 128;
-    texRecAccess(D_8016B220[0])->unkA = texRecAccess(D_8016B220[0])->unk2 + 172;
+    texRecAccess(D_8016B220[0])->unk8 = texRecAccess(D_8016B220[0])->width + 128;
+    texRecAccess(D_8016B220[0])->unkA = texRecAccess(D_8016B220[0])->height + 172;
 
-    texRecAccess(D_8016B220[1])->unk4 = 130;
-    texRecAccess(D_8016B220[1])->unk6 = 174;
+    texRecAccess(D_8016B220[1])->posX = 130;
+    texRecAccess(D_8016B220[1])->posY = 174;
 
-    texRecAccess(D_8016B220[1])->unk8 = texRecAccess(D_8016B220[1])->unk0 + 130;
-    texRecAccess(D_8016B220[1])->unkA = texRecAccess(D_8016B220[1])->unk2 + 174;
+    texRecAccess(D_8016B220[1])->unk8 = texRecAccess(D_8016B220[1])->width + 130;
+    texRecAccess(D_8016B220[1])->unkA = texRecAccess(D_8016B220[1])->height + 174;
 
     D_8016B2AA = D_800E6B20.unk20;
     D_8016B2AC = D_800E6B20.unk22;
@@ -706,17 +706,17 @@ void func_800846D4(){
     else{
         func_80011564(&D_8016B22C, &D_8016B22E, &D_8016B238, &D_8016B234, &D_8016B23C, &D_8016B230);
         
-        texRecAccess(D_8016B220[0])->unk4 = 128;
-        texRecAccess(D_8016B220[0])->unk6 = D_8016B230;
+        texRecAccess(D_8016B220[0])->posX = 128;
+        texRecAccess(D_8016B220[0])->posY = D_8016B230;
 
-        texRecAccess(D_8016B220[0])->unk8 = texRecAccess(D_8016B220[0])->unk0 + 128;
-        texRecAccess(D_8016B220[0])->unkA = texRecAccess(D_8016B220[0])->unk2 + (u16)D_8016B230;
+        texRecAccess(D_8016B220[0])->unk8 = texRecAccess(D_8016B220[0])->width + 128;
+        texRecAccess(D_8016B220[0])->unkA = texRecAccess(D_8016B220[0])->height + (u16)D_8016B230;
 
-        texRecAccess(D_8016B220[1])->unk4 = 128 + 2;
-        texRecAccess(D_8016B220[1])->unk6 = (u16)D_8016B230 + 2;
+        texRecAccess(D_8016B220[1])->posX = 128 + 2;
+        texRecAccess(D_8016B220[1])->posY = (u16)D_8016B230 + 2;
 
-        texRecAccess(D_8016B220[1])->unk8 = texRecAccess(D_8016B220[1])->unk0 + 128 + 2;
-        texRecAccess(D_8016B220[1])->unkA = texRecAccess(D_8016B220[1])->unk2 + (u16)D_8016B230 + 2;
+        texRecAccess(D_8016B220[1])->unk8 = texRecAccess(D_8016B220[1])->width + 128 + 2;
+        texRecAccess(D_8016B220[1])->unkA = texRecAccess(D_8016B220[1])->height + (u16)D_8016B230 + 2;
     }
 }
 
@@ -778,7 +778,7 @@ void func_80084A54(void){
 
 void func_80084EEC(){
     if(D_800B6938 == 0){
-        texRecAccess(D_8016B0C8[0x50])->unk24 = 0;
+        texRecAccess(D_8016B0C8[0x50])->alpha = 0;
 
         D_8016B23C = 1;
         D_8016B22E = 4;
@@ -791,29 +791,29 @@ void func_80084EEC(){
         D_800B6938++;
     }
     else if(--D_8016B232 < 0){
-        texRecAccess(D_8016B0C8[0xD])->unk4 = 28;
-        texRecAccess(D_8016B0C8[0xD])->unk6 = 196;
+        texRecAccess(D_8016B0C8[0xD])->posX = 28;
+        texRecAccess(D_8016B0C8[0xD])->posY = 196;
 
-        texRecAccess(D_8016B0C8[0xD])->unk8 = texRecAccess(D_8016B0C8[0xD])->unk0 + 28;
-        texRecAccess(D_8016B0C8[0xD])->unkA = texRecAccess(D_8016B0C8[0xD])->unk2 + 196;
+        texRecAccess(D_8016B0C8[0xD])->unk8 = texRecAccess(D_8016B0C8[0xD])->width + 28;
+        texRecAccess(D_8016B0C8[0xD])->unkA = texRecAccess(D_8016B0C8[0xD])->height + 196;
                 
-        texRecAccess(D_8016B0C8[0x50])->unk4 = 28;
-        texRecAccess(D_8016B0C8[0x50])->unk6 = 196;
+        texRecAccess(D_8016B0C8[0x50])->posX = 28;
+        texRecAccess(D_8016B0C8[0x50])->posY = 196;
 
-        texRecAccess(D_8016B0C8[0x50])->unk8 = texRecAccess(D_8016B0C8[0x50])->unk0 + 28;
-        texRecAccess(D_8016B0C8[0x50])->unkA = texRecAccess(D_8016B0C8[0x50])->unk2 + 196;
+        texRecAccess(D_8016B0C8[0x50])->unk8 = texRecAccess(D_8016B0C8[0x50])->width + 28;
+        texRecAccess(D_8016B0C8[0x50])->unkA = texRecAccess(D_8016B0C8[0x50])->height + 196;
 
-        texRecAccess(D_8016B0C8[0x19])->unk4 = 28+3;
-        texRecAccess(D_8016B0C8[0x19])->unk6 = 196+3;
+        texRecAccess(D_8016B0C8[0x19])->posX = 28+3;
+        texRecAccess(D_8016B0C8[0x19])->posY = 196+3;
 
-        texRecAccess(D_8016B0C8[0x19])->unk8 = texRecAccess(D_8016B0C8[0x19])->unk0 + 28+3;
-        texRecAccess(D_8016B0C8[0x19])->unkA = texRecAccess(D_8016B0C8[0x19])->unk2 + 196+3;
+        texRecAccess(D_8016B0C8[0x19])->unk8 = texRecAccess(D_8016B0C8[0x19])->width + 28+3;
+        texRecAccess(D_8016B0C8[0x19])->unkA = texRecAccess(D_8016B0C8[0x19])->height + 196+3;
 
-        texRecAccess(D_8016B0C8[0x1])->unk4 = 28 + 35;
-        texRecAccess(D_8016B0C8[0x1])->unk6 = 196+1;
+        texRecAccess(D_8016B0C8[0x1])->posX = 28 + 35;
+        texRecAccess(D_8016B0C8[0x1])->posY = 196+1;
 
-        texRecAccess(D_8016B0C8[0x1])->unk8 = texRecAccess(D_8016B0C8[0x1])->unk0 + 28 + 35;
-        texRecAccess(D_8016B0C8[0x1])->unkA = texRecAccess(D_8016B0C8[0x1])->unk2 + 196+1;
+        texRecAccess(D_8016B0C8[0x1])->unk8 = texRecAccess(D_8016B0C8[0x1])->width + 28 + 35;
+        texRecAccess(D_8016B0C8[0x1])->unkA = texRecAccess(D_8016B0C8[0x1])->height + 196+1;
 
         D_800B6934 = 0x15;
         D_800B6938--;
@@ -821,29 +821,29 @@ void func_80084EEC(){
     else{
         func_80011564(&D_8016B22C, &D_8016B22E, &D_8016B238, &D_8016B234, &D_8016B23C, &D_8016B230);
 
-        texRecAccess(D_8016B0C8[0xD])->unk4 = (u16)D_8016B230;
-        texRecAccess(D_8016B0C8[0xD])->unk6 = 196;
+        texRecAccess(D_8016B0C8[0xD])->posX = (u16)D_8016B230;
+        texRecAccess(D_8016B0C8[0xD])->posY = 196;
 
-        texRecAccess(D_8016B0C8[0xD])->unk8 = texRecAccess(D_8016B0C8[0xD])->unk0 + (u16)D_8016B230;
-        texRecAccess(D_8016B0C8[0xD])->unkA = texRecAccess(D_8016B0C8[0xD])->unk2 + 196;
+        texRecAccess(D_8016B0C8[0xD])->unk8 = texRecAccess(D_8016B0C8[0xD])->width + (u16)D_8016B230;
+        texRecAccess(D_8016B0C8[0xD])->unkA = texRecAccess(D_8016B0C8[0xD])->height + 196;
 
-        texRecAccess(D_8016B0C8[0x50])->unk4 = D_8016B230;
-        texRecAccess(D_8016B0C8[0x50])->unk6 = 196;
+        texRecAccess(D_8016B0C8[0x50])->posX = D_8016B230;
+        texRecAccess(D_8016B0C8[0x50])->posY = 196;
 
-        texRecAccess(D_8016B0C8[0x50])->unk8 = texRecAccess(D_8016B0C8[0x50])->unk0 + (u16)D_8016B230;
-        texRecAccess(D_8016B0C8[0x50])->unkA = texRecAccess(D_8016B0C8[0x50])->unk2 + 196;
+        texRecAccess(D_8016B0C8[0x50])->unk8 = texRecAccess(D_8016B0C8[0x50])->width + (u16)D_8016B230;
+        texRecAccess(D_8016B0C8[0x50])->unkA = texRecAccess(D_8016B0C8[0x50])->height + 196;
 
-        texRecAccess(D_8016B0C8[0x19])->unk4 = (u16)D_8016B230+3;
-        texRecAccess(D_8016B0C8[0x19])->unk6 = 196+3;
+        texRecAccess(D_8016B0C8[0x19])->posX = (u16)D_8016B230+3;
+        texRecAccess(D_8016B0C8[0x19])->posY = 196+3;
 
-        texRecAccess(D_8016B0C8[0x19])->unk8 = texRecAccess(D_8016B0C8[0x19])->unk0 + (u16)D_8016B230+3;
-        texRecAccess(D_8016B0C8[0x19])->unkA = texRecAccess(D_8016B0C8[0x19])->unk2 + 196+3;
+        texRecAccess(D_8016B0C8[0x19])->unk8 = texRecAccess(D_8016B0C8[0x19])->width + (u16)D_8016B230+3;
+        texRecAccess(D_8016B0C8[0x19])->unkA = texRecAccess(D_8016B0C8[0x19])->height + 196+3;
 
-        texRecAccess(D_8016B0C8[0x1])->unk4 = (u16)D_8016B230 + 35;
-        texRecAccess(D_8016B0C8[0x1])->unk6 = 196+1;
+        texRecAccess(D_8016B0C8[0x1])->posX = (u16)D_8016B230 + 35;
+        texRecAccess(D_8016B0C8[0x1])->posY = 196+1;
 
-        texRecAccess(D_8016B0C8[0x1])->unk8 = texRecAccess(D_8016B0C8[0x1])->unk0 + (u16)D_8016B230 + 35;
-        texRecAccess(D_8016B0C8[0x1])->unkA = texRecAccess(D_8016B0C8[0x1])->unk2 + 196+1;
+        texRecAccess(D_8016B0C8[0x1])->unk8 = texRecAccess(D_8016B0C8[0x1])->width + (u16)D_8016B230 + 35;
+        texRecAccess(D_8016B0C8[0x1])->unkA = texRecAccess(D_8016B0C8[0x1])->height + 196+1;
 
         texRecAccess(D_8016B0C8[0x2])->unk2A = 0;
         texRecAccess(D_8016B0C8[0x3])->unk2A = 0;
@@ -878,7 +878,7 @@ void func_800856C4(){
         else if(!(D_8016B228[1] & 4) && controllers[cdata.unk41]->unk0.buttonTimers[ZZ_TIMER_B_BUTTON] == 1){
             D_8016B228[1] |= 4;
 
-            texRecAccess(D_8016B0C8[0x50])->unk24 = 0x40;
+            texRecAccess(D_8016B0C8[0x50])->alpha = 64;
                     
             texRecAccess(D_8016B0C8[0x2])->unk2A = 1;
             texRecAccess(D_8016B0C8[0x3])->unk2A = 1;
@@ -900,17 +900,17 @@ void func_800856C4(){
 
 void func_80085964(){
     if(D_800B6938 == 0){
-        texRecAccess(D_8016B220[0x0])->unk4 = 128;
-        texRecAccess(D_8016B220[0x0])->unk6 = 192;
+        texRecAccess(D_8016B220[0x0])->posX = 128;
+        texRecAccess(D_8016B220[0x0])->posY = 192;
 
-        texRecAccess(D_8016B220[0x0])->unk8 = texRecAccess(D_8016B220[0x0])->unk0 + 128;
-        texRecAccess(D_8016B220[0x0])->unkA = texRecAccess(D_8016B220[0x0])->unk2 + 192;
+        texRecAccess(D_8016B220[0x0])->unk8 = texRecAccess(D_8016B220[0x0])->width + 128;
+        texRecAccess(D_8016B220[0x0])->unkA = texRecAccess(D_8016B220[0x0])->height + 192;
 
-        texRecAccess(D_8016B220[0x1])->unk4 = 128 + 2;
-        texRecAccess(D_8016B220[0x1])->unk6 = 192 + 2;
+        texRecAccess(D_8016B220[0x1])->posX = 128 + 2;
+        texRecAccess(D_8016B220[0x1])->posY = 192 + 2;
 
-        texRecAccess(D_8016B220[0x1])->unk8 = texRecAccess(D_8016B220[0x1])->unk0 + 128 + 2;
-        texRecAccess(D_8016B220[0x1])->unkA = texRecAccess(D_8016B220[0x1])->unk2 + 192 + 2;
+        texRecAccess(D_8016B220[0x1])->unk8 = texRecAccess(D_8016B220[0x1])->width + 128 + 2;
+        texRecAccess(D_8016B220[0x1])->unkA = texRecAccess(D_8016B220[0x1])->height + 192 + 2;
 
         texRecAccess(D_8016B220[0x0])->unk2A = 1;
         texRecAccess(D_8016B220[0x1])->unk2A = 1;
@@ -932,7 +932,7 @@ void func_80085964(){
     if(!(D_8016B228[1] & 2) && controllers[cdata.unk41]->unk0.buttonTimers[ZZ_TIMER_A_BUTTON] == 1){
         D_8016B228[1] |= 2;
 
-        texRecAccess(D_8016B0C8[0x50])->unk24 = 0x40;
+        texRecAccess(D_8016B0C8[0x50])->alpha = 64;
 
         texRecAccess(D_8016B220[0x0])->unk2A = 0;
         texRecAccess(D_8016B220[0x1])->unk2A = 0;
@@ -953,7 +953,7 @@ void func_80085964(){
     else if(!(D_8016B228[1] & 4) && controllers[cdata.unk41]->unk0.buttonTimers[ZZ_TIMER_B_BUTTON] == 1){
         D_8016B228[1] |= 4;
 
-        texRecAccess(D_8016B0C8[0x50])->unk24 = 0x40;
+        texRecAccess(D_8016B0C8[0x50])->alpha = 64;
                     
         texRecAccess(D_8016B220[0x0])->unk2A = 0;
         texRecAccess(D_8016B220[0x1])->unk2A = 0;
@@ -977,17 +977,17 @@ void func_80085964(){
         func_80011564(&D_8016B22C, &D_8016B22E, &D_8016B238, &D_8016B234, &D_8016B23C, (s16*)&D_8016B230);
 
 
-        texRecAccess(D_8016B220[0x0])->unk4 = 128;
-        texRecAccess(D_8016B220[0x0])->unk6 = D_8016B230;
+        texRecAccess(D_8016B220[0x0])->posX = 128;
+        texRecAccess(D_8016B220[0x0])->posY = D_8016B230;
 
-        texRecAccess(D_8016B220[0x0])->unk8 = texRecAccess(D_8016B220[0x0])->unk0 + 128;
-        texRecAccess(D_8016B220[0x0])->unkA = texRecAccess(D_8016B220[0x0])->unk2 + (u16)D_8016B230;
+        texRecAccess(D_8016B220[0x0])->unk8 = texRecAccess(D_8016B220[0x0])->width + 128;
+        texRecAccess(D_8016B220[0x0])->unkA = texRecAccess(D_8016B220[0x0])->height + (u16)D_8016B230;
 
-        texRecAccess(D_8016B220[0x1])->unk4 = 128 + 2;
-        texRecAccess(D_8016B220[0x1])->unk6 = (u16)D_8016B230 + 2;
+        texRecAccess(D_8016B220[0x1])->posX = 128 + 2;
+        texRecAccess(D_8016B220[0x1])->posY = (u16)D_8016B230 + 2;
 
-        texRecAccess(D_8016B220[0x1])->unk8 = texRecAccess(D_8016B220[0x1])->unk0 + 128 + 2;
-        texRecAccess(D_8016B220[0x1])->unkA = texRecAccess(D_8016B220[0x1])->unk2 + (u16)D_8016B230 + 2;
+        texRecAccess(D_8016B220[0x1])->unk8 = texRecAccess(D_8016B220[0x1])->width + 128 + 2;
+        texRecAccess(D_8016B220[0x1])->unkA = texRecAccess(D_8016B220[0x1])->height + (u16)D_8016B230 + 2;
     }
 }
 
@@ -1034,7 +1034,7 @@ void func_80086294(){
 
 void func_800862EC(){
     if(D_800B6938 == 0){
-        texRecAccess(D_8016B0C8[0x52])->unk24 = 0;
+        texRecAccess(D_8016B0C8[0x52])->alpha = 0;
         
         D_8016B23C = 1;
         D_8016B22E = 4;
@@ -1047,29 +1047,29 @@ void func_800862EC(){
         D_800B6938++;
     }
     else if(--D_8016B232 < 0){
-        texRecAccess(D_8016B0C8[0xF])->unk4 = 212;
-        texRecAccess(D_8016B0C8[0xF])->unk6 = 196;
+        texRecAccess(D_8016B0C8[0xF])->posX = 212;
+        texRecAccess(D_8016B0C8[0xF])->posY = 196;
 
-        texRecAccess(D_8016B0C8[0xF])->unk8 = texRecAccess(D_8016B0C8[0xF])->unk0 + 212;
-        texRecAccess(D_8016B0C8[0xF])->unkA = texRecAccess(D_8016B0C8[0xF])->unk2 + 196;
+        texRecAccess(D_8016B0C8[0xF])->unk8 = texRecAccess(D_8016B0C8[0xF])->width + 212;
+        texRecAccess(D_8016B0C8[0xF])->unkA = texRecAccess(D_8016B0C8[0xF])->height + 196;
 
-        texRecAccess(D_8016B0C8[0x52])->unk4 = 212;
-        texRecAccess(D_8016B0C8[0x52])->unk6 = 196;
+        texRecAccess(D_8016B0C8[0x52])->posX = 212;
+        texRecAccess(D_8016B0C8[0x52])->posY = 196;
 
-        texRecAccess(D_8016B0C8[0x52])->unk8 = texRecAccess(D_8016B0C8[0x52])->unk0 + 212;
-        texRecAccess(D_8016B0C8[0x52])->unkA = texRecAccess(D_8016B0C8[0x52])->unk2 + 196;
+        texRecAccess(D_8016B0C8[0x52])->unk8 = texRecAccess(D_8016B0C8[0x52])->width + 212;
+        texRecAccess(D_8016B0C8[0x52])->unkA = texRecAccess(D_8016B0C8[0x52])->height + 196;
 
-        texRecAccess(D_8016B0C8[0x1B])->unk4 = 212 + 3;
-        texRecAccess(D_8016B0C8[0x1B])->unk6 = 196 + 3;
+        texRecAccess(D_8016B0C8[0x1B])->posX = 212 + 3;
+        texRecAccess(D_8016B0C8[0x1B])->posY = 196 + 3;
 
-        texRecAccess(D_8016B0C8[0x1B])->unk8 = texRecAccess(D_8016B0C8[0x1B])->unk0 + 212 + 3;
-        texRecAccess(D_8016B0C8[0x1B])->unkA = texRecAccess(D_8016B0C8[0x1B])->unk2 + 196 + 3;
+        texRecAccess(D_8016B0C8[0x1B])->unk8 = texRecAccess(D_8016B0C8[0x1B])->width + 212 + 3;
+        texRecAccess(D_8016B0C8[0x1B])->unkA = texRecAccess(D_8016B0C8[0x1B])->height + 196 + 3;
 
-        texRecAccess(D_8016B0C8[0x3])->unk4 = 212 + 4;
-        texRecAccess(D_8016B0C8[0x3])->unk6 = 196 + 1;
+        texRecAccess(D_8016B0C8[0x3])->posX = 212 + 4;
+        texRecAccess(D_8016B0C8[0x3])->posY = 196 + 1;
 
-        texRecAccess(D_8016B0C8[0x3])->unk8 = texRecAccess(D_8016B0C8[0x3])->unk0 + 212 + 4;
-        texRecAccess(D_8016B0C8[0x3])->unkA = texRecAccess(D_8016B0C8[0x3])->unk2 + 196 + 1;
+        texRecAccess(D_8016B0C8[0x3])->unk8 = texRecAccess(D_8016B0C8[0x3])->width + 212 + 4;
+        texRecAccess(D_8016B0C8[0x3])->unkA = texRecAccess(D_8016B0C8[0x3])->height + 196 + 1;
 
         D_800B6934 = 0x1F;
         D_800B6938--;
@@ -1077,29 +1077,29 @@ void func_800862EC(){
     else{
         func_80011564(&D_8016B22C, &D_8016B22E, &D_8016B238, &D_8016B234, &D_8016B23C, &D_8016B230);
 
-        texRecAccess(D_8016B0C8[0xF])->unk4 = (u16)D_8016B230;
-        texRecAccess(D_8016B0C8[0xF])->unk6 = 196;
+        texRecAccess(D_8016B0C8[0xF])->posX = (u16)D_8016B230;
+        texRecAccess(D_8016B0C8[0xF])->posY = 196;
 
-        texRecAccess(D_8016B0C8[0xF])->unk8 = texRecAccess(D_8016B0C8[0xF])->unk0 + (u16)D_8016B230;
-        texRecAccess(D_8016B0C8[0xF])->unkA = texRecAccess(D_8016B0C8[0xF])->unk2 + 196;
+        texRecAccess(D_8016B0C8[0xF])->unk8 = texRecAccess(D_8016B0C8[0xF])->width + (u16)D_8016B230;
+        texRecAccess(D_8016B0C8[0xF])->unkA = texRecAccess(D_8016B0C8[0xF])->height + 196;
 
-        texRecAccess(D_8016B0C8[0x52])->unk4 = D_8016B230;
-        texRecAccess(D_8016B0C8[0x52])->unk6 = 196;
+        texRecAccess(D_8016B0C8[0x52])->posX = D_8016B230;
+        texRecAccess(D_8016B0C8[0x52])->posY = 196;
 
-        texRecAccess(D_8016B0C8[0x52])->unk8 = texRecAccess(D_8016B0C8[0x52])->unk0 + (u16)D_8016B230;
-        texRecAccess(D_8016B0C8[0x52])->unkA = texRecAccess(D_8016B0C8[0x52])->unk2 + 196;
+        texRecAccess(D_8016B0C8[0x52])->unk8 = texRecAccess(D_8016B0C8[0x52])->width + (u16)D_8016B230;
+        texRecAccess(D_8016B0C8[0x52])->unkA = texRecAccess(D_8016B0C8[0x52])->height + 196;
 
-        texRecAccess(D_8016B0C8[0x1B])->unk4 = (u16)D_8016B230+3;
-        texRecAccess(D_8016B0C8[0x1B])->unk6 = 196+3;
+        texRecAccess(D_8016B0C8[0x1B])->posX = (u16)D_8016B230+3;
+        texRecAccess(D_8016B0C8[0x1B])->posY = 196+3;
 
-        texRecAccess(D_8016B0C8[0x1B])->unk8 = texRecAccess(D_8016B0C8[0x1B])->unk0 + (u16)D_8016B230+3;
-        texRecAccess(D_8016B0C8[0x1B])->unkA = texRecAccess(D_8016B0C8[0x1B])->unk2 + 196+3;
+        texRecAccess(D_8016B0C8[0x1B])->unk8 = texRecAccess(D_8016B0C8[0x1B])->width + (u16)D_8016B230+3;
+        texRecAccess(D_8016B0C8[0x1B])->unkA = texRecAccess(D_8016B0C8[0x1B])->height + 196+3;
 
-        texRecAccess(D_8016B0C8[0x3])->unk4 = (u16)D_8016B230 + 4;
-        texRecAccess(D_8016B0C8[0x3])->unk6 = 196+1;
+        texRecAccess(D_8016B0C8[0x3])->posX = (u16)D_8016B230 + 4;
+        texRecAccess(D_8016B0C8[0x3])->posY = 196+1;
 
-        texRecAccess(D_8016B0C8[0x3])->unk8 = texRecAccess(D_8016B0C8[0x3])->unk0 + (u16)D_8016B230 + 4;
-        texRecAccess(D_8016B0C8[0x3])->unkA = texRecAccess(D_8016B0C8[0x3])->unk2 + 196+1;
+        texRecAccess(D_8016B0C8[0x3])->unk8 = texRecAccess(D_8016B0C8[0x3])->width + (u16)D_8016B230 + 4;
+        texRecAccess(D_8016B0C8[0x3])->unkA = texRecAccess(D_8016B0C8[0x3])->height + 196+1;
 
         texRecAccess(D_8016B0C8[0x2])->unk2A = 0;
         texRecAccess(D_8016B0C8[0x1])->unk2A = 0;
@@ -1119,7 +1119,7 @@ void func_80086AC4(){
         D_800E6B20.unk4 = D_801DB7E4;
         D_800E6B20.unk0 = 2;
 
-        texRecAccess(D_8016B0C8[0x52])->unk24 = 0;
+        texRecAccess(D_8016B0C8[0x52])->alpha = 0;
 
         D_800B6938++;
     }
@@ -1132,11 +1132,11 @@ void func_80086AC4(){
             D_8016B228[1] |= 2;
             D_800B693C = D_800B6930 & 0xFFFF;
 
-            texRecAccess(D_8016B0C8[0x53])->unk4 = (((u32)(D_800B6930 & 1) * 0x88 + 28));
-            texRecAccess(D_8016B0C8[0x53])->unk6 = ((D_800B693C > 1) * 0x44 + 44 + 47);
+            texRecAccess(D_8016B0C8[0x53])->posX = (((u32)(D_800B6930 & 1) * 0x88 + 28));
+            texRecAccess(D_8016B0C8[0x53])->posY = ((D_800B693C > 1) * 0x44 + 44 + 47);
             
-            texRecAccess(D_8016B0C8[0x53])->unk8 = texRecAccess(D_8016B0C8[0x53])->unk0 + ((s32)((u32)(D_800B693C & 1) * 0x88 + 28));
-            texRecAccess(D_8016B0C8[0x53])->unkA = texRecAccess(D_8016B0C8[0x53])->unk2 + ((D_800B693C > 1) * 0x44 + 44 + 47);
+            texRecAccess(D_8016B0C8[0x53])->unk8 = texRecAccess(D_8016B0C8[0x53])->width + ((s32)((u32)(D_800B693C & 1) * 0x88 + 28));
+            texRecAccess(D_8016B0C8[0x53])->unkA = texRecAccess(D_8016B0C8[0x53])->height + ((D_800B693C > 1) * 0x44 + 44 + 47);
 
             texRecAccess(D_8016B0C8[0x53])->unk2A = 1;
             
@@ -1148,7 +1148,7 @@ void func_80086AC4(){
         else if(!(D_8016B228[1] & 0x4) && controllers[cdata.unk41]->unk0.buttonTimers[ZZ_TIMER_B_BUTTON] == 1){
             do{
                 D_8016B228[1] |= 4; 
-                texRecAccess(D_8016B0C8[0x52])->unk24 = 0x40;
+                texRecAccess(D_8016B0C8[0x52])->alpha = 64;
                 texRecAccess(D_8016B0C8[0x53])->unk2A = 0;
                 texRecAccess(D_8016B0C8[0x2])->unk2A = 1;
                 texRecAccess(D_8016B0C8[0x1])->unk2A = 1;
@@ -1191,11 +1191,11 @@ void func_80086EEC(){
                 return;
             }
             else{
-                texRecAccess(D_8016B0C8[0x54])->unk4 = (((u32)(D_800B6930 & 1) * 0x88 + 34));
-                texRecAccess(D_8016B0C8[0x54])->unk6 = ((D_800B6930 > 1) * 0x44 + 44 + 49);
+                texRecAccess(D_8016B0C8[0x54])->posX = (((u32)(D_800B6930 & 1) * 0x88 + 34));
+                texRecAccess(D_8016B0C8[0x54])->posY = ((D_800B6930 > 1) * 0x44 + 44 + 49);
             
-                texRecAccess(D_8016B0C8[0x54])->unk8 = texRecAccess(D_8016B0C8[0x54])->unk0 + ((s32)((u32)(D_800B6930 & 1) * 0x88 + 34));
-                texRecAccess(D_8016B0C8[0x54])->unkA = texRecAccess(D_8016B0C8[0x54])->unk2 + ((D_800B6930 > 1) * 0x44 + 44 + 49);
+                texRecAccess(D_8016B0C8[0x54])->unk8 = texRecAccess(D_8016B0C8[0x54])->width + ((s32)((u32)(D_800B6930 & 1) * 0x88 + 34));
+                texRecAccess(D_8016B0C8[0x54])->unkA = texRecAccess(D_8016B0C8[0x54])->height + ((D_800B6930 > 1) * 0x44 + 44 + 49);
 
                 texRecAccess(D_8016B0C8[0x54])->unk2A = 1;
             
@@ -1209,7 +1209,7 @@ void func_80086EEC(){
             D_8016B228[1] |= 4;
 
             texRecAccess(D_8016B0C8[0x54])->unk2A = 0;
-            texRecAccess(D_8016B0C8[0x52])->unk24 = 0x40;
+            texRecAccess(D_8016B0C8[0x52])->alpha = 64;
             texRecAccess(D_8016B0C8[0x53])->unk2A = 0;
             
             texRecAccess(D_8016B0C8[0x2])->unk2A = 1;
@@ -1233,17 +1233,17 @@ void func_80086EEC(){
 
 void func_80087330(){
     if(D_800B6938 == 0){
-        texRecAccess(D_8016B220[0x0])->unk4 = 128;
-        texRecAccess(D_8016B220[0x0])->unk6 = 192;
+        texRecAccess(D_8016B220[0x0])->posX = 128;
+        texRecAccess(D_8016B220[0x0])->posY = 192;
 
-        texRecAccess(D_8016B220[0x0])->unk8 = texRecAccess(D_8016B220[0x0])->unk0 + 128;
-        texRecAccess(D_8016B220[0x0])->unkA = texRecAccess(D_8016B220[0x0])->unk2 + 192;
+        texRecAccess(D_8016B220[0x0])->unk8 = texRecAccess(D_8016B220[0x0])->width + 128;
+        texRecAccess(D_8016B220[0x0])->unkA = texRecAccess(D_8016B220[0x0])->height + 192;
 
-        texRecAccess(D_8016B220[0x1])->unk4 = 128 + 2;
-        texRecAccess(D_8016B220[0x1])->unk6 = 192 + 2;
+        texRecAccess(D_8016B220[0x1])->posX = 128 + 2;
+        texRecAccess(D_8016B220[0x1])->posY = 192 + 2;
 
-        texRecAccess(D_8016B220[0x1])->unk8 = texRecAccess(D_8016B220[0x1])->unk0 + 128 + 2;
-        texRecAccess(D_8016B220[0x1])->unkA = texRecAccess(D_8016B220[0x1])->unk2 + 192 + 2;
+        texRecAccess(D_8016B220[0x1])->unk8 = texRecAccess(D_8016B220[0x1])->width + 128 + 2;
+        texRecAccess(D_8016B220[0x1])->unkA = texRecAccess(D_8016B220[0x1])->height + 192 + 2;
 
         texRecAccess(D_8016B220[0x0])->unk2A = 1;
         texRecAccess(D_8016B220[0x1])->unk2A = 1;
@@ -1265,7 +1265,7 @@ void func_80087330(){
     if(!(D_8016B228[1] & 2) && controllers[cdata.unk41]->unk0.buttonTimers[ZZ_TIMER_A_BUTTON] == 1){
         D_8016B228[1] |= 2;
 
-        texRecAccess(D_8016B0C8[0x52])->unk24 = 0x40;
+        texRecAccess(D_8016B0C8[0x52])->alpha = 64;
 
         texRecAccess(D_8016B220[0x0])->unk2A = 0;
         texRecAccess(D_8016B220[0x1])->unk2A = 0;
@@ -1288,7 +1288,7 @@ void func_80087330(){
     else if(!(D_8016B228[1] & 4) && controllers[cdata.unk41]->unk0.buttonTimers[ZZ_TIMER_B_BUTTON] == 1){
         D_8016B228[1] |= 4;
 
-        texRecAccess(D_8016B0C8[0x52])->unk24 = 0x40;
+        texRecAccess(D_8016B0C8[0x52])->alpha = 64;
 
         texRecAccess(D_8016B220[0x0])->unk2A = 0;
         texRecAccess(D_8016B220[0x1])->unk2A = 0;
@@ -1314,17 +1314,17 @@ void func_80087330(){
         func_80011564(&D_8016B22C, &D_8016B22E, &D_8016B238, &D_8016B234, &D_8016B23C, (s16*)&D_8016B230);
 
 
-        texRecAccess(D_8016B220[0x0])->unk4 = 128;
-        texRecAccess(D_8016B220[0x0])->unk6 = D_8016B230;
+        texRecAccess(D_8016B220[0x0])->posX = 128;
+        texRecAccess(D_8016B220[0x0])->posY = D_8016B230;
 
-        texRecAccess(D_8016B220[0x0])->unk8 = texRecAccess(D_8016B220[0x0])->unk0 + 128;
-        texRecAccess(D_8016B220[0x0])->unkA = texRecAccess(D_8016B220[0x0])->unk2 + (u16)D_8016B230;
+        texRecAccess(D_8016B220[0x0])->unk8 = texRecAccess(D_8016B220[0x0])->width + 128;
+        texRecAccess(D_8016B220[0x0])->unkA = texRecAccess(D_8016B220[0x0])->height + (u16)D_8016B230;
 
-        texRecAccess(D_8016B220[0x1])->unk4 = 128 + 2;
-        texRecAccess(D_8016B220[0x1])->unk6 = (u16)D_8016B230 + 2;
+        texRecAccess(D_8016B220[0x1])->posX = 128 + 2;
+        texRecAccess(D_8016B220[0x1])->posY = (u16)D_8016B230 + 2;
 
-        texRecAccess(D_8016B220[0x1])->unk8 = texRecAccess(D_8016B220[0x1])->unk0 + 128 + 2;
-        texRecAccess(D_8016B220[0x1])->unkA = texRecAccess(D_8016B220[0x1])->unk2 + (u16)D_8016B230 + 2;
+        texRecAccess(D_8016B220[0x1])->unk8 = texRecAccess(D_8016B220[0x1])->width + 128 + 2;
+        texRecAccess(D_8016B220[0x1])->unkA = texRecAccess(D_8016B220[0x1])->height + (u16)D_8016B230 + 2;
     }
 }
 
@@ -1655,21 +1655,21 @@ void func_80088844(u8 arg0){
 
     for(i = 0; i < 4; i++){
         if(arg0 == i && D_800B6970 & 0x20){
-            texRecAccess(D_8016B2B8[i+0x15])->unk24 = 0;
+            texRecAccess(D_8016B2B8[i+0x15])->alpha = 0;
         }
         else{
-            texRecAccess(D_8016B2B8[i+0x15])->unk24 = 0x88;
+            texRecAccess(D_8016B2B8[i+0x15])->alpha = 0x88;
         }
     }
     if(arg0 == 0 && D_800B6970 & 0x20){
-        texRecAccess(D_8016B2B8[0x19])->unk24 = 0;
-        texRecAccess(D_8016B2B8[0x1A])->unk24 = 0;
-        texRecAccess(D_8016B2B8[0x1B])->unk24 = 0;
+        texRecAccess(D_8016B2B8[0x19])->alpha = 0;
+        texRecAccess(D_8016B2B8[0x1A])->alpha = 0;
+        texRecAccess(D_8016B2B8[0x1B])->alpha = 0;
     }
     else{
-        texRecAccess(D_8016B2B8[0x19])->unk24 = 0x88;
-        texRecAccess(D_8016B2B8[0x1A])->unk24 = 0x88;
-        texRecAccess(D_8016B2B8[0x1B])->unk24 = 0x88;
+        texRecAccess(D_8016B2B8[0x19])->alpha = 0x88;
+        texRecAccess(D_8016B2B8[0x1A])->alpha = 0x88;
+        texRecAccess(D_8016B2B8[0x1B])->alpha = 0x88;
     }
     if(arg0 == D_800B6974){ D_800B6970++; } else{ D_800B6970 = 32; }
 
