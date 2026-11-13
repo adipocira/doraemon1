@@ -259,7 +259,20 @@ typedef struct D_800F0588_struct{
     s16 unk20[4];
     u8 pad28[0x30-0x28];
     s8 unk30;
-    u8 unk31[0x71]; 
+    u8 unk31[0xF];
+    f32 unk40;
+    f32 unk44;
+    f32 unk48;
+    f32 unk4C;
+    f32 unk50;
+    f32 unk54;
+    f32 unk58;
+    f32 unk5C;
+    f32 unk60;
+    f32 unk64;
+    f32 unk68;
+    f32 unk6C;
+    u8 unk70[0x32];
     s16 unkA2;
 }D_800F0588_struct;
 
