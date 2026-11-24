@@ -299,7 +299,7 @@ void func_8003A8A0(s16 idx){
             D_80159056 = 0;
             D_80159052 = 0x64;
 
-            if(((u16*)&cdata.unk0)[cdata.nextstg+0x25] & 4 && cdata.events[cdata.nextstg] & 4){
+            if(cdata.events[cdata.nextstg+2] & 4 && cdata.events[cdata.nextstg] & 4){
                 GET_ACTOR_PTR(idx)->status = 13;
                 return;
             }
@@ -826,7 +826,7 @@ void func_8003BC34(s16 idx){
         case 0:
             D_80159082 = 0;
 
-            if(((u16*)&cdata.unk0)[cdata.nextstg+0x25] & 0x100 && cdata.events[cdata.nextstg] & 0x100){
+            if(cdata.events[cdata.nextstg+2] & 0x100 && cdata.events[cdata.nextstg] & 0x100){
                 GET_ACTOR_PTR(idx)->status = 1;
                 return;
             }
@@ -928,7 +928,7 @@ void func_8003BFAC(s16 idx){
             D_8015908C = 0;
             D_8015908A = 0;
 
-            if(((u16*)&cdata.unk0)[cdata.nextstg+0x25] & 0x200 && cdata.events[cdata.nextstg] & 0x200){
+            if(cdata.events[cdata.nextstg+2] & 0x200 && cdata.events[cdata.nextstg] & 0x200){
                 GET_ACTOR_PTR(idx)->status = 13;
                 return;
             }
@@ -1339,7 +1339,7 @@ void func_8003CF2C(s16 idx){
     
     switch(GET_ACTOR_PTR(idx)->status){
         case 0:
-            if(((u16*)&cdata.unk0)[cdata.nextstg+0x25] & 0x10){
+            if(cdata.events[cdata.nextstg+2] & 0x10){
                 GET_ACTOR_PTR(idx)->status = 1;
             }
             else{

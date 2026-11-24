@@ -1,5 +1,6 @@
 #include "2DE50.h"
 #include "73660.h"
+#include "76BB0.h"
 #include "9320.h"
 #include "78DE0.h"
 #include "actor.h"
@@ -26,7 +27,7 @@ extern u16 D_802BD240[];
 
 extern s32 D_802BD61C[];
 
-extern u8 D_80142AB0[0x100];
+extern s8 D_80142AB0[0x100];
 
 extern f32 D_800F05B4;
 extern f32 D_801485A4;

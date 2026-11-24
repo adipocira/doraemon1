@@ -144,8 +144,8 @@ void func_800784C8(Actor* actor){
     temp_v0 = &D_80159178->unk48[actor->actorVars.varC4.shorts[1]].unk4;
     
     if (temp_v0->unk14 == 1) {
-        actor->actorVars.varAC.fp = (f32)temp_v0->unk4 * 0.002;
-        actor->actorVars.varB0.fp = (f32)temp_v0->unk6 * 0.01;
+        actor->actorVars.varAC.fp = (f32)temp_v0->valueX * 0.002;
+        actor->actorVars.varB0.fp = (f32)temp_v0->valueY * 0.01;
     }
 }
 

@@ -8,7 +8,7 @@
 
 #include "common.h"
 
-extern u8 D_80142AB0[];
+extern s8 D_80142AB0[];
 extern s32 D_801B52E0[];
 
 extern u16 D_800B50F0[];
@@ -397,7 +397,7 @@ s16 func_80023A58(s16 idx, u16 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, f32
     actor->unk64 = 0;
     actor->unk66 = 0xA;
     actor->unk67 = 2;
-    actor->unk6D = 0x80;
+    actor->unk6E = 0x80;
     
     actor->unk70 = -1;
     actor->unk72 = ptr->unk10;

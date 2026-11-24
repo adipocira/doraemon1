@@ -28,6 +28,8 @@ typedef enum zzActors{
 	ZZ_ACTORS_SHADOW = 0x15E,
 	ZZ_ACTORS_FAIRY,
 	ZZ_ACTORS_TREE = 0x164,
+	ZZ_ACTORS_WATER = 0x166,
+	ZZ_ACTORS_WATER_2 = 0x198,
 	ZZ_ACTORS_CLOUD_15 = 0x183,
 	ZZ_ACTORS_FIRE = 0x18A,
 }zzActors;
@@ -110,7 +112,7 @@ typedef struct Actor {
     s16 unk68;
     s16 unk6A;
     s16 unk6C;
-    s16 unk6D;
+    s16 unk6E;
     s16 unk70;
     s16 unk72;
     s32 health;

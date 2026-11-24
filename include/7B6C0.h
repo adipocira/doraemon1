@@ -7,5 +7,6 @@ struct Actor;
 
 void func_8007B0D4(struct Actor*);
 void func_8007B4C4(struct Actor*);
+void func_8007E570(struct Actor*, f32);
 
 #endif

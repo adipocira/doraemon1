@@ -7,21 +7,23 @@
 #include "scheduler.h"
 
 typedef struct D_801591C0_struct_unk4 {
-    u8 unk0[0x4];
-    s16 unk4;
-    s16 unk6;
-    s16 unk8;
-    u8 unkA[0x4];
+    f32 unk0;
+    s16 valueX;
+    s16 valueY;
+    s16 maxValue;
+    s16 unkA;
+    s16 unkC;
     s16 unkE;
-    u8 unk10[0x4];
+    s16 unk10;
+    s16 unk12;
     s16 unk14;
 } D_801591C0_struct_unk4;
 
 typedef struct D_801591C0_struct_unk48 {
     s16 unk0;
     u8 unk2[2];
-    D_801591C0_struct_unk4* unk4;
-    u8 unk8[0x60];
+    D_801591C0_struct_unk4 unk4[4];
+    u8 unk64[0x4];
 } D_801591C0_struct_unk48;
 
 typedef struct D_801591C0_struct_unk8{
@@ -385,7 +387,10 @@ extern D_801D5F30_struct D_801D5F30[];
 
 typedef struct D_802BD494_struct{
     s16 unk0;
-    u8 unk2[0x8];
+    u8 unk2[0x2];
+	s16 unk4;
+	s16 unk6;
+	s16 unk8;
     s16 unkA;
     u8 unkC[0x2];
     u16 unkE;
@@ -444,17 +449,6 @@ typedef struct D_801B58AC_struct{
 }D_801B58AC_struct;
 
 extern D_801B58AC_struct* D_801B58AC;
-
-typedef struct D_803050E4_struct{
-    s16 unk0;
-    s16 unk2;
-    s16 unk4;
-    s16 unk6;
-    s16 unk8;
-    s16 unkA;
-}D_803050E4_struct;
-
-extern D_803050E4_struct** D_803050E4[];
 
 typedef struct D_80336980_struct{
     s16 unk0;
@@ -554,5 +548,20 @@ typedef struct D_802BED74_struct{
 }D_802BED74_struct;
 
 extern D_802BED74_struct* D_802BED74[];
+
+typedef struct D_802BD250_struct{
+    u8 unk0;
+    u8 unk1;
+}D_802BD250_struct;
+
+extern D_802BD250_struct D_802BD250[];
+extern D_802BD250_struct D_802BD264[];
+
+typedef struct D_801B5900_struct{
+	f32 unk0;
+	u8 unk4[0x28];
+}D_801B5900_struct;
+
+extern D_801B5900_struct D_801B5900[];
 
 #endif

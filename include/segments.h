@@ -3,6 +3,8 @@
 
 #include "ultra64.h"
 
+#include "zzSegment16A070.h"
+
 extern u8* D_800A82D8;
 extern u8* D_800A82DC;
 extern s32 curSegmentSize;
@@ -55,8 +57,9 @@ extern u8 D_801FCB20[];
 extern u8 D_80224820[];
 extern u8 D_8020C820[];
 extern u8 D_802BD000[];
-extern u8 D_80305000[];
 extern u8 D_80335000[];
+
+#define D_16A070_VRAM ((u8*)D_80305000)
 
 #define SEGMENT_SIZE(segment) ((u32)&segment[sizeof(segment)] - (u32)segment)
 

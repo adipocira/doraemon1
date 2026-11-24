@@ -4,24 +4,28 @@
 #include "ultra64.h"
 
 struct Actor;
+struct D_800F3940_struct;
+struct D_801591C0_struct_unk4;
 
-f32 func_80074E68(f32 ,f32);
-s32 func_80076FA0(u16); 
-void func_80076F2C(u16);
-void func_800778C0(u16, u16, u16);
-u16 func_80077050(void);
-void func_80076B64(s16);
-s32 func_80077548(void);
-void func_800770FC(void);
-void func_80073B80(void*, void*);
-void func_80074EE0(struct Actor*, s16);
-void func_80075BD8(struct Actor*, s16);
-void func_80072FB0(struct Actor*);
-void func_80077D24(void);
-void func_80074D74(struct Actor*, u16);
-void func_80072A60(s16 idx);
-void func_8007461C(s16 idx);
-void func_80077164(struct Actor*, s16);
-s16 func_800761BC(struct Actor*, f32);
+void func_80072A60(s16 arg0);
+void func_80072EC0(struct Actor* actor);
+void func_80072FB0(struct Actor* actor);
+void func_80073094(struct Actor* actor);
+void func_80073174(struct Actor* actor);
+void func_80073440(struct Actor* actor);
+void func_800738F4(struct Actor* actor);
+void func_80073B78(struct Actor* actor);
+void func_80073B80(struct D_800F3940_struct* controller, struct D_801591C0_struct_unk4* arg1);
+void func_80073E80(s16 arg0);
+void func_80073F28(s16 arg0);
+void func_80074594(s16 arg0);
+void func_8007461C(s16 arg0);
+void func_80074840(s16 arg0);
+void func_80074A44(struct Actor* actor, s16 arg1);
+void func_80074C38(struct Actor* actor);
+void func_80074D24(struct Actor* actor);
+void func_80074D74(struct Actor* actor, u16 arg1);
+f32 func_80074E68(f32 arg0, f32 arg1);
 
 #endif
+

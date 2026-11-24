@@ -16,7 +16,7 @@ typedef union s82x_s16{
 }char2x_short;
 
 typedef struct cdata_struct {
-    u16* unk0;
+    f32 unk0;
     f32 unk4;
     f32 unk8;
     f32 unkC;
@@ -53,7 +53,7 @@ typedef struct cdata_struct {
     u8 unk72;
     u8 unk73;
     s16 unk74;
-    u8 unk76;
+    s8 unk76;
     s8 unk77;
     u8 cameraMode;
     u8 unk79[3];

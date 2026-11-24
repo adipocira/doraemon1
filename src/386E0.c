@@ -6,6 +6,7 @@
 #include "23B20.h"
 #include "29980.h"
 #include "73660.h"
+#include "76BB0.h"
 //They forgot to include this header
 //#include "89D30.h"
 #include "6FA0.h"

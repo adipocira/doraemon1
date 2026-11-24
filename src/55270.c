@@ -376,11 +376,11 @@ void func_80054670(s16 idx){
             func_80022F48(idx, 5);
             actor->actorVars.varA0.integer = 300;
             actor->actorVars.varA8.integer = 0;
-            actor->unk6D = 0x80;
+            actor->unk6E = 0x80;
             actor->status = 251;
             break;
         case 251:
-            actor->actorVars.varA8.integer = actor->unk6D;
+            actor->actorVars.varA8.integer = actor->unk6E;
             actor->actorVars.varA0.integer--;
                 
             if(actor->actorVars.varA0.integer <= 0 || D_80141CB0[idx].unk0 != -1){
@@ -391,22 +391,22 @@ void func_80054670(s16 idx){
                 actor->status = 252;
             }
             if(temp < 200.0f){
-                actor->unk6D = 0x100;
+                actor->unk6E = 0x100;
                 actor->actorVars.varA4.fp = 4.0f;
             }
             else if(temp < 250.0f){
-                actor->unk6D = 1;
+                actor->unk6E = 1;
                 actor->actorVars.varA4.fp = 0.0f;
             }
             else if(temp < 400.0f){
-                actor->unk6D = 0x96;
+                actor->unk6E = 0x96;
                 actor->actorVars.varA4.fp = 2.0f;
             }
             else{
                 actor->actorVars.varA4.fp = 1.6f;
-                actor->unk6D = 0x80;
+                actor->unk6E = 0x80;
             }
-            if(actor->actorVars.varA8.integer != actor->unk6D){
+            if(actor->actorVars.varA8.integer != actor->unk6E){
                 actor->unk52 = 0;
             }
             if(actor->actorVars.varA4.fp > 0.0f){
