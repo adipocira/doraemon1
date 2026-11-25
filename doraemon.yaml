@@ -169,8 +169,8 @@ segments:
       - [0x6D4C0, c]
       - [0x6DAB0, c]
       - [0x6F000, c]
+      - [0x6FBC0, c]
 
-      - [0x6FBC0, asm]
       - [0x70900, asm]
 
       - [0x70DF0, c]
@@ -586,7 +586,7 @@ segments:
 
       - [0xC6270, .rodata, 6F000]
 
-      - [0xC63B0, rodata]
+      - [0xC63B0, .rodata, 6FBC0]
 
       - [0xC6420, rodata]
 
@@ -645,7 +645,7 @@ segments:
       - { start: 0xCAE10, type: .bss, vram: 0x801590D0, name: 684A0 }
       - { start: 0xCAE10, type: .bss, vram: 0x801590E0, name:  6DAB0 } 
       - { start: 0xCAE10, type: .bss, vram: 0x801590F0, name: 6F000 }
-      - { start: 0xCAE10, type: bss, vram: 0x80159130, name: 80159130 }
+      - { start: 0xCAE10, type: .bss, vram: 0x80159130, name: 6FBC0 }
       - { start: 0xCAE10, type: .bss, vram: 0x80159150, name: 70DF0 }
       - { start: 0xCAE10, type: bss, vram: 0x80159170, name: 80159170 }
       - { start: 0xCAE10, type: .bss, vram: 0x8016B470, name: 8A6C0 }

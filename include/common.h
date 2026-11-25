@@ -502,7 +502,10 @@ typedef struct D_801BB3F0_struct_unk14{
 
 typedef struct D_801BB3F0_struct{
     s32 unk0;
-    u8 unk4[0x10];
+	s32 unk4;
+	s32 unk8;
+	s32 unkC;
+    u8 unk10[0x4];
     D_801BB3F0_struct_unk14* unk14;
     u8 unk18[0x20];
     D_801BB3F0_struct_unk14* unk38;
