@@ -567,4 +567,21 @@ typedef struct D_801B5900_struct{
 
 extern D_801B5900_struct D_801B5900[];
 
+typedef struct D_802BD4A4_struct{
+	s16 unk0;
+	s16 unk2;
+	f32 unk4;
+	s16 unk8;
+	u8 unkA[0x12];
+}D_802BD4A4_struct;
+
+extern D_802BD4A4_struct D_802BD4A4[];
+
+typedef struct D_802BDE5C_struct{
+	f32 x;
+	f32 y;
+	f32 unk8;
+}D_802BDE5C_struct;
+
+extern D_802BDE5C_struct D_802BDE5C[];
 #endif

@@ -12,5 +12,7 @@ void func_80022528(s16 arg0, s16 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, f
 void func_8002263C(s16);
 void func_8001DAC8(D_800F3958_fptr arg0);
 void func_8001CC70(void);
+void func_800226B0(void);
+void func_8002267C(void);
 
 #endif

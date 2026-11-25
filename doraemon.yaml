@@ -170,9 +170,7 @@ segments:
       - [0x6DAB0, c]
       - [0x6F000, c]
       - [0x6FBC0, c]
-
-      - [0x70900, asm]
-
+      - [0x70900, c]
       - [0x70DF0, c]
       - [0x72610, c]
       - [0x73660, c]
@@ -588,7 +586,7 @@ segments:
 
       - [0xC63B0, .rodata, 6FBC0]
 
-      - [0xC6420, rodata]
+      - [0xC6420, .rodata, 70900]
 
       - [0xC6440, .rodata, 70DF0] 
 
